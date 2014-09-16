@@ -1,0 +1,8 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+comments:
+    label: Comment
+    list: @/plugins/october/test/models/comment/columns.yaml
+    form: @/plugins/october/test/models/comment/fields.yaml

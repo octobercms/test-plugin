@@ -1,0 +1,29 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+        commentAbove: Text field, inside a popup.
+
+tabs:
+
+    fields:
+
+        photo:
+            span: auto
+            label: Photo
+            type: fileupload
+            commentAbove: Image upload inside a tab, inside a popup.
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+            tab: File Upload
+
+        content:
+            label: Content
+            type: richeditor
+            tab: Rich Editor
+            commentAbove: Content inside a tab, inside a popup.

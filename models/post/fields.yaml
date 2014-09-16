@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+        commentAbove: Text field, required.
+
+    comments:
+        label: Comments
+        commentAbove: RelationController used as a partial field type.
+        type: partial

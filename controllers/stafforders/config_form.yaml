@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: StaffOrder
+
+# Model Form Field configuration
+form: @/plugins/october/test/models/stafforder/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\StaffOrder
+
+# Default redirect location
+defaultRedirect: october/test/stafforders
+
+# Create page
+create:
+    title: Create StaffOrders
+    redirect: october/test/stafforders/update/:id
+    redirectClose: october/test/stafforders
+
+# Update page
+update:
+    title: Edit StaffOrders
+    redirect: october/test/stafforders
+    redirectClose: october/test/stafforders
+
+# Preview page
+preview:
+    title: Preview StaffOrders

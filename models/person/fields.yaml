@@ -1,0 +1,41 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        commentAbove: Text field, required.
+
+
+tabs:
+    fields:
+        phone:
+            label: Phone
+            commentAbove: RelationController used as a partial field type, inside a tab.
+            type: partial
+            tab: Primary Phone
+
+        alt_phone:
+            label: Alternative phone
+            comment: Record finder field, inside a tab.
+            type: recordfinder
+            list: @/plugins/october/test/models/phone/columns.yaml
+            prompt: Click the %s to find an alternative phone
+            nameColumn: name
+            descriptionColumn: number
+            tab: Secondary Phone
+
+        alt_phone[name]:
+            span: auto
+            label: Alternative phone: Name
+            comment: Proxy text field for Phone model, depends on Alternate phone selection.
+            depends: alt_phone
+            tab: Secondary Phone
+
+        alt_phone[number]:
+            span: auto
+            label: Alternative phone: Number
+            comment: Proxy text field for Phone model, depends on Alternate phone selection.
+            depends: alt_phone
+            tab: Secondary Phone
