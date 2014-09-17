@@ -42,3 +42,5 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 - An attach relation when required inside a tab does not make the tab active.
 
 - When a relation controller popup has an invalid error, the popup does not reappear.
+
+- Proxy fields throw a nasty error when the relation is non existant
