@@ -7,35 +7,36 @@ fields:
         label: Name
         commentAbove: Text field, required.
 
+    # Record Finder (Default)
+    phone:
+        context: [create, update, recordfinder]
+        label: Record Finder
+        comment: Record finder field.
+        type: recordfinder
+        list: @/plugins/october/test/models/phone/columns.yaml
+        prompt: Click the %s to find an alternative phone
+        nameFrom: name
+        descriptionFrom: number
 
-tabs:
-    fields:
-        phone:
-            label: Phone
-            commentAbove: RelationController used as a partial field type, inside a tab.
-            type: partial
-            tab: Primary Phone
+    # Relation Controller
+    phone@relationcontroller:
+        label: Relation Controller
+        commentAbove: RelationController used as a partial field type.
+        type: partial
 
-        alt_phone:
-            label: Alternative phone
-            comment: Record finder field, inside a tab.
-            type: recordfinder
-            list: @/plugins/october/test/models/phone/columns.yaml
-            prompt: Click the %s to find an alternative phone
-            nameColumn: name
-            descriptionColumn: number
-            tab: Secondary Phone
+    # Proxy Fields
+    phone[name]:
+        context: proxyfields
+        span: auto
+        label: Phone Name
+        comment: Proxy text field for Phone model.
+        tab: Secondary Phone
+        depends: alt_phone_id
 
-        alt_phone[name]:
-            span: auto
-            label: Alternative phone: Name
-            comment: Proxy text field for Phone model, depends on Alternate phone selection.
-            depends: alt_phone
-            tab: Secondary Phone
-
-        alt_phone[number]:
-            span: auto
-            label: Alternative phone: Number
-            comment: Proxy text field for Phone model, depends on Alternate phone selection.
-            depends: alt_phone
-            tab: Secondary Phone
+    phone[number]:
+        context: proxyfields
+        span: auto
+        label: Phone Number
+        comment: Proxy text field for Phone model.
+        tab: Secondary Phone
+        depends: alt_phone_id

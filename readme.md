@@ -35,8 +35,6 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 ## Tests that need attention
 
-- There is a conflict between proxy fields and relation fields, see Alt Phone.
-
 - When an AJAX error occurs inside a popup, the stripe indicator sticks around.
 
 - An attach relation cannot be made required, even with an image it shows unpopulated.
@@ -44,5 +42,3 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 - An attach relation when required inside a tab does not make the tab active.
 
 - When a relation controller popup has an invalid error, the popup does not reappear.
-
-- The relation controller session key should not be shared by the manage form.
