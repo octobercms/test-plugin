@@ -44,3 +44,5 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 - When a relation controller popup has an invalid error, the popup does not reappear.
 
 - Proxy fields throw a nasty error when the relation is non existant
+
+- Deleting multiple Comments from a Post (deferred) only deletes one comment.
