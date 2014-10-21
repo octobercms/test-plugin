@@ -30,4 +30,15 @@ class User extends Model
         'roles' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles']
     ];
 
+    public $attachOne = [
+        'photo' => ['System\Models\File'],
+        'certificate' => ['System\Models\File'],
+    ];
+
+    public $attachMany = [
+        'portfolio' => ['System\Models\File'],
+        'files' => ['System\Models\File'],
+    ];
+
+
 }

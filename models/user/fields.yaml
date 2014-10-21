@@ -3,6 +3,45 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    username:
+        label: Username
+
+    roles:
+        label: Roles
+        commentAbove: RelationController used as a partial field type.
+        type: partial
+
+tabs:
+    fields:
+
+        photo:
+            label: Photo
+            type: fileupload
+            commentAbove: Single image upload inside a tab.
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+            tab: Single Image
+
+        portfolio:
+            label: Portfolio
+            type: fileupload
+            commentAbove: Multiple image upload inside a tab.
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+            tab: Multi Image
+
+        certificate:
+            label: Certificate
+            type: fileupload
+            commentAbove: Single file upload inside a tab.
+            mode: file
+            tab: Single File
+
+        files:
+            label: Files
+            type: fileupload
+            commentAbove: Multiple file upload inside a tab.
+            mode: file
+            tab: Multi File

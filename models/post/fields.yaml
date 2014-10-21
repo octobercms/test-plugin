@@ -8,13 +8,17 @@ fields:
         label: Name
         commentAbove: Text field, required.
 
-    content:
-        label: Content
-        commentAbove: Rich editor (WYSIWYG) field.
-        type: richeditor
-        size: small
-
     comments:
         label: Comments
         commentAbove: RelationController used as a partial field type.
         type: partial
+
+tabs:
+    fields:
+
+        content:
+            label: Content
+            commentAbove: Rich editor (WYSIWYG) field.
+            type: richeditor
+            size: huge
+            tab: WYSIWYG
