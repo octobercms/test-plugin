@@ -3,16 +3,17 @@
 # ===================================
 
 # Model List Column configuration
-list: @/plugins/october/test/models/post/columns.yaml
+list: @/plugins/october/test/models/comment/columns.yaml
 
 # Model Class name
-modelClass: October\Test\Models\Post
+modelClass: October\Test\Models\Comment
 
 # List Title
-title: Manage Posts
+title: Manage Comments
 
 # Link URL for each record
-recordUrl: october/test/posts/update/:id
+# recordUrl: october/test/posts/update/:id
+recordOnClick: $.popup({ handler: 'onUpdateForm', extraData: { comment_mode: 1, record_id: ':id' } })
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -37,7 +38,7 @@ showSorting: true
 # Toolbar widget configuration
 toolbar:
     # Partial for toolbar buttons
-    buttons: list_toolbar
+    buttons: list_comments_toolbar
 
     # Search widget configuration
     search:

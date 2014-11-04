@@ -36,7 +36,8 @@ class Comment extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'user' => ['October\Test\Models\User']
+        'user' => ['October\Test\Models\User'],
+        'post' => ['October\Test\Models\Post']
     ];
 
     public $attachOne = [

@@ -29,9 +29,9 @@ class Plugin extends PluginBase
         return [
             'test' => [
                 'label'       => 'Playground',
-                'url'         => Backend::url('october/test/posts'),
+                'url'         => Backend::url('october/test/people'),
                 'icon'        => 'icon-child',
-                'order'       => 1,
+                'order'       => 100,
 
                 'sideMenu' => [
                     'people' => [

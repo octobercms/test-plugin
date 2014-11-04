@@ -4,6 +4,14 @@
 
 fields:
 
+    # Hide this field for context 'relation'
+    post:
+        type: relation
+        nameFrom: name
+        emptyOption: -- Select Post --
+        comment: This Comment belongs to the Post selected above.
+        context: ['create', 'update']
+
     name:
         label: Name
         commentAbove: Text field, inside a popup.
