@@ -18,6 +18,9 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('bio')->nullable();
+            $table->datetime('birth')->nullable();
+            $table->time('birthtime')->nullable();
+            $table->date('birthdate')->nullable();
             $table->timestamps();
         });
 

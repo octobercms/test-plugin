@@ -40,3 +40,24 @@ fields:
         comment: Proxy text field for Phone model.
         tab: Secondary Phone
         depends: alt_phone_id
+
+tabs:
+
+    fields:
+
+        birth:
+            label: Born (Date Time)
+            type: datepicker
+            tab: Birthday
+
+        birthdate:
+            label: Born (Date)
+            type: datepicker
+            mode: date
+            tab: Birthday
+
+        birthtime:
+            label: Born (Time)
+            type: datepicker
+            mode: time
+            tab: Birthday

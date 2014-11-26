@@ -11,6 +11,7 @@ A Person has a Phone (One to one relationship)
 1. Relation Controller
 1. Record Finder
 1. Proxy Form fields
+1. Date pickers
 
 ### Test 2: Posts
 
@@ -19,10 +20,13 @@ A Post "Has Many" Comments (One to many relationship)
 1. Relation Controller
 1. Image Uploader in a Popup
 1. Rich Editor in a Popup
+1. Dual Form Controller and List Controller
 
 ### Test 3: Users
 
 User "Has Many" Roles (Many to many relationship)
+
+1. Image Uploaders (Single, Multi, File, Image)
 
 ### Test 4: Countries
 
