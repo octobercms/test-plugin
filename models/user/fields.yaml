@@ -5,6 +5,12 @@
 fields:
     username:
         label: Username
+        span: auto
+
+    security_code:
+        label: Security Code
+        span: auto
+        type: number
 
     roles:
         label: Roles

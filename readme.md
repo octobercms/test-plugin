@@ -27,6 +27,7 @@ A Post "Has Many" Comments (One to many relationship)
 User "Has Many" Roles (Many to many relationship)
 
 1. Image Uploaders (Single, Multi, File, Image)
+1. Number field
 
 ### Test 4: Countries
 

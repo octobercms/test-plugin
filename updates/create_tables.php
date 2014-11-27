@@ -66,6 +66,7 @@ class CreateTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('username')->nullable();
+            $table->integer('security_code')->nullable();
             $table->timestamps();
         });
 
