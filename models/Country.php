@@ -1,6 +1,7 @@
 <?php namespace October\Test\Models;
 
 use Model;
+use Cms\Classes\Page;
 
 /**
  * Country Model
@@ -24,6 +25,11 @@ class Country extends Model
     protected $fillable = [];
 
     /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['pages'];
+
+    /**
      * @var array Relations
      */
     public $hasOne = [];
@@ -35,5 +41,10 @@ class Country extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    public function getPagesOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+    }
 
 }

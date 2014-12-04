@@ -3,6 +3,19 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+
+    name:
+        label: Name
+        span: auto
+
+    code:
+        label: Code
+        span: auto
+        attributes:
+            data-input-preset: 'input[name="Country[name]"]'
+            data-input-preset-type: slug
+            data-input-preset-closest-parent: form
+
+    pages:
+        label: Pages
+        type: checkboxlist

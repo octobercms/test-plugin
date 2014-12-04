@@ -1,6 +1,11 @@
 # ===================================
 #  Form Field Definitions
 # ===================================
+#
+#  These fields explore the use of context; the "phone" field is rendered in
+#  different ways depending on the context used by the form, passed in by 
+#  the URL.
+# ===================================
 
 fields:
     name:
@@ -31,7 +36,6 @@ fields:
         label: Phone Name
         comment: Proxy text field for Phone model.
         tab: Secondary Phone
-        depends: alt_phone_id
 
     phone[number]:
         context: proxyfields
@@ -39,7 +43,13 @@ fields:
         label: Phone Number
         comment: Proxy text field for Phone model.
         tab: Secondary Phone
-        depends: alt_phone_id
+
+    phone[created_at]:
+        context: proxyfields
+        label: Phone Created
+        comment: Proxy date picker field for Phone model.
+        tab: Secondary Phone
+        type: datepicker
 
 tabs:
 

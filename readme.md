@@ -12,6 +12,7 @@ A Person has a Phone (One to one relationship)
 1. Record Finder
 1. Proxy Form fields
 1. Date pickers
+1. Context-based Form fields
 
 ### Test 2: Posts
 
@@ -26,6 +27,7 @@ A Post "Has Many" Comments (One to many relationship)
 
 User "Has Many" Roles (Many to many relationship)
 
+1. Relation Controller
 1. Image Uploaders (Single, Multi, File, Image)
 1. Number field
 
@@ -33,14 +35,14 @@ User "Has Many" Roles (Many to many relationship)
 
 A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
+1. Checkbox list
+
 ### Test 5: Staff & Orders
 
 Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 
 ## Tests that need attention
-
-- When an AJAX error occurs inside a popup, the stripe indicator sticks around.
 
 - An attach relation cannot be made required, even with an image it shows unpopulated.
 
