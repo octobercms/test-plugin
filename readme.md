@@ -19,8 +19,8 @@ A Person has a Phone (One to one relationship)
 A Post "Has Many" Comments (One to many relationship)
 
 1. Relation Controller
-1. Image Uploader in a Popup
-1. Rich Editor in a Popup
+1. Popup-based Form fields
+1. Rich Editor
 1. Dual Form Controller and List Controller
 
 ### Test 3: Users

@@ -39,4 +39,9 @@ class Phone extends Model
         'person' => ['October\Test\Models\Person']
     ];
 
+    public $attachOne = [
+        'picture' => ['System\Models\File']
+    ];
+
+
 }

@@ -35,21 +35,29 @@ fields:
         span: auto
         label: Phone Name
         comment: Proxy text field for Phone model.
-        tab: Secondary Phone
 
     phone[number]:
         context: proxyfields
         span: auto
         label: Phone Number
         comment: Proxy text field for Phone model.
-        tab: Secondary Phone
 
     phone[created_at]:
         context: proxyfields
+        span: auto
         label: Phone Created
         comment: Proxy date picker field for Phone model.
-        tab: Secondary Phone
         type: datepicker
+
+    phone[picture]:
+        label: Picture
+        context: proxyfields
+        span: auto
+        comment: Proxy file upload field for Phone model.
+        type: fileupload
+        mode: image
+        imageHeight: 260
+        imageWidth: 260
 
 tabs:
 
