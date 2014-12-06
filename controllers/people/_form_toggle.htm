@@ -7,7 +7,15 @@
         <ul>
             <li><a href="<?= Backend::url('october/test/people/update/'.$formModel->id.'/recordfinder') ?>">Record Finder</a></li>
             <li><a href="<?= Backend::url('october/test/people/update/'.$formModel->id.'/relationcontroller') ?>">Relation Controller</a></li>
-            <li><a href="<?= Backend::url('october/test/people/update/'.$formModel->id.'/proxyfields') ?>">Proxy Fields</a></li>
+            <li>
+                <?php if ($formModel->phone): ?>
+                    <a href="<?= Backend::url('october/test/people/update/'.$formModel->id.'/proxyfields') ?>">
+                        Proxy Fields
+                    </a>
+                <?php else: ?>
+                    Proxy Fields (<em>No phone relation found</em>)
+                <?php endif ?>
+            </li>
         </ul>
     </div>
 </div>

@@ -7,10 +7,12 @@ fields:
     name:
         label: Name
         span: auto
+        default: Australia
 
     code:
         label: Code
         span: auto
+        default: AU
         attributes:
             data-input-preset: 'input[name="Country[name]"]'
             data-input-preset-type: slug
