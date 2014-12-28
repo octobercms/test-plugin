@@ -45,8 +45,6 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 ## Tests that need attention
 
-- An attach relation cannot be made required, even with an image it shows unpopulated.
-
 - An attach relation when required inside a tab does not make the tab active.
 
 - When a relation controller popup has an invalid error, the popup does not reappear.

@@ -8,6 +8,8 @@ use Model;
 class User extends Model
 {
 
+    use \October\Rain\Database\Traits\Validation;
+
     /**
      * @var string The database table used by the model.
      */
@@ -22,6 +24,14 @@ class User extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
+
+    /**
+     * @var array Rules
+     */
+    public $rules = [
+        'photo' => 'required',
+        'portfolio' => 'required',
+    ];
 
     /**
      * @var array Relations
