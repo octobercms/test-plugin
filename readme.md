@@ -1,6 +1,6 @@
 # Test Plugin
 
-This is a UI test plugin for OctoberCMS.
+This is a UI test plugin for OctoberCMS. Extract this archive to `/plugins/october/test` and click on **Playground** in the back-end area.
 
 The following sections are explored, tested and demonstrated along with a list of the features used:
 
