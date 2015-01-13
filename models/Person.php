@@ -36,8 +36,8 @@ class Person extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'phone' => ['October\Test\Models\Phone', 'foreignKey' => 'person_id'],
-        'alt_phone' => ['October\Test\Models\Phone', 'foreignKey' => 'person_id']
+        'phone' => ['October\Test\Models\Phone', 'key' => 'person_id'],
+        'alt_phone' => ['October\Test\Models\Phone', 'key' => 'person_id']
     ];
 
 }
