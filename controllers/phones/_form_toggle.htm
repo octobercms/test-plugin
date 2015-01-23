@@ -1,0 +1,21 @@
+<div class="callout callout-warning no-subheader">
+    <div class="header">
+        <i class="icon-database"></i>
+        <h3>Alternate views</h3>
+    </div>
+    <div class="content">
+        <ul>
+            <li><a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/recordfinder') ?>">Record Finder</a></li>
+            <li><a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/relationcontroller') ?>">Relation Controller</a></li>
+            <li>
+                <?php if ($formModel->person): ?>
+                    <a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/proxyfields') ?>">
+                        Proxy Fields
+                    </a>
+                <?php else: ?>
+                    Proxy Fields (<em>No person relation found</em>)
+                <?php endif ?>
+            </li>
+        </ul>
+    </div>
+</div>

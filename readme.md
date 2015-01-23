@@ -47,8 +47,10 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 - An attach relation when required inside a tab does not make the tab active.
 
-- When a relation controller popup has an invalid error, the popup does not reappear.
-
 - Proxy fields throw a nasty error when the relation is non existant
 
 - Deleting multiple Comments from a Post (deferred) only deletes one comment.
+
+- Dropdowns using depends in one-to-many will cause the popup to close. See: http://octobercms.com/forum/post/dropdowns-with-depends-in-onetomany-pop-up-form-back-end-bug
+
+- Read-only Relation controller will still allow list items to be clicked in belongs to many relations.
