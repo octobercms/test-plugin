@@ -74,6 +74,8 @@ class CreateTables extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
 
