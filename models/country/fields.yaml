@@ -12,11 +12,9 @@ fields:
     code:
         label: Code
         span: auto
-        default: AU
-        attributes:
-            data-input-preset: 'input[name="Country[name]"]'
-            data-input-preset-type: slug
-            data-input-preset-closest-parent: form
+        preset:
+            field: name
+            type: slug
 
     pages:
         label: Pages
