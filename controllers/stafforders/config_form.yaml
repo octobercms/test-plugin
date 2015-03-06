@@ -6,7 +6,7 @@
 name: StaffOrder
 
 # Model Form Field configuration
-form: @/plugins/october/test/models/stafforder/fields.yaml
+form: ~/plugins/october/test/models/stafforder/fields.yaml
 
 # Model Class name
 modelClass: October\Test\Models\StaffOrder

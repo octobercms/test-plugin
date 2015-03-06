@@ -18,7 +18,7 @@ fields:
         label: Record Finder
         comment: Record finder field.
         type: recordfinder
-        list: @/plugins/october/test/models/phone/columns.yaml
+        list: ~/plugins/october/test/models/phone/columns.yaml
         prompt: Click the %s to find an alternative phone
         nameFrom: name
         descriptionFrom: number

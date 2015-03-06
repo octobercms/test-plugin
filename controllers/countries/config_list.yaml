@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: @/plugins/october/test/models/country/columns.yaml
+list: ~/plugins/october/test/models/country/columns.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Country

@@ -6,7 +6,7 @@ The following sections are explored, tested and demonstrated along with a list o
 
 ### Test 1: People
 
-A Person has a Phone (One to one relationship)
+A Person "Has One" Phone (One to one relationship)
 
 1. Relation Controller
 1. Record Finder
@@ -54,3 +54,5 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 - Dropdowns using depends in one-to-many will cause the popup to close. See: http://octobercms.com/forum/post/dropdowns-with-depends-in-onetomany-pop-up-form-back-end-bug
 
 - Read-only Relation controller will still allow list items to be clicked in belongs to many relations.
+
+- Clicking belongs to many will open a list to add, when it could open a to update form instead.

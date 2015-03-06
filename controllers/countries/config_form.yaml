@@ -6,7 +6,7 @@
 name: Country
 
 # Model Form Field configuration
-form: @/plugins/october/test/models/country/fields.yaml
+form: ~/plugins/october/test/models/country/fields.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Country

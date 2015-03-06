@@ -6,7 +6,7 @@
 name: Post
 
 # Model Form Field configuration
-form: @/plugins/october/test/models/post/fields.yaml
+form: ~/plugins/october/test/models/post/fields.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Post
