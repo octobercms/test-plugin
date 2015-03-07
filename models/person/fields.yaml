@@ -44,7 +44,7 @@ fields:
 
     phone[created_at]:
         context: proxyfields
-        span: auto
+        span: left
         label: Phone Created
         comment: Proxy date picker field for Phone model.
         type: datepicker
@@ -52,12 +52,19 @@ fields:
     phone[picture]:
         label: Picture
         context: proxyfields
-        span: auto
+        span: right
         comment: Proxy file upload field for Phone model.
         type: fileupload
         mode: image
         imageHeight: 260
         imageWidth: 260
+
+    phone[brand]:
+        label: Brand
+        context: proxyfields
+        span: left
+        comment: Proxy dropdown field for Phone model.
+        type: dropdown
 
 tabs:
 

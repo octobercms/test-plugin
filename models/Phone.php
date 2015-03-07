@@ -43,5 +43,13 @@ class Phone extends Model
         'picture' => ['System\Models\File']
     ];
 
+    public function getBrandOptions()
+    {
+        return [
+            'nokia'  => 'Nokia',
+            'apple'  => 'Apple',
+            'samsung' => 'Samsung',
+        ];
+    }
 
 }

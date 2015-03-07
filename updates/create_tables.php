@@ -30,6 +30,7 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('number')->nullable();
+            $table->string('brand')->nullable();
             $table->integer('person_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
