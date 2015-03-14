@@ -51,8 +51,11 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 - Deleting multiple Comments from a Post (deferred) only deletes one comment.
 
-- Dropdowns using depends in one-to-many will cause the popup to close. See: http://octobercms.com/forum/post/dropdowns-with-depends-in-onetomany-pop-up-form-back-end-bug
 
-- Read-only Relation controller will still allow list items to be clicked in belongs to many relations.
+## Incorporating functional tests
 
-- Clicking belongs to many will open a list to add, when it could open a to update form instead.
+- All relation controllers
+
+- Test that input preset API works on fields
+
+- Test that trigger API works on fields

@@ -10,10 +10,6 @@ class Post extends Model
 
     use \October\Rain\Database\Traits\Validation;
 
-    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
-
-    public $translatable = ['name', 'content'];
-
     /**
      * @var string The database table used by the model.
      */
