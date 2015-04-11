@@ -42,6 +42,16 @@ class Country extends Model
     public $attachOne = [];
     public $attachMany = [];
 
+    public function filterFields($fields, $context = null)
+    {
+        if (empty($this->pages)) {
+            $fields->pages_section->hidden = true;
+        }
+        else {
+            $fields->pages_section->hidden = false;
+        }
+    }
+
     public function getPagesOptions()
     {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');

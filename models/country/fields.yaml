@@ -16,6 +16,12 @@ fields:
             field: name
             type: slug
 
+    pages_section:
+        label: Pages
+        comment: This will appear when a page is selected
+        type: section
+        dependsOn: pages
+
     pages:
         label: Pages
         type: checkboxlist
