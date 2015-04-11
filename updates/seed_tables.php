@@ -1,9 +1,11 @@
 <?php namespace October\Test\Updates;
 
-use October\Rain\Database\Updates\Seeder;
-use October\Test\Models\Person;
-use October\Test\Models\Phone;
+use October\Test\Models\User;
+use October\Test\Models\Role;
 use October\Test\Models\Post;
+use October\Test\Models\Phone;
+use October\Test\Models\Person;
+use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
 {
@@ -27,8 +29,20 @@ class SeedAllTables extends Seeder
          * Test 2: Posts
          */
 
-        Post:: create(['name' => 'First post, yay!', 'content' => 'I have some comments!' ]);
-        Post:: create(['name' => 'A lonely toon', 'content' => 'I have nothing at all' ]);
+        Post::create(['name' => 'First post, yay!', 'content' => 'I have some comments!' ]);
+        Post::create(['name' => 'A lonely toon', 'content' => 'I have nothing at all' ]);
+
+
+        /*
+         * Test 3: Users
+         */
+
+        User::make(['username' => 'Neo', 'security_code' => '1111'])->forceSave();
+        User::make(['username' => 'Morpheus', 'security_code' => '8888'])->forceSave();
+
+        Role::create(['name' => 'Chief Executive Orangutan', 'description' => 'You can call this person CEO for short']);
+        Role::create(['name' => 'Chief Friendship Organiser', 'description' => 'You can call this person CFO for short']);
+        Role::create(['name' => 'Caring Technical Officer', 'description' => 'You can call this person CTO for short']);
     }
 
 }

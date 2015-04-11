@@ -30,5 +30,8 @@ class Role extends Model
         'users' => ['October\Test\Models\User', 'table' => 'october_test_users_roles']
     ];
 
+    public $attachMany = [
+        'photos' => ['System\Models\File'],
+    ];
 
 }
