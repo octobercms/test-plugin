@@ -68,6 +68,8 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('username')->nullable();
             $table->integer('security_code')->nullable();
+            $table->string('media_image')->nullable();
+            $table->string('media_file')->nullable();
             $table->timestamps();
         });
 

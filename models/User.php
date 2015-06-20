@@ -42,12 +42,16 @@ class User extends Model
 
     public $attachOne = [
         'photo' => ['System\Models\File'],
+        'photo_secure' => ['System\Models\File', 'public' => false],
         'certificate' => ['System\Models\File'],
+        'certificate_secure' => ['System\Models\File', 'public' => false],
     ];
 
     public $attachMany = [
         'portfolio' => ['System\Models\File'],
+        'portfolio_secure' => ['System\Models\File', 'public' => false],
         'files' => ['System\Models\File'],
+        'files_secure' => ['System\Models\File', 'public' => false],
     ];
 
 
