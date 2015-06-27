@@ -37,7 +37,8 @@ class User extends Model
      * @var array Relations
      */
     public $belongsToMany = [
-        'roles' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles']
+        'roles' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles'],
+        'roles_count' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles', 'count' => true]
     ];
 
     public $attachOne = [

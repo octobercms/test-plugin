@@ -14,3 +14,9 @@ columns:
     content:
         label: Content
         searchable: true
+
+    comments_count:
+        label: Comments
+        relation: comments_count
+        valueFrom: count
+        default: 0

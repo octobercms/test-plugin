@@ -25,7 +25,7 @@ A Post "Has Many" Comments (One to many relationship)
 
 ### Test 3: Users
 
-User "Has Many" Roles (Many to many relationship)
+User "Belongs To Many" Roles (Many to many relationship)
 
 1. Relation Controller
 1. Image Uploaders (Single, Multi, File, Image)

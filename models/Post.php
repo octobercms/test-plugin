@@ -36,7 +36,8 @@ class Post extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'comments' => ['October\Test\Models\Comment']
+        'comments' => ['October\Test\Models\Comment'],
+        'comments_count' => ['October\Test\Models\Comment', 'count' => true]
     ];
 
 }
