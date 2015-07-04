@@ -24,6 +24,7 @@ class SeedAllTables extends Seeder
         Person::create(['name' => 'Baby Herman', 'bio' => 'I have nothing at all']);
         Phone::create(['name' => 'Work', 'number' => '(360) 595-2146']);
         Phone::create(['name' => 'Fax', 'number' => '(360) 595-2146']);
+        Phone::create(['name' => 'Inactive', 'number' => '(xxx) xxx-xxx', 'is_active' => false]);
 
         /*
          * Test 2: Posts
@@ -35,6 +36,12 @@ class SeedAllTables extends Seeder
         $post->comments()->create([
             'name' => 'deadmau5',
             'content' => 'Hai fwiend, hai fwiend, hai fwiend, hai fwiend, hai fwiend. Brrrrrup bloop. Brrrrrp bloop. Brrrrrp bloop. Brrrrrp bloop.'
+        ]);
+
+        $post->comments()->create([
+            'name' => 'Hidden comment',
+            'content' => 'This comment should be hidden as defined in the relationship.',
+            'is_visible' => false
         ]);
 
         /*

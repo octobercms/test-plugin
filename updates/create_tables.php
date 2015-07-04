@@ -31,6 +31,7 @@ class CreateTables extends Migration
             $table->string('name')->nullable();
             $table->string('number')->nullable();
             $table->string('brand')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->integer('person_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
@@ -54,6 +55,7 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('content')->nullable();
+            $table->boolean('is_visible')->default(true);
             $table->integer('post_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });

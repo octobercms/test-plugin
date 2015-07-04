@@ -14,3 +14,7 @@ columns:
     content:
         label: Content
         searchable: true
+
+    is_visible:
+        label: Visible
+        type: switch

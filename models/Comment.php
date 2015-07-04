@@ -44,4 +44,9 @@ class Comment extends Model
         'photo' => ['System\Models\File']
     ];
 
+    public function scopeIsVisible($query)
+    {
+        return $query->where('is_visible', true);
+    }
+
 }

@@ -47,10 +47,11 @@ Staff and Orders "Morph Many" Photos (Polymorphic relationship)
 
 - An attach relation when required inside a tab does not make the tab active.
 
-- Proxy fields throw a nasty error when the relation is non existant
+- Proxy fields throw a nasty error when the relation is non existant.
 
 - Deleting multiple Comments from a Post (deferred) only deletes one comment.
 
+- Constrained relations should not appear in RecordFinder (Phone:is_active) and Relation Controller lists (Comment:is_visible).
 
 ## Incorporating functional tests
 

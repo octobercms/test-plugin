@@ -52,4 +52,9 @@ class Phone extends Model
         ];
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
 }
