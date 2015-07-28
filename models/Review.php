@@ -3,15 +3,15 @@
 use Model;
 
 /**
- * Photo Model
+ * Review Model
  */
-class Photo extends Model
+class Review extends Model
 {
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'october_test_photos';
+    public $table = 'october_test_reviews';
 
     /**
      * @var array Guarded fields
@@ -26,14 +26,8 @@ class Photo extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $morphTo = [
+        'product' => []
+    ];
 
 }

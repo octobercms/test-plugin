@@ -54,10 +54,10 @@ class Plugin extends PluginBase
                         'icon'        => 'icon-database',
                         'url'         => Backend::url('october/test/countries'),
                     ],
-                    'stafforders' => [
-                        'label'       => 'Staff / Orders',
+                    'reviews' => [
+                        'label'       => 'Reviews',
                         'icon'        => 'icon-database',
-                        'url'         => Backend::url('october/test/stafforders'),
+                        'url'         => Backend::url('october/test/reviews'),
                     ],
                 ]
             ]

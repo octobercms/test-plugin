@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    content:
+        label: Content
+        type: textarea
+
+    is_positive:
+        label: Positive
+        type: checkbox

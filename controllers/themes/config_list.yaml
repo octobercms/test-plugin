@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: ~/plugins/october/test/models/staff/columns.yaml
+list: $/october/test/models/theme/columns.yaml
 
 # Model Class name
-modelClass: October\Test\Models\Staff
+modelClass: October\Test\Models\Theme
 
 # List Title
-title: Manage StaffOrders
+title: Manage Themes
 
 # Link URL for each record
-recordUrl: october/test/stafforders/update/:id
+recordUrl: october/test/themes/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

@@ -3,15 +3,15 @@
 use Model;
 
 /**
- * Staff Model
+ * Plugin Model
  */
-class Staff extends Model
+class Plugin extends Model
 {
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'october_test_staffs';
+    public $table = 'october_test_plugins';
 
     /**
      * @var array Guarded fields
@@ -26,14 +26,7 @@ class Staff extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
-
+    public $morphMany = [
+        'reviews' => ['October\Test\Models\Review', 'name' => 'product'],
+    ];
 }

@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('october/test/stafforders') ?>">StaffOrders</a></li>
-        <li><?= e(trans($this->pageTitle)) ?></li>
+        <li><a href="<?= Backend::url('october/test/plugins') ?>">Plugins</a></li>
+        <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -19,7 +19,7 @@
                     type="submit"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating StaffOrder..."
+                    data-load-indicator="Creating Plugin..."
                     class="btn btn-primary">
                     Create
                 </button>
@@ -28,12 +28,12 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating StaffOrder..."
+                    data-load-indicator="Creating Plugin..."
                     class="btn btn-default">
                     Create and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/stafforders') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('october/test/plugins') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -42,7 +42,7 @@
 
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-    <p><a href="<?= Backend::url('october/test/stafforders') ?>" class="btn btn-default">Return to stafforders list</a></p>
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('october/test/plugins') ?>" class="btn btn-default">Return to plugins list</a></p>
 
 <?php endif ?>

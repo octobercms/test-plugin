@@ -38,9 +38,9 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 1. Checkbox list
 1. Default form field values
 
-### Test 5: Staff & Orders
+### Test 5: Reviews
 
-Staff and Orders "Morph Many" Photos (Polymorphic relationship)
+Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
 
 
 ## Tests that need attention

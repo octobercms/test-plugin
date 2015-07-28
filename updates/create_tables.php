@@ -107,27 +107,38 @@ class CreateTables extends Migration
         });
 
         /*
-         * Test 5: Staff & Orders
+         * Test 5: Reviews
          */
 
-        Schema::create('october_test_orders', function($table)
+        Schema::create('october_test_reviews', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('product_type')->nullable();
+            $table->integer('product_id')->unsigned()->nullable();
+            $table->text('content')->nullable();
+            $table->boolean('is_positive')->nullable();
+            $table->index(['product_id', 'product_type']);
             $table->timestamps();
         });
 
-        Schema::create('october_test_photos', function($table)
+        Schema::create('october_test_plugins', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('code')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
 
-        Schema::create('october_test_staffs', function($table)
+        Schema::create('october_test_themes', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('code')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
@@ -138,12 +149,12 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_people');
         Schema::dropIfExists('october_test_phones');
         Schema::dropIfExists('october_test_countries');
-        Schema::dropIfExists('october_test_orders');
-        Schema::dropIfExists('october_test_photos');
+        Schema::dropIfExists('october_test_plugins');
+        Schema::dropIfExists('october_test_reviews');
         Schema::dropIfExists('october_test_posts');
         Schema::dropIfExists('october_test_roles');
         Schema::dropIfExists('october_test_people_roles');
-        Schema::dropIfExists('october_test_staffs');
+        Schema::dropIfExists('october_test_themes');
         Schema::dropIfExists('october_test_users');
         Schema::dropIfExists('october_test_users_roles');
     }

@@ -5,6 +5,9 @@ use October\Test\Models\Role;
 use October\Test\Models\Post;
 use October\Test\Models\Phone;
 use October\Test\Models\Person;
+use October\Test\Models\Review;
+use October\Test\Models\Plugin;
+use October\Test\Models\Theme;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -57,6 +60,22 @@ class SeedAllTables extends Seeder
 
         $user = User::first();
         $user->roles()->add($role);
+
+        /*
+         * Test 4: Countries
+         */
+
+        /*
+         * Test 5: Reviews
+         */
+        Review::create(['content' => 'Orphan review', 'is_positive' => false]);
+        $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true]);
+
+        $theme = Theme::create(['name' => 'Bootstrap', 'code' => 'bootstrap', 'content' => 'A bootstrap theme.']);
+        $theme->reviews()->add($review);
+
+        Plugin::create(['name' => 'Angular', 'code' => 'angular', 'content' => 'An AngularJS plugin.']);
+
     }
 
 }

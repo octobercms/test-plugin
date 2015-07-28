@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('october/test/stafforders') ?>">StaffOrders</a></li>
-        <li><?= e(trans($this->pageTitle)) ?></li>
+        <li><a href="<?= Backend::url('october/test/plugins') ?>">Plugins</a></li>
+        <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -20,7 +20,7 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving StaffOrder..."
+                    data-load-indicator="Saving Plugin..."
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
@@ -29,7 +29,7 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving StaffOrder..."
+                    data-load-indicator="Saving Plugin..."
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -37,11 +37,11 @@
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting StaffOrder..."
-                    data-request-confirm="Do you really want to delete this stafforder?">
+                    data-load-indicator="Deleting Plugin..."
+                    data-request-confirm="Do you really want to delete this plugin?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/stafforders') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('october/test/plugins') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -50,7 +50,7 @@
 
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-    <p><a href="<?= Backend::url('october/test/stafforders') ?>" class="btn btn-default">Return to stafforders list</a></p>
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('october/test/plugins') ?>" class="btn btn-default">Return to plugins list</a></p>
 
 <?php endif ?>
