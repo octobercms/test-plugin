@@ -1,3 +1,8 @@
+<?php
+    $uriPrefix = $formModel->exists
+        ? 'october/test/phones/update/'.$formModel->id
+        : 'october/test/phones/create';
+?>
 <div class="callout callout-warning no-subheader">
     <div class="header">
         <i class="icon-database"></i>
@@ -5,11 +10,11 @@
     </div>
     <div class="content">
         <ul>
-            <li><a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/recordfinder') ?>">Record Finder</a></li>
-            <li><a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/relationcontroller') ?>">Relation Controller</a></li>
+            <li><a href="<?= Backend::url($uriPrefix.'/recordfinder') ?>">Record Finder</a></li>
+            <li><a href="<?= Backend::url($uriPrefix.'/relationcontroller') ?>">Relation Controller</a></li>
             <li>
                 <?php if ($formModel->person): ?>
-                    <a href="<?= Backend::url('october/test/phones/update/'.$formModel->id.'/proxyfields') ?>">
+                    <a href="<?= Backend::url($uriPrefix.'/proxyfields') ?>">
                         Proxy Fields
                     </a>
                 <?php else: ?>

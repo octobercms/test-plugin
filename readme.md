@@ -53,6 +53,10 @@ Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
 
 - Constrained relations should not appear in RecordFinder (Phone:is_active) and Relation Controller lists (Comment:is_visible).
 
+- Record Finder does not incorporate deferred bindings.
+
+- HasOne relations acting as HasMany will break the list completely.
+
 ## Incorporating functional tests
 
 - All relation controllers
