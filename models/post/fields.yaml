@@ -18,7 +18,23 @@ tabs:
 
         content:
             label: Content
-            commentAbove: Rich editor (WYSIWYG) field.
+            type: codeeditor
+            size: huge
+            tab: Code Editor
+            # language: text
+            commentAbove: Code editor field.
+
+        content_md:
+            label: Content
+            type: markdown
+            size: huge
+            mode: split
+            tab: Markdown Editor
+            commentAbove: Markdown editor field.
+
+        content_html:
+            label: Content
             type: richeditor
             size: huge
-            tab: WYSIWYG
+            tab: Rich Editor
+            commentAbove: Rich editor (WYSIWYG) field.

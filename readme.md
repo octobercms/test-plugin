@@ -42,7 +42,6 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
 
-
 ## Tests that need attention
 
 - An attach relation when required inside a tab does not make the tab active.

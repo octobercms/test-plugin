@@ -32,6 +32,19 @@ tabs:
 
         content:
             label: Content
+            type: codeeditor
+            tab: Code Editor
+            # language: text
+            commentAbove: Content inside a tab, inside a popup.
+
+        content_md:
+            label: Content
+            type: markdown
+            tab: Markdown Editor
+            commentAbove: Content inside a tab, inside a popup.
+
+        content_html:
+            label: Content
             type: richeditor
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.

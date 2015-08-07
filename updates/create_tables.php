@@ -46,6 +46,8 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('content')->nullable();
+            $table->text('content_md')->nullable();
+            $table->text('content_html')->nullable();
             $table->timestamps();
         });
 
@@ -55,6 +57,8 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('content')->nullable();
+            $table->text('content_md')->nullable();
+            $table->text('content_html')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->integer('post_id')->unsigned()->nullable()->index();
             $table->timestamps();
