@@ -15,6 +15,12 @@ fields:
     name:
         label: Name
         commentAbove: Text field, inside a popup.
+        span: auto
+
+    error_button:
+        type: partial
+        comment: This button will throw an error
+        span: auto
 
 tabs:
 
