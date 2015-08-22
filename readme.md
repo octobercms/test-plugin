@@ -37,6 +37,8 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 1. Checkbox list
 1. Default form field values
+1. Field dependency and filtering
+1. Repeater fields
 
 ### Test 5: Reviews
 

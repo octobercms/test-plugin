@@ -27,7 +27,7 @@ class Country extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['pages'];
+    protected $jsonable = ['pages', 'states'];
 
     /**
      * @var array Relations
@@ -44,11 +44,13 @@ class Country extends Model
 
     public function filterFields($fields, $context = null)
     {
+        if (!isset($fields->pages_section)) return;
+
         if (empty($this->pages)) {
-            $fields->pages_section->hidden = true;
+            $fields->pages_section->hidden = false;
         }
         else {
-            $fields->pages_section->hidden = false;
+            $fields->pages_section->hidden = true;
         }
     }
 

@@ -107,6 +107,7 @@ class CreateTables extends Migration
             $table->string('name')->nullable();
             $table->string('code')->nullable();
             $table->text('pages')->nullable();
+            $table->text('states')->nullable();
             $table->timestamps();
         });
 

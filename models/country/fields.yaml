@@ -16,12 +16,34 @@ fields:
             field: name
             type: slug
 
-    pages_section:
-        label: Pages
-        comment: This will appear when a page is selected
-        type: section
-        dependsOn: pages
+tabs:
+    fields:
 
-    pages:
-        label: Pages
-        type: checkboxlist
+        pages_section:
+            label: Pages
+            tab: Pages
+            comment: This will disappear when a page is selected
+            type: section
+            dependsOn: pages
+
+        pages:
+            tab: Pages
+            type: checkboxlist
+
+        states:
+            tab: States
+            type: repeater
+            form:
+                fields:
+                    title:
+                        label: State
+                    item:
+                        type: repeater
+                        prompt: Add new suburb
+                        form:
+                            fields:
+                                subtitle:
+                                    label: Suburb
+                                    span: left
+
+
