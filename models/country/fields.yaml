@@ -16,8 +16,27 @@ fields:
             field: name
             type: slug
 
+    is_active:
+        label: Active
+        comment: Check this box to hide some tabs
+        type: checkbox
+        default: true
+
 tabs:
     fields:
+
+        language:
+            label: Language
+            tab: Language
+            trigger:
+                field: is_active
+                condition: checked
+                action: hide
+
+        currency:
+            label: Currency
+            tab: Currency
+            dependsOn: is_active
 
         pages_section:
             label: Pages

@@ -44,13 +44,20 @@ class Country extends Model
 
     public function filterFields($fields, $context = null)
     {
-        if (!isset($fields->pages_section)) return;
+        // Repeater field shares this logic
+        if (!isset($fields->pages_section)) {
+            return;
+        }
 
         if (empty($this->pages)) {
             $fields->pages_section->hidden = false;
         }
         else {
             $fields->pages_section->hidden = true;
+        }
+
+        if ($this->is_active) {
+            $fields->currency->hidden = true;
         }
     }
 
