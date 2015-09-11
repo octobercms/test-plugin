@@ -27,7 +27,7 @@ A Post "Has Many" Comments (One to many relationship)
 
 User "Belongs To Many" Roles (Many to many relationship)
 
-1. Relation Controller
+1. Relation Controller (Standard, Pivot data, Pivot model)
 1. Image Uploaders (Single, Multi, File, Image)
 1. Number field
 

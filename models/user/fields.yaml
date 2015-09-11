@@ -12,12 +12,28 @@ fields:
         span: auto
         type: number
 
-    roles:
-        label: Roles
-        commentAbove: RelationController used as a partial field type.
-        type: partial
-
 tabs:
+    fields:
+
+        roles:
+            label: Roles
+            commentAbove: RelationController used as a partial field type.
+            type: partial
+            tab: Standard
+
+        roles_pivot:
+            label: Roles
+            commentAbove: RelationController with pivot data.
+            type: partial
+            tab: Pivot data
+
+        roles_pivot_model:
+            label: Roles
+            commentAbove: RelationController using a custom pivot model with validation.
+            type: partial
+            tab: Pivot model
+
+secondaryTabs:
     fields:
 
         media_file:

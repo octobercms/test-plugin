@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    pivot[clearance_level]:
+        label: Clearance level
+        span: auto
+
+    pivot[is_executive]:
+        label: Description
+        type: checkbox
+        span: auto

@@ -4,7 +4,29 @@
 
 roles:
     label: Role
-    list: ~/plugins/october/test/models/role/columns.yaml
-    form: ~/plugins/october/test/models/role/fields.yaml
     view:
+        list: ~/plugins/october/test/models/role/columns.yaml
         showSearch: true
+    manage:
+        list: ~/plugins/october/test/models/role/columns.yaml
+        form: ~/plugins/october/test/models/role/fields.yaml
+
+roles_pivot:
+    label: Role
+    view:
+        list: ~/plugins/october/test/models/userrolepivot/columns.yaml
+        showSearch: true
+    manage:
+        list: ~/plugins/october/test/models/role/columns.yaml
+    pivot:
+        form: ~/plugins/october/test/models/userrolepivot/fields.yaml
+
+roles_pivot_model:
+    label: Role
+    view:
+        list: ~/plugins/october/test/models/userrolepivot/columns.yaml
+        showSearch: true
+    manage:
+        list: ~/plugins/october/test/models/role/columns.yaml
+    pivot:
+        form: ~/plugins/october/test/models/userrolepivot/fields.yaml

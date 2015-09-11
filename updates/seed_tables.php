@@ -59,7 +59,7 @@ class SeedAllTables extends Seeder
         Role::create(['name' => 'Caring Technical Officer', 'description' => 'You can call this person CTO for short']);
 
         $user = User::first();
-        $user->roles()->add($role);
+        $user->roles()->add($role, null, ['clearance_level' => 'Top Secret', 'is_executive' => true]);
 
         /*
          * Test 4: Countries

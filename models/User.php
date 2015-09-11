@@ -37,8 +37,28 @@ class User extends Model
      * @var array Relations
      */
     public $belongsToMany = [
-        'roles' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles'],
-        'roles_count' => ['October\Test\Models\Role', 'table' => 'october_test_users_roles', 'count' => true]
+        'roles' => [
+            'October\Test\Models\Role',
+            'table' => 'october_test_users_roles'
+        ],
+        'roles_count' => [
+            'October\Test\Models\Role',
+            'table' => 'october_test_users_roles',
+            'count' => true
+        ],
+        'roles_pivot' => [
+            'October\Test\Models\Role',
+            'table' => 'october_test_users_roles',
+            'pivot' => ['clearance_level', 'is_executive'],
+            'timestamps' => true
+        ],
+        'roles_pivot_model' => [
+            'October\Test\Models\Role',
+            'table' => 'october_test_users_roles',
+            'pivot' => ['clearance_level', 'is_executive'],
+            'timestamps' => true,
+            'pivotModel' => 'October\Test\Models\UserRolePivot',
+        ],
     ];
 
     public $attachOne = [

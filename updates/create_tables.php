@@ -94,6 +94,9 @@ class CreateTables extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('role_id')->unsigned();
             $table->primary(['user_id', 'role_id']);
+            $table->string('clearance_level')->nullable();
+            $table->boolean('is_executive')->default(false);
+            $table->timestamps();
         });
 
         /*
