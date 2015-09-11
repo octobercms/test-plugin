@@ -59,6 +59,8 @@ Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
 
 - HasOne relations acting as HasMany will break the list completely.
 
+- Pivot model with required field doesn't show the asterisk on the form.
+
 ## Incorporating functional tests
 
 - All relation controllers
