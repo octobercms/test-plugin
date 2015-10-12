@@ -12,15 +12,7 @@
         <ul>
             <li><a href="<?= Backend::url($uriPrefix.'/recordfinder') ?>">Record Finder</a></li>
             <li><a href="<?= Backend::url($uriPrefix.'/relationcontroller') ?>">Relation Controller</a></li>
-            <li>
-                <?php if ($formModel->phone): ?>
-                    <a href="<?= Backend::url($uriPrefix.'/proxyfields') ?>">
-                        Proxy Fields
-                    </a>
-                <?php else: ?>
-                    Proxy Fields (<em>No phone relation found</em>)
-                <?php endif ?>
-            </li>
+            <li><a href="<?= Backend::url($uriPrefix.'/proxyfields') ?>">Proxy Fields</a></li>
         </ul>
     </div>
 </div>
