@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use October\Test\Models\Phone;
 
 /**
  * People Back-end Controller
@@ -23,5 +24,15 @@ class People extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'people');
+    }
+
+    public function formExtendModel($model)
+    {
+        //init proxy field model if we are creating and the context is proxyfields.
+        if ($this->action == 'create' && $this->asExtension('FormController')->formGetContext() == 'proxyfields') {
+            $model->phone = new Phone();
+        }
+
+        return $model;
     }
 }
