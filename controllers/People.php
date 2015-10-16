@@ -28,9 +28,12 @@ class People extends Controller
 
     public function formExtendModel($model)
     {
-        //init proxy field model if we are creating and the context is proxyfields.
-        if ($this->action == 'create' && $this->asExtension('FormController')->formGetContext() == 'proxyfields') {
-            $model->phone = new Phone();
+        /*
+         * Init proxy field model if we are creating the model
+         * and the context is proxy fields.
+         */
+        if ($this->action == 'create' && $this->formGetContext() == 'proxyfields') {
+            $model->phone = new Phone;
         }
 
         return $model;
