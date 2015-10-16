@@ -74,12 +74,15 @@ tabs:
             label: Born (Date Time)
             type: datepicker
             tab: Birthday
+            minDate: January 01 2015 11:11
 
         birthdate:
             label: Born (Date)
             type: datepicker
             mode: date
             tab: Birthday
+            minDate: 1984-04-12
+            maxDate: 2014-04-23
 
         birthtime:
             label: Born (Time)
