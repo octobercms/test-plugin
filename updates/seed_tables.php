@@ -20,12 +20,12 @@ class SeedAllTables extends Seeder
          * Test 1: People
          */
 
-        $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already']);
+        $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'favcolor' => '#5fb6f5']);
         $person->phone = Phone::create(['name' => 'Mobile', 'number' => '(360) 733-2263']);
         $person->alt_phone = Phone::create(['name' => 'Home', 'number' => '(360) 867-3563']);
         $person->save();
 
-        Person::create(['name' => 'Baby Herman', 'bio' => 'I have nothing at all']);
+        Person::create(['name' => 'Baby Herman', 'bio' => 'I have nothing at all', 'favcolor' => '#990000']);
         Phone::create(['name' => 'Work', 'number' => '(360) 595-2146']);
         Phone::create(['name' => 'Fax', 'number' => '(360) 595-2146']);
         Phone::create(['name' => 'Inactive', 'number' => '(xxx) xxx-xxx', 'is_active' => false]);

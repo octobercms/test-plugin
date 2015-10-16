@@ -89,3 +89,11 @@ tabs:
             type: datepicker
             mode: time
             tab: Birthday
+            span: auto
+
+        favcolor:
+            label: Favorite color
+            type: colorpicker
+            default: "#27ae60"
+            tab: Birthday
+            span: auto

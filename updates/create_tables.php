@@ -21,6 +21,7 @@ class CreateTables extends Migration
             $table->datetime('birth')->nullable();
             $table->time('birthtime')->nullable();
             $table->date('birthdate')->nullable();
+            $table->string('favcolor')->nullable();
             $table->timestamps();
         });
 
