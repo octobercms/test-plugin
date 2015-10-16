@@ -8,6 +8,7 @@ use October\Test\Models\Person;
 use October\Test\Models\Review;
 use October\Test\Models\Plugin;
 use October\Test\Models\Theme;
+use October\Test\Models\Country;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -64,6 +65,13 @@ class SeedAllTables extends Seeder
         /*
          * Test 4: Countries
          */
+        Country::create([
+            'name' => 'Petoria',
+            'code' => 'petoria',
+            'language' => 'eh',
+            'currency' => 'btc',
+            'is_active' => false
+        ]);
 
         /*
          * Test 5: Reviews

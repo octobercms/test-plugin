@@ -10,3 +10,7 @@ columns:
     code:
         label: Code
         searchable: true
+
+    is_active:
+        label: Active
+        type: switch
