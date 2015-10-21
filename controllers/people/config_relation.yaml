@@ -6,3 +6,11 @@ phone:
     label: Phone
     form: ~/plugins/october/test/models/phone/fields.yaml
     list: ~/plugins/october/test/models/phone/columns.yaml
+
+notes:
+    label: Notes
+    view:
+        list: $/october/test/models/note/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/october/test/models/note/fields.yaml

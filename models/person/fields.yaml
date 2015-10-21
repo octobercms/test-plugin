@@ -3,7 +3,7 @@
 # ===================================
 #
 #  These fields explore the use of context; the "phone" field is rendered in
-#  different ways depending on the context used by the form, passed in by 
+#  different ways depending on the context used by the form, passed in by
 #  the URL.
 # ===================================
 
@@ -97,3 +97,8 @@ tabs:
             default: "#27ae60"
             tab: Birthday
             span: auto
+
+        notes:
+            label: Notes
+            type: partial
+            tab: Notes
