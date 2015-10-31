@@ -5,3 +5,6 @@
 1.0.3:
   - Seed tables
   - seed_tables.php
+1.0.4:
+  - Add notes
+  - create_notes_table.php

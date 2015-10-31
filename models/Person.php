@@ -40,4 +40,8 @@ class Person extends Model
         'alt_phone' => ['October\Test\Models\Phone', 'key' => 'person_id']
     ];
 
+    public $hasMany = [
+        'notes' => ['October\Test\Models\Note', 'key' => 'person_id'],
+    ];
+
 }

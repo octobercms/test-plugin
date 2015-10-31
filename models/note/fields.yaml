@@ -1,0 +1,15 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Title
+
+    body:
+        label: Body
+        type: textarea
+
+    id:
+        label: ID
+        disabled: true
