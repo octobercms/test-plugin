@@ -10,7 +10,10 @@
 fields:
     name:
         label: Name
-        commentAbove: Text field, required.
+        commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
+
+    # Testing form field with no config
+    preferred_name:
 
     # Record Finder (Default)
     phone:

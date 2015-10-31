@@ -17,6 +17,7 @@ class CreateTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('preferred_name')->nullable();
             $table->string('bio')->nullable();
             $table->datetime('birth')->nullable();
             $table->time('birthtime')->nullable();
