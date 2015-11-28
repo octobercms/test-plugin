@@ -22,6 +22,7 @@ fields:
         comment: Record finder field.
         type: recordfinder
         list: ~/plugins/october/test/models/phone/columns.yaml
+        title: Please pick a phone
         prompt: Click the %s to find an alternative phone
         nameFrom: name
         descriptionFrom: number
