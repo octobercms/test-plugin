@@ -4,5 +4,5 @@
 
 columns:
     title:
-        label: Title
+        label: Channel
         searchable: true

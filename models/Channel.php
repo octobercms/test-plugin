@@ -31,11 +31,22 @@ class Channel extends Model
     public $hasOne = [];
     public $hasMany = [];
     public $belongsTo = [];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        'related' => [
+            'October\Test\Models\Channel',
+            'table' => 'october_test_related_channels',
+            'key' => 'related_id'
+        ]
+    ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    public function getCustomTitleAttribute()
+    {
+        return $this->title.' (#'.$this->id.')';
+    }
 
 }

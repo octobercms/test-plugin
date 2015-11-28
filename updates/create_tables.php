@@ -193,6 +193,15 @@ class CreateTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('october_test_related_channels', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->integer('channel_id')->unsigned();
+            $table->integer('related_id')->unsigned();
+            $table->primary(['channel_id', 'related_id']);
+            $table->timestamps();
+        });
+
     }
 
     public function down()
@@ -212,6 +221,7 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_members');
         Schema::dropIfExists('october_test_categories');
         Schema::dropIfExists('october_test_channels');
+        Schema::dropIfExists('october_test_related_channels');
     }
 
 }

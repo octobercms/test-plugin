@@ -4,5 +4,5 @@
 
 columns:
     name:
-        label: Name
+        label: Member
         searchable: true
