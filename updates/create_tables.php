@@ -154,6 +154,45 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->timestamps();
         });
+
+        /*
+         * Test 6: Trees
+         */
+
+        Schema::create('october_test_members', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->string('name')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_categories', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('sort_order')->nullable();
+            $table->boolean('is_visible')->default(true);
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_channels', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('nest_left')->nullable();
+            $table->integer('nest_right')->nullable();
+            $table->integer('nest_depth')->nullable();
+            $table->timestamps();
+        });
+
     }
 
     public function down()
@@ -170,6 +209,9 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_themes');
         Schema::dropIfExists('october_test_users');
         Schema::dropIfExists('october_test_users_roles');
+        Schema::dropIfExists('october_test_members');
+        Schema::dropIfExists('october_test_categories');
+        Schema::dropIfExists('october_test_channels');
     }
 
 }

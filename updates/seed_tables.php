@@ -9,6 +9,9 @@ use October\Test\Models\Review;
 use October\Test\Models\Plugin;
 use October\Test\Models\Theme;
 use October\Test\Models\Country;
+use October\Test\Models\Channel;
+use October\Test\Models\Member;
+use October\Test\Models\Category;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -84,6 +87,42 @@ class SeedAllTables extends Seeder
 
         Plugin::create(['name' => 'Angular', 'code' => 'angular', 'content' => 'An AngularJS plugin.']);
 
+        /*
+         * Test 6: Trees
+         */
+
+        $fourUpManager = Member::create(['name' => 'Khaleesi']);
+        $threeUpManager = Member::create(['name' => 'Ian', 'parent_id' => $fourUpManager->id]);
+        $twoUpManager = Member::create(['name' => 'Vangelis', 'parent_id' => $threeUpManager->id]);
+        $oneUpManager = Member::create(['name' => 'Joe', 'parent_id' => $twoUpManager->id]);
+        Member::create(['name' => 'Johnny', 'parent_id' => $oneUpManager->id]);
+        Member::create(['name' => 'Sally', 'parent_id' => $oneUpManager->id]);
+        Member::create(['name' => 'Rick', 'parent_id' => $oneUpManager->id]);
+
+        $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel',]);
+        $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Disccusion about the season of falling leaves.']);
+        $autumn->children()->create(['title' => 'September', 'description' => 'The start of the fall season.']);
+        $october = $autumn->children()->create(['title' => 'October', 'description' => 'The middle of the fall season.']);
+        $autumn->children()->create(['title' => 'November', 'description' => 'The end of the fall season.']);
+        $orange->children()->create(['title' => 'Summer Breeze', 'description' => 'Disccusion about the wind at the ocean.']);
+
+        $green = Channel::create(['title' => 'Channel Green', 'description' => 'A root level forum channel']);
+        $green->children()->create(['title' => 'Winter Snow', 'description' => 'Disccusion about the frosty snow flakes.']);
+        $green->children()->create(['title' => 'Spring Trees', 'description' => 'Disccusion about the blooming gardens.']);
+
+        $parent = Category::create(['name' => 'Web', 'description' => 'Websites & Web Applications']);
+        Category::create(['name' => 'Create a website', 'parent_id' => $parent->id]);
+        Category::create(['name' => 'Convert a template to a website', 'parent_id' => $parent->id]);
+
+        $parent = Category::create(['name' => 'Desktop', 'description' => 'Desktop Software']);
+        Category::create(['name' => 'Write software for Windows', 'parent_id' => $parent->id]);
+        Category::create(['name' => 'Write software for Mac', 'parent_id' => $parent->id]);
+        Category::create(['name' => 'Write software for Linux', 'parent_id' => $parent->id]);
+
+        $parent = Category::create(['name' => 'Mobile', 'description' => 'Mobile Apps']);
+        Category::create(['name' => 'Write software for iPhone / iPad', 'parent_id' => $parent->id]);
+        Category::create(['name' => 'Write software for Android', 'parent_id' => $parent->id]);
+        Category::create(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
     }
 
 }

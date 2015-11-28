@@ -45,6 +45,14 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
 
+### Test 6: Trees
+
+A Member uses a simple tree (parent-child) structure.
+
+A Category uses a simple tree structure, with sorting.
+
+A Channel uses a nested set tree structure.
+
 ## Tests that need attention
 
 - An attach relation when required inside a tab does not make the tab active.
