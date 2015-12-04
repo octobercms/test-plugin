@@ -3,6 +3,15 @@
 # ===================================
 
 columns:
+    google_button:
+        label: Action
+        type: partial
+        sortable: false
+        clickable: false
+        cssClass: column-button
+        valueFrom: id
+        width: 150px
+
     name:
         label: Name
         searchable: true

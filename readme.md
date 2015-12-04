@@ -30,6 +30,7 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. Relation Controller (Standard, Pivot data, Pivot model)
 1. Image Uploaders (Single, Multi, File, Image)
 1. Number field
+1. No click list column
 
 ### Test 4: Countries
 
