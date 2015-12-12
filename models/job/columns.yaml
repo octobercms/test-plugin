@@ -13,4 +13,4 @@ columns:
     user:
         label: user
         relation: user
-        select: name
+        select: username
