@@ -15,7 +15,9 @@ class Trees extends Controller
     public $listConfig = [
         'members' => 'config_members_list.yaml',
         'categories' => 'config_categories_list.yaml',
-        'channels' => 'config_channels_list.yaml'
+        'channels' => 'config_channels_list.yaml',
+        'relations' => 'config_relations_list.yaml',
+        'relationsTree' => 'config_relationsTree_list.yaml',
     ];
 
     public function __construct()
