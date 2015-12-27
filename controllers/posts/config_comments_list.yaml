@@ -13,7 +13,7 @@ title: Manage Comments
 
 # Link URL for each record
 # recordUrl: october/test/posts/update/:id
-recordOnClick: $.popup({ handler: 'onUpdateForm', extraData: { comment_mode: 1, record_id: ':id' } })
+recordOnClick: "$.popup({ handler: 'onUpdateForm', extraData: { comment_mode: 1, record_id: ':id' } })"
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
