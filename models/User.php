@@ -39,7 +39,8 @@ class User extends Model
     public $belongsToMany = [
         'roles' => [
             'October\Test\Models\Role',
-            'table' => 'october_test_users_roles'
+            'table' => 'october_test_users_roles',
+            'timestamps' => true
         ],
         'roles_count' => [
             'October\Test\Models\Role',
