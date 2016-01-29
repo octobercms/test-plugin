@@ -1,0 +1,60 @@
+tabs:
+    fields:
+        alert_subject:
+            label: Alert subject
+            type: text
+
+        client[enable_alerts]:
+            label: Client alerts
+            type: switch
+            span: left
+        admin.enable_alerts:
+            label: Admin alerts
+            type: switch
+            span: right
+
+        client[name]:
+            label: Recipient name
+            type: text
+            span: left
+            trigger:
+                action: show
+                condition: checked
+                field: client[enable_alerts]
+        admin.name:
+            label: Recipient name
+            type: text
+            span: right
+            trigger:
+                action: show
+                condition: checked
+                field: admin.enable_alerts
+
+        client[email]:
+            label: Email address
+            type: text
+            span: left
+            trigger:
+                action: show
+                condition: checked
+                field: client[enable_alerts]
+        admin.email:
+            label: Email address
+            type: text
+            span: right
+            trigger:
+                action: show
+                condition: checked
+                field: admin.enable_alerts
+
+        enable_debug:
+            label: Debug info
+            type: switch
+        debug:
+            label: Notes
+            type: partial
+            path: $/october/test/models/alertsettings/_notes_field.htm
+            trigger:
+                action: show
+                condition: checked
+                field: enable_debug

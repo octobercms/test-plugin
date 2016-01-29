@@ -8,7 +8,6 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -69,4 +68,17 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerSettings()
+    {
+        return [
+            'playground' => [
+                'label' => 'Alerts',
+                'category' => 'Playground',
+                'description' => 'Configure alerts for clients and admins',
+                'icon' => 'icon-bullhorn',
+                'class' => 'October\Test\Models\AlertSettings',
+                'order' => 100,
+            ]
+        ];
+    }
 }
