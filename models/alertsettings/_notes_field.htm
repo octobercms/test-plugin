@@ -1,0 +1,19 @@
+<?php use October\Test\Models\AlertSettings;
+
+$conf = AlertSettings::instance();
+?>
+
+<pre>
+Subject:        <?php var_dump($conf->alert_subject); ?>
+
+Client Enabled: <?php var_dump($conf->client['enable_alerts']); ?>
+Client Name:    <?php var_dump($conf->client['name']); ?>
+Client Email:   <?php var_dump($conf->client['email']); ?>
+
+Admin Enabled:  <?php var_dump($conf->admin['enable_alerts']); ?>
+Admin Name:     <?php var_dump($conf->admin['name']); ?>
+Admin Email:    <?php var_dump($conf->admin['email']); ?>
+
+Config as array:
+<?php print_r($conf->toArray());?>
+</pre>
