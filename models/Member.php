@@ -30,7 +30,9 @@ class Member extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'user' => 'October\Test\Models\User'
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

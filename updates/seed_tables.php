@@ -95,9 +95,9 @@ class SeedAllTables extends Seeder
         $threeUpManager = Member::create(['name' => 'Ian', 'parent_id' => $fourUpManager->id]);
         $twoUpManager = Member::create(['name' => 'Vangelis', 'parent_id' => $threeUpManager->id]);
         $oneUpManager = Member::create(['name' => 'Joe', 'parent_id' => $twoUpManager->id]);
-        Member::create(['name' => 'Johnny', 'parent_id' => $oneUpManager->id]);
-        Member::create(['name' => 'Sally', 'parent_id' => $oneUpManager->id]);
-        Member::create(['name' => 'Rick', 'parent_id' => $oneUpManager->id]);
+        Member::create(['name' => 'Johnny', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        Member::create(['name' => 'Sally', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        Member::create(['name' => 'Rick', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
 
         $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel',]);
         $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Disccusion about the season of falling leaves.']);
