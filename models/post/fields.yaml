@@ -6,7 +6,8 @@ fields:
 
     name:
         label: Name
-        commentAbove: Text field, required.
+        commentAbove: Text field, <a href="#">required</a>.
+        commentHtml: true
 
     comments:
         label: Comments

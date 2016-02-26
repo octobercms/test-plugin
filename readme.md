@@ -22,6 +22,7 @@ A Post "Has Many" Comments (One to many relationship)
 1. Popup-based Form fields
 1. Rich Editor
 1. Dual Form Controller and List Controller
+1. HTML in comments
 
 ### Test 3: Users
 
