@@ -186,6 +186,7 @@ class CreateTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->integer('nest_left')->nullable();

@@ -6,3 +6,9 @@ columns:
     title:
         label: Channel
         searchable: true
+
+    user:
+        label: user
+        relation: user
+        select: username
+        default: none

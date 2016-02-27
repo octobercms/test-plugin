@@ -99,14 +99,14 @@ class SeedAllTables extends Seeder
         Member::create(['name' => 'Sally', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
         Member::create(['name' => 'Rick', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
 
-        $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel',]);
+        $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
         $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Disccusion about the season of falling leaves.']);
         $autumn->children()->create(['title' => 'September', 'description' => 'The start of the fall season.']);
         $october = $autumn->children()->create(['title' => 'October', 'description' => 'The middle of the fall season.']);
         $autumn->children()->create(['title' => 'November', 'description' => 'The end of the fall season.']);
         $orange->children()->create(['title' => 'Summer Breeze', 'description' => 'Disccusion about the wind at the ocean.']);
 
-        $green = Channel::create(['title' => 'Channel Green', 'description' => 'A root level forum channel']);
+        $green = Channel::create(['title' => 'Channel Green', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
         $green->children()->create(['title' => 'Winter Snow', 'description' => 'Disccusion about the frosty snow flakes.']);
         $green->children()->create(['title' => 'Spring Trees', 'description' => 'Disccusion about the blooming gardens.']);
 
