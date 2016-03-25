@@ -32,7 +32,7 @@ class People extends Controller
          * Init proxy field model if we are creating the model
          * and the context is proxy fields.
          */
-        if ($this->action == 'create' && $this->formGetContext() == 'proxyfields') {
+        if ($this->formGetContext() === 'proxyfields' && !$model->phone) {
             $model->phone = new Phone;
         }
 
