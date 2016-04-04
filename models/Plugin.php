@@ -29,4 +29,8 @@ class Plugin extends Model
     public $morphMany = [
         'reviews' => ['October\Test\Models\Review', 'name' => 'product'],
     ];
+
+    public $morphOne = [
+        'meta' => ['October\Test\Models\Meta', 'name' => 'taggable'],
+    ];
 }

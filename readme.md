@@ -45,7 +45,10 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 ### Test 5: Reviews
 
-Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationship)
+Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationships)
+Meta "Morph To" Plugins and Themes as Product (Polymorphic relationships)
+Plugins and Themes "Morph Many" Reviews
+Plugins and Themes "Morph One" Meta
 
 ### Test 6: Trees
 

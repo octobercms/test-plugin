@@ -20,6 +20,17 @@ class Plugins extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.Test', 'test', 'plugins');
+        BackendMenu::setContext('October.Test', 'test', 'reviews');
+    }
+
+    public function formExtendFields($form)
+    {
+        $config = $this->makeConfig('$\october\test\models\meta\fields.yaml');
+
+        foreach ($config->fields as $field => $options) {
+            $form->addTabFields([
+                'meta['.$field.']' => $options + ['tab' => 'Meta']
+            ]);
+        }
     }
 }

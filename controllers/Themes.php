@@ -20,6 +20,6 @@ class Themes extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.Test', 'test', 'themes');
+        BackendMenu::setContext('October.Test', 'test', 'reviews');
     }
 }

@@ -123,6 +123,21 @@ class CreateTables extends Migration
          * Test 5: Reviews
          */
 
+        Schema::create('october_test_meta', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->integer('taggable_id')->unsigned()->index();
+            $table->string('taggable_type');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('canonical_url')->nullable();
+            $table->string('redirect_url')->nullable();
+            $table->string('robot_index')->nullable();
+            $table->string('robot_follow')->nullable();
+        });
+
         Schema::create('october_test_reviews', function($table)
         {
             $table->engine = 'InnoDB';
@@ -131,7 +146,6 @@ class CreateTables extends Migration
             $table->integer('product_id')->unsigned()->nullable();
             $table->text('content')->nullable();
             $table->boolean('is_positive')->nullable();
-            $table->index(['product_id', 'product_type']);
             $table->timestamps();
         });
 
@@ -224,6 +238,7 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_categories');
         Schema::dropIfExists('october_test_channels');
         Schema::dropIfExists('october_test_related_channels');
+        Schema::dropIfExists('october_test_meta');
     }
 
 }
