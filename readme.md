@@ -32,6 +32,7 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. Image Uploaders (Single, Multi, File, Image)
 1. Number field
 1. No click list column
+1. Custom File model
 
 ### Test 4: Countries
 

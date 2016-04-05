@@ -104,6 +104,16 @@ secondaryTabs:
             mode: file
             tab: Single File
 
+        custom_file:
+            label: Custom file
+            span: auto
+            type: fileupload
+            commentAbove: This file will be uploaded to storage/temp/test-plugin-custom-files.
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+            tab: Single Image
+
         files:
             label: Files
             span: auto

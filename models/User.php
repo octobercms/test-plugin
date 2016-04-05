@@ -67,6 +67,7 @@ class User extends Model
         'photo_secure' => ['System\Models\File', 'public' => false],
         'certificate' => ['System\Models\File'],
         'certificate_secure' => ['System\Models\File', 'public' => false],
+        'custom_file' => 'October\Test\Models\CustomFile'
     ];
 
     public $attachMany = [
