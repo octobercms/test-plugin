@@ -127,8 +127,8 @@ class CreateTables extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->integer('taggable_id')->unsigned()->index();
-            $table->string('taggable_type');
+            $table->integer('taggable_id')->unsigned()->index()->nullable();
+            $table->string('taggable_type')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();

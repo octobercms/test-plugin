@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use October\Test\Models\Meta;
 
 /**
  * Plugins Back-end Controller
@@ -32,5 +33,14 @@ class Plugins extends Controller
                 'meta['.$field.']' => $options + ['tab' => 'Meta']
             ]);
         }
+    }
+
+    public function formExtendModel($model)
+    {
+        if (!$model->meta) {
+            $model->meta = new Meta;
+        }
+
+        return $model;
     }
 }
