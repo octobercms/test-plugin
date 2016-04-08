@@ -54,3 +54,23 @@ tabs:
             type: richeditor
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
+            
+        repeater:
+          tab: Repeater
+          type: repeater
+          form:
+            fields:
+                title:
+                    placeholder: Title
+                    label: Title
+                    type: text
+                child_repeater:
+                  type: repeater
+                  promt: add child
+                  form:
+                    fields:
+                         title:
+                            placeholder: Child
+                            label: Child
+                            type: text
+
