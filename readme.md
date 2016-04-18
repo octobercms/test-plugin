@@ -13,6 +13,7 @@ A Person "Has One" Phone (One to one relationship)
 1. Proxy Form fields
 1. Date pickers
 1. Context-based Form fields
+1. List search policies `@todo`
 
 ### Test 2: Posts
 
@@ -23,6 +24,7 @@ A Post "Has Many" Comments (One to many relationship)
 1. Rich Editor
 1. Dual Form Controller and List Controller
 1. HTML in comments
+1. Custom Delete workflow
 
 ### Test 3: Users
 

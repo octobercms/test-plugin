@@ -43,6 +43,28 @@ class Posts extends Controller
     }
 
     //
+    // Custom Delete workflow
+    //
+
+    public function onLoadDeleteReasonForm($recordId = null)
+    {
+        return $this->makePartial('delete_reason_form');
+    }
+
+    public function onDeleteWithReason($recordId = null)
+    {
+        $result = $this->asExtension('FormController')->update_onDelete($recordId);
+
+        $model = $this->formGetModel();
+
+        $reason = post('reason');
+
+        traceLog(sprintf('The post "%s" was deleted with reason "%s"', $model->name, $reason));
+
+        return $result;
+    }
+
+    //
     // Comment form
     //
 
