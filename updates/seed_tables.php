@@ -33,6 +33,11 @@ class SeedAllTables extends Seeder
         Phone::create(['name' => 'Fax', 'number' => '(360) 595-2146']);
         Phone::create(['name' => 'Inactive', 'number' => '(xxx) xxx-xxx', 'is_active' => false]);
 
+        Person::create(['name' => 'Jon Doe', 'bio' => 'I like turtles', 'favcolor' => '#111111']);
+        Person::create(['name' => 'John Smith', 'bio' => 'I like dolphins', 'favcolor' => '#222222']);
+        Person::create(['name' => 'Jon Smith', 'bio' => 'I like snakes', 'favcolor' => '#333333']);
+        Person::create(['name' => 'Mary Smith', 'bio' => 'I like fish', 'favcolor' => '#444444']);
+
         /*
          * Test 2: Posts
          */
