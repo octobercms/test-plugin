@@ -35,6 +35,7 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. Number field
 1. No click list column
 1. Custom File model
+1. Form field partial
 
 ### Test 4: Countries
 

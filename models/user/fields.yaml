@@ -6,6 +6,8 @@ fields:
     username:
         label: Username
         span: auto
+        type: partial
+        path: field_uppercase_name
 
     security_code:
         label: Security Code
