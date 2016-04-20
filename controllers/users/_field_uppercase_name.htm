@@ -13,7 +13,7 @@
     />
 
     <script>
-        // Convery every character to uppercase, except backspace and delete
+        // Convert every character to uppercase, except backspace and delete
         $('#<?= $field->getId() ?>').on('keyup', function(event) {
             if (event.keyCode != 8 && event.keyCode != 46) {
                 $(this).val($(this).val().toUpperCase());

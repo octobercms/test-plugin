@@ -26,6 +26,7 @@ fields:
         prompt: Click the %s to find an alternative phone
         nameFrom: name
         descriptionFrom: number
+        searchScope: customSearch
 
     # Relation Controller
     phone@relationcontroller:

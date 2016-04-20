@@ -8,11 +8,13 @@ fields:
         span: auto
         type: partial
         path: field_uppercase_name
+        comment: This username should always appear as uppercase.
 
     security_code:
         label: Security Code
         span: auto
         type: number
+        comment: This code should appear as a number.
 
 tabs:
     fields:
