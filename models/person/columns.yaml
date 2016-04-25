@@ -19,3 +19,18 @@ columns:
         label: Phone
         relation: phone
         select: number
+
+    birth:
+        label: Born
+        type: timetense
+
+    birthdate:
+        label: Birth day
+        type: date
+
+    birthtime:
+        label: Birth time
+
+    created_at:
+        label: Created
+        type: timetense

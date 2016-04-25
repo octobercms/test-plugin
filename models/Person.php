@@ -26,6 +26,11 @@ class Person extends Model
     protected $fillable = [];
 
     /**
+     * @var array Dates
+     */
+    public $dates = ['birth', 'birthdate'];
+
+    /**
      * @var array Rules
      */
     public $rules = [
