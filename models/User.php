@@ -31,6 +31,7 @@ class User extends Model
     public $rules = [
         'photo' => 'required',
         'portfolio' => 'required',
+        'roles' => 'required',
     ];
 
     /**
