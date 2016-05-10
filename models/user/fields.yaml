@@ -28,14 +28,14 @@ tabs:
             tab: Standard
 
         roles_pivot:
-            context: [create, update, relationcontroller]
+            context: [update, relationcontroller]
             label: Roles
             commentAbove: RelationController with pivot data.
             type: partial
             tab: Pivot data
 
         roles_pivot_model:
-            context: [create, update, relationcontroller]
+            context: [update, relationcontroller]
             label: Roles
             commentAbove: RelationController using a custom pivot model with validation.
             type: partial
