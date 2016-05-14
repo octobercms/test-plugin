@@ -25,6 +25,7 @@ A Post "Has Many" Comments (One to many relationship)
 1. Dual Form Controller and List Controller
 1. HTML in comments
 1. Custom Delete workflow
+1. Repeater fields in comments popup
 
 ### Test 3: Users
 

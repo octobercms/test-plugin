@@ -26,6 +26,11 @@ class Comment extends Model
     protected $fillable = [];
 
     /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['breakdown'];
+
+    /**
      * @var array Rules
      */
     public $rules = [

@@ -55,22 +55,24 @@ tabs:
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
             
-        repeater:
-          tab: Repeater
-          type: repeater
-          form:
-            fields:
-                title:
-                    placeholder: Title
-                    label: Title
-                    type: text
-                child_repeater:
-                  type: repeater
-                  promt: add child
-                  form:
-                    fields:
-                         title:
-                            placeholder: Child
-                            label: Child
-                            type: text
+        breakdown:
+            tab: Breakdown
+            type: repeater
+            prompt: Add a new point summary
+            form:
+                fields:
+                    point_summary:
+                        label: Point
+                        placeholder: What points are you trying to make
+                        type: text
+
+                    point_evidence:
+                        type: repeater
+                        prompt: Add evidence to the point
+                        form:
+                            fields:
+                                 title:
+                                    placeholder: Provide evidence to support that point
+                                    label: Evidence
+                                    type: text
 
