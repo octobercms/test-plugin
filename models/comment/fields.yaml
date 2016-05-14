@@ -10,7 +10,14 @@ fields:
         nameFrom: name
         emptyOption: -- Select Post --
         comment: This Comment belongs to the Post selected above.
-        context: ['create', 'update']
+        context: ['create']
+
+    post@update:
+        type: relation
+        nameFrom: name
+        emptyOption: -- Select Post --
+        comment: This Comment belongs to the Post selected above.
+        disabled: true
 
     name:
         label: Name
