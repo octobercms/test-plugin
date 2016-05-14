@@ -10,8 +10,10 @@ fields:
         nameFrom: name
         emptyOption: -- Select Post --
         comment: This Comment belongs to the Post selected above.
-        context: ['create']
+        context: create
 
+    # Comment cannot be moved to another post this way,
+    # make sure the outcome does not empty the value
     post@update:
         type: relation
         nameFrom: name
