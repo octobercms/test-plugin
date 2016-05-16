@@ -12,6 +12,7 @@ use October\Test\Models\Country;
 use October\Test\Models\Channel;
 use October\Test\Models\Member;
 use October\Test\Models\Category;
+use October\Test\Models\Attribute;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -128,6 +129,49 @@ class SeedAllTables extends Seeder
         Category::create(['name' => 'Write software for iPhone / iPad', 'parent_id' => $parent->id]);
         Category::create(['name' => 'Write software for Android', 'parent_id' => $parent->id]);
         Category::create(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
+
+        /*
+         * Test 7: Attributes
+         */
+
+        $generalStatus = [
+            ['name' => 'Draft', 'code' => 'draft'],
+            ['name' => 'Pending', 'code' => 'pending'],
+            ['name' => 'Rejected', 'code' => 'rejected'],
+            ['name' => 'Active', 'code' => 'active'],
+            ['name' => 'Suspended', 'code' => 'suspended'],
+            ['name' => 'Expired', 'code' => 'expired'],
+            ['name' => 'Cancelled', 'code' => 'cancelled'],
+            ['name' => 'Completed', 'code' => 'completed'],
+            ['name' => 'Closed', 'code' => 'closed'],
+        ];
+
+        $generalTypes = [
+            ['name' => 'Warrior', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'warrior'],
+            ['name' => 'Paladin', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'paladin'],
+            ['name' => 'Hunter', 'label' => 'Ranged Physical Damage Dealer', 'code' => 'hunter'],
+            ['name' => 'Rogue', 'label' => 'Melee Damage Dealer', 'code' => 'rogue'],
+            ['name' => 'Priest', 'label' => 'Healer, Ranged Magic Damage Dealer', 'code' => 'priest'],
+            ['name' => 'Death Knight', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'death-knight'],
+            ['name' => 'Shaman', 'label' => 'Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'shaman'],
+            ['name' => 'Mage', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'mage'],
+            ['name' => 'Warlock', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'warlock'],
+            ['name' => 'Monk', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'monk'],
+            ['name' => 'Druid', 'label' => 'Tank, Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'druid'],
+            ['name' => 'Demon Hunter', 'label' => 'Melee Damage Dealer, Tank', 'code' => 'demon-hunter'],
+        ];
+
+        $map = [
+            Attribute::GENERAL_STATUS => $generalStatus,
+            Attribute::GENERAL_TYPE => $generalTypes,
+        ];
+
+        foreach ($map as $type => $items) {
+            foreach ($items as $data) {
+                Attribute::create(array_merge($data, ['type' => $type]));
+            }
+        }
+
     }
 
 }

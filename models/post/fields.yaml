@@ -8,6 +8,31 @@ fields:
         label: Name
         commentAbove: Text field, <a href="#">required</a>.
         commentHtml: true
+        span: auto
+
+    # Relation form field (default)
+    status:
+        label: Status
+        type: relation
+        span: auto
+        commentAbove: Generic model filtered by relation conditions.
+        context: [create, update, relation]
+
+    # Relation Controller
+    status@relationcontroller:
+        label: Status
+        commentAbove: Generic model filtered by relation conditions.
+        type: partial
+
+    # Record finder
+    status@recordfinder:
+        label: Status
+        type: recordfinder
+        list: $/october/test/models/attribute/columns.yaml
+        nameFrom: name
+        descriptionFrom: label
+        span: auto
+        commentAbove: Generic model filtered by relation conditions.
 
     comments:
         label: Comments

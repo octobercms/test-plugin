@@ -9,3 +9,9 @@ comments:
     manage:
         context: relation
 
+status:
+    label: Status
+    form: ~/plugins/october/test/models/attribute/fields.yaml
+    list: ~/plugins/october/test/models/attribute/columns.yaml
+    view:
+        toolbarButtons: link|unlink

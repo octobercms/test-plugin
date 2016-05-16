@@ -37,6 +37,7 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. No click list column
 1. Custom File model
 1. Form field partial
+1. Tag List in relation mode
 
 ### Test 4: Countries
 
@@ -62,6 +63,13 @@ A Member uses a simple tree (parent-child) structure.
 A Category uses a simple tree structure, with sorting.
 
 A Channel uses a nested set tree structure.
+
+### Test 7: Attributes
+
+An Attribute is a single generic model with many relationship types.
+
+1. Posts "Belong To" (Attribute) Status (`general.status`).
+1. Countries "Belong To Many" (Attribute) Types (`general.types`).
 
 ## Tests that need attention
 

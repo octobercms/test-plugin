@@ -50,6 +50,7 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
+            $table->integer('status_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
 
@@ -118,6 +119,14 @@ class CreateTables extends Migration
             $table->string('currency')->nullable();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
+        });
+
+        Schema::create('october_test_countries_types', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->integer('country_id')->unsigned();
+            $table->integer('attribute_id')->unsigned();
+            $table->primary(['country_id', 'attribute_id']);
         });
 
         /*
@@ -219,6 +228,23 @@ class CreateTables extends Migration
             $table->timestamps();
         });
 
+        /*
+         * Test 7: Attributes
+         */
+
+        Schema::create('october_test_attributes', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('type')->nullable();
+            $table->string('name')->nullable();
+            $table->string('label')->nullable();
+            $table->string('code')->nullable();
+            $table->boolean('is_default')->default(false);
+            $table->integer('sort_order')->nullable();
+            $table->timestamps();
+        });
+
     }
 
     public function down()
@@ -240,6 +266,7 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_channels');
         Schema::dropIfExists('october_test_related_channels');
         Schema::dropIfExists('october_test_meta');
+        Schema::dropIfExists('october_test_attributes');
     }
 
 }

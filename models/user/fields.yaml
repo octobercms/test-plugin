@@ -48,6 +48,15 @@ tabs:
             commentAbove: Standard relation field, uses validation.
             tab: Standard
 
+        # Tag List relation mode
+        roles@taglist:
+            label: Roles
+            type: taglist
+            mode: relation
+            customTags: false
+            commentAbove: Tag list relation mode.
+            tab: Standard
+
 secondaryTabs:
     fields:
 

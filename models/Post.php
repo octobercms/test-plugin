@@ -40,4 +40,8 @@ class Post extends Model
         'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
     ];
 
+    public $belongsTo = [
+        'status' => ['October\Test\Models\Attribute', 'conditions' => "type = 'general.status'"],
+    ];
+
 }

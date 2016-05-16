@@ -18,12 +18,18 @@ fields:
 
     is_active:
         label: Active
-        comment: Check this box to hide some tabs
+        comment: Check this box to hide some tabs, using depends and trigger API.
         type: checkbox
         default: true
 
 tabs:
     fields:
+
+        types:
+            tab: Characters
+            label: Class types
+            commentAbove: Character known to spawn in this location
+            type: relation
 
         language:
             label: Language
@@ -64,5 +70,3 @@ tabs:
                                 subtitle:
                                     label: Suburb
                                     span: left
-
-
