@@ -6,7 +6,6 @@ scopes:
 
     roles:
         label: Role
-        scope: ApplyRoleFilter
+        scope: applyRoleFilter
         modelClass: October\Test\Models\Role
         nameFrom: name
-        conditions: role_id in (:filtered)

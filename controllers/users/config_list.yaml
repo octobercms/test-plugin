@@ -43,5 +43,5 @@ toolbar:
     search:
         prompt: backend::lang.list.search_prompt
 
-# Displays the list filter        
+# Displays the list filter
 filter: config_filter.yaml

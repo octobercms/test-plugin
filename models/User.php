@@ -77,9 +77,12 @@ class User extends Model
         'files' => ['System\Models\File'],
         'files_secure' => ['System\Models\File', 'public' => false],
     ];
-    
-    public function scopeApplyRoleFilter($query) {
-        return $query->join('october_test_users_roles', 'october_test_users.id', '=', 'october_test_users_roles.user_id');
+
+    public function scopeApplyRoleFilter($query, $filtered)
+    {
+        return $query->whereHas('roles', function($q) use ($filtered) {
+            $q->whereIn('id', $filtered);
+        });
     }
 
 }
