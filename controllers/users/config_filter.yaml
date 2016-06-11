@@ -1,0 +1,12 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    roles:
+        label: Role
+        scope: ApplyRoleFilter
+        modelClass: October\Test\Models\Role
+        nameFrom: name
+        conditions: role_id in (:filtered)
