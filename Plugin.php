@@ -8,7 +8,6 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -20,7 +19,8 @@ class Plugin extends PluginBase
             'name'        => 'October Tester',
             'description' => 'Used for testing the Relation Controller behavior and others.',
             'author'      => 'Alexey Bobkov, Samuel Georges',
-            'icon'        => 'icon-child'
+            'icon'        => 'icon-child',
+            'homepage'    => 'https://github.com/daftspunk/oc-test-plugin'
         ];
     }
 
@@ -68,5 +68,4 @@ class Plugin extends PluginBase
             ]
         ];
     }
-
 }
