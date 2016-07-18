@@ -253,6 +253,7 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_people');
         Schema::dropIfExists('october_test_phones');
         Schema::dropIfExists('october_test_countries');
+        Schema::dropIfExists('october_test_countries_types');
         Schema::dropIfExists('october_test_plugins');
         Schema::dropIfExists('october_test_reviews');
         Schema::dropIfExists('october_test_posts');
