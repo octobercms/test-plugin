@@ -27,7 +27,7 @@ class Country extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['pages', 'states'];
+    protected $jsonable = ['pages', 'states', 'locations'];
 
     /**
      * @var array Relations
@@ -64,4 +64,19 @@ class Country extends Model
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
+    public function getCountryOptions()
+    {
+        return self::lists('name', 'id');
+    }
+
+    public function getStateOptions($value, $data)
+    {
+        $countryId = isset($data->country)
+            ? $data->country
+            : key($this->getCountryOptions());
+
+        $country = self::find($countryId);
+
+        return collect($country->states)->lists('title');
+    }
 }

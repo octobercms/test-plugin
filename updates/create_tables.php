@@ -115,6 +115,7 @@ class CreateTables extends Migration
             $table->string('code')->nullable();
             $table->text('pages')->nullable();
             $table->text('states')->nullable();
+            $table->text('locations')->nullable();
             $table->string('language')->nullable();
             $table->string('currency')->nullable();
             $table->boolean('is_active')->nullable();

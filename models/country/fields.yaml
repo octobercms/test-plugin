@@ -70,3 +70,21 @@ tabs:
                                 subtitle:
                                     label: Suburb
                                     span: left
+
+        locations:
+            tab: Related
+            label: Locations
+            prompt: Add new location
+            span: full
+            type: repeater
+            form:
+                fields:
+                    country:
+                        label: Country
+                        span: auto
+                        type: dropdown
+                    state:
+                        label: State
+                        span: auto
+                        dependsOn: country
+                        type: dropdown

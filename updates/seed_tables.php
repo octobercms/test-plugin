@@ -79,7 +79,27 @@ class SeedAllTables extends Seeder
             'code' => 'petoria',
             'language' => 'eh',
             'currency' => 'btc',
-            'is_active' => false
+            'is_active' => false,
+            'states' => [
+                ['title' => 'Stewie'],
+                ['title' => 'Brian'],
+                ['title' => 'Chris'],
+                ['title' => 'Lois'],
+                ['title' => 'Meg'],
+            ]
+        ]);
+
+        Country::create([
+            'name' => 'Blueseed',
+            'code' => 'blueseed',
+            'language' => 'bs',
+            'currency' => 'btc',
+            'is_active' => false,
+            'states' => [
+                ['title' => 'Boaty'],
+                ['title' => 'McBoat'],
+                ['title' => 'Face'],
+            ]
         ]);
 
         /*
