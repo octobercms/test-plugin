@@ -80,6 +80,7 @@ tabs:
             type: datepicker
             tab: Birthday
             minDate: January 01 2015 11:11
+            comment: Date cannot be before January 2015.
 
         birthdate:
             label: Born (Date)
@@ -88,6 +89,7 @@ tabs:
             tab: Birthday
             minDate: 1984-04-12
             maxDate: 2014-04-23
+            comment: Date must be between April 1984 - 2014.
 
         birthtime:
             label: Born (Time)
