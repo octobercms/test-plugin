@@ -15,3 +15,13 @@ status:
     list: ~/plugins/october/test/models/attribute/columns.yaml
     view:
         toolbarButtons: link|unlink
+galleries:
+    label: Galleries
+    view:
+        list: $/october/test/models/gallery/columns.yaml
+        toolbarButtons: create|link|delete|unlink
+        defaultSort:
+            column: title
+            direction: asc
+    manage:
+        form: $/october/test/models/gallery/fields.yaml

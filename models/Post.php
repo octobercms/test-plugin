@@ -44,4 +44,8 @@ class Post extends Model
         'status' => ['October\Test\Models\Attribute', 'conditions' => "type = 'general.status'"],
     ];
 
+    public $morphToMany = [
+        'galleries' => ['October\Test\Models\Gallery', 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
+    ];
+
 }
