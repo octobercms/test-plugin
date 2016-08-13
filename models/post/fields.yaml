@@ -34,6 +34,12 @@ fields:
         span: auto
         commentAbove: Generic model filtered by relation conditions.
 
+    published_at:
+        label: Published date and time
+        type: datepicker
+        span: full
+        default: "tomorrow + 3 hours 15 minutes"
+
     comments:
         label: Comments
         commentAbove: RelationController used as a partial field type.

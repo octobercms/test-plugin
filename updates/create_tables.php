@@ -50,6 +50,8 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
+            $table->boolean('is_published')->default(false);
+            $table->timestamp('published_at')->nullable();
             $table->integer('status_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
