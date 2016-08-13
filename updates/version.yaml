@@ -5,3 +5,6 @@
 1.0.3:
   - Seed tables
   - seed_tables.php
+1.1.0:
+  - Add tables for venues and fragments
+  - venues_and_fragments.php

@@ -1,0 +1,6 @@
+title: Blog Posts
+list: $/october/test/models/venue/columns.yaml
+modelClass: October\Test\Models\Venue
+recordUrl: october/test/venues/update/:id
+toolbar:
+    buttons: list_toolbar

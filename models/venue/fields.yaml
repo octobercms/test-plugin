@@ -1,0 +1,25 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        comment: The name of the venue
+tabs:
+    fields:
+        cafeinfo[data]:
+            tab: Cafe
+            label: Cafe
+            type: richeditor
+            comment: HTML 'attached' from the database
+            size: giant
+        parkinginfo[data]:
+            tab: Parking
+            label: Parking
+            type: richeditor
+            comment: HTML 'attached' from the database
+            size: giant
+        additionalinfo[data]:
+            tab: Additional Info
+            label: Additional Info
+            type: richeditor
+            comment: HTML 'attached' from the database
+            size: giant
