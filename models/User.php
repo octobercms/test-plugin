@@ -41,7 +41,8 @@ class User extends Model
         'roles' => [
             'October\Test\Models\Role',
             'table' => 'october_test_users_roles',
-            'timestamps' => true
+            'timestamps' => true,
+            'order' => 'name'
         ],
         'roles_count' => [
             'October\Test\Models\Role',
