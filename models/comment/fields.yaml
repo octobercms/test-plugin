@@ -63,6 +63,18 @@ tabs:
             type: richeditor
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
+        
+        # Will not throw any errors as it doesn't call FormField->resolveModelAttribute
+        breakdown[static_feeling]:
+            label: Overall feeling (Static)
+            type: text
+            tab: Breakdown
+        
+        # Again, will not throw any errors as it doesn't call FormField->resolveModelAttribute
+        breakdown[attributes][static_feeling]:
+            label: Overall feeling (Static) (Sub element)
+            type: text
+            tab: Breakdown
             
         # Will throw "trying to get property of non-object"
         # because $model = $model->breakdown will be run, and then because attributes isn't the last element,
