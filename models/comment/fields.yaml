@@ -64,7 +64,22 @@ tabs:
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
             
-        breakdown:
+        # Will throw "trying to get property of non-object"
+        # because $model = $model->breakdown will be run, and then because attributes isn't the last element,
+        # the cycle will run again and $model = $model->attributes will be run (When $model is just an array element (empty on initialization, will contain array on select))
+        breakdown[attributes][feeling]:
+            label: Overall feeling
+            type: checkboxlist
+            tab: Breakdown
+        
+        # Will throw "get_class() expects parameter 1 to be object, string given"
+        # because breakdown['feeling'] is returned as the $model object, when it's just an array element (empty on initialization, will contain string on select)
+        breakdown[feeling]:
+            label: Overall feeling
+            type: dropdown
+            tab: Breakdown
+            
+        breakdown[points]:
             tab: Breakdown
             type: repeater
             prompt: Add a new point summary
