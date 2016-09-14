@@ -53,5 +53,13 @@ class Comment extends Model
     {
         return $query->where('is_visible', true);
     }
-
+    
+    public function getFeelingOptions()
+    {
+        return [
+            'sad'      => 'Sad',
+            'happy'    => 'Happy',
+            'trolling' => "Just trollin' y'all",
+        ];
+    }
 }
