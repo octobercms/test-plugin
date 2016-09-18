@@ -33,18 +33,15 @@ class Gallery extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
     public $morphedByMany = [
-        'posts' => ['October\Test\Models\Post', 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
+        'posts' => [
+            'October\Test\Models\Post',
+            'name' => 'entity',
+            'table' => 'october_test_gallery_entity'
+        ],
     ];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
+
     public $attachMany = [
-        'images' => ['System\Models\File', 'order' => 'sort_order'],
+        'images' => 'System\Models\File',
     ];
 }

@@ -6,11 +6,16 @@ fields:
 
     title:
         label: Title
-        commentAbove: Text field, <a href="#">required</a>.
-        commentHtml: true
-        span: auto
+        commentAbove: Text field.
+
 tabs:
     fields:
+
+        posts:
+            label: Posts
+            type: partial
+            tab: Posts
+
         images:
             label: Images
             type: fileupload
@@ -18,8 +23,3 @@ tabs:
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
             tab: Images
-        posts:
-            label: Posts
-            type: partial
-            conext: ['create', 'update']
-            tab: Posts

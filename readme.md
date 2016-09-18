@@ -51,30 +51,28 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 ### Test 5: Reviews
 
-Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationships)
-Meta "Morph To" Plugins and Themes as Product (Polymorphic relationships)
-Plugins and Themes "Morph Many" Reviews
-Plugins and Themes "Morph One" Meta
+1. Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationships)
+1. Meta "Morph To" Plugins and Themes as Product (Polymorphic relationships)
+1. Plugins and Themes "Morph Many" Reviews
+1. Plugins and Themes "Morph One" Meta
 
-### Test 6: Trees
+### Test 6: Galleries
 
-A Member uses a simple tree (parent-child) structure.
+1. Galleries are "Morphed By Many" Posts
+1. Posts "Morph To Many" Galleries
 
-A Category uses a simple tree structure, with sorting.
+### Test 7: Trees
 
-A Channel uses a nested set tree structure.
+1. A Member uses a simple tree (parent-child) structure.
+1. A Category uses a simple tree structure, with sorting.
+1. A Channel uses a nested set tree structure.
 
-### Test 7: Attributes
+### Test 8: Attributes
 
 An Attribute is a single generic model with many relationship types.
 
 1. Posts "Belong To" (Attribute) Status (`general.status`).
 1. Countries "Belong To Many" (Attribute) Types (`general.types`).
-
-### Test 8: Galleries
-
-1. Galleries "Morphed By Many" Posts
-2. Posts "Morph To Many" Galleries
 
 ## Tests that need attention
 

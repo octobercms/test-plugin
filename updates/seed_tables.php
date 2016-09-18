@@ -7,6 +7,7 @@ use October\Test\Models\Phone;
 use October\Test\Models\Person;
 use October\Test\Models\Review;
 use October\Test\Models\Plugin;
+use October\Test\Models\Gallery;
 use October\Test\Models\Theme;
 use October\Test\Models\Country;
 use October\Test\Models\Channel;
@@ -105,6 +106,7 @@ class SeedAllTables extends Seeder
         /*
          * Test 5: Reviews
          */
+
         Review::create(['content' => 'Orphan review', 'is_positive' => false]);
         $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true]);
 
@@ -114,7 +116,14 @@ class SeedAllTables extends Seeder
         Plugin::create(['name' => 'Angular', 'code' => 'angular', 'content' => 'An AngularJS plugin.']);
 
         /*
-         * Test 6: Trees
+         * Test 6: Galleries
+         */
+
+        $gallery = Gallery::create(['title' => 'Featured']);
+        $gallery->posts()->add(Post::first());
+
+        /*
+         * Test 7: Trees
          */
 
         $fourUpManager = Member::create(['name' => 'Khaleesi']);
@@ -151,7 +160,7 @@ class SeedAllTables extends Seeder
         Category::create(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
 
         /*
-         * Test 7: Attributes
+         * Test 8: Attributes
          */
 
         $generalStatus = [
