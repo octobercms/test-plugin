@@ -65,6 +65,7 @@ class CreateTables extends Migration
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
             $table->text('breakdown')->nullable();
+            $table->text('mood')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->integer('post_id')->unsigned()->nullable()->index();
             $table->timestamps();

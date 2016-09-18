@@ -28,7 +28,7 @@ class Comment extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['breakdown'];
+    protected $jsonable = ['breakdown', 'mood'];
 
     /**
      * @var array Rules

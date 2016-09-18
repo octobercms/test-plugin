@@ -35,6 +35,44 @@ tabs:
 
     fields:
 
+        breakdown:
+            tab: Breakdown
+            type: repeater
+            prompt: Add a new point summary
+            form:
+                fields:
+                    point_summary:
+                        label: Point
+                        placeholder: What points are you trying to make
+                        type: text
+
+                    point_evidence:
+                        type: repeater
+                        prompt: Add evidence to the point
+                        form:
+                            fields:
+                                 title:
+                                    placeholder: Provide evidence to support that point
+                                    label: Evidence
+                                    type: text
+
+        mood[feeling]:
+            label: Overall feeling
+            span: auto
+            type: dropdown
+            options: getFeelingOptions
+            tab: Mood
+
+        mood[comment]:
+            label: Mood comment
+            span: auto
+            type: text
+            tab: Mood
+
+secondaryTabs:
+
+    fields:
+
         photo:
             span: auto
             label: Photo
@@ -64,51 +102,3 @@ tabs:
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
         
-        # Will not throw any errors as it doesn't call FormField->resolveModelAttribute
-        breakdown[static_feeling]:
-            label: Overall feeling (Static)
-            type: text
-            tab: Breakdown
-        
-        # Again, will not throw any errors as it doesn't call FormField->resolveModelAttribute
-        breakdown[attributes][static_feeling]:
-            label: Overall feeling (Static) (Sub element)
-            type: text
-            tab: Breakdown
-            
-        # Will throw "trying to get property of non-object"
-        # because $model = $model->breakdown will be run, and then because attributes isn't the last element,
-        # the cycle will run again and $model = $model->attributes will be run (When $model is just an array element (empty on initialization, will contain array on select))
-        breakdown[attributes][feeling]:
-            label: Overall feeling
-            type: checkboxlist
-            tab: Breakdown
-        
-        # Will throw "get_class() expects parameter 1 to be object, string given"
-        # because breakdown['feeling'] is returned as the $model object, when it's just an array element (empty on initialization, will contain string on select)
-        breakdown[feeling]:
-            label: Overall feeling
-            type: dropdown
-            tab: Breakdown
-            
-        breakdown[points]:
-            tab: Breakdown
-            type: repeater
-            prompt: Add a new point summary
-            form:
-                fields:
-                    point_summary:
-                        label: Point
-                        placeholder: What points are you trying to make
-                        type: text
-
-                    point_evidence:
-                        type: repeater
-                        prompt: Add evidence to the point
-                        form:
-                            fields:
-                                 title:
-                                    placeholder: Provide evidence to support that point
-                                    label: Evidence
-                                    type: text
-
