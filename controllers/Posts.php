@@ -28,8 +28,9 @@ class Posts extends Controller
 
     public function __construct()
     {
-        if (post('comment_mode'))
+        if (post('comment_mode')) {
             $this->formConfig = 'config_comment_form.yaml';
+        }
 
         parent::__construct();
 

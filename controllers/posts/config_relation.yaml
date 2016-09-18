@@ -15,6 +15,7 @@ status:
     list: ~/plugins/october/test/models/attribute/columns.yaml
     view:
         toolbarButtons: link|unlink
+
 galleries:
     label: Galleries
     view:
