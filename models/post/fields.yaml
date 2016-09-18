@@ -40,12 +40,22 @@ fields:
         span: full
         default: "tomorrow + 3 hours 15 minutes"
 
-    comments:
-        label: Comments
-        commentAbove: RelationController used as a partial field type.
-        type: partial
-
 tabs:
+    fields:
+
+        comments:
+            label: Comments
+            commentAbove: RelationController used as a partial field type.
+            type: partial
+            tab: Comments
+
+        galleries:
+            label: Galleries
+            commentAbove: RelationController demonstrating morphToMany relationship.
+            type: partial
+            tab: Galleries
+
+secondaryTabs:
     fields:
 
         content:
@@ -70,10 +80,3 @@ tabs:
             size: huge
             tab: Rich Editor
             commentAbove: Rich editor (WYSIWYG) field.
-
-        galleries:
-            label: Galleries
-            type: partial
-#            span: auto
-            tab: Galleries
-#            context: [create, update, relation]
