@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label: Title
+        commentAbove: Text field, <a href="#">required</a>.
+        commentHtml: true
+        span: auto
+tabs:
+    fields:
+        images:
+            label: Images
+            type: fileupload
+            mode: image
+            fileTypes: ['png', 'jpg', 'jpeg']
+            mimeTypes: 'png,jpg,jpeg'
+            tab: Images
+        posts:
+            label: Posts
+            type: partial
+            conext: ['create', 'update']
+            tab: Posts

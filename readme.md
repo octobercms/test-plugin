@@ -71,6 +71,11 @@ An Attribute is a single generic model with many relationship types.
 1. Posts "Belong To" (Attribute) Status (`general.status`).
 1. Countries "Belong To Many" (Attribute) Types (`general.types`).
 
+### Test 8: Galleries
+
+1. Galleries "Morphed By Many" Posts
+2. Posts "Morph To Many" Galleries
+
 ## Tests that need attention
 
 - An attach relation when required inside a tab does not make the tab active.

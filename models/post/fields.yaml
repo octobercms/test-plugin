@@ -70,3 +70,10 @@ tabs:
             size: huge
             tab: Rich Editor
             commentAbove: Rich editor (WYSIWYG) field.
+
+        galleries:
+            label: Galleries
+            type: partial
+#            span: auto
+            tab: Galleries
+#            context: [create, update, relation]
