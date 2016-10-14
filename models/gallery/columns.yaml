@@ -6,6 +6,7 @@ columns:
     id:
         label: ID
         searchable: true
+        width: 50px
 
     title:
         label: Title

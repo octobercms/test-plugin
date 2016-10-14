@@ -6,6 +6,7 @@ comments:
     label: Comment
     list: ~/plugins/october/test/models/comment/columns.yaml
     form: ~/plugins/october/test/models/comment/fields.yaml
+    readOnly: true
     manage:
         context: relation
 
@@ -25,4 +26,4 @@ galleries:
             column: title
             direction: asc
     manage:
-        form: $/october/test/models/gallery/fields.yaml
+        form: $/october/test/models/gallery/fields_simple.yaml
