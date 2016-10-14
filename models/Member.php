@@ -51,12 +51,20 @@ class Member extends Model
      */
     public function scopeEligibleParents($query, $model)
     {
-        return $query->where('id', '!=', $model->id)
-                ->where('id', '!=', $model->parent_id)
-                ->where(function($query) use ($model) {
-                    $query->where('parent_id', '!=', $model->id)
-                        ->orWhereNull('parent_id');
-                    }
-                );
+        $query
+            ->where('id', '!=', $model->id)
+            ->where(function($query) use ($model) {
+                $query
+                    ->where('parent_id', '!=', $model->id)
+                    ->orWhereNull('parent_id')
+                ;
+            })
+        ;
+
+        if ($model->parent_id) {
+            $query->where('id', '!=', $model->parent_id);
+        }
+
+        return $query;
     }
 }
