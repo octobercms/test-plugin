@@ -10,3 +10,9 @@ fields:
     is_positive:
         label: Positive
         type: checkbox
+
+    _internal_comments:
+        label: Internal comments
+        type: textarea
+        size: small
+        comment: This field is a black hole, the value will not be saved anywhere.
