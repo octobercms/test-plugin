@@ -80,7 +80,8 @@ tabs:
             type: datepicker
             tab: Birthday
             minDate: January 01 2015 11:11
-            comment: Date cannot be before January 2015.
+            comment: Date cannot be before January 2015, formatted as m-Y-d.
+            format: m-Y-d
 
         birthdate:
             label: Born (Date)
