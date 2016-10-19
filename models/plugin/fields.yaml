@@ -7,11 +7,14 @@ tabs:
         name:
             label: Name
             tab: Details
+            required: 1
 
         code:
             label: Code
             tab: Details
+            required: 1
 
         content:
             label: Content
             tab: Details
+            required: 1
