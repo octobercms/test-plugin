@@ -22,6 +22,15 @@ class Plugin extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
+    
+    /**
+     * Validation Rules.
+     */
+    public $rules = [
+        'name' => 'required',
+        'code' => 'required',
+        'content' => 'required'
+    ];
 
     /**
      * @var array Relations
