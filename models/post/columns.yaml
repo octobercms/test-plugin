@@ -20,3 +20,4 @@ columns:
         relation: comments_count
         valueFrom: count
         default: 0
+        type: number
