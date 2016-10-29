@@ -55,6 +55,7 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 1. Meta "Morph To" Plugins and Themes as Product (Polymorphic relationships)
 1. Plugins and Themes "Morph Many" Reviews
 1. Plugins and Themes "Morph One" Meta
+1. Plugins should not create when Meta validation fails.
 
 ### Test 6: Galleries
 
