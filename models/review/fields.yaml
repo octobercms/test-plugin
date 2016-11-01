@@ -6,6 +6,7 @@ fields:
     content:
         label: Content
         type: textarea
+        size: small
 
     is_positive:
         label: Positive
@@ -14,5 +15,10 @@ fields:
     _internal_comments:
         label: Internal comments
         type: textarea
-        size: small
+        size: tiny
         comment: This field is a black hole, the value will not be saved anywhere.
+
+    _check_time:
+        label: What time is it?
+        type: timecheckertest
+        commentAbove: Custom form widget with AJAX updating.
