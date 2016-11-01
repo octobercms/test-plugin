@@ -36,7 +36,7 @@ class TimeChecker extends FormWidgetBase
     {
         $randomDate = Carbon::now()->addMinutes(rand(1, 60));
 
-        $this->vars['testImg'] = 'http://placehold.it/50x50';
+        $this->vars['testImg'] = 'http://placehold.it/'.post('size', '50x50');
         $this->vars['currentTime'] = Backend::dateTime($randomDate);
     }
 
@@ -46,8 +46,6 @@ class TimeChecker extends FormWidgetBase
     public function onPullImage()
     {
         $this->prepareVars();
-
-        $this->vars['testImg'] = 'http://placehold.it/300x300';
 
         return $this->makePartial('timechecker');
     }
