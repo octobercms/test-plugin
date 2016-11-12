@@ -15,25 +15,6 @@ fields:
     # Testing form field with no config
     preferred_name:
 
-    # Record Finder (Default)
-    phone:
-        context: [create, update, recordfinder]
-        label: Record Finder
-        comment: Record finder field.
-        type: recordfinder
-        list: ~/plugins/october/test/models/phone/columns.yaml
-        title: Please pick a phone
-        prompt: Click the %s to find an alternative phone
-        nameFrom: name
-        descriptionFrom: number
-        searchScope: customSearch
-
-    # Relation Controller
-    phone@relationcontroller:
-        label: Relation Controller
-        commentAbove: RelationController used as a partial field type.
-        type: partial
-
     # Proxy Fields
     phone[name]:
         context: proxyfields
@@ -105,3 +86,14 @@ tabs:
             default: "#27ae60"
             tab: Birthday
             span: auto
+        
+        phone:
+            label: phone
+            tab: Phone
+            type: partial
+            path: phonepartialrelation
+
+        section1:
+            label: Tab3
+            tab: Tab3
+            type: section
