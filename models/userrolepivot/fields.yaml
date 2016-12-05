@@ -8,6 +8,6 @@ fields:
         span: auto
 
     pivot[is_executive]:
-        label: Description
+        label: Executive
         type: checkbox
         span: auto
