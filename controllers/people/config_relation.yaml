@@ -4,5 +4,5 @@
 
 phone:
     label: Phone
-    form: ~/plugins/october/test/models/phone/fields.yaml
+    form: ~/plugins/october/test/models/phone/fields1.yaml
     list: ~/plugins/october/test/models/phone/columns.yaml
