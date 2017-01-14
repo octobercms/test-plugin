@@ -31,6 +31,14 @@ columns:
     birthtime:
         label: Birth time
 
+    is_married:
+        label: Married
+#        type: switch
+
+    has_pets:
+        label: Has Pets
+#        type: switch
+
     created_at:
         label: Created
         type: timetense

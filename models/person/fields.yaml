@@ -71,6 +71,22 @@ fields:
         comment: Proxy dropdown field for Phone model.
         type: dropdown
 
+    is_married:
+        label: 'Married'
+        type: dropdown
+        emptyOption: 'Unknown'
+        options:
+            0: 'No'
+            1: 'Yes'
+
+    has_pets:
+        label: 'Has Pets'
+        type: dropdown
+        emptyOption: 'Unknown'
+        options:
+            0: 'No'
+            1: 'Yes'
+
 tabs:
 
     fields:

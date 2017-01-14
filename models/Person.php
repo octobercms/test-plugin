@@ -45,4 +45,15 @@ class Person extends Model
         'alt_phone' => ['October\Test\Models\Phone', 'key' => 'person_id']
     ];
 
+	public function beforeSave() 
+	{
+		if ($this->is_married == '') {
+			$this->is_married = null;
+		}
+
+		if ($this->has_pets == '') {
+			$this->has_pets = null;
+		}
+	}
+
 }
