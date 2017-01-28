@@ -1,5 +1,7 @@
 <?php namespace October\Test;
 
+use App;
+use Event;
 use Backend;
 use System\Classes\PluginBase;
 
@@ -81,5 +83,46 @@ class Plugin extends PluginBase
                 'code'  => 'timecheckertest'
             ]
         ];
+    }
+    
+    public function boot()
+    {
+        if (App::runningInBackend()) {
+            
+            Event::listen('backend.form.extendFields', function ($widget) {
+
+                if (!$widget->getController() instanceof \RainLab\Blog\Controllers\Posts) {
+                    return;
+                }
+
+                if (!$widget->model instanceof \RainLab\Blog\Models\Post) {
+                    return;
+                }
+                
+                if($widget->isNested) {
+                    return;
+                }
+                
+                $widget->model->jsonable = ['vimeo_videos'];
+                
+                $widget->addFields([
+                    'vimeo_videos'  => [
+                        'label'  => 'Vimeo Videos',
+                        'prompt' => 'Add Vimeo Video',
+                        'type'   => 'repeater',
+                        'span'   => 'left',
+                        'form'   => [
+                            'fields' => [
+                                'vimeo_id' => [
+                                    'label'        => 'Vimeo ID',
+                                    'placeholder'  => 'Enter Vimeo ID',
+                                    'type'         => 'text'
+                                ]
+                            ]
+                        ]  
+                    ]
+                ], 'primary');
+            });
+        }
     }
 }
