@@ -3,6 +3,7 @@
 use App;
 use Event;
 use Backend;
+use RainLab\Blog\Models\Post;
 use System\Classes\PluginBase;
 
 /**
