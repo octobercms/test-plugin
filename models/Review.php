@@ -30,4 +30,12 @@ class Review extends Model
         'product' => []
     ];
 
+    public $belongsTo = [
+        'post' => ['October\Test\Models\Post', 'key' => 'post_id'],
+    ];
+
+    public $attachOne = [
+        'photo' => ['System\Models\File']
+    ];
+
 }
