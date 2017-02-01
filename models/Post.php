@@ -32,6 +32,10 @@ class Post extends Model
         'name' => 'required',
     ];
 
+    public $hasOne = [
+        'review'      => ['October\Test\Models\Review']
+    ];
+
     /**
      * @var array Relations
      */

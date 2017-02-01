@@ -158,6 +158,7 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('product_type')->nullable();
             $table->integer('product_id')->unsigned()->nullable();
+            $table->integer('post_id')->unsigned()->nullable();
             $table->text('content')->nullable();
             $table->boolean('is_positive')->nullable();
             $table->timestamps();

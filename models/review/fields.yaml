@@ -22,3 +22,13 @@ fields:
         label: What time is it?
         type: timecheckertest
         commentAbove: Custom form widget with AJAX updating.
+
+    photo:
+        label: Photo
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload
