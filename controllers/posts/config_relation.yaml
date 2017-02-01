@@ -27,3 +27,11 @@ galleries:
             direction: asc
     manage:
         form: $/october/test/models/gallery/fields_simple.yaml
+
+review:
+    label: Review
+    view:
+        form: $/october/test/models/review/fields_simple.yaml
+        toolbarButtons: update
+    manage:
+        form: $/october/test/models/review/fields_simple.yaml

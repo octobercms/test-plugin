@@ -55,6 +55,12 @@ tabs:
             type: partial
             tab: Galleries
 
+        review:
+            label: Review
+            commentAbove: RelationController demonstrating morphOne relationship.
+            type: partial
+            tab: Reviews
+
 secondaryTabs:
     fields:
 

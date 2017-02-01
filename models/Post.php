@@ -7,7 +7,6 @@ use Model;
  */
 class Post extends Model
 {
-
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -44,8 +43,11 @@ class Post extends Model
         'status' => ['October\Test\Models\Attribute', 'conditions' => "type = 'general.status'"],
     ];
 
+    public $morphOne = [
+        'review' => ['October\Test\Models\Review', 'name' => 'product'],
+    ];
+
     public $morphToMany = [
         'galleries' => ['October\Test\Models\Gallery', 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
     ];
-
 }
