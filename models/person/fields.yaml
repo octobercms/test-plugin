@@ -15,6 +15,15 @@ fields:
     # Testing form field with no config
     preferred_name:
 
+    # Nullable
+    is_married:
+        label: Married
+        type: dropdown
+        emptyOption: Unknown
+        options:
+            '0': No
+            '1': Yes
+
     # Record Finder (Default)
     phone:
         context: [create, update, recordfinder]

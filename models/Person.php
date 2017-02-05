@@ -8,6 +8,7 @@ use Model;
 class Person extends Model
 {
 
+    use \October\Rain\Database\Traits\Nullable;
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -24,6 +25,11 @@ class Person extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
+
+    /**
+     * @var array List of attribute names which should be set to null when empty.
+     */
+    protected $nullable = ['is_married'];
 
     /**
      * @var array Dates

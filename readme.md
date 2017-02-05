@@ -81,10 +81,6 @@ An Attribute is a single generic model with many relationship types.
 
 - Proxy fields throw a nasty error when the relation is non existant.
 
-- Deleting multiple Comments from a Post (deferred) only deletes one comment.
-
-- Constrained relations should not appear in RecordFinder (Phone:is_active) and Relation Controller lists (Comment:is_visible).
-
 - Record Finder does not incorporate deferred bindings.
 
 - HasOne relations acting as HasMany will break the list completely.

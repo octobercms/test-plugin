@@ -14,13 +14,13 @@ class Meta extends Model
         'taggable' => []
     ];
 
-	public $rules = [
-		'meta_title'       => 'required',
-		'meta_description' => 'required',
-		'meta_keywords'    => 'required',
-		'canonical_url'    => 'url',
-		'redirect_url'     => 'url'
-	];
+    public $rules = [
+        'meta_title'       => 'required',
+        'meta_description' => 'required',
+        'meta_keywords'    => 'required',
+        'canonical_url'    => 'url',
+        'redirect_url'     => 'url'
+    ];
     
     public $fillable = [
         'meta_title',

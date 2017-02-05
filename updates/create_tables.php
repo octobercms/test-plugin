@@ -23,6 +23,7 @@ class CreateTables extends Migration
             $table->time('birthtime')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('favcolor')->nullable();
+            $table->boolean('is_married')->nullable();
             $table->timestamps();
         });
 
