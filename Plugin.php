@@ -31,7 +31,7 @@ class Plugin extends PluginBase
                 'label'       => 'Playground',
                 'url'         => Backend::url('october/test/people'),
                 'icon'        => 'icon-child',
-                'order'       => 100,
+                'order'       => 200,
 
                 'sideMenu' => [
                     'people' => [
