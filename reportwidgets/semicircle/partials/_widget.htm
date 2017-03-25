@@ -1,0 +1,56 @@
+<div class="report-widget">
+    <h3><?=$this->property('title')?></h3>
+    <div id="container-<?=$id?>"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        Highcharts.chart('container-<?=$id?>', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: 'Men & Women',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 40
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    },
+                    startAngle: -90,
+                    endAngle: 90,
+                    center: ['50%', '75%']
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Portion',
+                innerSize: '50%',
+                data: [
+                    ['Female',   60],
+                    ['Male',   40],
+                    {
+                        name: 'Proprietary or Undetectable',
+                        y: 0.2,
+                        dataLabels: {
+                            enabled: false
+                        }
+                    }
+                ]
+            }]
+        });
+    });
+</script>
