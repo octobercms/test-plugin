@@ -45,7 +45,7 @@ class SolidGauge extends ReportWidgetBase
 
     public function loadAssets()
     {
-//        $this->addJs('js/highcharts.js');
+        $this->addJs('js/highcharts.js');
         $this->addJs('js/highcharts-more.js');
         $this->addJs('js/solid-gauge.js');
     }
