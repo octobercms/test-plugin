@@ -101,4 +101,3 @@ secondaryTabs:
             type: richeditor
             tab: Rich Editor
             commentAbove: Content inside a tab, inside a popup.
-        
