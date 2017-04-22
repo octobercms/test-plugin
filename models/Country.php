@@ -27,7 +27,7 @@ class Country extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['pages', 'states', 'locations'];
+    protected $jsonable = ['pages', 'states', 'locations', 'content'];
 
     /**
      * @var array Relations
