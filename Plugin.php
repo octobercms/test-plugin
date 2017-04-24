@@ -24,6 +24,20 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerReportWidgets()
+    {
+        return [
+            'October\Test\ReportWidgets\SolidGauge' => [
+                'label'   => 'Solid Gauge',
+                'context' => 'dashboard'
+            ],
+            'October\Test\ReportWidgets\SemiCircle' => [
+                'label'   => 'Semi Circle',
+                'context' => 'dashboard'
+            ],
+        ];
+    }
+
     public function registerNavigation()
     {
         return [
