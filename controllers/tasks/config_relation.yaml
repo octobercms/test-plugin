@@ -1,0 +1,13 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+notes:
+    label: Note
+    manage:
+        form: ~/plugins/october/test/models/note/fields.yaml
+        list: ~/plugins/october/test/models/note/columns.yaml
+    view:
+        list: ~/plugins/october/test/models/note/columns.yaml
+        context: relation
+        toolbarButtons: create|delete
