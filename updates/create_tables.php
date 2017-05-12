@@ -272,6 +272,29 @@ class CreateTables extends Migration
             $table->string('entity_type')->index('entity_type_idx');
             $table->primary(['gallery_id', 'entity_id', 'entity_type'], 'gallery_entity_pk');
         });
+
+        /*
+         * Test 9: Tasks
+         */
+
+        Schema::connection('october_test')->create('october_test_tasks', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('status_id')->unsigned()->nullable()->index();
+            $table->timestamps();
+        });
+
+		Schema::connection('october_test')->create('october_test_notes', function ($table)
+		{
+			$table->engine = 'InnoDB';
+		    $table->increments('id');
+		    $table->text('note')->nullable();
+		    $table->integer('task_id')->unsigned()->nullable()->index();
+            $table->timestamps();
+		});
     }
 
     public function down()
@@ -297,6 +320,8 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_related_channels');
         Schema::dropIfExists('october_test_meta');
         Schema::dropIfExists('october_test_attributes');
+        Schema::connection('october_test')->dropIfExists('october_test_tasks');
+        Schema::connection('october_test')->dropIfExists('october_test_notes');
     }
 
 }

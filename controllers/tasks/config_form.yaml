@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Task
+
+# Model Form Field configuration
+form: $/october/test/models/task/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Task
+
+# Default redirect location
+defaultRedirect: october/test/tasks
+
+# Create page
+create:
+    title: Create Task
+    redirect: october/test/tasks/update/:id
+    redirectClose: october/test/tasks
+
+# Update page
+update:
+    title: Edit Task
+    redirect: october/test/tasks
+    redirectClose: october/test/tasks
+
+# Preview page
+preview:
+    title: Preview Task
