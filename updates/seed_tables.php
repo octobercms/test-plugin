@@ -14,6 +14,8 @@ use October\Test\Models\Channel;
 use October\Test\Models\Member;
 use October\Test\Models\Category;
 use October\Test\Models\Attribute;
+use October\Test\Models\Task;
+use October\Test\Models\Note;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -200,6 +202,18 @@ class SeedAllTables extends Seeder
                 Attribute::create(array_merge($data, ['type' => $type]));
             }
         }
+
+        /*
+         * Test 9: Tasks
+         */
+
+        $task = Task::create(['name' => 'Buy dog food', 'description' => 'Almost out of dog food' ]);
+		Note::create(['note' => 'No more donuts for dogs', 'task_id' => $task->id]);
+
+		$task = Task::create(['name' => 'Write a blog post', 'description' => 'Needs to be done by Friday' ]);
+        Note::create(['note' => 'Look for new topic ideas', 'task_id' => $task->id]);
+        Note::create(['note' => 'Include link to a freebie this week', 'task_id' => $task->id]);
+
 
     }
 
