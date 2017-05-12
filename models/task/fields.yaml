@@ -1,0 +1,21 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+        commentAbove: Text field, <a href="#">required</a>.
+        commentHtml: true
+        span: auto
+
+    description:
+        label: Description
+        type: textarea
+        size: small
+
+    notes:
+        label: Notes
+        commentAbove: RelationController used as a partial field type.
+        type: partial
