@@ -1,6 +1,6 @@
 # Test Plugin
 
-This is a UI test plugin for OctoberCMS. Extract this archive to `/plugins/october/test` and click on **Playground** in the back-end area. If the backend dashboard is open already, you have to sign out and sign in again for the plugin tables to be created. 
+This is a UI test plugin for OctoberCMS. Extract this archive to `/plugins/october/test` and click on **Playground** in the back-end area. If the backend dashboard is open already, you have to sign out and sign in again for the plugin tables to be created.
 
 The following sections are explored, tested and demonstrated along with a list of the features used:
 
@@ -74,6 +74,12 @@ An Attribute is a single generic model with many relationship types.
 
 1. Posts "Belong To" (Attribute) Status (`general.status`).
 1. Countries "Belong To Many" (Attribute) Types (`general.types`).
+
+### Test 9: Tasks
+
+A Task "Has Many" Notes (One to many relationship in a separate database)
+
+1. Relation Controller
 
 ## Tests that need attention
 
