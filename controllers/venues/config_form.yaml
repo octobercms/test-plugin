@@ -1,0 +1,14 @@
+name: Venue
+form: $/october/test/models/venue/fields.yaml
+modelClass: October\Test\Models\Venue
+defaultRedirect: october/test/venues
+
+create:
+    title: New Venue
+    redirect: october/test/venues
+    redirectClose: october/test/venues
+
+update:
+    title: Edit Venue
+    redirect: october/test/venues
+    redirectClose: october/test/venues

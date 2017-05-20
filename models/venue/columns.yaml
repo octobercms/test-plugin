@@ -1,0 +1,7 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Venue Name
+        searchable: true

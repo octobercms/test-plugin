@@ -1,0 +1,24 @@
+<?= Form::open(['class'=>'layout']) ?>
+
+<div class="layout-row">
+    <?= $this->formRender() ?>
+</div>
+
+<div class="form-buttons">
+    <div class="loading-indicator-container">
+        <button
+                type="button"
+                data-request="onSave"
+                data-request-data="close:true"
+                data-hotkey="ctrl+enter, cmd+enter"
+                data-load-indicator="Creating Venue..."
+                class="btn btn-default">
+            Create and Close
+        </button>
+        <span class="btn-text">
+                or <a href="<?= Backend::url('october/test/venues') ?>">Cancel</a>
+            </span>
+    </div>
+</div>
+
+<?= Form::close() ?>
