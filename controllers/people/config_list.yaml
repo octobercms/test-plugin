@@ -27,12 +27,14 @@ showSetup: true
 showSorting: true
 
 # Default sorting column
-# defaultSort:
-#     column: created_at
-#     direction: desc
+#defaultSort:
+#    column: id
+#    direction: asc
 
 # Display checkboxes next to each record
-# showCheckboxes: true
+showCheckboxes: true
+showTree: true
+treeExpanded: true
 
 # Toolbar widget configuration
 toolbar:

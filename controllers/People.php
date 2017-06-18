@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use October\Test\Models\Person;
 use October\Test\Models\Phone;
 
 /**
@@ -13,11 +14,13 @@ class People extends Controller
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController',
         'Backend.Behaviors.RelationController',
+        'Backend.Behaviors.ReorderController',
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
+    public $reorderConfig = 'config_reorder.yaml';
 
     public function __construct()
     {
@@ -37,5 +40,37 @@ class People extends Controller
         }
 
         return $model;
+    }
+
+    public function index_onRestore()
+    {
+        if ($checkedIds = post('checked')) {
+            foreach ($checkedIds as $recordId) {
+                if (!$record = Person::withTrashed()->find($recordId)) {
+                    continue;
+                }
+
+                $record->restore();
+            }
+        }
+
+        return $this->listRefresh();
+    }
+
+    public function listInjectRowClass($record, $definition = null)
+    {
+        if ($record->trashed()) {
+            return 'strike';
+        }
+    }
+
+    public function listExtendQuery($query)
+    {
+        $query->withTrashed();
+    }
+
+    public function formExtendQuery($query)
+    {
+        $query->withTrashed();
     }
 }

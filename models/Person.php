@@ -1,6 +1,8 @@
 <?php namespace October\Test\Models;
 
 use Model;
+use October\Rain\Database\Traits\NestedTree;
+use October\Rain\Database\Traits\SoftDelete;
 
 /**
  * Person Model
@@ -10,6 +12,9 @@ class Person extends Model
 
     use \October\Rain\Database\Traits\Nullable;
     use \October\Rain\Database\Traits\Validation;
+
+    use SoftDelete;
+    use NestedTree;
 
     /**
      * @var string The database table used by the model.
