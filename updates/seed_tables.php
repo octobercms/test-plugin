@@ -3,6 +3,7 @@
 use October\Test\Models\User;
 use October\Test\Models\Role;
 use October\Test\Models\Post;
+use October\Test\Models\Tag;
 use October\Test\Models\Phone;
 use October\Test\Models\Person;
 use October\Test\Models\Review;
