@@ -39,7 +39,46 @@ fields:
         type: datepicker
         span: full
         default: "tomorrow + 3 hours 15 minutes"
-
+    
+    # Taglist Tests
+    tags:
+        label: Tags by Relation
+        type: taglist
+        mode: relation
+        nameFrom: name
+    
+    tags_array:
+        label: Tags saved as Array
+        type: taglist
+        mode: array
+        customTags: false
+        options: true
+   
+    tags_string:
+        label: Tags saved as String
+        type: taglist
+        mode: string
+        separator: comma
+        customTags: false
+        options: true
+    
+    tags_array_id:
+        label: Tags saved as Array of IDs
+        type: taglist
+        mode: array
+        useKey: true
+        customTags: false
+        options: true
+    
+    tags_string_id:
+        label: Tags saved as String of IDs
+        type: taglist
+        mode: string
+        useKey: true
+        separator: comma
+        customTags: false
+        options: true
+        
 tabs:
     fields:
 
