@@ -1,0 +1,6 @@
+title: Reorder
+modelClass: October\Test\Models\Person
+nameFrom: name
+
+toolbar:
+    buttons: reorder_toolbar

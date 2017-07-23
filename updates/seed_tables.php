@@ -25,20 +25,12 @@ class SeedAllTables extends Seeder
          * Test 1: People
          */
 
-        $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'favcolor' => '#5fb6f5']);
-        $person->phone = Phone::create(['name' => 'Mobile', 'number' => '(360) 733-2263']);
-        $person->alt_phone = Phone::create(['name' => 'Home', 'number' => '(360) 867-3563']);
-        $person->save();
-
-        Person::create(['name' => 'Baby Herman', 'bio' => 'I have nothing at all', 'favcolor' => '#990000']);
-        Phone::create(['name' => 'Work', 'number' => '(360) 595-2146']);
-        Phone::create(['name' => 'Fax', 'number' => '(360) 595-2146']);
-        Phone::create(['name' => 'Inactive', 'number' => '(xxx) xxx-xxx', 'is_active' => false]);
-
-        Person::create(['name' => 'Jon Doe', 'bio' => 'I like turtles', 'favcolor' => '#111111']);
-        Person::create(['name' => 'John Smith', 'bio' => 'I like dolphins', 'favcolor' => '#222222']);
-        Person::create(['name' => 'Jon Smith', 'bio' => 'I like snakes', 'favcolor' => '#333333']);
-        Person::create(['name' => 'Mary Smith', 'bio' => 'I like fish', 'favcolor' => '#444444']);
+        Person::create(['name' => 'First', 'bio' => 'I have a phone set up already', 'favcolor' => '#5fb6f5']);
+        Person::create(['name' => 'Second', 'bio' => 'I have nothing at all', 'favcolor' => '#990000']);
+        Person::create(['name' => 'Third', 'bio' => 'I like turtles', 'favcolor' => '#111111']);
+        Person::create(['name' => 'Fourth', 'bio' => 'I like dolphins', 'favcolor' => '#222222']);
+        Person::create(['name' => 'Fifth', 'bio' => 'I like snakes', 'favcolor' => '#333333']);
+        Person::create(['name' => 'Sixth', 'bio' => 'I like fish', 'favcolor' => '#444444']);
 
         /*
          * Test 2: Posts
