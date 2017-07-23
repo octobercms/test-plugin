@@ -26,7 +26,7 @@ class Plugins extends Controller
 
     public function formExtendFields($form)
     {
-        $config = $this->makeConfig('$\october\test\models\meta\fields.yaml');
+        $config = $this->makeConfig('$/october/test/models/meta/fields.yaml');
 
         foreach ($config->fields as $field => $options) {
             $form->addTabFields([
