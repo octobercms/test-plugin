@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use October\Test\Models\Attribute;
 
 /**
  * Posts [and Comments] Back-end Controller
@@ -41,6 +42,18 @@ class Posts extends Controller
     {
         $this->asExtension('ListController')->index();
         $this->bodyClass = 'compact-container';
+    }
+
+    public function formExtendModel($model)
+    {
+        /*
+         * Init proxy field model if we are creating the model
+         */
+        if ($this->action == 'create') {
+            $model->status = new Attribute();
+        }
+
+        return $model;
     }
 
     //
