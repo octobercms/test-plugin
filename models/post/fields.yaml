@@ -61,6 +61,20 @@ tabs:
             type: partial
             tab: Reviews
 
+        status[name]:
+            label: Name
+            commentAbove: Use proxy fields to create a new status here
+            type: text
+            span: left
+            tab: Status
+
+        status[code]:
+            label: Code
+            commentAbove: Another proxy field for the demo purpose
+            type: text
+            span: right
+            tab: Status
+
 secondaryTabs:
     fields:
 
