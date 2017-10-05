@@ -1,0 +1,16 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: full
+        type: text
+    'fields_in_json[test1]':
+        label: Test1
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    'fields_in_json[test2]':
+        label: Test2
+        oc.commentPosition: ''
+        span: auto
+        type: text

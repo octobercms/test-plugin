@@ -1,7 +1,10 @@
-1.0.1: First version of Test
+1.0.1: 'First version of Test'
 1.0.2:
-  - Create tables
-  - create_tables.php
+    - 'Create tables'
+    - create_tables.php
 1.0.3:
-  - Seed tables
-  - seed_tables.php
+    - 'Seed tables'
+    - seed_tables.php
+1.0.4:
+    - 'Created table october_test_records'
+    - builder_table_create_october_test_records.php

@@ -1,0 +1,11 @@
+title: Records
+modelClass: October\Test\Models\Record
+list: $/october/test/models/record/columns.yaml
+recordUrl: 'october/test/records/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

@@ -1,0 +1,11 @@
+name: Records
+modelClass: October\Test\Models\Record
+form: $/october/test/models/record/fields.yaml
+defaultRedirect: october/test/records
+create:
+    redirect: 'october/test/records/update/:id'
+    redirectClose: october/test/records
+update:
+    redirect: october/test/records
+    redirectClose: october/test/records
+preview: {  }
