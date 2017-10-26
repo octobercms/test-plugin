@@ -1,0 +1,11 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    post:
+        label: Post
+        modelClass: October\Test\Models\Post
+        conditions: id in (:filtered)
+        nameFrom: name

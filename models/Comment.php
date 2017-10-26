@@ -23,7 +23,7 @@ class Comment extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'content'];
 
     /**
      * @var array Jsonable fields
