@@ -1,0 +1,9 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+fields:
+    pivot[status]:
+        label: Status
+        type: dropdown
+        span: auto

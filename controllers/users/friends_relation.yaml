@@ -1,0 +1,13 @@
+friends:
+    label: 'new friend'
+    view:
+        list: ~/plugins/october/test/models/friendspivot/columns.yaml # this will show the friendship status from pivot data
+        toolbarButtons: add|remove
+        showSearch: true
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        scope: notThis
+    pivot:
+        form: ~/plugins/october/test/models/friendspivot/fields.yaml

@@ -1,6 +1,9 @@
 <?php namespace October\Test;
 
 use Backend;
+use RainLab\User\Models\User as FrontUser;
+use RainLab\User\Controllers\Users as UsersController;
+use Illuminate\Support\Facades\DB;
 use System\Classes\PluginBase;
 
 /**
@@ -95,5 +98,87 @@ class Plugin extends PluginBase
                 'code'  => 'timecheckertest'
             ]
         ];
+    }
+
+    public function boot()
+    {
+        FrontUser::extend(function($model) {
+            $model->belongsToMany['friends']=[
+                'RainLab\User\Models\User',
+                'table'    => 'october_test_friends',
+                'pivot' => ['status'],
+                'pivotModel' => 'October\Test\Models\FriendsPivot',
+                'timestamps' => true,
+                'key'      => 'user_id',
+                'otherKey' => 'friend_id'
+            ];
+
+            // Do not show current user in the list of users that can be added as friend
+            $model->addDynamicMethod('scopeNotThis', function ($query, $user) {
+                return $query->where('id', '!=', $user->id);
+            });
+
+            $model->addDynamicMethod('isFriendWith', function (FrontUser $user) use ($model) {
+                $isFriend = DB::table('october_test_friends')
+                        ->whereUserId($model->id)
+                        ->whereFriendId($user->id)
+                        ->count() > 0;
+                return $isFriend;
+            });
+
+            $model->addDynamicMethod('addFriend', function (FrontUser $user) use ($model) {
+                $model->friends()->attach($user->id);
+            });
+
+            $model->addDynamicMethod('removeFriend', function (FrontUser $user) use ($model) {
+                $model->friends()->detach($user->id);
+            });
+
+            $model->addDynamicMethod('getThumbAttribute', function() use ($model) {
+                if($model->avatar)
+                    return $model->avatar->path;
+                return "";
+            });
+
+        });
+
+        UsersController::extend(function($controller) {
+
+            // Implement the RelationController behavior if not already implemented
+            if (!in_array('Backend.Behaviors.RelationController', $controller->implement)) {
+                $controller->implement[] = 'Backend.Behaviors.RelationController';
+            }
+
+            // Add the relationConfig property if not added already
+            if (!isset($controller->relationConfig)) {
+                $controller->addDynamicProperty('relationConfig');
+            }
+
+            // The new relation config file we want to merge
+            $myConfigPath = '$/october/test/controllers/users/friends_relation.yaml';
+
+            // Merge the above config with the existing one
+            $controller->relationConfig = $controller->mergeConfig(
+                $controller->relationConfig,
+                $myConfigPath
+            );
+        });
+
+        UsersController::extendFormFields(function($form, $model, $context) {
+            if(!$model instanceof FrontUser or $context != 'preview'){
+                // friends tab should not be displayed in update and create contexts
+                return;
+            }
+
+            // Add a tab for list of friends in the User Controller page
+            $form->addTabFields([
+                'friends' => [
+                    'label' => '',
+                    'tab' => 'Friends',
+                    'type' => 'partial',
+                    'path' => '$/october/test/controllers/users/_friends.htm',
+                ]
+            ]);
+        });
     }
 }

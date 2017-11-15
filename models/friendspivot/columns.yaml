@@ -1,0 +1,13 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Friend
+        searchable: true
+
+    status:
+        type: partial
+        label: Status
+        path: ~/plugins/october/test/models/friendspivot/_status_column.htm

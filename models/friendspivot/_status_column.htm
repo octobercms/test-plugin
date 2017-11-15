@@ -1,0 +1,7 @@
+<?php if($record->pivot->status == 1): ?>
+<span class="icon-clock-o icon-lg"> Pending</span>
+<?php elseif($record->pivot->status == 2): ?>
+<span class="oc-icon-check icon-lg"> Approved</span>
+<?php else: ?>
+<span class="icon-exclamation-circle icon-lg"> Blocked</span>
+<?php endif; ?>
