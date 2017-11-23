@@ -23,6 +23,19 @@ fields:
         options:
             '0': No
             '1': Yes
+    
+    test:
+        label: Repeater
+        type: repeater
+        form:
+            fields:
+                field:
+                    label: Text
+                    type: text
+                    trigger:
+                        action: hide
+                        field: is_married
+                        condition: 1
 
     # Record Finder (Default)
     phone:
