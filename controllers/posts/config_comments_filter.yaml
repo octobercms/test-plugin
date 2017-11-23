@@ -7,5 +7,5 @@ scopes:
     post:
         label: Post
         modelClass: October\Test\Models\Post
-        conditions: id in (:filtered)
+        conditions: post_id in (:filtered)
         nameFrom: name
