@@ -1,6 +1,7 @@
 <?php namespace October\Test;
 
 use Backend;
+use October\Test\Components\TestComponent;
 use System\Classes\PluginBase;
 
 /**
@@ -80,6 +81,13 @@ class Plugin extends PluginBase
             'October\Test\FormWidgets\TimeChecker' => [
                 'code'  => 'timecheckertest'
             ]
+        ];
+    }
+
+    public function registerComponents()
+    {
+        return [
+            TestComponent::class => 'oc-test-component'
         ];
     }
 }
