@@ -5,7 +5,6 @@ use October\Rain\Database\Updates\Migration;
 
 class CreateTables extends Migration
 {
-
     public function up()
     {
         /*
@@ -51,10 +50,10 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
-			$table->string('tags_array')->nullable();
-			$table->string('tags_string')->nullable();
-			$table->string('tags_array_id')->nullable();
-			$table->string('tags_string_id')->nullable();
+            $table->string('tags_array')->nullable();
+            $table->string('tags_string')->nullable();
+            $table->string('tags_array_id')->nullable();
+            $table->string('tags_string_id')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->integer('status_id')->unsigned()->nullable()->index();
@@ -75,23 +74,23 @@ class CreateTables extends Migration
             $table->integer('post_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
-		
-		Schema::create('october_test_tags', function($table)
+
+        Schema::create('october_test_tags', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->nullable();
             $table->timestamps();
         });
-		
-		Schema::create('october_test_posts_tags', function($table)
+
+        Schema::create('october_test_posts_tags', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('post_id');
-			$table->integer('tag_id');
+            $table->integer('tag_id');
             $table->timestamps();
         });
-		
+
         /*
          * Test 3: Users
          */
@@ -318,5 +317,4 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_meta');
         Schema::dropIfExists('october_test_attributes');
     }
-
 }

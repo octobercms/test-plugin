@@ -30,21 +30,21 @@ class Tag extends Model
     public $rules = [
         'name' => 'required',
     ];
-	
-	/**
-	 * 
-	 */
-	public $timestamps = false;
+
+    /**
+     * @var bool Use timetamps
+     */
+    public $timestamps = false;
 
     /**
      * @var array Relations
      */
-	public $belongsToMany = [
+    public $belongsToMany = [
         'posts' => [
-            'October\Test\Models\Post',
+            Post::class,
             'table' => 'october_test_posts_tags',
-	        'key' => 'tag_id',
-	        'otherKey' => 'post_id'
+            'key' => 'tag_id',
+            'otherKey' => 'post_id'
         ]
-    ];	
+    ];
 }

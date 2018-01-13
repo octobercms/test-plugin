@@ -17,24 +17,32 @@ use Backend\Classes\Controller;
 class Posts extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.RelationController',
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class,
     ];
 
     public $formConfig = 'config_post_form.yaml';
-    public $listConfig = ['posts' => 'config_posts_list.yaml', 'comments' => 'config_comments_list.yaml', 'tags' => 'config_tags_list.yaml'];
+
+    public $listConfig = [
+        'posts' => 'config_posts_list.yaml',
+        'comments' => 'config_comments_list.yaml',
+        'tags' => 'config_tags_list.yaml'
+    ];
+
     public $relationConfig = 'config_relation.yaml';
 
     public function __construct()
     {
-    	$this->vars['mode'] = false;
+        $this->vars['mode'] = false;
+
         if (post('comment_mode')) {
-        	$this->vars['mode'] = 'comment';
+            $this->vars['mode'] = 'comment';
             $this->formConfig = 'config_comment_form.yaml';
         }
-		if (post('tag_mode')) {
-			$this->vars['mode'] = 'tag';
+
+        if (post('tag_mode')) {
+            $this->vars['mode'] = 'tag';
             $this->formConfig = 'config_tag_form.yaml';
         }
 
@@ -105,5 +113,4 @@ class Posts extends Controller
         $this->asExtension('FormController')->update_onDelete(post('record_id'));
         return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
-
 }

@@ -1,11 +1,11 @@
 <?= Form::open(['id' => 'createForm']) ?>
-    
+
     <?php if ($mode == 'comment'): ?>
         <input type="hidden" name="comment_mode" value="1" />
     <?php elseif ($mode == 'tag'): ?>
         <input type="hidden" name="tag_mode" value="1" />
     <?php endif ?>
-    
+
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="popup">&times;</button>
         <h4 class="modal-title">Create <?= $mode ?></h4>

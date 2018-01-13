@@ -24,12 +24,12 @@ class Post extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
-	
-	/**
-	 * @var array Jsonable fields
-	 */
-	protected $jsonable = ['tags_array', 'tags_array_id'];
-	
+
+    /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['tags_array', 'tags_array_id'];
+
     /**
      * @var array Rules
      */
@@ -48,16 +48,16 @@ class Post extends Model
     public $belongsTo = [
         'status' => ['October\Test\Models\Attribute', 'conditions' => "type = 'general.status'"],
     ];
-	
-	public $belongsToMany = [
+
+    public $belongsToMany = [
         'tags' => [
             'October\Test\Models\Tag',
             'table' => 'october_test_posts_tags',
-	        'key' => 'post_id',
-	        'otherKey' => 'tag_id'
+            'key' => 'post_id',
+            'otherKey' => 'tag_id'
         ]
     ];
-	
+
     public $morphOne = [
         'review' => ['October\Test\Models\Review', 'name' => 'product'],
     ];
@@ -65,27 +65,28 @@ class Post extends Model
     public $morphToMany = [
         'galleries' => ['October\Test\Models\Gallery', 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
     ];
-	
-	/**
-	 * form - tag list options
-	 */
-	public function getTagsArrayOptions($value, $formData)
-	{
-		return Tag::all()->lists('name');
-	}
-	
-	public function getTagsStringOptions($value, $formData)
-	{
-		return self::getTagsArrayOptions($value, $formData);
-	}
-	
-	public function getTagsArrayIdOptions($value, $formData)
-	{
-		return Tag::all()->pluck('name', 'id')->toArray();
-	}
-	
-	public function getTagsStringIdOptions($value, $formData)
-	{
-		return self::getTagsArrayIdOptions($value, $formData);
-	}
+
+    //
+    // Options
+    //
+
+    public function getTagsArrayOptions($value, $formData)
+    {
+        return Tag::all()->lists('name');
+    }
+
+    public function getTagsStringOptions($value, $formData)
+    {
+        return self::getTagsArrayOptions($value, $formData);
+    }
+
+    public function getTagsArrayIdOptions($value, $formData)
+    {
+        return Tag::all()->pluck('name', 'id')->toArray();
+    }
+
+    public function getTagsStringIdOptions($value, $formData)
+    {
+        return self::getTagsArrayIdOptions($value, $formData);
+    }
 }
