@@ -54,12 +54,12 @@ tabs:
         pages:
             tab: Pages
             type: checkboxlist
-            
+
         page_404:
             tab: Pages
             commentAbove: This field is enabled when the 404 page is selected
             trigger:
-                field: pages
+                field: pages[]
                 condition: value[404]
                 action: enable
 
