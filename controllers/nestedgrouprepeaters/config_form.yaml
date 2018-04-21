@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Nested Group Repeater
+
+# Model Form Field configuration
+form: $/october/test/models/nestedgrouprepeater/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\NestedGroupRepeater
+
+# Default redirect location
+defaultRedirect: october/test/nestedgrouprepeaters
+
+# Create page
+create:
+    title: Create Nested Group Repeater
+    redirect: october/test/nestedgrouprepeaters/update/:id
+    redirectClose: october/test/nestedgrouprepeaters
+
+# Update page
+update:
+    title: Edit Nested Group Repeater
+    redirect: october/test/nestedgrouprepeaters
+    redirectClose: october/test/nestedgrouprepeaters
+
+# Preview page
+preview:
+    title: Preview Nested Group Repeater
