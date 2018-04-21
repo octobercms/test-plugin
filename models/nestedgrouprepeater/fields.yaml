@@ -1,0 +1,35 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    repeater_data:
+        label: Repeater 1
+        type: repeater
+        form:
+            fields:
+                group_repeater_1:
+                    label: Group Repeater 1
+                    type: repeater
+                    groups:
+                        group1:
+                            name: Group1
+                            fields:
+                                value:
+                                    label: Value
+    group_repeater_data:
+        label: Group Repeater 2
+        type: repeater
+        groups:
+            group2:
+                name: Group 2
+                fields:
+                    group_repeater_3:
+                        label: Group Repeater 3
+                        type: repeater
+                        groups:
+                            group3:
+                                name: Group 3
+                                fields:
+                                    value:
+                                        label: Value
