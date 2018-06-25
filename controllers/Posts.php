@@ -17,19 +17,34 @@ use Backend\Classes\Controller;
 class Posts extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.RelationController',
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class,
     ];
 
     public $formConfig = 'config_post_form.yaml';
-    public $listConfig = ['posts' => 'config_posts_list.yaml', 'comments' => 'config_comments_list.yaml'];
+
+    public $listConfig = [
+        'posts' => 'config_posts_list.yaml',
+        'comments' => 'config_comments_list.yaml',
+        'tags' => 'config_tags_list.yaml'
+    ];
+
     public $relationConfig = 'config_relation.yaml';
 
     public function __construct()
     {
-        if (post('comment_mode'))
+        $this->vars['mode'] = false;
+
+        if (post('comment_mode')) {
+            $this->vars['mode'] = 'comment';
             $this->formConfig = 'config_comment_form.yaml';
+        }
+
+        if (post('tag_mode')) {
+            $this->vars['mode'] = 'tag';
+            $this->formConfig = 'config_tag_form.yaml';
+        }
 
         parent::__construct();
 
@@ -40,6 +55,28 @@ class Posts extends Controller
     {
         $this->asExtension('ListController')->index();
         $this->bodyClass = 'compact-container';
+    }
+
+    //
+    // Custom Delete workflow
+    //
+
+    public function onLoadDeleteReasonForm($recordId = null)
+    {
+        return $this->makePartial('delete_reason_form');
+    }
+
+    public function onDeleteWithReason($recordId = null)
+    {
+        $result = $this->asExtension('FormController')->update_onDelete($recordId);
+
+        $model = $this->formGetModel();
+
+        $reason = post('reason');
+
+        traceLog(sprintf('The post "%s" was deleted with reason "%s"', $model->name, $reason));
+
+        return $result;
     }
 
     //
@@ -55,7 +92,7 @@ class Posts extends Controller
     public function onCreate()
     {
         $this->asExtension('FormController')->create_onSave();
-        return $this->listRefresh('comments');
+        return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
 
     public function onUpdateForm()
@@ -68,13 +105,12 @@ class Posts extends Controller
     public function onUpdate()
     {
         $this->asExtension('FormController')->update_onSave(post('record_id'));
-        return $this->listRefresh('comments');
+        return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
 
     public function onDelete()
     {
         $this->asExtension('FormController')->update_onDelete(post('record_id'));
-        return $this->listRefresh('comments');
+        return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
-
 }

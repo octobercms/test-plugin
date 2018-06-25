@@ -6,7 +6,7 @@
 name: Comment
 
 # Model Form Field configuration
-form: ~/plugins/october/test/models/comment/fields.yaml
+form: ~/plugins/october/test/models/comment/fields_simple.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Comment

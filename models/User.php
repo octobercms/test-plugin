@@ -31,6 +31,7 @@ class User extends Model
     public $rules = [
         'photo' => 'required',
         'portfolio' => 'required',
+        'roles' => 'required',
     ];
 
     /**
@@ -40,7 +41,8 @@ class User extends Model
         'roles' => [
             'October\Test\Models\Role',
             'table' => 'october_test_users_roles',
-            'timestamps' => true
+            'timestamps' => true,
+            'order' => 'name'
         ],
         'roles_count' => [
             'October\Test\Models\Role',
@@ -67,6 +69,7 @@ class User extends Model
         'photo_secure' => ['System\Models\File', 'public' => false],
         'certificate' => ['System\Models\File'],
         'certificate_secure' => ['System\Models\File', 'public' => false],
+        'custom_file' => 'October\Test\Models\CustomFile'
     ];
 
     public $attachMany = [
@@ -76,5 +79,11 @@ class User extends Model
         'files_secure' => ['System\Models\File', 'public' => false],
     ];
 
+    public function scopeApplyRoleFilter($query, $filtered)
+    {
+        return $query->whereHas('roles', function($q) use ($filtered) {
+            $q->whereIn('id', $filtered);
+        });
+    }
 
 }

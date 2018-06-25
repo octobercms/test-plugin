@@ -42,3 +42,6 @@ toolbar:
     # Search widget configuration
     search:
         prompt: backend::lang.list.search_prompt
+
+# Custom view path
+customViewPath: $/october/test/controllers/reviews/list

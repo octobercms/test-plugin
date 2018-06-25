@@ -1,11 +1,15 @@
 <?= Form::open(['id' => 'updateForm']) ?>
 
     <input type="hidden" name="record_id" value="<?= $recordId ?>" />
-    <input type="hidden" name="comment_mode" value="1" />
+    <?php if ($mode == 'comment'): ?>
+        <input type="hidden" name="comment_mode" value="1" />
+    <?php elseif ($mode == 'tag'): ?>
+        <input type="hidden" name="tag_mode" value="1" />
+    <?php endif ?>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="popup">&times;</button>
-        <h4 class="modal-title">Update comment</h4>
+        <h4 class="modal-title">Update <?= $mode ?></h4>
     </div>
 
     <?php if (!$this->fatalError): ?>

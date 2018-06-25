@@ -8,7 +8,6 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -20,7 +19,8 @@ class Plugin extends PluginBase
             'name'        => 'October Tester',
             'description' => 'Used for testing the Relation Controller behavior and others.',
             'author'      => 'Alexey Bobkov, Samuel Georges',
-            'icon'        => 'icon-child'
+            'icon'        => 'icon-child',
+            'homepage'    => 'https://github.com/daftspunk/oc-test-plugin'
         ];
     }
 
@@ -31,7 +31,7 @@ class Plugin extends PluginBase
                 'label'       => 'Playground',
                 'url'         => Backend::url('october/test/people'),
                 'icon'        => 'icon-child',
-                'order'       => 100,
+                'order'       => 200,
 
                 'sideMenu' => [
                     'people' => [
@@ -59,6 +59,11 @@ class Plugin extends PluginBase
                         'icon'        => 'icon-database',
                         'url'         => Backend::url('october/test/reviews'),
                     ],
+                    'galleries' => [
+                        'label'       => 'Galleries',
+                        'icon'        => 'icon-database',
+                        'url'         => Backend::url('october/test/galleries'),
+                    ],
                     'trees' => [
                         'label'       => 'Trees',
                         'icon'        => 'icon-database',
@@ -69,4 +74,12 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'October\Test\FormWidgets\TimeChecker' => [
+                'code'  => 'timecheckertest'
+            ]
+        ];
+    }
 }

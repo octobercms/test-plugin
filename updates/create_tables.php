@@ -5,7 +5,6 @@ use October\Rain\Database\Updates\Migration;
 
 class CreateTables extends Migration
 {
-
     public function up()
     {
         /*
@@ -23,6 +22,7 @@ class CreateTables extends Migration
             $table->time('birthtime')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('favcolor')->nullable();
+            $table->boolean('is_married')->nullable();
             $table->timestamps();
         });
 
@@ -50,6 +50,13 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
+            $table->string('tags_array')->nullable();
+            $table->string('tags_string')->nullable();
+            $table->string('tags_array_id')->nullable();
+            $table->string('tags_string_id')->nullable();
+            $table->boolean('is_published')->default(false);
+            $table->timestamp('published_at')->nullable();
+            $table->integer('status_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });
 
@@ -61,8 +68,26 @@ class CreateTables extends Migration
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();
+            $table->text('breakdown')->nullable();
+            $table->text('mood')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->integer('post_id')->unsigned()->nullable()->index();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_tags', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_posts_tags', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->integer('post_id');
+            $table->integer('tag_id');
             $table->timestamps();
         });
 
@@ -111,17 +136,42 @@ class CreateTables extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('code')->nullable();
+            $table->text('content')->nullable();
             $table->text('pages')->nullable();
             $table->text('states')->nullable();
+            $table->text('locations')->nullable();
             $table->string('language')->nullable();
             $table->string('currency')->nullable();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
 
+        Schema::create('october_test_countries_types', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->integer('country_id')->unsigned();
+            $table->integer('attribute_id')->unsigned();
+            $table->primary(['country_id', 'attribute_id']);
+        });
+
         /*
          * Test 5: Reviews
          */
+
+        Schema::create('october_test_meta', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->integer('taggable_id')->unsigned()->index()->nullable();
+            $table->string('taggable_type')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('canonical_url')->nullable();
+            $table->string('redirect_url')->nullable();
+            $table->string('robot_index')->nullable();
+            $table->string('robot_follow')->nullable();
+        });
 
         Schema::create('october_test_reviews', function($table)
         {
@@ -131,7 +181,6 @@ class CreateTables extends Migration
             $table->integer('product_id')->unsigned()->nullable();
             $table->text('content')->nullable();
             $table->boolean('is_positive')->nullable();
-            $table->index(['product_id', 'product_type']);
             $table->timestamps();
         });
 
@@ -164,6 +213,7 @@ class CreateTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });
@@ -185,6 +235,7 @@ class CreateTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->index()->nullable();
+            $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->integer('nest_left')->nullable();
@@ -202,14 +253,55 @@ class CreateTables extends Migration
             $table->timestamps();
         });
 
+        /*
+         * Test 7: Attributes
+         */
+
+        Schema::create('october_test_attributes', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('type')->nullable();
+            $table->string('name')->nullable();
+            $table->string('label')->nullable();
+            $table->string('code')->nullable();
+            $table->boolean('is_default')->default(false);
+            $table->integer('sort_order')->nullable();
+            $table->timestamps();
+        });
+
+        /*
+         * Test 8: Galleries
+         */
+
+        Schema::create('october_test_galleries', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('title')->nullable();
+            $table->string('status')->nullable();
+            $table->boolean('party_mode')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_gallery_entity', function($table) {
+            $table->engine = 'InnoDB';
+            $table->unsignedInteger('gallery_id')->index('gallery_id_idx');
+            $table->unsignedInteger('entity_id')->index('entity_id_idx');
+            $table->string('entity_type')->index('entity_type_idx');
+            $table->primary(['gallery_id', 'entity_id', 'entity_type'], 'gallery_entity_pk');
+        });
     }
 
     public function down()
     {
+        Schema::dropIfExists('october_test_gallery_entity');
+        Schema::dropIfExists('october_test_galleries');
         Schema::dropIfExists('october_test_comments');
         Schema::dropIfExists('october_test_people');
         Schema::dropIfExists('october_test_phones');
         Schema::dropIfExists('october_test_countries');
+        Schema::dropIfExists('october_test_countries_types');
         Schema::dropIfExists('october_test_plugins');
         Schema::dropIfExists('october_test_reviews');
         Schema::dropIfExists('october_test_posts');
@@ -222,6 +314,9 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_categories');
         Schema::dropIfExists('october_test_channels');
         Schema::dropIfExists('october_test_related_channels');
+        Schema::dropIfExists('october_test_meta');
+        Schema::dropIfExists('october_test_attributes');
+        Schema::dropIfExists('october_test_tags');
+        Schema::dropIfExists('october_test_posts_tags');
     }
-
 }

@@ -9,6 +9,8 @@
 
     <?= Form::open(['class' => 'layout']) ?>
 
+        <?= $this->makePartial('form_toggle') ?>
+
         <div class="layout-row">
             <?= $this->formRender() ?>
         </div>

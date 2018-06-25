@@ -7,6 +7,12 @@ fields:
         label: Name
 
     parent:
-        label: Parent
-        type: relation
+        label: Parent (RecordFinder)
+        comment: Record finder field.
+        type: recordfinder
+        list: ~/plugins/october/test/models/member/columns.yaml
+        title: Please pick a parent member
+        prompt: Click the %s to find a parent member
+        nameFrom: name
+        scope: eligibleParents
 

@@ -7,7 +7,6 @@ use Model;
  */
 class Review extends Model
 {
-
     /**
      * @var string The database table used by the model.
      */
@@ -30,4 +29,7 @@ class Review extends Model
         'product' => []
     ];
 
+    public $attachOne = [
+        'photo' => ['System\Models\File']
+    ];
 }

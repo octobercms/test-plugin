@@ -30,7 +30,9 @@ class Channel extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'user' => 'October\Test\Models\User'
+    ];
     public $belongsToMany = [
         'related' => [
             'October\Test\Models\Channel',

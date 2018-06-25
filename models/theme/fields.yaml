@@ -2,7 +2,16 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    id:
-        label: ID
-        disabled: true
+tabs:
+    fields:
+        name:
+            label: Name
+            tab: Details
+
+        code:
+            label: Code
+            tab: Details
+
+        content:
+            label: Content
+            tab: Details

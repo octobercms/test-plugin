@@ -10,7 +10,16 @@ fields:
         nameFrom: name
         emptyOption: -- Select Post --
         comment: This Comment belongs to the Post selected above.
-        context: ['create', 'update']
+        context: create
+
+    # Comment cannot be moved to another post this way,
+    # make sure the outcome does not empty the value
+    post@update:
+        type: relation
+        nameFrom: name
+        emptyOption: -- Select Post --
+        comment: This Comment belongs to the Post selected above.
+        disabled: true
 
     name:
         label: Name
@@ -23,6 +32,44 @@ fields:
         span: auto
 
 tabs:
+
+    fields:
+
+        breakdown:
+            tab: Breakdown
+            type: repeater
+            prompt: Add a new point summary
+            form:
+                fields:
+                    point_summary:
+                        label: Point
+                        placeholder: What points are you trying to make
+                        type: text
+
+                    point_evidence:
+                        type: repeater
+                        prompt: Add evidence to the point
+                        form:
+                            fields:
+                                 title:
+                                    placeholder: Provide evidence to support that point
+                                    label: Evidence
+                                    type: text
+
+        mood[feeling]:
+            label: Overall feeling
+            span: auto
+            type: dropdown
+            options: getFeelingOptions
+            tab: Mood
+
+        mood[comment]:
+            label: Mood comment
+            span: auto
+            type: text
+            tab: Mood
+
+secondaryTabs:
 
     fields:
 

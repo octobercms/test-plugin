@@ -57,4 +57,9 @@ class Phone extends Model
         return $query->where('is_active', true);
     }
 
+    public function scopeCustomSearch($query, $term)
+    {
+        $query->where('name', $term);
+    }
+
 }
