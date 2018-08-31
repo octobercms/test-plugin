@@ -5,3 +5,7 @@
 1.0.3:
   - Seed tables
   - seed_tables.php
+1.0.4:
+  - Bug demonstration
+  - create_pages_tables.php
+  - seed_pages_tables.php

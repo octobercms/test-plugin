@@ -1,0 +1,11 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    content[title]:
+        label: Title
+    content[body]:
+        label: Body
+        type: richeditor
+        size: huge
