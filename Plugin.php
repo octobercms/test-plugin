@@ -1,10 +1,10 @@
 <?php
 namespace October\Test;
 
+use App;
 use Backend;
-use Backend\Models\BrandSetting;
-use Cms\Controllers\Themes;
-use Cms\Models\ThemeData;
+use Cms\Classes\Page as CmsPage;
+use Event;
 use System\Classes\PluginBase;
 
 /**
@@ -88,57 +88,65 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Extend Cms\Model\ThemeData
+     * Extend CMS Page with Repeater Field.
+     *
+     * @return void
      */
     public function boot()
     {
-        $availableColours = $this->getAvailableColors();
-        Event::listen('backend.form.extendFields', function ($widget) use ($availableColours) {
-            if ($widget->isNested) {
-                return;
-            }
-            if (!$widget->getController() instanceof Themes) {
-                return;
-            }
-            if (!$widget->model instanceof ThemeData) {
-                return;
-            }
-            $widget->addFields([
-                'test_colour'         => [
-                    'label'           => 'Test Colour',
-                    'required'        => 1,
-                    'type'            => 'colorpicker',
-                    'availableColors' => $availableColours,
-                    'assetVar'        => 'testColour',
-                    'span'            => 'left',
-                    'tab'             => 'Global',
-                ],
-                'another_test_colour' => [
-                    'label'           => 'Another Test Colour',
-                    'required'        => 1,
-                    'type'            => 'colorpicker',
-                    'availableColors' => $availableColours,
-                    'assetVar'        => 'anotherTestColour',
-                    'span'            => 'right',
-                    'tab'             => 'Global',
-                ],
-            ], 'primary');
-        });
-    }
-
-    /**
-     * Get Available Colors.
-     *
-     * @return array
-     */
-    protected function getAvailableColors()
-    {
-        $brand            = BrandSetting::instance();
-        $availableColours = array_unique([
-            BrandSetting::get('primary_color'),
-            BrandSetting::get('secondary_color'),
-            BrandSetting::get('accent_color'),
-        ]);
-        return $availableColours;
+        if (App::runningInBackend()) {
+            Event::listen('backend.form.extendFields', function ($widget) {
+                if ($widget->isNested) {
+                    return;
+                }
+                if (!$widget->model instanceof CmsPage) {
+                    return;
+                }
+                $widget->addFields([
+                    'settings[blocks]' => [
+                        'prompt' => 'Add Content Block',
+                        'type'   => 'repeater',
+                        'groups' => [
+                            'textarea' => [
+                                'name'        => 'textarea',
+                                'description' => 'Basic text field',
+                                'icon'        => 'icon-file-text-o',
+                                'fields'      => [
+                                    'text_area' => [
+                                        'label' => 'Text Content',
+                                        'type'  => 'textarea',
+                                        'size'  => 'large',
+                                    ],
+                                ],
+                            ],
+                            'quote'    => [
+                                'name'        => 'Quote',
+                                'description' => 'Quote item',
+                                'icon'        => 'icon-quote-right',
+                                'fields'      => [
+                                    'quote_position' => [
+                                        'span'    => 'auto',
+                                        'label'   => 'Quote Position',
+                                        'type'    => 'radio',
+                                        'options' => [
+                                            'left'   => 'Left',
+                                            'center' => 'Center',
+                                            'right'  => 'Right',
+                                        ],
+                                    ],
+                                    'quote_content'  => [
+                                        'span'  => 'auto',
+                                        'label' => 'Details',
+                                        'type'  => 'textarea',
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'span'   => 'full',
+                        'tab'    => 'Content Blocks',
+                    ],
+                ], 'primary');
+            });
+        }
     }
 }
