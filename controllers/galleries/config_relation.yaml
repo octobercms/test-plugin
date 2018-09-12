@@ -3,5 +3,13 @@ posts:
     label: Posts
     list: ~/plugins/october/test/models/post/columns.yaml
     form: ~/plugins/october/test/models/post/fields_simple.yaml
+
+slideshow:
+  label: Slideshow
+  view:
+    form: $/peterhegman/slickslider/models/slideshows/fields.yaml
+  manage:
+    form: $/peterhegman/slickslider/models/slideshows/fields.yaml
+    list: $/peterhegman/slickslider/models/slideshows/columns.yaml
 #    manage:
 #        context: relation

@@ -44,4 +44,8 @@ class Gallery extends Model
     public $attachMany = [
         'images' => 'System\Models\File',
     ];
+
+    public $belongsTo = [
+        'slideshow' => ['Peterhegman\slickslider\models\SlideShows', 'key' => 'slideshow_id']
+    ];
 }

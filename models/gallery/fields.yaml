@@ -40,3 +40,8 @@ tabs:
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
             tab: Images
+
+        slideshow:
+            label: Slideshow
+            type: partial
+            tab: Slideshows

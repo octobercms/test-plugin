@@ -281,6 +281,7 @@ class CreateTables extends Migration
             $table->string('title')->nullable();
             $table->string('status')->nullable();
             $table->boolean('party_mode')->nullable();
+            $table->unsignedInteger('slideshow_id')->index('slideshow_id_idx');
             $table->timestamps();
         });
 
