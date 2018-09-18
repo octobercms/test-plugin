@@ -72,6 +72,14 @@ tabs:
             nameFrom: name
             tab: Tags
 
+        _tags_trigger:
+            commentAbove: Hide if "a" or "b" are used as tags above
+            tab: Tags
+            trigger:
+                action: hide
+                field: tags[]
+                condition: value[a][b]
+
         tags_array:
             label: Tags saved as Array
             type: taglist
