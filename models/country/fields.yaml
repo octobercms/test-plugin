@@ -55,13 +55,21 @@ tabs:
             tab: Pages
             type: checkboxlist
 
-        page_404:
+        _page_404:
             tab: Pages
             commentAbove: This field is enabled when the 404 page is selected
             trigger:
                 field: pages[]
                 condition: value[404]
                 action: enable
+
+        _page_error:
+            tab: Pages
+            commentAbove: This field is hidden when the error page is selected
+            trigger:
+                field: pages[]
+                condition: value[error]
+                action: hide
 
         states:
             tab: States
