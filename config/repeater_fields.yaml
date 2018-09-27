@@ -2,6 +2,19 @@
 #  Used by Grouped Repeater
 # ===================================
 
+recurse:
+    name: Recurse
+    description: Repeater recursion
+    icon: icon-refresh
+    fields:
+        children:
+            label: Content
+            prompt: Add content block
+            span: full
+            type: repeater
+
+            groups: $/october/test/config/repeater_fields.yaml
+
 textarea:
     name: Textarea
     description: Basic text field
@@ -51,3 +64,13 @@ image:
                 left: Left
                 center: Center
                 right: Right
+
+taglist:
+    name: Tag list
+    description: Tag list in string mode
+    icon: icon-tags
+    fields:
+        tags:
+            label: Tag list
+            type: taglist
+            mode: string
