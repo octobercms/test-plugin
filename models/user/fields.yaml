@@ -9,6 +9,7 @@ fields:
         type: partial
         path: field_uppercase_name
         comment: This username should always appear as uppercase.
+        attributes: autofocus
 
     security_code:
         label: Security Code

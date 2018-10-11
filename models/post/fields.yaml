@@ -9,6 +9,7 @@ fields:
         commentAbove: Text field, <a href="#">required</a>.
         commentHtml: true
         span: auto
+        attributes: autofocus
 
     # Relation form field (default)
     status:
