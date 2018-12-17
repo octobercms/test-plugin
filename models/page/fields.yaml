@@ -10,7 +10,7 @@ fields:
         label: Content
         span: full
         type: nestedform
-        isStyled: false
+        usePanelStyles: false
         commentAbove: Everything below is a nested form, with styling disabled.
         form:
             tabs:
