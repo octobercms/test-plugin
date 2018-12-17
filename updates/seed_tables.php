@@ -1,5 +1,6 @@
 <?php namespace October\Test\Updates;
 
+use October\Test\Models\Page;
 use October\Test\Models\User;
 use October\Test\Models\Role;
 use October\Test\Models\Post;
@@ -202,6 +203,33 @@ class SeedAllTables extends Seeder
             }
         }
 
+        $pages = [
+            [
+                'id' => 1,
+                'type' => 1,
+                'content' => [
+                    'title' => 'This is a simple page',
+                    'content' => '<h1>Hello, World</h1>'
+                ],
+            ],
+            [
+                'id' => 2,
+                'type' => 2,
+                'content' => [
+                    'title' => 'This is a complex page',
+                    'content' => '<h1>Hello, Complex World</h1>',
+                    'meta_description' => 'Meta Description',
+                    'meta_tags' => ['OctoberCMS', 'Fun'],
+                    'colors' => [
+                        'primary' => '#ff0000',
+                        'secondary' => '#00ff00',
+                    ]
+                ],
+            ],
+        ];
+        foreach($pages as $page) {
+            Page::create($page);
+        }
     }
 
 }

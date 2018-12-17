@@ -291,6 +291,14 @@ class CreateTables extends Migration
             $table->string('entity_type')->index('entity_type_idx');
             $table->primary(['gallery_id', 'entity_id', 'entity_type'], 'gallery_entity_pk');
         });
+
+        Schema::create('october_test_pages', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->integer('type')->unsigned();
+            $table->text('content')->nullable();
+        });
     }
 
     public function down()
@@ -318,5 +326,6 @@ class CreateTables extends Migration
         Schema::dropIfExists('october_test_attributes');
         Schema::dropIfExists('october_test_tags');
         Schema::dropIfExists('october_test_posts_tags');
+        Schema::dropIfExists('october_test_pages');
     }
 }
