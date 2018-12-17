@@ -8,6 +8,15 @@
 <?php if (!$this->fatalError): ?>
 
     <?= Form::open(['class' => 'layout']) ?>
+        <div class="padded-container">
+            <div class="callout callout-warning">
+                <div class="header">
+                    <i class="icon-database"></i>
+                    <h3>Page model with a type and jsonable content field.</h3>
+                    <p>Depending on the type different schemas are saved inside of content.</p>
+                </div>
+            </div>
+        </div>
 
         <div class="layout-row">
             <?= $this->formRender() ?>

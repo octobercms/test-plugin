@@ -7,9 +7,11 @@ fields:
         span: full
         type: dropdown
     content:
+        label: Content
         span: full
         type: nestedform
         isStyled: false
+        commentAbove: Everything below is a nested form, with styling disabled.
         form:
             tabs:
                 fields:
@@ -21,19 +23,12 @@ fields:
                         label: Colors
                         type: nestedform
                         tab: Content
+                        commentAbove: Colors are a nested form inside a nested form
                         trigger:
                             action: show
                             field: ^type
                             condition: value[2]
-                        form:
-                            secondaryTabs:
-                                fields:
-                                    primary:
-                                        tab: Primary Color
-                                        type: colorpicker
-                                    secondary:
-                                        tab: Secondary Color
-                                        type: colorpicker
+                        form: $/october/test/models/page/colors.yaml
                     content:
                         label: Content
                         type: richeditor
