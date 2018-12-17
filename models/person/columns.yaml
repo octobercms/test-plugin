@@ -14,7 +14,12 @@ columns:
     bio:
         label: Bio
         searchable: true
+        format: I am a user, %s
 
+    expenses:
+        lable: Expenses
+        format: $ %.2f
+        
     phone:
         label: Phone
         relation: phone

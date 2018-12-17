@@ -26,7 +26,7 @@ class SeedAllTables extends Seeder
          * Test 1: People
          */
 
-        $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'favcolor' => '#5fb6f5']);
+        $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'expenses'=> 19999, 'favcolor' => '#5fb6f5']);
         $person->phone = Phone::create(['name' => 'Mobile', 'number' => '(360) 733-2263']);
         $person->alt_phone = Phone::create(['name' => 'Home', 'number' => '(360) 867-3563']);
         $person->save();
