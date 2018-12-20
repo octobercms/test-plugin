@@ -18,6 +18,7 @@ class CreateTables extends Migration
             $table->string('name')->nullable();
             $table->string('preferred_name')->nullable();
             $table->string('bio')->nullable();
+            $table->string('expenses')->nullable();
             $table->datetime('birth')->nullable();
             $table->time('birthtime')->nullable();
             $table->date('birthdate')->nullable();
