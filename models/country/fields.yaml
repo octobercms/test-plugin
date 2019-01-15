@@ -85,8 +85,36 @@ tabs:
                             fields:
                                 subtitle:
                                     label: Suburb
-                                    span: left
-
+                                    span: full
+                                safety:
+                                    type: datatable
+                                    stretch: 1
+                                    stretch: true
+                                    dynamicHeight: true
+                                    adding: true
+                                    deleting: true
+                                    btnAddRowLabel: Add Crime Type
+                                    btnDeleteRowLabel: Delete Crime Type
+                                    span: full
+                                    columns:
+                                        id:
+                                            title: 
+                                            width: 30px
+                                            readOnly: true
+                                        label: 
+                                            title: Label
+                                            type: string
+                                            validation:
+                                                required:
+                                                    message: Please enter label
+                                        rating:
+                                            title: Rating
+                                            type: string
+                                            validation:
+                                                required:
+                                                    message: Please enter rating
+                                                float:
+                                                    message: Rating should be a float
         locations:
             tab: Related
             label: Locations
