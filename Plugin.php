@@ -87,4 +87,23 @@ class Plugin extends PluginBase
             ]
         ];
     }
+    
+    public function boot()
+    {
+         Event::listen('cms.theme.extendFormConfig', function ($themeCode, &$config) {
+            $config['tabs'] = [
+                'icons' => [
+                    'Global'  => 'icon-globe',
+                ],
+            ];
+            array_set($config, 'tabs.fields.test_asset_var', [
+                'label'    => 'Test Asset Var',
+                'type'     => 'text',
+                'assetVar' => 'testAssetVar'
+                'span'     => 'left',
+                'tab'      => 'Global',
+            ]);
+            return $config;
+        });
+    }
 }
