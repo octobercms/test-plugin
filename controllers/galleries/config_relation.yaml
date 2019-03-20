@@ -3,5 +3,21 @@ posts:
     label: Posts
     list: ~/plugins/october/test/models/post/columns.yaml
     form: ~/plugins/october/test/models/post/fields_simple.yaml
-#    manage:
-#        context: relation
+    manage:
+        showSearch: true
+        filter:
+            scopes:
+                published_at:
+                    label: Date
+                    type: daterange
+                    conditions: created_at >= ':after' AND created_at <= ':before'
+                username:
+                    label: Name
+                    type: text
+                    conditions: name = :value
+                    size: 2
+                status:
+                    label: Status
+                    modelClass: October\Test\Models\Attribute
+                    conditions: status_id in (:filtered)
+                    nameFrom: name
