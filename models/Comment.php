@@ -1,6 +1,7 @@
 <?php namespace October\Test\Models;
 
 use Model;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Comment Model
@@ -61,5 +62,9 @@ class Comment extends Model
             'happy'    => 'Happy',
             'trolling' => "Just trollin' y'all",
         ];
+    }
+
+    public function beforeSave() {
+        Log::info('Before Save Called!');
     }
 }
