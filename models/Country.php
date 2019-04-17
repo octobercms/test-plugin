@@ -40,6 +40,13 @@ class Country extends Model
         ],
     ];
 
+    /**
+     * Softly implement the TranslatableModel behavior.
+     */
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = ['states', 'content'];
+
     public function filterFields($fields, $context = null)
     {
         // Repeater field shares this logic
