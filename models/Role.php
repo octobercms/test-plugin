@@ -7,6 +7,23 @@ use Model;
  */
 class Role extends Model
 {
+    use \October\Rain\Database\Traits\Purgeable;
+
+    public $purgeable = [
+        'pivot'
+    ];
+
+    /**
+     * @var array
+     */
+    public $implement = [
+        'RainLab.Translate.Behaviors.TranslatableModel',
+    ];
+
+    /**
+     * @var array
+     */
+    public $translatable = ['name', 'description'];
 
     /**
      * @var string The database table used by the model.
@@ -34,4 +51,19 @@ class Role extends Model
         'photos' => ['System\Models\File'],
     ];
 
+
+
+    /**
+     * This wil only have effect if this model does not implements Translatable
+     * @param $fields
+     */
+    public function filterFields($fields)
+    {
+        if (property_exists($fields, 'pivot[is_executive]')) {
+            if ($fields->{'pivot[is_executive]'}->value == true)
+                $fields->{'pivot[clearance_level]'}->value = 'Very secret';
+            else
+                $fields->{'pivot[clearance_level]'}->value = 'Not so secret actually';
+        }
+    }
 }

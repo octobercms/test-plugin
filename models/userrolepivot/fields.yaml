@@ -6,7 +6,8 @@ fields:
     pivot[clearance_level]:
         label: Clearance level
         span: auto
-
+        type: mltext
+        dependsOn: pivot[is_executive]
     pivot[is_executive]:
         label: Executive
         type: checkbox
