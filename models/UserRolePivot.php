@@ -14,7 +14,7 @@ class UserRolePivot extends Pivot
      * @var array
      */
     public $implement = [
-        'RainLab.Translate.Behaviors.TranslatableModel',
+        '@RainLab.Translate.Behaviors.TranslatableModel',
     ];
 
     /**

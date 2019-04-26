@@ -17,7 +17,7 @@ class Role extends Model
      * @var array
      */
     public $implement = [
-        'RainLab.Translate.Behaviors.TranslatableModel',
+        '@RainLab.Translate.Behaviors.TranslatableModel',
     ];
 
     /**

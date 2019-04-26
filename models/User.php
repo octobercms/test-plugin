@@ -58,7 +58,7 @@ class User extends Model
         'roles_pivot_model' => [
             'October\Test\Models\Role',
             'table' => 'october_test_users_roles',
-            'pivot' => ['clearance_level', 'is_executive'],
+            'pivot' => ['clearance_level', 'is_executive', 'id'],
             'timestamps' => true,
             'pivotModel' => 'October\Test\Models\UserRolePivot',
         ],

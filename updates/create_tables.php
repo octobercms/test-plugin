@@ -119,9 +119,10 @@ class CreateTables extends Migration
         Schema::create('october_test_users_roles', function($table)
         {
             $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('role_id')->unsigned();
-            $table->primary(['user_id', 'role_id']);
+            // $table->primary(['user_id', 'role_id']);
             $table->string('clearance_level')->nullable();
             $table->boolean('is_executive')->default(false);
             $table->timestamps();
