@@ -49,3 +49,12 @@ tabs:
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
             tab: Images
+
+        images@mediafinderlimited:
+            label: Images
+            type: mediafinder
+            maxItems: 5
+            mode: image
+            fileTypes: ['png', 'jpg', 'jpeg']
+            mimeTypes: 'png,jpg,jpeg'
+            tab: Images

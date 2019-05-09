@@ -13,7 +13,7 @@
     <div class="content">
         <ul>
             <li>
-                <?php if ($context === 'mediafinder'): ?>
+                <?php if ($context !== 'create'): ?>
                 <a href="<?= Backend::url($uriPrefix) ?>">
                 <?php else: ?>
                 <strong>
@@ -21,14 +21,14 @@
 
                     File Upload
 
-                <?php if ($context === 'mediafinder'): ?>
+                <?php if ($context !== 'create'): ?>
                 </a>
                 <?php else: ?>
                 </strong>
                 <?php endif; ?>
             </li>
             <li>
-                <?php if ($context === 'create'): ?>
+                <?php if ($context !== 'mediafinder'): ?>
                 <a href="<?= Backend::url($uriPrefix) . '/mediafinder' ?>">
                 <?php else: ?>
                 <strong>
@@ -36,7 +36,22 @@
 
                     Media Finder
 
-                <?php if ($context === 'create'): ?>
+                <?php if ($context !== 'mediafinder'): ?>
+                </a>
+                <?php else: ?>
+                </strong>
+                <?php endif; ?>
+            </li>
+            <li>
+                <?php if ($context !== 'mediafinderlimited'): ?>
+                <a href="<?= Backend::url($uriPrefix) . '/mediafinderlimited' ?>">
+                <?php else: ?>
+                <strong>
+                <?php endif; ?>
+
+                    Media Finder (limited to 5 images)
+
+                <?php if ($context !== 'mediafinderlimited'): ?>
                 </a>
                 <?php else: ?>
                 </strong>
