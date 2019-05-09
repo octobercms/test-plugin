@@ -44,7 +44,7 @@ tabs:
         images@mediafinder:
             label: Images
             type: mediafinder
-            maxItems: null
+            maxItems: -1
             mode: image
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
