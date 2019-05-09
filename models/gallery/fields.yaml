@@ -33,7 +33,8 @@ tabs:
             type: partial
             tab: Posts
 
-        images@create:
+        images:
+            context: [create, update]
             label: Images
             type: fileupload
             mode: image

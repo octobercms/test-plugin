@@ -13,7 +13,7 @@
     <div class="content">
         <ul>
             <li>
-                <?php if ($context !== 'create'): ?>
+                <?php if ($context !== 'create' && $context !== 'update'): ?>
                 <a href="<?= Backend::url($uriPrefix) ?>">
                 <?php else: ?>
                 <strong>
@@ -21,7 +21,7 @@
 
                     File Upload
 
-                <?php if ($context !== 'create'): ?>
+                <?php if ($context !== 'create' && $context !== 'update'): ?>
                 </a>
                 <?php else: ?>
                 </strong>
