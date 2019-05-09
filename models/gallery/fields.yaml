@@ -33,9 +33,18 @@ tabs:
             type: partial
             tab: Posts
 
-        images:
+        images@create:
             label: Images
             type: fileupload
+            mode: image
+            fileTypes: ['png', 'jpg', 'jpeg']
+            mimeTypes: 'png,jpg,jpeg'
+            tab: Images
+
+        images@mediafinder:
+            label: Images
+            type: mediafinder
+            maxItems: null
             mode: image
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'

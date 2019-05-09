@@ -1,0 +1,47 @@
+<?php
+    $uriPrefix = $formModel->exists
+        ? 'october/test/galleries/update/'.$formModel->id
+        : 'october/test/galleries/create';
+
+    $context = $this->formGetContext();
+?>
+<div class="callout callout-warning no-subheader">
+    <div class="header">
+        <i class="icon-cloud-upload"></i>
+        <h3>Images upload widget</h3>
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <?php if ($context === 'mediafinder'): ?>
+                <a href="<?= Backend::url($uriPrefix) ?>">
+                <?php else: ?>
+                <strong>
+                <?php endif; ?>
+
+                    File Upload
+
+                <?php if ($context === 'mediafinder'): ?>
+                </a>
+                <?php else: ?>
+                </strong>
+                <?php endif; ?>
+            </li>
+            <li>
+                <?php if ($context === 'create'): ?>
+                <a href="<?= Backend::url($uriPrefix) . '/mediafinder' ?>">
+                <?php else: ?>
+                <strong>
+                <?php endif; ?>
+
+                    Media Finder
+
+                <?php if ($context === 'create'): ?>
+                </a>
+                <?php else: ?>
+                </strong>
+                <?php endif; ?>
+            </li>
+        </ul>
+    </div>
+</div>
