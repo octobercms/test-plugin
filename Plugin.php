@@ -169,12 +169,46 @@ class Plugin extends PluginBase
                                 'tab'    => 'Test',
                             ],
                         ], 'primary');
-                        $widget->model->rules += [
-                            'test_repeater' => 'required',
-                        ];
+                        $this->bindRepeaterValidationRules($widget->model);
                     }
                 });
             }
         }
+    }
+    
+    protected function bindRepeaterValidationRules($model)
+    {
+        $model->rules += [
+            'test_repeater' => 'required',
+        ];
+        $model->customMessages += [
+            'blocks.required_if' => 'The content blocks field is required',
+        ];
+        $model->bindEvent('model.beforeValidate', function () use ($model) {
+            if (!empty($model->test_repeater)) {
+                foreach ($model->test_repeater as $index => $repeater) {
+                    $repeaterGroup       = $repeater['_group'];
+                    $repeaterGroupPrefix = 'test_repeater.' . $index . '.'; // <-- Repeater Group $index referenced here
+                    switch ($repeaterGroup) {
+                        case 'textarea':
+                            $model->rules[$repeaterGroupPrefix . 'text_area']                   = 'required';
+                            $model->customMessages[$repeaterGroupPrefix . 'text_area.required'] = 'Please enter text area';
+                            break;
+                        case 'quote':
+                            $model->rules[$repeaterGroupPrefix . 'quote_position']                   = 'required';
+                            $model->rules[$repeaterGroupPrefix . 'quote_content']                    = 'required';
+                            $model->customMessages[$repeaterGroupPrefix . 'quote_position.required'] = 'Please select quote position';
+                            $model->customMessages[$repeaterGroupPrefix . 'quote_content.required']  = 'Please enter quote content';
+                            break;
+                        case 'image':
+                            $model->rules[$repeaterGroupPrefix . 'img_upload']                     = 'required';
+                            $model->rules[$repeaterGroupPrefix . 'img_position']                   = 'required';
+                            $model->customMessages[$repeaterGroupPrefix . 'img_upload.required']   = 'Please upload image';
+                            $model->customMessages[$repeaterGroupPrefix . 'img_position.required'] = 'Please select image position';
+                            break;
+                    }
+                }
+            }
+        });
     }
 }
