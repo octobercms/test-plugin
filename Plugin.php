@@ -29,8 +29,9 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'october.test.access' => [
-                'label' => 'Allow October Tester access',
+            'october.test.access_plugin' => [
+                'label' => 'Allow access to the plugin',
+                'tab' => 'October Tester',
             ]
         ];
     }
@@ -43,48 +44,56 @@ class Plugin extends PluginBase
                 'url'      => Backend::url('october/test/people'),
                 'icon'     => 'icon-child',
                 'order'    => 200,
-                'permissions' => ['october.test.access'],
+                'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
                     'people'    => [
                         'label' => 'People',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/people'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'posts'     => [
                         'label' => 'Posts',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/posts'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'users'     => [
                         'label' => 'Users',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/users'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'countries' => [
                         'label' => 'Countries',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/countries'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'reviews'   => [
                         'label' => 'Reviews',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/reviews'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'galleries' => [
                         'label' => 'Galleries',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/galleries'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'trees'     => [
                         'label' => 'Trees',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/trees'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'pages'     => [
                         'label' => 'Pages',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/pages'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                 ],
             ],
