@@ -26,6 +26,16 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'october.test.access_plugin' => [
+                'label' => 'Allow access to the plugin',
+                'tab' => 'October Tester',
+            ]
+        ];
+    }
+
     public function registerNavigation()
     {
         return [
@@ -34,6 +44,7 @@ class Plugin extends PluginBase
                 'url'      => Backend::url('october/test/people'),
                 'icon'     => 'icon-child',
                 'order'    => 200,
+                'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
                     'people'    => [
