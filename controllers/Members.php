@@ -14,6 +14,8 @@ class Members extends Controller
 
     public $formConfig = 'config_form.yaml';
 
+    public $requiredPermissions = ['october.test.access_plugin'];
+
     public function __construct()
     {
         parent::__construct();

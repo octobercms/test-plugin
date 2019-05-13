@@ -16,6 +16,8 @@ class Channels extends Controller
     public $formConfig = 'config_form.yaml';
     public $reorderConfig = 'config_reorder.yaml';
 
+    public $requiredPermissions = ['october.test.access_plugin'];
+
     public function __construct()
     {
         parent::__construct();

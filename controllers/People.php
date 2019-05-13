@@ -19,6 +19,8 @@ class People extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
 
+    public $requiredPermissions = ['october.test.access_plugin'];
+
     public function __construct()
     {
         parent::__construct();

@@ -32,6 +32,8 @@ class Posts extends Controller
 
     public $relationConfig = 'config_relation.yaml';
 
+    public $requiredPermissions = ['october.test.access_plugin'];
+
     public function __construct()
     {
         $this->vars['mode'] = false;
