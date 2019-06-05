@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/october/test/models/product/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Product
+
+# Default redirect location
+defaultRedirect: october/test/products
+
+# Create page
+create:
+    title: Create Product
+    redirect: october/test/products/update/:id
+    redirectClose: october/test/products
+
+# Update page
+update:
+    title: Edit Product
+    redirect: october/test/products
+    redirectClose: october/test/products
+
+# Preview page
+preview:
+    title: Preview Product
