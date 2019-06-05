@@ -188,4 +188,11 @@ class Plugin extends PluginBase
             }
         }
     }
+
+    public function registerComponents()
+    {
+        return [
+            Components\TestComponents::class => 'TestComponent'
+        ];
+    }
 }
