@@ -17,6 +17,7 @@ fields:
         comment: This code should appear as a number.
 
 tabs:
+    defaultTab: Pivot data
     fields:
 
         # Relation Controller (Default)
