@@ -40,4 +40,15 @@ class People extends Controller
 
         return $model;
     }
+
+    public function onGetOptions()
+    {
+        $results = [
+            'key' => 'value',
+            'foo' => 'bar',
+            'baz' => 'baz'
+        ];
+
+        return ['result' => $results];
+    }
 }
