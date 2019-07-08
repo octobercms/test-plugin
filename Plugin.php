@@ -82,4 +82,14 @@ class Plugin extends PluginBase
             ]
         ];
     }
+    
+    public function registerReportWidgets()
+    {
+        return [
+            'October\Test\ReportWidgets\ObjectListExample' => [
+                'label'   => 'ObjectListExample',
+                'context' => 'dashboard',
+            ],
+        ];
+    }
 }
