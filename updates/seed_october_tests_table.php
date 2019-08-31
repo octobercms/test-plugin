@@ -39,7 +39,7 @@ class SeedOctoberTestsTable extends Seeder
             'grid20' => 'Width 75%',
             'grid21' => 'Width 100%',
 
-			/* New line fields */
+            /* New line fields */
 
             'newline1'  => 'New line added',
             'newline2'  => 'New line added',
@@ -47,7 +47,7 @@ class SeedOctoberTestsTable extends Seeder
             'newline4'  => 'New line added',
             'newline5'  => 'No new line added',
 
-			/* Grow and stretch fields */
+            /* Grow and stretch fields */
 
             'grow1'    => 'This textarea has a fixed height',
             'grow2'    => 'This textarea has a dynamic height',

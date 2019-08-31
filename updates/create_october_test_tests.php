@@ -16,7 +16,7 @@ class CreateOctoberTestTests extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
 
-			/* Grid fields */
+            /* Grid fields */
 
             $table->string('grid1')->nullable();
             $table->string('grid2')->nullable();
@@ -40,32 +40,32 @@ class CreateOctoberTestTests extends Migration
             $table->string('grid20')->nullable();
             $table->text('grid21')->nullable();
 
-			/* New line fields */
+            /* New line fields */
 
-			$table->string('newline1')->nullable();
-			$table->string('newline2')->nullable();
-			$table->string('newline3')->nullable();
-			$table->string('newline4')->nullable();
-			$table->string('newline5')->nullable();
+            $table->string('newline1')->nullable();
+            $table->string('newline2')->nullable();
+            $table->string('newline3')->nullable();
+            $table->string('newline4')->nullable();
+            $table->string('newline5')->nullable();
 
-			/* Grow and stretch fields */
+            /* Grow and stretch fields */
 
-			$table->text('grow1')->nullable();
-			$table->text('grow2')->nullable();
-			$table->text('grow3')->nullable();
-			$table->text('grow4')->nullable();
-			$table->text('grow5')->nullable();
-			$table->text('grow6')->nullable();
-			$table->text('grow7')->nullable();
-			$table->text('grow8')->nullable();
-			$table->text('stretch1')->nullable();
-			$table->text('stretch2')->nullable();
-			$table->text('stretch3')->nullable();
-			$table->text('stretch4')->nullable();
-			$table->text('stretch5')->nullable();
-			$table->text('stretch6')->nullable();
-			$table->text('stretch7')->nullable();
-			$table->text('stretch8')->nullable();
+            $table->text('grow1')->nullable();
+            $table->text('grow2')->nullable();
+            $table->text('grow3')->nullable();
+            $table->text('grow4')->nullable();
+            $table->text('grow5')->nullable();
+            $table->text('grow6')->nullable();
+            $table->text('grow7')->nullable();
+            $table->text('grow8')->nullable();
+            $table->text('stretch1')->nullable();
+            $table->text('stretch2')->nullable();
+            $table->text('stretch3')->nullable();
+            $table->text('stretch4')->nullable();
+            $table->text('stretch5')->nullable();
+            $table->text('stretch6')->nullable();
+            $table->text('stretch7')->nullable();
+            $table->text('stretch8')->nullable();
 
 			/* Checkbox and checkbox list fields */
 
