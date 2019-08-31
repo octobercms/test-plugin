@@ -67,7 +67,7 @@ class CreateOctoberTestTests extends Migration
             $table->text('stretch7')->nullable();
             $table->text('stretch8')->nullable();
 
-			/* Checkbox and checkbox list fields */
+            /* Checkbox and checkbox list fields */
 
             $table->boolean('check1')->nullable();
             $table->boolean('check2')->nullable();
