@@ -1,0 +1,21 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Tests
+
+# Model Form Field configuration
+form: $/october/test/models/tests/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Tests
+
+# Default redirect location
+defaultRedirect: october/test/tests/update/1
+
+# Update page
+update:
+    title: 'Various tests and examples'
+    redirect: october/test/tests/update/1
+    redirectClose: october/test/tests/update/1

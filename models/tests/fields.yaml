@@ -1,0 +1,351 @@
+tabs:
+    stretch: false
+    fields:
+        grid1:
+            label: Full
+            span: full
+            type: text
+            tab: Grid
+        grid2:
+            label: Auto
+            span: auto
+            type: text
+            tab: Grid
+        grid3:
+            label: Auto
+            span: auto
+            type: text
+            tab: Grid
+        grid4:
+            label: Left
+            span: left
+            type: text
+            tab: Grid
+        grid5:
+            label: Right
+            span: right
+            type: text
+            tab: Grid
+        grid6:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid7:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid8:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid9:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid10:
+            label: Third
+            span: third
+            type: text
+            tab: Grid
+        grid11:
+            label: Third
+            span: third
+            type: text
+            tab: Grid
+        grid12:
+            label: Third
+            span: third
+            type: text
+            tab: Grid
+        grid13:
+            label: Two-thirds
+            span: two-thirds
+            type: text
+            tab: Grid
+        grid14:
+            label: Third
+            span: third
+            type: text
+            tab: Grid
+        grid15:
+            label: Third
+            span: third
+            type: text
+            tab: Grid
+        grid16:
+            label: Two-thirds
+            span: two-thirds
+            type: text
+            tab: Grid
+        grid17:
+            label: Three-Quarters
+            span: three-quarters
+            type: text
+            tab: Grid
+        grid18:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid19:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: Grid
+        grid20:
+            label: Three-Quarters
+            span: three-quarters
+            type: text
+            tab: Grid
+        grid21:
+            label: 'Textarea (Full and Stretched)'
+            size: small
+            span: full
+            type: textarea
+            stretch: 1
+            tab: Grid
+        newline1:
+            label: Quarter
+            span: quarter
+            type: text
+            newLine: true
+            tab: 'New line'
+        newline2:
+            label: Third
+            span: third
+            type: text
+            newLine: true
+            tab: 'New line'
+        newline3:
+            label: Two-thirds
+            span: two-thirds
+            type: text
+            newLine: true
+            tab: 'New line'
+        newline4:
+            label: Three-Quarters
+            span: three-quarters
+            type: text
+            newLine: true
+            tab: 'New line'
+        newline5:
+            label: Quarter
+            span: quarter
+            type: text
+            tab: 'New line'
+        section1:
+            label: 'Textarea tests'
+            type: section
+            tab: Grow
+        grow1:
+            label: 'Text area - should not grow'
+            size: small
+            span: full
+            type: textarea
+            tab: Grow
+        grow2:
+            label: 'Text area - should be able to grow'
+            size: small
+            span: full
+            type: textarea
+            grow: 1
+            tab: Grow
+        section2:
+            label: 'Markdown editor tests'
+            type: section
+            tab: Grow
+        grow3:
+            label: 'Markdown editor - should not grow'
+            size: small
+            mode: tab
+            span: full
+            type: markdown
+            tab: Grow
+        grow4:
+            label: 'Markdown editor - should be able to grow'
+            size: small
+            mode: tab
+            span: full
+            type: markdown
+            grow: 1
+            tab: Grow
+        section3:
+            label: 'Code editor tests'
+            type: section
+            tab: Grow
+        grow5:
+            label: 'Code editor - should not grow'
+            size: small
+            language: html
+            span: full
+            type: codeeditor
+            tab: Grow
+        grow6:
+            label: 'Code editor - should be able to grow'
+            size: small
+            language: html
+            span: full
+            type: codeeditor
+            grow: 1
+            tab: Grow
+        section4:
+            label: 'Rich editor tests'
+            type: section
+            tab: Grow
+        grow7:
+            label: 'Rich editor - should not grow'
+            span: full
+            size: small
+            type: richeditor
+            tab: Grow
+        grow8:
+            label: 'Rich editor - should be able to grow'
+            span: full
+            size: small
+            type: richeditor
+            grow: 1
+            tab: Grow
+        stretch1:
+            label: 'Text area - (size = small)'
+            size: small
+            span: full
+            type: textarea
+            tab: 'Stretch (textarea)'
+        stretch2:
+            label: 'Text area - (stretched)'
+            size: small
+            span: full
+            type: textarea
+            stretch: 1
+            tab: 'Stretch (textarea)'
+        stretch3:
+            label: 'Rich editor - (size = small)'
+            size: small
+            span: full
+            type: richeditor
+            tab: 'Stretch (richeditor)'
+        stretch4:
+            label: 'Rich editor - (stretched)'
+            size: small
+            span: full
+            type: richeditor
+            stretch: 1
+            tab: 'Stretch (richeditor)'
+        stretch5:
+            label: 'Markdown editor - (size = small)'
+            size: small
+            span: full
+            type: markdown
+            tab: 'Stretch (markdown)'
+        stretch6:
+            label: 'Markdown editor - (stretched)'
+            size: small
+            span: full
+            type: markdown
+            stretch: 1
+            tab: 'Stretch (markdown)'
+        stretch7:
+            label: 'Code editor - (size = small)'
+            size: small
+            span: full
+            type: codeeditor
+            tab: 'Stretch (codeeditor)'
+        stretch8:
+            label: 'Code editor - (stretched)'
+            size: small
+            span: full
+            type: codeeditor
+            stretch: 1
+            tab: 'Stretch (codeeditor)'
+        stretch9:
+            label: 'Hint'
+            path: $/october/test/partials/_stretch9.htm
+            span: full
+            type: hint
+            tab: 'Stretch (hint)'
+        stretch10:
+            label: 'Hint - (stretched)'
+            path: $/october/test/partials/_stretch10.htm
+            span: full
+            type: hint
+            stretch: 1
+            tab: 'Stretch (hint)'
+        stretch11:
+            label: 'Partial'
+            path: $/october/test/partials/_stretch11.htm
+            span: full
+            type: partial
+            tab: 'Stretch (partial)'
+        stretch12:
+            label: 'Partial - (stretched)'
+            path: $/october/test/partials/_stretch12.htm
+            span: full
+            type: partial
+            stretch: 1
+            tab: 'Stretch (partial)'
+        checkboxhint:
+            path: $/october/test/partials/_checkbox.htm
+            span: full
+            type: hint
+            tab: 'Checkboxes'
+        check1:
+            label: 'Checkbox 1'
+            type: checkbox
+            default: 0
+            span: left
+            tab: 'Checkboxes'
+        check2:
+            label: 'Checkbox 2'
+            type: checkbox
+            default: 1
+            span: left
+            newLine: true
+            tab: 'Checkboxes'
+        check3:
+            label: 'Checkbox 3'
+            type: checkbox
+            default: false
+            span: left
+            newLine: true
+            tab: 'Checkboxes'
+        check4:
+            label: 'Checkbox 4'
+            type: checkbox
+            default: true
+            span: left
+            newLine: true
+            tab: 'Checkboxes'
+        check5:
+            label: 'Checkbox 5'
+            type: checkbox
+            default: null
+            span: left
+            newLine: true
+            tab: 'Checkboxes'
+        section5:
+            label: 'Checkbox lists'
+            type: section
+            tab: 'Checkboxes'
+        checkbox1:
+            label: 'Checkbox list with quick selection turn on'
+            type: checkboxlist
+            quickselect: true
+            span: left
+            tab: 'Checkboxes'
+            options:
+                open_account: Open account
+                close_account: Close account
+                modify_account: Modify account
+        checkbox2:
+            label: 'Checkbox list with quick selection turn off'
+            type: checkboxlist
+            span: left
+            tab: 'Checkboxes'
+            options:
+                open_account: Open account
+                close_account: Close account
+                modify_account: Modify account

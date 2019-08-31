@@ -1,0 +1,64 @@
+<style>
+#checkbox-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#checkbox-table td, #checkbox-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#checkbox-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#checkbox-table tr:hover {
+    background-color: #ddd;
+}
+#checkbox-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #d0d9dd;
+    color: black;
+}
+</style>
+
+<div>
+    <h2>The checkboxes are setup with the following:</h2>
+    <table id="checkbox-table">
+        <thead>
+            <tr>
+                <th>Checkbox name</th>
+                <th>Default api</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Checkbox 1</td>
+                <td>0</td>
+                <td>unchecked</td>
+            </tr>
+            <tr>
+                <td>Checkbox 2</td>
+                <td>1</td>
+                <td>checked</td>
+            </tr>
+            <tr>
+                <td>Checkbox 3</td>
+                <td>false</td>
+                <td>unchecked</td>
+            </tr>
+            <tr>
+                <td>Checkbox 4</td>
+                <td>true</td>
+                <td>checked</td>
+            </tr>
+            <tr>
+                <td>Checkbox 5</td>
+                <td>null</td>
+                <td>unchecked</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
