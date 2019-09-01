@@ -23,5 +23,9 @@ class Tests extends Model
      */
     protected $fillable = [];
 
+    /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['checkbox1', 'checkbox2'];
 
 }
