@@ -326,6 +326,12 @@ tabs:
             span: left
             newLine: true
             tab: 'Checkboxes'
+        check6:
+            label: 'Checkbox 6 (No default property added to YAML file)'
+            type: checkbox
+            span: left
+            newLine: true
+            tab: 'Checkboxes'
         section5:
             label: 'Checkbox lists'
             type: section
