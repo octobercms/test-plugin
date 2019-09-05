@@ -103,6 +103,9 @@ class Plugin extends PluginBase
             'October\Test\FormWidgets\TimeChecker' => [
                 'code' => 'timecheckertest',
             ],
+            'October\Test\FormWidgets\CheckboxList' => [
+                'code' => 'checkboxlisttest',
+            ],
         ];
     }
 

@@ -349,9 +349,13 @@ tabs:
         checkbox2:
             label: 'Checkbox list with quick selection turn off'
             type: checkboxlist
-            span: left
+            span: right
             tab: 'Checkboxes'
             options:
                 open_account: Open account
                 close_account: Close account
                 modify_account: Modify account
+        checkbox3:
+            span: full
+            type: checkboxlisttest
+            tab: 'Checkboxes'
