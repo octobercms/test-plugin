@@ -76,9 +76,9 @@ class CreateOctoberTestTests extends Migration
             $table->boolean('check5')->nullable();
             $table->boolean('check6')->nullable();
             
-            $table->boolean('checkbox1')->nullable();
-            $table->boolean('checkbox2')->nullable();
-            $table->boolean('checkbox3')->nullable();
+            $table->text('checkbox1')->nullable();
+            $table->text('checkbox2')->nullable();
+            $table->text('checkbox3')->nullable();
 
             /* General table fields */
 
