@@ -356,6 +356,13 @@ tabs:
                 close_account: Close account
                 modify_account: Modify account
         checkbox3:
+            label: 'Checkbox list (hard-coded) example'
+            type: checkboxlist
+            quickselect: true
             span: full
-            type: checkboxlisttest
+            hintBefore: 'What cars would you like in your garage?'
             tab: 'Checkboxes'
+            options:
+                checkbox-example1: ['Dodge Viper', 'Do not send new comment notifications.']
+                checkbox-example2: ['GM Corvette', 'Send new comment notifications only to post author.']
+                checkbox-example3: ['Porsche Boxter', 'Notify all users who have permissions to receive blog notifications.']
