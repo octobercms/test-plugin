@@ -51,3 +51,19 @@ fields:
                             action: show
                             field: ^type
                             condition: value[2]
+    people:
+        label: Repeater
+        prompt: 'Add new item'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                person:
+                    label: 'Record finder'
+                    nameFrom: name
+                    descriptionFrom: description
+                    list: $/october/test/models/person/columns.yaml
+                    span: auto
+                    type: recordfinder
+                    useRelation: false
+                    modelClass: October\Test\Models\Person
