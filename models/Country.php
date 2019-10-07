@@ -86,4 +86,18 @@ class Country extends Model
 
         return collect($country->states)->lists('title');
     }
+
+    public function getSafetyDataTableOptions($column, $data)
+    {
+        if ($column === 'type') {
+            return [
+                'Petty' => 'Petty',
+                'Minor' => 'Minor',
+                'Major' => 'Major',
+                'Capital' => 'Capital',
+            ];
+        }
+
+        return [];
+    }
 }

@@ -98,10 +98,10 @@ tabs:
                                     span: full
                                     columns:
                                         id:
-                                            title: 
+                                            title:
                                             width: 30px
                                             readOnly: true
-                                        label: 
+                                        label:
                                             title: Label
                                             type: string
                                             validation:
@@ -115,6 +115,12 @@ tabs:
                                                     message: Please enter rating
                                                 float:
                                                     message: Rating should be a float
+                                        type:
+                                            title: Type
+                                            type: dropdown
+                                            validation:
+                                                required:
+                                                    message: Please select a type
         locations:
             tab: Related
             label: Locations
