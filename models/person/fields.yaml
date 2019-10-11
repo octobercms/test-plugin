@@ -23,6 +23,11 @@ fields:
         options:
             '0': No
             '1': Yes
+    
+    ajax_options:
+        label: AJAX Options
+        comment: These options should be populated using AJAX
+        type: partial
 
     # Record Finder (Default)
     phone:
