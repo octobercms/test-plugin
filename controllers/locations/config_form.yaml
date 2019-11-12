@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Location
+
+# Model Form Field configuration
+form: $/october/test/models/location/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Location
+
+# Default redirect location
+defaultRedirect: october/test/locations
+
+# Create page
+create:
+    title: Create Location
+    redirect: october/test/locations/update/:id
+    redirectClose: october/test/locations
+
+# Update page
+update:
+    title: Edit Location
+    redirect: october/test/locations
+    redirectClose: october/test/locations
+
+# Preview page
+preview:
+    title: Preview Location

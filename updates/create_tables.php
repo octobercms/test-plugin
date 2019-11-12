@@ -300,10 +300,29 @@ class CreateTables extends Migration
             $table->integer('type')->unsigned();
             $table->text('content')->nullable();
         });
+
+        /**
+         * Test 9: Locations
+         */
+        Schema::create('october_test_cities', function ($table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->integer('country_id')->unsigned();
+            $table->string('name');
+        });
+        Schema::create('october_test_locations', function ($table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->integer('country_id')->unsigned();
+            $table->integer('city_id')->unsigned();
+            $table->string('name');
+        });
     }
 
     public function down()
     {
+        Schema::dropIfExists('october_test_locations');
+        Schema::dropIfExists('october_test_cities');
         Schema::dropIfExists('october_test_gallery_entity');
         Schema::dropIfExists('october_test_galleries');
         Schema::dropIfExists('october_test_comments');
