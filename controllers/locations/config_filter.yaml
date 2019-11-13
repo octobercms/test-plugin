@@ -9,7 +9,6 @@ scopes:
         conditions: country_id in (:filtered)
         modelClass: October\Test\Models\Location
         options: getCountryOptions
-        default: [1]
     city:
         label: City
         type: group
