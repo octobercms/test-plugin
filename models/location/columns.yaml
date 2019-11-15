@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Name
+    city_name:
+        label: City
+        relation: city
+        select: name
+    country_name:
+        label: Country
+        relation: country
+        select: name

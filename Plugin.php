@@ -87,6 +87,16 @@ class Plugin extends PluginBase
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/pages'),
                     ],
+                    'cities' => [
+                        'label' => 'Cities',
+                        'icon'  => 'icon-database',
+                        'url'   => Backend::url('october/test/cities'),
+                    ],
+                    'locations' => [
+                        'label' => 'Locations',
+                        'icon'  => 'icon-database',
+                        'url'   => Backend::url('october/test/locations'),
+                    ],
                 ],
             ],
         ];

@@ -16,6 +16,8 @@ use October\Test\Models\Channel;
 use October\Test\Models\Member;
 use October\Test\Models\Category;
 use October\Test\Models\Attribute;
+use October\Test\Models\City;
+use October\Test\Models\Location;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedAllTables extends Seeder
@@ -77,7 +79,7 @@ class SeedAllTables extends Seeder
         /*
          * Test 4: Countries
          */
-        Country::create([
+        $country1 = Country::create([
             'name' => 'Petoria',
             'code' => 'petoria',
             'language' => 'eh',
@@ -92,7 +94,7 @@ class SeedAllTables extends Seeder
             ]
         ]);
 
-        Country::create([
+        $country2 = Country::create([
             'name' => 'Blueseed',
             'code' => 'blueseed',
             'language' => 'bs',
@@ -103,6 +105,33 @@ class SeedAllTables extends Seeder
                 ['title' => 'McBoat'],
                 ['title' => 'Face'],
             ]
+        ]);
+
+        /*
+         * Test 9: Locations
+         */
+        $cities = [
+            $country1->id => ['Regina', 'Vancouver', 'Toronto', 'Ottawa'],
+            $country2->id => ['New York', 'Seattle', 'Boston', 'San Francisco'],
+        ];
+
+        $insertCities = [];
+        foreach ($cities as $countryId => $cityNames) {
+            foreach ($cityNames as $name) {
+                $insertCities[] = ['country_id' => $countryId, 'name' => $name];
+            }
+        }
+
+        City::insert($insertCities);
+        Location::insert([
+            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '240 5th Ave'],
+            ['country_id' => $country1->id, 'city_id' => 2, 'name' => '101 McKay Street'],
+            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '123 Nowhere Lane'],
+            ['country_id' => $country1->id, 'city_id' => 4, 'name' => '10099 Bob Loop'],
+            ['country_id' => $country2->id, 'city_id' => 5, 'name' => '9442 Scary Street'],
+            ['country_id' => $country2->id, 'city_id' => 6, 'name' => '5309 Imagination Crescrent'],
+            ['country_id' => $country2->id, 'city_id' => 7, 'name' => '22 2201 Seymour Drive'],
+            ['country_id' => $country2->id, 'city_id' => 8, 'name' => '2322 Xray Alphabet'],
         ]);
 
         /*

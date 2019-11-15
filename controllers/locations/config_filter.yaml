@@ -1,0 +1,18 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    country:
+        label: Country
+        type: group
+        conditions: country_id in (:filtered)
+        modelClass: October\Test\Models\Location
+        options: getCountryOptions
+    city:
+        label: City
+        type: group
+        conditions: city_id in (:filtered)
+        modelClass: October\Test\Models\Location
+        options: getCityOptions
+        dependsOn: country

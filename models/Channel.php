@@ -7,7 +7,6 @@ use Model;
  */
 class Channel extends Model
 {
-
     use \October\Rain\Database\Traits\NestedTree;
 
     /**
@@ -50,5 +49,4 @@ class Channel extends Model
     {
         return $this->title.' (#'.$this->id.')';
     }
-
 }
