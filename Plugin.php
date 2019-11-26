@@ -117,83 +117,86 @@ class Plugin extends PluginBase
             $pluginManager = \System\Classes\PluginManager::instance();
             if ($pluginManager->hasPlugin('RainLab.Pages')) {
                 \Event::listen('backend.form.extendFields', function ($widget) {
+                    if (get_class($widget->model) !== 'RainLab\Pages\Classes\Page') {
+                        return;
+                    }
+
                     if ($widget->isNested || $widget->model->url !== '/') {
                         return;
                     }
-                    if ($widget->model instanceof \RainLab\Pages\Classes\Page) {
-                        $widget->addFields([
-                            'viewBag[test_repeater]' => [
-                                'prompt' => 'Add Data',
-                                'type'   => 'repeater',
-                                'groups' => [
-                                    'textarea' => [
-                                        'name'        => 'Textarea',
-                                        'description' => 'Basic text field',
-                                        'icon'        => 'icon-file-text-o',
-                                        'fields'      => [
-                                            'text_area' => [
-                                                'label' => 'Text Content',
-                                                'type'  => 'textarea',
-                                                'size'  => 'large',
-                                            ],
+
+                    $widget->addFields([
+                        'viewBag[test_repeater]' => [
+                            'prompt' => 'Add Data',
+                            'type'   => 'repeater',
+                            'groups' => [
+                                'textarea' => [
+                                    'name'        => 'Textarea',
+                                    'description' => 'Basic text field',
+                                    'icon'        => 'icon-file-text-o',
+                                    'fields'      => [
+                                        'text_area' => [
+                                            'label' => 'Text Content',
+                                            'type'  => 'textarea',
+                                            'size'  => 'large',
                                         ],
                                     ],
-                                    'quote'    => [
-                                        'name'        => 'Quote',
-                                        'description' => 'Quote item',
-                                        'icon'        => 'icon-quote-right',
-                                        'fields'      => [
-                                            'quote_position' => [
-                                                'span'    => 'auto',
-                                                'label'   => 'Quote Position',
-                                                'type'    => 'radio',
-                                                'options' => [
-                                                    'left'   => 'Left',
-                                                    'center' => 'Center',
-                                                    'right'  => 'Right',
-                                                ],
-                                            ],
-                                            'quote_content'  => [
-                                                'span'  => 'auto',
-                                                'label' => 'Details',
-                                                'type'  => 'textarea',
+                                ],
+                                'quote'    => [
+                                    'name'        => 'Quote',
+                                    'description' => 'Quote item',
+                                    'icon'        => 'icon-quote-right',
+                                    'fields'      => [
+                                        'quote_position' => [
+                                            'span'    => 'auto',
+                                            'label'   => 'Quote Position',
+                                            'type'    => 'radio',
+                                            'options' => [
+                                                'left'   => 'Left',
+                                                'center' => 'Center',
+                                                'right'  => 'Right',
                                             ],
                                         ],
+                                        'quote_content'  => [
+                                            'span'  => 'auto',
+                                            'label' => 'Details',
+                                            'type'  => 'textarea',
+                                        ],
                                     ],
-                                    'image'    => [
-                                        'name'        => 'Image',
-                                        'description' => 'Pick something from the media library',
-                                        'icon'        => 'icon-photo',
-                                        'fields'      => [
-                                            'img_upload'   => [
-                                                'span'        => 'auto',
-                                                'label'       => 'Image',
-                                                'type'        => 'mediafinder',
-                                                'mode'        => 'image',
-                                                'imageHeight' => 260,
-                                                'imageWidth'  => 260,
-                                            ],
-                                            'img_position' => [
-                                                'span'    => 'auto',
-                                                'label'   => 'Image Position',
-                                                'type'    => 'radio',
-                                                'options' => [
-                                                    'left'   => 'Left',
-                                                    'center' => 'Center',
-                                                    'right'  => 'Right',
-                                                ],
+                                ],
+                                'image'    => [
+                                    'name'        => 'Image',
+                                    'description' => 'Pick something from the media library',
+                                    'icon'        => 'icon-photo',
+                                    'fields'      => [
+                                        'img_upload'   => [
+                                            'span'        => 'auto',
+                                            'label'       => 'Image',
+                                            'type'        => 'mediafinder',
+                                            'mode'        => 'image',
+                                            'imageHeight' => 260,
+                                            'imageWidth'  => 260,
+                                        ],
+                                        'img_position' => [
+                                            'span'    => 'auto',
+                                            'label'   => 'Image Position',
+                                            'type'    => 'radio',
+                                            'options' => [
+                                                'left'   => 'Left',
+                                                'center' => 'Center',
+                                                'right'  => 'Right',
                                             ],
                                         ],
                                     ],
                                 ],
-                                'span'   => 'full',
-                                'tab'    => 'Test',
                             ],
-                        ], 'primary');
-                        $widget->model->rules += [
-                            'test_repeater' => 'required',
-                        ];
-                    }
+                            'span'   => 'full',
+                            'tab'    => 'Test',
+                        ],
+                    ], 'primary');
+                    $widget->model->rules += [
+                        'test_repeater' => 'required',
+                    ];
                 });
             }
         }
