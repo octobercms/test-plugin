@@ -9,3 +9,7 @@ scopes:
         scope: applyRoleFilter
         modelClass: October\Test\Models\Role
         nameFrom: name
+    idRange:
+        label: ID Range
+        type: numberrange
+        conditions: id >= ':min' and id <= ':max'
