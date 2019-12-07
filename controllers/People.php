@@ -1,8 +1,10 @@
 <?php namespace October\Test\Controllers;
 
 use BackendMenu;
-use Backend\Classes\Controller;
 use October\Test\Models\Phone;
+use Backend\Classes\FormField;
+use Backend\Classes\Controller;
+use Backend\FormWidgets\DataTable;
 
 /**
  * People Back-end Controller
@@ -50,5 +52,32 @@ class People extends Controller
         ];
 
         return ['result' => $results];
+    }
+
+    public function onModelShowAddDatabaseColumnsPopup()
+    {
+        $config  = $this->makeConfig([
+            'toolbar' => false,
+            'columns' => [
+                'type'   => [
+                    'title'   => 'Widget Type',
+                    'type'    => 'dropdown',
+                    'options' => ['a' => 'a', 'b' => 'b'],
+                ],
+            ],
+        ]);
+
+        $field = new FormField('add_database_columns', 'add_database_columns');
+        $field->value = [
+            ['a']
+        ];
+
+        $datatable = new DataTable($this, $field, $config);
+        $datatable->alias = 'add_database_columns_datatable';
+        $datatable->bindToController();
+
+        return $this->makePartial('datatable', [
+            'datatable' => $datatable,
+        ]);
     }
 }
