@@ -62,7 +62,12 @@ class People extends Controller
                 'type'   => [
                     'title'   => 'Widget Type',
                     'type'    => 'dropdown',
-                    'options' => ['a' => 'a', 'b' => 'b'],
+                    'options' => [
+                        'petty' => 'Petty',
+                        'minor' => 'Minor',
+                        'major' => 'Major',
+                        'critical' => 'Critical'
+                    ],
                 ],
             ],
         ]);
