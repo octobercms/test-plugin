@@ -23,6 +23,9 @@ fields:
         default: true
 
 tabs:
+    lazy:
+        - Currency
+
     fields:
 
         types:
@@ -34,15 +37,22 @@ tabs:
         language:
             label: Language
             tab: Language
+
+        currency:
+            label: Currency with default value and trigger
+            tab: Currency
+            default: 'I have a default value!'
             trigger:
                 field: is_active
                 condition: checked
-                action: hide
+                action: enable
 
-        currency:
-            label: Currency
+        code_x:
+            label: Lazy code field with slug preset
             tab: Currency
-            dependsOn: is_active
+            preset:
+                field: name
+                type: slug
 
         pages_section:
             label: Pages
