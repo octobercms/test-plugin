@@ -119,3 +119,41 @@ tabs:
             default: "#27ae60"
             tab: Birthday
             span: auto
+
+        checkbox1:
+            label: 'Checbox List 1'
+            type: checkboxlist
+            span: left
+            quickselect: true
+            options:
+                one: One
+                two: Two
+                three: Three
+                four: Four
+                five: Five
+                six: Six
+
+        checkbox2:
+            label: 'Checbox List 2'
+            type: checkboxlist
+            span: right
+            quickselect: true
+            options:
+                one: One
+                two: Two
+                three: Three
+                four: Four
+                five: Five
+                six: Six
+                one1: One
+                two1: Two
+                three1: Three
+                four1: Four
+                five1: Five
+                six1: Six
+                one2: One
+                two2: Two
+                three2: Three
+                four2: Four
+                five2: Five
+                six2: Six
