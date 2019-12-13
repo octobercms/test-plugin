@@ -27,6 +27,11 @@ class Person extends Model
     protected $fillable = [];
 
     /**
+     * @var array List of attribute names which are json encoded and decoded from the database.
+     */
+    protected $jsonable = ['hobbies', 'sports'];
+
+    /**
      * @var array List of attribute names which should be set to null when empty.
      */
     protected $nullable = ['is_married'];

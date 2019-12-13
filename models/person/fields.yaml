@@ -3,7 +3,7 @@
 # ===================================
 #
 #  These fields explore the use of context; the "phone" field is rendered in
-#  different ways depending on the context used by the form, passed in by 
+#  different ways depending on the context used by the form, passed in by
 #  the URL.
 # ===================================
 
@@ -23,7 +23,7 @@ fields:
         options:
             '0': No
             '1': Yes
-    
+
     ajax_options:
         label: AJAX Options
         comment: These options should be populated using AJAX
@@ -119,3 +119,59 @@ tabs:
             default: "#27ae60"
             tab: Birthday
             span: auto
+
+        sports:
+            label: Sports
+            tab: Activities
+            type: checkboxlist
+            span: left
+            quickselect: true
+            options:
+                adventure: Adventure
+                aquatic: Aquatic
+                strength: Strength
+                ball: Ball
+                extreme: Extreme
+                mountain: Mountain
+                motorised: Motorised
+
+        hobbies:
+            label: Hobbies
+            tab: Activities
+            type: checkboxlist
+            span: right
+            quickselect: true
+            options:
+                3d-printing: 3D printing
+                acrobatics: Acrobatics
+                acting: Acting
+                animation: Animation
+                aquascaping: Aquascaping
+                astronomy: Astronomy
+                baking: Baking
+                beatboxing: Beatboxing
+                blogging: Blogging
+                building: Building
+                bowling: Bowling
+                breadmaking: Breadmaking
+                cabaret: Cabaret
+                calligraphy: Calligraphy
+                candle-making: Candle making
+                card-games: Card games
+                cheesemaking: Cheesemaking
+                clothesmaking: Clothesmaking
+                coffee-roasting: Coffee roasting
+                collecting: Collecting
+                coloring: Coloring
+                computer programming: Computer programming
+                confectionery: Confectionery
+                cooking: Cooking
+                cosplaying: Cosplaying
+                couponing: Couponing
+                craft: Craft
+                creative writing: Creative writing
+                crocheting: Crocheting
+                cross-stitch: Cross-stitch
+                crossword puzzles: Crossword puzzles
+                cryptography: Cryptography
+                cue-sports: Cue sports
