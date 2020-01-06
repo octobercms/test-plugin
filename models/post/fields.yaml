@@ -67,13 +67,14 @@ tabs:
 
         tags:
             label: Tags by Relation
+            commentAbove: Enter some tags here first, select them below
             type: taglist
             mode: relation
             nameFrom: name
             tab: Tags
 
         _tags_trigger:
-            commentAbove: Hide if "a" or "b" are used as tags above
+            commentAbove: Enter "a" or "b" as a tag above to hide this
             tab: Tags
             trigger:
                 action: hide
