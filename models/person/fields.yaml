@@ -9,7 +9,6 @@
 tabs:
     defaultTab: Personal Details
     lazy:
-        - Personal Details
         - Employment Details
     fields:
         name:
@@ -118,7 +117,6 @@ tabs:
 secondaryTabs:
     stretch: true
     lazy: 
-        - Birthday
         - Activities
     fields:
 
