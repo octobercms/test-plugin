@@ -6,87 +6,120 @@
 #  different ways depending on the context used by the form, passed in by
 #  the URL.
 # ===================================
-
-fields:
-    name:
-        label: Name
-        commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
-
-    # Testing form field with no config
-    preferred_name:
-
-    # Nullable
-    is_married:
-        label: Married
-        type: dropdown
-        emptyOption: Unknown
-        options:
-            '0': No
-            '1': Yes
-
-    ajax_options:
-        label: AJAX Options
-        comment: These options should be populated using AJAX
-        type: partial
-
-    # Record Finder (Default)
-    phone:
-        context: [create, update, recordfinder]
-        label: Record Finder
-        comment: Record finder field.
-        type: recordfinder
-        list: ~/plugins/october/test/models/phone/columns.yaml
-        title: Please pick a phone
-        prompt: Click the %s to find an alternative phone
-        nameFrom: name
-        descriptionFrom: number
-        searchScope: customSearch
-
-    # Relation Controller
-    phone@relationcontroller:
-        label: Relation Controller
-        commentAbove: RelationController used as a partial field type.
-        type: partial
-
-    # Proxy Fields
-    phone[name]:
-        context: proxyfields
-        span: auto
-        label: Phone Name
-        comment: Proxy text field for Phone model.
-
-    phone[number]:
-        context: proxyfields
-        span: auto
-        label: Phone Number
-        comment: Proxy text field for Phone model.
-
-    phone[created_at]:
-        context: proxyfields
-        span: left
-        label: Phone Created
-        comment: Proxy date picker field for Phone model.
-        type: datepicker
-
-    phone[picture]:
-        label: Picture
-        context: proxyfields
-        span: right
-        comment: Proxy file upload field for Phone model.
-        type: fileupload
-        mode: image
-        imageHeight: 260
-        imageWidth: 260
-
-    phone[brand]:
-        label: Brand
-        context: proxyfields
-        span: left
-        comment: Proxy dropdown field for Phone model.
-        type: dropdown
-
 tabs:
+    defaultTab: Personal Details
+    lazy:
+        - Personal Details
+        - Employment Details
+    fields:
+        name:
+            label: Name
+            commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
 
+        # Testing form field with no config
+        preferred_name:
+
+        # Nullable
+        is_married:
+            label: Married
+            type: dropdown
+            emptyOption: Unknown
+            options:
+                '0': No
+                '1': Yes
+
+        ajax_options:
+            label: AJAX Options
+            comment: These options should be populated using AJAX
+            type: partial
+
+        # Record Finder (Default)
+        phone:
+            context: [create, update, recordfinder]
+            label: Record Finder
+            comment: Record finder field.
+            type: recordfinder
+            list: ~/plugins/october/test/models/phone/columns.yaml
+            title: Please pick a phone
+            prompt: Click the %s to find an alternative phone
+            nameFrom: name
+            descriptionFrom: number
+            searchScope: customSearch
+
+        # Relation Controller
+        phone@relationcontroller:
+            label: Relation Controller
+            commentAbove: RelationController used as a partial field type.
+            type: partial
+
+        # Proxy Fields
+        phone[name]:
+            context: proxyfields
+            span: auto
+            label: Phone Name
+            comment: Proxy text field for Phone model.
+
+        phone[number]:
+            context: proxyfields
+            span: auto
+            label: Phone Number
+            comment: Proxy text field for Phone model.
+
+        phone[created_at]:
+            context: proxyfields
+            span: left
+            label: Phone Created
+            comment: Proxy date picker field for Phone model.
+            type: datepicker
+
+        phone[picture]:
+            label: Picture
+            context: proxyfields
+            span: right
+            comment: Proxy file upload field for Phone model.
+            type: fileupload
+            mode: image
+            imageHeight: 260
+            imageWidth: 260
+
+        phone[brand]:
+            label: Brand
+            context: proxyfields
+            span: left
+            comment: Proxy dropdown field for Phone model.
+            type: dropdown
+
+        is_employed:
+            label: Employed
+            type: switch
+            default: 0
+
+        job_title:
+            label: Job title
+            type: text
+            trigger:
+                action: show
+                field: is_employed
+                condition: checked
+            span: left
+            tab: Employment Details
+
+        salary:
+            label: salary
+            type: text
+            placeholder: £
+            trigger:
+                action: show
+                field: is_employed
+                condition: checked
+            span: left
+            tab: Employment Details
+
+secondaryTabs:
+    stretch: true
+    lazy: 
+        - Birthday
+        - Activities
     fields:
 
         birth:
