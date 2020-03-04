@@ -28,7 +28,7 @@ class Comment extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['breakdown', 'mood'];
+    protected $jsonable = ['breakdown', 'mood', 'quotes'];
 
     /**
      * @var array Rules
@@ -53,7 +53,7 @@ class Comment extends Model
     {
         return $query->where('is_visible', true);
     }
-    
+
     public function getFeelingOptions()
     {
         return [

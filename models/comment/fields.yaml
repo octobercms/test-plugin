@@ -69,6 +69,20 @@ tabs:
             type: text
             tab: Mood
 
+        quotes:
+            label: Quotes
+            type: datatable
+            tab: Quotes
+            columns:
+                name:
+                    type: string
+                    title: Name
+                quote:
+                    type: string
+                    title: Quote
+            btnAddRowLabel: Add Quote
+            btnDeleteRowLabel: Delete Quote
+
 secondaryTabs:
 
     fields:
