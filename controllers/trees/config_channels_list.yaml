@@ -25,7 +25,7 @@ showSetup: true
 
 # Show tree
 showTree: true
-treeExpanded: true
+treeExpanded: false
 
 # Toolbar widget configuration
 toolbar:
