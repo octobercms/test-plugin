@@ -1,7 +1,4 @@
 columns:
-    id:
-        label: id
-        type: number
     content[title]:
         label: content
         type: text

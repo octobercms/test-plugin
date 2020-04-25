@@ -1,8 +1,7 @@
-<?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('october/test/pages') ?>">Pages</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+<?php Block::put('sidepanel') ?>
+
+    <?= $this->listRender() ?>
+    
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
@@ -22,15 +21,6 @@
                     data-load-indicator="Creating Page..."
                     class="btn btn-primary">
                     Create
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating Page..."
-                    class="btn btn-default">
-                    Create and Close
                 </button>
                 <span class="btn-text">
                     or <a href="<?= Backend::url('october/test/pages') ?>">Cancel</a>
