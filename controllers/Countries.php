@@ -1,5 +1,6 @@
 <?php namespace October\Test\Controllers;
 
+use Request;
 use BackendMenu;
 use Backend\Classes\Controller;
 
@@ -23,5 +24,28 @@ class Countries extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'countries');
+    }
+
+    public function formExtendFields($form)
+    {
+        if (!$form->isNested && $form->model instanceof \October\Test\Models\Country) {
+            $isActive = false;
+            if (Request::ajax()) {
+                $isActive = input('Country[is_active]', false);
+            } elseif ($form->model->exists) {
+                $isActive = $form->model->is_active;
+            }
+
+            if ($isActive) {
+                $form->addFields([
+                    'dynamic_flags' => [
+                        'label' => 'Active Flags (Dynamic Fileupload Field)',
+                        'type' => 'fileupload',
+                        'mode' => 'image',
+                        'span' => 'right',
+                    ],
+                ]);
+            }
+        }
     }
 }

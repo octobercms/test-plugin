@@ -16,11 +16,20 @@ fields:
             field: name
             type: slug
 
+    flags:
+        label: Flags (Static Fileupload Field)
+        type: fileupload
+        mode: image
+        span: full
+
     is_active:
         label: Active
         comment: Check this box to hide some tabs, using depends and trigger API.
         type: checkbox
+        span: left
         default: true
+        attributes:
+            onchange: "$(this).request('form::onRefresh');"
 
 tabs:
     lazy:

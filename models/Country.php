@@ -39,6 +39,10 @@ class Country extends Model
             'conditions' => "type = 'general.type'"
         ],
     ];
+    public $attachMany = [
+        'flags' => ['System\Models\File'],
+        'dynamic_flags' => ['System\Models\File'],
+    ];
 
     /**
      * Softly implement the TranslatableModel behavior.
