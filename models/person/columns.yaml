@@ -17,7 +17,7 @@ columns:
         format: I am a user, %s
 
     expenses:
-        lable: Expenses
+        label: Expenses
         format: $ %.2f
         
     phone:
