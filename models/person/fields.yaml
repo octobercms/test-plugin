@@ -27,6 +27,7 @@ fields:
     ajax_options:
         label: AJAX Options
         comment: These options should be populated using AJAX
+        path: $/october/test/controllers/people/_ajax_options.htm
         type: partial
 
     # Record Finder (Default)
