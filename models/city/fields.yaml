@@ -6,3 +6,13 @@ fields:
     id:
         label: ID
         disabled: true
+
+    name:
+        label: Name
+        span: left
+
+    country:
+        label: Country
+        type: relation
+        span: right
+        
