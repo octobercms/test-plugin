@@ -4,6 +4,9 @@
 
 scopes:
 
+    disable_roles:
+        label: Disable Roles
+        type: checkbox
     roles:
         label: Role
         scope: applyRoleFilter
