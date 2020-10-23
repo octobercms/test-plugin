@@ -124,12 +124,18 @@ tabs:
                                             validation:
                                                 required:
                                                     message: Please select a type
+                                        danger:
+                                            title: Danger Index
+                                            type: computed
+                                            dependsOn: [rating, type]
+                                            callback: onGetDangerComputedValue
         locations:
             tab: Related
             label: Locations
             prompt: Add new location
             span: full
             type: repeater
+            minItems: 1
             form:
                 fields:
                     country:
