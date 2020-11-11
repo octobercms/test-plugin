@@ -7,26 +7,80 @@ roles:
     view:
         list: ~/plugins/october/test/models/role/columns.yaml
         showSearch: true
+        toolbarButtons:
+            create: Create new role
+            add: Add existing role
+            remove: Remove role
+            delete: Delete role
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
         form: ~/plugins/october/test/models/role/fields.yaml
+        title:
+            form:
+                create: Create new role
+                update: Update this role
+                preview: Role preview
+            list:
+                add: Add existing role
+        flash:
+            create: Role was successfully created!
+            update: Role was successfully updated!
+            delete: Role was successfully deleted!
+            add: Role was successfully added!
+            remove: Role was successfully removed!
 
 roles_pivot:
     label: Role
     view:
         list: ~/plugins/october/test/models/userrolepivot/columns.yaml
         showSearch: true
+        toolbarButtons:
+            add: Add existing role
+            remove: Remove role
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
+        title:
+            form:
+                create: Create new role
+                update: Update this role
+                preview: Role preview
+            list:
+                add: Add existing role
+        flash:
+            add: User role was successfully added!
+            update: User role was successfully updated!
+            remove: User role was successfully removed!
     pivot:
         form: ~/plugins/october/test/models/userrolepivot/fields.yaml
+        title:
+            create: Insert details for user role
+            update: Update details for user role
+            preview: User role details
 
 roles_pivot_model:
     label: Role
     view:
         list: ~/plugins/october/test/models/userrolepivot/columns.yaml
         showSearch: true
+        toolbarButtons:
+            add: Add existing role
+            remove: Remove role
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
+        title:
+            form:
+                create: Create new role
+                update: Update this role
+                preview: Role preview
+            list:
+                add: Add existing role
+        flash:
+            add: User role was successfully added!
+            update: User role was successfully updated!
+            remove: User role was successfully removed!
     pivot:
         form: ~/plugins/october/test/models/userrolepivot/fields.yaml
+        title:
+            create: Insert details for user role
+            update: Update details for user role
+            preview: User role details
