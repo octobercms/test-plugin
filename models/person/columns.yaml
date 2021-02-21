@@ -6,10 +6,12 @@ columns:
     id:
         label: ID
         searchable: true
+        type: partial
 
     name:
         label: Name
         searchable: true
+        type: partial
 
     bio:
         label: Bio
@@ -19,7 +21,7 @@ columns:
     expenses:
         label: Expenses
         format: $ %.2f
-        
+
     phone:
         label: Phone
         relation: phone
