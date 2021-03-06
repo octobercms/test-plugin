@@ -1,4 +1,5 @@
 fields:
+
     type:
         label: Type
         options:
@@ -6,6 +7,7 @@ fields:
             2: Complex
         span: full
         type: dropdown
+
     content:
         label: Content
         span: full
