@@ -3,12 +3,15 @@
 # ===================================
 
 scopes:
+
     country:
         label: Country
         type: group
         conditions: country_id in (:filtered)
         modelClass: October\Test\Models\Location
         options: getCountryOptions
+        emptyOption: Unspecified
+
     city:
         label: City
         type: group
@@ -16,3 +19,4 @@ scopes:
         modelClass: October\Test\Models\Location
         options: getCityOptions
         dependsOn: country
+        emptyOption: Unspecified
