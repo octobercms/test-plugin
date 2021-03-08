@@ -46,7 +46,7 @@ class Users extends Controller
         $filter->bindEvent('filter.update', function ($params) use ($filter) {
             $filter->prepareVars();
             return [
-                '#' . $filter->getId() => $filter->makePartial('filter_scopes', ),
+                '#' . $filter->getId() => $filter->makePartial('filter_scopes'),
             ];
         });
     }
