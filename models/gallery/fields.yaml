@@ -20,10 +20,12 @@ fields:
     party_mode:
         label: Party mode
         type: checkbox
+        attributes:
+            required: 1
         trigger:
             field: status
             condition: value[active]
-            action: show
+            action: show|enable
 
 tabs:
     fields:

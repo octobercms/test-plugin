@@ -13,6 +13,11 @@ columns:
 
     roles_count:
         label: Roles
+        relation: roles
+        select: name order by name desc
+
+    roles_count:
+        label: Roles
         relation: roles_count
         valueFrom: count
         default: 0
