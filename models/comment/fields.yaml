@@ -46,6 +46,22 @@ tabs:
                         placeholder: What points are you trying to make
                         type: text
 
+                    country:
+                        label: Country
+                        span: auto
+                        type: dropdown
+                        options:
+                            usa: USA
+                            au: Australia
+                    state:
+                        label: State
+                        span: auto
+                        dependsOn: country
+                        type: dropdown
+                        options:
+                            nyny: New York
+                            syd: Sydney
+
                     point_evidence:
                         type: repeater
                         prompt: Add evidence to the point
