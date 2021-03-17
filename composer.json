@@ -1,0 +1,8 @@
+{
+    "name": "october/test-plugin",
+    "type": "october-plugin",
+    "description": "Playground for testing October CMS functionality",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
