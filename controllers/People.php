@@ -1,5 +1,7 @@
 <?php namespace October\Test\Controllers;
 
+use Mail;
+use Flash;
 use BackendMenu;
 use October\Test\Models\Phone;
 use Backend\Classes\FormField;
@@ -28,6 +30,29 @@ class People extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'people');
+    }
+
+    public function onSendTestEmail()
+    {
+        $data = ['msg' => 'Hello world'];
+        $recptFunc = function($message) {
+            $message->to('admin@domain.tld');
+            $message->subject('Test message');
+        };
+
+        // Laravel engine
+        Mail::send(['html' => 'october.test::mail.some_html', 'text' => 'october.test::mail.some_text'], $data, $recptFunc);
+        Mail::raw(['text' => 'This is plain text', 'html' => '<strong>This is HTML</strong>'], $recptFunc);
+
+        // October engine
+        Mail::send(['text' => 'october.test::mail.some_text'], $data, $recptFunc);
+        Mail::send(['html' => 'october.test::mail.some_html'], $data, $recptFunc);
+        Mail::send(['raw' => 'This is plain text'], $data, $recptFunc);
+        Mail::rawTo('admin@domain.tld', 'Hello friend');
+        Mail::send('october.test::mail.some_html', $data, $recptFunc);
+        Mail::sendTo('admin@domain.tld', 'october.test::mail.some_html', $data);
+
+        Flash::success('Done');
     }
 
     public function formExtendModel($model)
