@@ -10,10 +10,14 @@
 fields:
     name:
         label: Name
+        default: Joe Dirt
         commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
 
     # Testing form field with no config
     preferred_name:
+
+    previous_names:
+        label: Previous Names
 
     # Nullable
     is_married:

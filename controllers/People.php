@@ -57,6 +57,11 @@ class People extends Controller
 
     public function formExtendModel($model)
     {
+        // Default value, form driven
+        if ($this->formGetContext() === 'create') {
+            $model->previous_names = 'Hippo, Campus';
+        }
+
         /*
          * Init proxy field model if we are creating the model
          * and the context is proxy fields.

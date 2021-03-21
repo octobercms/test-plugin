@@ -56,4 +56,12 @@ class Person extends Model
         'alt_phone' => ['October\Test\Models\Phone', 'key' => 'person_id']
     ];
 
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        // Default value, model driven
+        $this->preferred_name = 'Joey';
+    }
 }
