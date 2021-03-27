@@ -16,7 +16,7 @@ fields:
     # Testing form field with no config
     preferred_name:
 
-    previous_names:
+    _previous_names:
         label: Previous Names
 
     # Nullable
