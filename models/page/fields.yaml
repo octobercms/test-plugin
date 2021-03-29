@@ -53,3 +53,9 @@ fields:
                             action: show
                             field: ^type
                             condition: value[2]
+
+    layout:
+        label: Layout
+        type: nestedform
+        useRelation: true
+        form: $/october/test/models/layout/fields.yaml

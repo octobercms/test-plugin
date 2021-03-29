@@ -1,0 +1,16 @@
+columns:
+
+    id:
+        label: id
+        type: number
+
+    type:
+        label: Type
+        type: selectable
+        options:
+            1: Simple
+            2: Complex
+
+    content[title]:
+        label: content
+        type: text

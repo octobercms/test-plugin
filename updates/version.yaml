@@ -1,7 +1,33 @@
-1.0.1: 'First version of Test'
+1.0.1:
+    - First version of Test Plugin
+    - drop_everything.php
 1.0.2:
-    - 'Create tables'
-    - create_tables.php
+    - Create Test 1 Tables
+    - create_test1_tables.php
 1.0.3:
-    - 'Seed tables'
+    - Create Test 2 Tables
+    - create_test2_tables.php
+1.0.4:
+    - Create Test 3 Tables
+    - create_test3_tables.php
+1.0.5:
+    - Create Test 4 Tables
+    - create_test4_tables.php
+1.0.6:
+    - Create Test 5 Tables
+    - create_test5_tables.php
+1.0.7:
+    - Create Test 6 Tables
+    - create_test6_tables.php
+1.0.8:
+    - Create Test 7 Tables
+    - create_test7_tables.php
+1.0.9:
+    - Create Test 8 Tables
+    - create_test8_tables.php
+1.0.10:
+    - Create Test 9 Tables
+    - create_test9_tables.php
+1.0.11:
+    - Seed tables
     - seed_tables.php

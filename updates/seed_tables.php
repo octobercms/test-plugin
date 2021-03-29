@@ -9,6 +9,7 @@ use October\Test\Models\Country;
 use October\Test\Models\Gallery;
 use October\Test\Models\Location;
 use October\Test\Models\Member;
+use October\Test\Models\Layout;
 use October\Test\Models\Page;
 use October\Test\Models\Person;
 use October\Test\Models\Phone;
@@ -21,7 +22,6 @@ use October\Test\Models\User;
 
 class SeedAllTables extends Seeder
 {
-
     public function run()
     {
         /*
@@ -231,9 +231,22 @@ class SeedAllTables extends Seeder
             }
         }
 
+        /*
+         * Test 9: Pages
+         */
+
+        $layout1 = Layout::create([
+            'content' => 'Yes',
+        ]);
+
+        $layout2 = Layout::create([
+            'content' => 'No',
+        ]);
+
         $pages = [
             [
                 'id' => 1,
+                'layout_id' => $layout1->id,
                 'type' => 1,
                 'content' => [
                     'title' => 'This is a simple page',
@@ -242,12 +255,13 @@ class SeedAllTables extends Seeder
             ],
             [
                 'id' => 2,
+                'layout_id' => $layout2->id,
                 'type' => 2,
                 'content' => [
                     'title' => 'This is a complex page',
                     'content' => '<h1>Hello, Complex World</h1>',
                     'meta_description' => 'Meta Description',
-                    'meta_tags' => ['OctoberCMS', 'Fun'],
+                    'meta_tags' => ['October CMS', 'Fun'],
                     'colors' => [
                         'primary' => '#ff0000',
                         'secondary' => '#00ff00',
@@ -259,5 +273,4 @@ class SeedAllTables extends Seeder
             Page::create($page);
         }
     }
-
 }

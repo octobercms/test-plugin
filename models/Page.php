@@ -15,7 +15,6 @@ class Page extends Model
      */
     public $timestamps = false;
 
-
     /**
      * @var string The database table used by the model.
      */
@@ -31,5 +30,9 @@ class Page extends Model
     public $rules = [
         'type' => 'required',
         'content.title' => 'required|min:3'
+    ];
+
+    public $belongsTo = [
+        'layout' => Layout::class,
     ];
 }
