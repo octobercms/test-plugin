@@ -17,7 +17,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build the Docker image
-      run: docker build --tag docker.pkg.github.com/$GITHUB_REPOSITORY/oc-test-plugin:${{ env.PR_NUMBER }} .
+      run: docker build --tag ghcr.io/$GITHUB_REPOSITORY:${{ env.PR_NUMBER }} .
 
-    - name: Push the Docker image to GitHub Packages
-      run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/oc-test-plugin:${{ env.PR_NUMBER }}
+    - name: Push the Docker image to GitHub container registry
+      run: docker push ghcr.io/$GITHUB_REPOSITORY:${{ env.PR_NUMBER }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
