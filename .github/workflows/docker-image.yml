@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  DOCKER_TAG: ghcr.io/$GITHUB_REPOSITORY:pr-${{ github.event.pull_request.number }}
+  DOCKER_TAG: ghcr.io/{{ github.repository }}:pr-${{ github.event.pull_request.number }}
 
 jobs:
 
@@ -31,8 +31,12 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          If you want to test out this PR, run the following command from a CLI with Docker installed.
-          ``docker run --rm -p 80:80 ${{ env.DOCKER_TAG }}``
+          If you want to test out this PR, run the following command from a CLI with [Docker installed](https://docs.docker.com/get-docker/).
+          ```
+          docker run --rm -p 80:80 ${{ env.DOCKER_TAG }}
+          ```
           You can optionally merge a specific PR from the main `october/october` repository if this feature depends on it.
-          ``docker run --rm -p 80:80 -e "GIT_MERGE_PR=1234" ${{ env.DOCKER_TAG }}``
+          ```
+          docker run --rm -p 80:80 -e "GIT_MERGE_PR=1234" ${{ env.DOCKER_TAG }}
+          ```
           Don't forget to give feedback once tested!
