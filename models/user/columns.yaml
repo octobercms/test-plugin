@@ -14,7 +14,7 @@ columns:
     roles_count:
         label: Roles
         relation: roles
-        select: name order by name desc
+        select: name
 
     roles_count:
         label: Roles
