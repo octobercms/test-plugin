@@ -4,7 +4,7 @@
 
 fields:
     name:
-        label: Name
+        label: Test
         span: auto
 
     label:
