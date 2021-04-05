@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  DOCKER_TAG: ghcr.io/{{ github.repository }}:pr-${{ github.event.pull_request.number }}
+  DOCKER_TAG: ghcr.io/${{ github.repository }}:pr-${{ github.event.pull_request.number }}
 
 jobs:
 
