@@ -20,8 +20,8 @@ jobs:
       run: docker build --file .github/workflows/Dockerfile --tag ${{ env.DOCKER_TAG }} .
 
     - name: Login to GitHub container registry
-      run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      # run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      # run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
     - name: Push the Docker image to GitHub container registry
       run: docker push ${{ env.DOCKER_TAG }}
