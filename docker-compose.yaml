@@ -1,11 +1,10 @@
 version: '2.2'
 services:
     web:
-        image: aspendigital/octobercms:develop
+        image: aspendigital/octobercms
         environment:
             INIT_OCTOBER: "true"
             APP_DEBUG: "true"
-            GIT_MERGE_PR: "5552"
         ports:
             - 80:80
         volumes:
