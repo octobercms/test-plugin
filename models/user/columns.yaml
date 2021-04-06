@@ -11,10 +11,10 @@ columns:
         label: Username
         searchable: true
 
-    # roles_count:
-    #     label: Roles
-    #     relation: roles
-    #     select: name order by name desc
+    roles_count:
+        label: Roles
+        relation: roles
+        select: name order by name desc
 
     roles_count:
         label: Roles
