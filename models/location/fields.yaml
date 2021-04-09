@@ -3,6 +3,32 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    is_enabled:
+        label: Check for enable
+        type: switch
+        default: true
+
+    status:
+        label: Status
+        type: balloon-selector
+        span: auto
+        options:
+            active: Active
+            draft: Draft
+            hidden: Hidden
+        trigger:
+            action: enable
+            field: is_enabled
+            condition: checked
+
+    available_services:
+        label: Checkboxlist
+        type: checkboxlist
+        options:
+            - Gas
+            - Electricity
+            - Water
+        trigger:
+            action: enable
+            field: is_enabled
+            condition: checked

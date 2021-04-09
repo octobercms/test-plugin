@@ -48,6 +48,9 @@ class CreateTest4Tables extends Migration
                 $table->increments('id')->unsigned();
                 $table->integer('country_id')->unsigned();
                 $table->integer('city_id')->unsigned();
+                $table->string('status')->nullable();
+                $table->text('available_services')->nullable();
+                $table->boolean('is_enabled')->nullable();
                 $table->string('name');
             });
         });

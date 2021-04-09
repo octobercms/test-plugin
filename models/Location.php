@@ -19,9 +19,14 @@ class Location extends Model
     public $timestamps = false;
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = ['country_id', 'city_id', 'name'];
+
+    /**
+     * @var array jsonable fields
+     */
+    protected $jsonable = ['available_services'];
 
     /**
      * @var array Relations
@@ -40,7 +45,8 @@ class Location extends Model
     {
         if (!empty($scopes['country']->value)) {
             return City::whereIn('country_id', array_keys($scopes['country']->value))->lists('name', 'id');
-        } else {
+        }
+        else {
             return City::lists('name', 'id');
         }
     }
