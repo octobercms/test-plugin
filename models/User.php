@@ -39,9 +39,22 @@ class User extends Model
      */
     public $customMessages = [
        'required' => 'The :attribute field is WOW required.',
-       'username.required' => 'Say hello (Username field required)',
        'photo.required' => 'The :attribute field is required PHOTO.',
+       // @see method beforeValidate
+       // 'username.required' => 'Say hello (Username field required)',
     ];
+
+    /**
+     * beforeValidate uses hacky validation messages
+     */
+    public function beforeValidate()
+    {
+        \Event::listen('translator.beforeResolve', function($key, $replace, $locale) {
+            if ($key === 'validation.custom.username.required') {
+                return 'Say hello (Username field required)';
+            }
+        });
+    }
 
     /**
      * @var array Relations
