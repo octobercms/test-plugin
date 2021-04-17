@@ -21,3 +21,13 @@ columns:
         relation: roles_count
         valueFrom: count
         default: 0
+
+    photo:
+        label: Photo
+        type: image
+        sortable: false
+        width: 150
+        height: 150
+        options:
+            quality: 150
+
