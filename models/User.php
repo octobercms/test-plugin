@@ -10,6 +10,11 @@ class User extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
+     * implement the TranslatableModel behavior for attachments
+     */
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    /**
      * @var string The database table used by the model.
      */
     public $table = 'october_test_users';
@@ -23,6 +28,11 @@ class User extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
+
+    /**
+     * @var array translatable attributes
+     */
+    public $translatable = [];
 
     /**
      * @var array Rules
