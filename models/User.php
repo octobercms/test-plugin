@@ -97,7 +97,7 @@ class User extends Model
     ];
 
     public $attachOne = [
-        'photo' => [\System\Models\File::class],
+        'photo' => \System\Models\File::class,
         'photo_secure' => [\System\Models\File::class, 'public' => false],
         'certificate' => [\System\Models\File::class],
         'certificate_secure' => [\System\Models\File::class, 'public' => false],
@@ -105,7 +105,7 @@ class User extends Model
     ];
 
     public $attachMany = [
-        'portfolio' => [\System\Models\File::class],
+        'portfolio' => \System\Models\File::class,
         'portfolio_secure' => [\System\Models\File::class, 'public' => false],
         'files' => [\System\Models\File::class],
         'files_secure' => [\System\Models\File::class, 'public' => false],

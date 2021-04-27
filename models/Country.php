@@ -8,6 +8,10 @@ use Cms\Classes\Page;
  */
 class Country extends Model
 {
+    /**
+     * implement the TranslatableModel behavior softly
+     */
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
     /**
      * @var string The database table used by the model.
@@ -30,6 +34,11 @@ class Country extends Model
     protected $jsonable = ['pages', 'states', 'locations', 'content'];
 
     /**
+     * translatable
+     */
+    public $translatable = ['name', 'states', 'content'];
+
+    /**
      * @var array Relations
      */
     public $belongsToMany = [
@@ -39,13 +48,6 @@ class Country extends Model
             'conditions' => "type = 'general.type'"
         ],
     ];
-
-    /**
-     * Softly implement the TranslatableModel behavior.
-     */
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-
-    public $translatable = ['name', 'states', 'content'];
 
     public function filterFields($fields, $context = null)
     {

@@ -11,6 +11,11 @@ class Post extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
+     * implement the TranslatableModel behavior softly
+     */
+    // public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    /**
      * @var string The database table used by the model.
      */
     public $table = 'october_test_posts';
@@ -29,6 +34,11 @@ class Post extends Model
      * @var array Jsonable fields
      */
     protected $jsonable = ['tags_array', 'tags_array_id'];
+
+    /**
+     * translatable
+     */
+    // public $translatable = ['content_html'];
 
     /**
      * @var array Rules
