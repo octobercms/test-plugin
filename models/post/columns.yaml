@@ -21,3 +21,8 @@ columns:
         valueFrom: count
         default: 0
         type: number
+
+    status_sort_order:
+        label: Status
+        sortable: true
+        valueFrom: status_name
