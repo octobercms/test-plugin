@@ -111,6 +111,7 @@ secondaryTabs:
             commentAbove: Multiple secure image upload inside a tab.
             mode: image
             tab: Multi Image
+            maxFiles: 2
 
         certificate:
             label: Certificate
