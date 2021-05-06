@@ -7,11 +7,13 @@ columns:
         label: ID
         searchable: true
         type: partial
+        path: $/october/test/controllers/people/_id.htm
 
     name:
         label: Name
         searchable: true
         type: partial
+        path: $/october/test/controllers/people/_name.htm
 
     bio:
         label: Bio

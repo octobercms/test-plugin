@@ -7,7 +7,6 @@ use Model;
  */
 class Person extends Model
 {
-
     use \October\Rain\Database\Traits\Nullable;
     use \October\Rain\Database\Traits\Validation;
 
@@ -59,8 +58,10 @@ class Person extends Model
     /**
      * __construct
      */
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+
         // Default value, model driven
         $this->preferred_name = 'Joey';
     }
