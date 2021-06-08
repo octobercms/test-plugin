@@ -11,7 +11,7 @@ columns:
         label: Username
         searchable: true
 
-    roles_count:
+    roles:
         label: Roles
         relation: roles
         select: name
@@ -21,6 +21,7 @@ columns:
         relation: roles_count
         valueFrom: count
         default: 0
+        sortable: false
 
     photo:
         label: Photo
