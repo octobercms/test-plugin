@@ -45,14 +45,22 @@ class Person extends Model
      */
     public $rules = [
         'name' => 'required',
+        'hobbies' => 'required',
     ];
 
     /**
      * @var array Relations
      */
     public $hasOne = [
-        'phone' => ['October\Test\Models\Phone', 'key' => 'person_id', 'scope' => 'isActive'],
-        'alt_phone' => ['October\Test\Models\Phone', 'key' => 'person_id']
+        'phone' => [
+            \October\Test\Models\Phone::class,
+            'key' => 'person_id',
+            'scope' => 'isActive'
+        ],
+        'alt_phone' => [
+            \October\Test\Models\Phone::class,
+            'key' => 'person_id'
+        ]
     ];
 
     /**

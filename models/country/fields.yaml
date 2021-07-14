@@ -91,7 +91,6 @@ tabs:
                                     span: full
                                 safety:
                                     type: datatable
-                                    stretch: 1
                                     stretch: true
                                     dynamicHeight: true
                                     adding: true

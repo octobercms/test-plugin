@@ -59,7 +59,7 @@ class People extends Controller
     {
         // Default value, form driven
         if ($this->formGetContext() === 'create') {
-            $model->previous_names = 'Hippo, Campus';
+            $model->_previous_names = 'Hippo, Campus';
         }
 
         /*
