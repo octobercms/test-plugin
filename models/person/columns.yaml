@@ -39,6 +39,7 @@ columns:
 
     birthtime:
         label: Birth time
+        type: time
 
     created_at:
         label: Created
