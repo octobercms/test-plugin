@@ -76,11 +76,12 @@ class User extends Model
             'timestamps' => true,
             'order' => 'name'
         ],
-        'roles_count' => [
-            Role::class,
-            'table' => 'october_test_users_roles',
-            'count' => true
-        ],
+        // @deprecated
+        // 'roles_count' => [
+        //     Role::class,
+        //     'table' => 'october_test_users_roles',
+        //     'count' => true
+        // ],
         'roles_pivot' => [
             Role::class,
             'table' => 'october_test_users_roles',

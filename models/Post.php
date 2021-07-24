@@ -52,7 +52,8 @@ class Post extends Model
      */
     public $hasMany = [
         'comments' => ['October\Test\Models\Comment', 'scope' => 'isVisible'],
-        'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
+        // @deprecated
+        // 'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
     ];
 
     public $belongsTo = [

@@ -15,11 +15,18 @@ columns:
         label: Content
         searchable: true
 
+    # @deprecated
+    # comments_count:
+    #     label: Comments
+    #     relation: comments_count
+    #     valueFrom: count
+    #     default: 0
+    #     type: number
+
     comments_count:
         label: Comments
-        relation: comments_count
-        valueFrom: count
-        default: 0
+        relation: comments
+        relationCount: true
         type: number
 
     status_sort_order:

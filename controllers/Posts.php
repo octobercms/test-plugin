@@ -63,7 +63,7 @@ class Posts extends Controller
     {
         if ($definition === 'posts') {
             $query->leftJoin('october_test_attributes', 'october_test_posts.status_id', 'october_test_attributes.id');
-            $query->select('october_test_posts.*', 'october_test_attributes.sort_order as status_sort_order', 'october_test_attributes.name as status_name');
+            $query->addSelect('october_test_attributes.sort_order as status_sort_order', 'october_test_attributes.name as status_name');
         }
     }
 
