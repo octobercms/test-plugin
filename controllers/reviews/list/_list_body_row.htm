@@ -1,4 +1,4 @@
-<tr class="list-tree-level-<?= $treeLevel ?> <?= $this->getRowClass($record) ?>">
+<tr class="<?= $this->getRowClass($record) ?>">
     <?php $index = $url = 0; foreach ($columns as $key => $column): ?>
         <?php $index++; ?>
         <td data-title="<?= e(trans($column->label)) ?>" class="list-cell-index-<?= $index ?> list-cell-name-<?= $column->getName() ?> list-cell-type-<?= $column->type ?> <?= $column->clickable ? '' : 'nolink' ?> <?= $column->cssClass ?>">
