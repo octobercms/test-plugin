@@ -45,7 +45,6 @@ class Person extends Model
      */
     public $rules = [
         'name' => 'required',
-        'hobbies' => 'required',
     ];
 
     /**
