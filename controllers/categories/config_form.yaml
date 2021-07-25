@@ -12,19 +12,19 @@ form: $/october/test/models/category/fields.yaml
 modelClass: October\Test\Models\Category
 
 # Default redirect location
-defaultRedirect: october/test/categories
+defaultRedirect: october/test/trees
 
 # Create page
 create:
     title: Create Category
     redirect: october/test/categories/update/:id
-    redirectClose: october/test/categories
+    redirectClose: october/test/trees
 
 # Update page
 update:
     title: Edit Category
     redirect: october/test/categories
-    redirectClose: october/test/categories
+    redirectClose: october/test/trees
 
 # Preview page
 preview:

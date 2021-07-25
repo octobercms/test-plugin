@@ -12,7 +12,7 @@ fields:
         select: title
         span: auto
 
-    related_custom:
+    _related_custom:
         valueFrom: related
         label: Related (Custom attribute)
         type: relation

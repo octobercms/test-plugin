@@ -12,19 +12,19 @@ form: $/october/test/models/channel/fields.yaml
 modelClass: October\Test\Models\Channel
 
 # Default redirect location
-defaultRedirect: october/test/channels
+defaultRedirect: october/test/trees
 
 # Create page
 create:
     title: Create Channel
     redirect: october/test/channels/update/:id
-    redirectClose: october/test/channels
+    redirectClose: october/test/trees
 
 # Update page
 update:
     title: Edit Channel
     redirect: october/test/channels
-    redirectClose: october/test/channels
+    redirectClose: october/test/trees
 
 # Preview page
 preview:

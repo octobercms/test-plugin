@@ -12,19 +12,19 @@ form: $/october/test/models/member/fields.yaml
 modelClass: October\Test\Models\Member
 
 # Default redirect location
-defaultRedirect: october/test/members
+defaultRedirect: october/test/trees
 
 # Create page
 create:
     title: Create Member
     redirect: october/test/members/update/:id
-    redirectClose: october/test/members
+    redirectClose: october/test/trees
 
 # Update page
 update:
     title: Edit Member
     redirect: october/test/members
-    redirectClose: october/test/members
+    redirectClose: october/test/trees
 
 # Preview page
 preview:

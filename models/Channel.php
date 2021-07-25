@@ -27,23 +27,17 @@ class Channel extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
     public $belongsTo = [
-        'user' => 'October\Test\Models\User'
+        'user' => User::class
     ];
+
     public $belongsToMany = [
         'related' => [
-            'October\Test\Models\Channel',
+            Channel::class,
             'table' => 'october_test_related_channels',
             'key' => 'related_id'
         ]
     ];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
 
     public function getCustomTitleAttribute()
     {
