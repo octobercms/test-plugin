@@ -23,9 +23,15 @@ recordsPerPage: 20
 # Displays the list column set up button
 showSetup: true
 
-# Show tree
-showTree: true
-treeExpanded: true
+# Show tree (v1)
+# showTree: true
+# treeExpanded: true
+
+# Show tree (v2)
+structure:
+    showTree: true
+    showReorder: true
+    maxDepth: 2
 
 # Toolbar widget configuration
 toolbar:

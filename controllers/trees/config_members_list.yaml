@@ -24,8 +24,14 @@ recordsPerPage: 20
 showSetup: true
 
 # Show tree
-showTree: true
-treeExpanded: true
+# showTree: true
+# treeExpanded: true
+
+# Show tree (v2)
+structure:
+    showTree: true
+    showReorder: true
+    maxDepth: 2
 
 # Display checkboxes next to each record
 # showCheckboxes: true
