@@ -1,7 +1,6 @@
-<?php
+<?php namespace October\Test;
 
-namespace October\Test;
-
+use Event;
 use Backend;
 use System\Classes\PluginBase;
 
@@ -24,6 +23,42 @@ class Plugin extends PluginBase
             'icon'        => 'icon-child',
             'homepage'    => 'https://github.com/daftspunk/oc-test-plugin',
         ];
+    }
+
+    public function boot()
+    {
+        Event::listen('backend.form.extendFieldsBefore', function($widget) {
+            if (!$widget->getController() instanceof \October\Test\Controllers\Countries) {
+                return;
+            }
+
+            if (!$widget->model instanceof \October\Test\Models\Country) {
+                return;
+            }
+
+            $widget->tabs['fields']['itemprop_name'] = [
+                'label' => 'Itemprop name',
+                'tab' => 'Characters',
+                'comment' => 'Recommended length: 60 characters',
+                'span' => 'left',
+                'type' => 'text',
+                'size' => 'huge',
+                'language' => 'twig',
+            ];
+
+            // ...
+        });
+
+        \October\Test\Models\Country::extend(function($model) {
+            if (!$model->propertyExists('translatable')) {
+                $model->addDynamicProperty('translatable', []);
+            }
+
+            $model->translatable = array_merge($model->translatable, [
+                'itemprop_name',
+            ]);
+        });
+
     }
 
     public function registerPermissions()
