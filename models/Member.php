@@ -7,7 +7,6 @@ use Model;
  */
 class Member extends Model
 {
-
     use \October\Rain\Database\Traits\SimpleTree;
 
     /**
@@ -28,21 +27,13 @@ class Member extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
     public $belongsTo = [
-        'user' => 'October\Test\Models\User'
+        'user' => \October\Test\Models\User::class
     ];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
 
     /**
      * Limit results to only records that are eligible to be parents of the provided model.
-     * Ineligible parents include: The provided model itself, models with the provided model 
+     * Ineligible parents include: The provided model itself, models with the provided model
      * as it's own parent already, and a model that is already the current model's parent
      *
      * @param Query $query

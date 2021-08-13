@@ -31,7 +31,7 @@ showSetup: true
 structure:
     showTree: true
     showReorder: true
-    maxDepth: 2
+    maxDepth: 0
 
 # Toolbar widget configuration
 toolbar:
