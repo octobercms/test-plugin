@@ -64,3 +64,19 @@ fields:
         label: Layout
         type: relation
         nameFrom: id
+
+    _people:
+        label: People
+        prompt: Add Person
+        span: full
+        type: repeater
+        form:
+            fields:
+                person:
+                    label: Testing Widget Inside Repeater
+                    nameFrom: name
+                    descriptionFrom: description
+                    list: $/october/test/models/person/columns.yaml
+                    type: recordfinder
+                    useRelation: false
+                    modelClass: October\Test\Models\Person
