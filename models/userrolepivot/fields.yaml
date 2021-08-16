@@ -11,3 +11,9 @@ fields:
         label: Executive
         type: checkbox
         span: auto
+
+    pivot[country]:
+        label: Country
+        type: recordfinder
+        recordsPerPage: 20
+        list: $/october/test/models/country/columns_simple.yaml

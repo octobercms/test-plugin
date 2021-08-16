@@ -32,14 +32,14 @@ tabs:
             label: Roles
             commentAbove: RelationController with pivot data.
             type: partial
-            tab: Pivot data
+            tab: Pivot Data
 
         roles_pivot_model:
             context: [update, relationcontroller]
             label: Roles
             commentAbove: RelationController using a custom pivot model with validation.
             type: partial
-            tab: Pivot model
+            tab: Pivot Model
 
         # Relation form field
         roles@relation:

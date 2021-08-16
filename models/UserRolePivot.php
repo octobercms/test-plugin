@@ -3,11 +3,10 @@
 use October\Rain\Database\Pivot;
 
 /**
- * User-Role Pivot Model
+ * UserRolePivot Model
  */
 class UserRolePivot extends Pivot
 {
-
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -17,4 +16,7 @@ class UserRolePivot extends Pivot
         'clearance_level' => 'required|min:3',
     ];
 
+    public $belongsTo = [
+        'country' => Country::class,
+    ];
 }
