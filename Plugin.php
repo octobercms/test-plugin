@@ -110,4 +110,10 @@ class Plugin extends PluginBase
             ],
         ];
     }
+
+    public function register()
+    {
+        $this->registerConsoleCommand('test.seed-posts', Console\SeedPosts::class);
+    }
+
 }
