@@ -23,7 +23,7 @@ class Plugin extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
-    
+
     /**
      * Validation Rules.
      */
@@ -37,10 +37,10 @@ class Plugin extends Model
      * @var array Relations
      */
     public $morphMany = [
-        'reviews' => ['October\Test\Models\Review', 'name' => 'product'],
+        'reviews' => [\October\Test\Models\Review::class, 'name' => 'product'],
     ];
 
     public $morphOne = [
-        'meta' => ['October\Test\Models\Meta', 'name' => 'taggable'],
+        'meta' => [\October\Test\Models\Meta::class, 'name' => 'taggable'],
     ];
 }

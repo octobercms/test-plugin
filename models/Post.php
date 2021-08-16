@@ -70,11 +70,11 @@ class Post extends Model
     ];
 
     public $morphOne = [
-        'review' => ['October\Test\Models\Review', 'name' => 'product'],
+        'review' => [\October\Test\Models\Review::class, 'name' => 'product'],
     ];
 
     public $morphToMany = [
-        'galleries' => ['October\Test\Models\Gallery', 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
+        'galleries' => [\October\Test\Models\Gallery::class, 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
     ];
 
     //
@@ -88,7 +88,7 @@ class Post extends Model
 
     public function getTagsStringOptions($value, $formData)
     {
-        return self::getTagsArrayOptions($value, $formData);
+        return $this->getTagsArrayOptions($value, $formData);
     }
 
     public function getTagsArrayIdOptions($value, $formData)
@@ -98,6 +98,6 @@ class Post extends Model
 
     public function getTagsStringIdOptions($value, $formData)
     {
-        return self::getTagsArrayIdOptions($value, $formData);
+        return $this->getTagsArrayIdOptions($value, $formData);
     }
 }

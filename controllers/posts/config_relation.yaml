@@ -32,6 +32,6 @@ review:
     label: Review
     view:
         form: $/october/test/models/review/fields_simple.yaml
-        toolbarButtons: update
+        list: $/october/test/models/review/columns.yaml
     manage:
         form: $/october/test/models/review/fields_simple.yaml
