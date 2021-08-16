@@ -91,7 +91,9 @@ fields:
         type: dropdown
 
 tabs:
-
+    lazy:
+        - Birthday
+        - Activities
     fields:
 
         birth:
