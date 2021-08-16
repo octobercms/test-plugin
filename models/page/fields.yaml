@@ -54,8 +54,13 @@ fields:
                             field: ^type
                             condition: value[2]
 
-    layout:
+    layout@update:
         label: Layout
         type: nestedform
         useRelation: true
         form: $/october/test/models/layout/fields.yaml
+
+    layout@create:
+        label: Layout
+        type: relation
+        nameFrom: id

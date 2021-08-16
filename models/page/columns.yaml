@@ -1,7 +1,6 @@
 columns:
-
     id:
-        label: id
+        label: ID
         type: number
 
     type:
