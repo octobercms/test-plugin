@@ -9,8 +9,8 @@ use Backend\Classes\Controller;
 class Cities extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class
     ];
 
     public $formConfig = 'config_form.yaml';
@@ -20,6 +20,6 @@ class Cities extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.Test', 'test', 'cities');
+        BackendMenu::setContext('October.Test', 'test', 'locations');
     }
 }

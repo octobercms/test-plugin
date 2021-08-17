@@ -26,6 +26,11 @@ class City extends Model
     /**
      * @var array Relations
      */
-    public $hasMany = ['locations' => Location::class];
-    public $belongsTo = ['country' => Country::class];
+    public $hasMany = [
+        'locations' => Location::class
+    ];
+
+    public $belongsTo = [
+        'country' => Country::class
+    ];
 }

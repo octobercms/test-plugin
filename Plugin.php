@@ -62,10 +62,10 @@ class Plugin extends PluginBase
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/users'),
                     ],
-                    'countries' => [
-                        'label' => 'Countries',
+                    'locations' => [
+                        'label' => 'Locations',
                         'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/countries'),
+                        'url'   => Backend::url('october/test/locations'),
                     ],
                     'reviews'   => [
                         'label' => 'Reviews',
@@ -86,16 +86,6 @@ class Plugin extends PluginBase
                         'label' => 'Pages',
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/pages'),
-                    ],
-                    'cities' => [
-                        'label' => 'Cities',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/cities'),
-                    ],
-                    'locations' => [
-                        'label' => 'Locations',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/locations'),
                     ],
                 ],
             ],

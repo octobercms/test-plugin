@@ -39,7 +39,14 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. Form field partial
 1. Tag List in relation mode
 
-### Test 4: Countries (A)
+### Test 4: Locations (A)
+
+1. City "Has Many" Locations
+1. City "Belongs To" Country
+1. Location "Belongs To" Country
+1. Location "Belongs To" City
+
+### Test 4: Countries (B)
 
 A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
@@ -49,12 +56,9 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 1. Repeater fields
 1. Tabs empty with no fields
 
-### Test 4: Locations (B)
+### Test 4: Cities (C)
 
-1. City "Has Many" Locations
-1. City "Belongs To" Country
-1. Location "Belongs To" Country
-1. Location "Belongs To" City
+A City "Belongs To" a Country and "Has Many" Locations.
 
 ### Test 5: Reviews
 

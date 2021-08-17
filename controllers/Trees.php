@@ -9,7 +9,7 @@ use Backend\Classes\Controller;
 class Trees extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.ListController'
+        \Backend\Behaviors\ListController::class
     ];
 
     public $listConfig = [

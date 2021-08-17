@@ -9,7 +9,7 @@ use Backend\Classes\Controller;
 class Members extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
+        \Backend\Behaviors\FormController::class
     ];
 
     public $formConfig = 'config_form.yaml';

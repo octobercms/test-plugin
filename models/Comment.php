@@ -41,12 +41,12 @@ class Comment extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'user' => ['October\Test\Models\User'],
-        'post' => ['October\Test\Models\Post']
+        'user' => User::class,
+        'post' => Post::class
     ];
 
     public $attachOne = [
-        'photo' => ['System\Models\File']
+        'photo' => \System\Models\File::class
     ];
 
     public function scopeIsVisible($query)
