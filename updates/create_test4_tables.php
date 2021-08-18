@@ -51,6 +51,7 @@ class CreateTest4Tables extends Migration
                 $table->string('status')->nullable();
                 $table->text('available_services')->nullable();
                 $table->boolean('is_enabled')->nullable();
+                $table->integer('sort_order')->nullable();
                 $table->string('name');
             });
         });

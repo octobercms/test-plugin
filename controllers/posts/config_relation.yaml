@@ -9,6 +9,7 @@ comments:
     readOnly: true
     manage:
         context: relation
+        recordsPerPage: 10
 
 status:
     label: Status
