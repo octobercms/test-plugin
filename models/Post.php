@@ -51,18 +51,19 @@ class Post extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'comments' => ['October\Test\Models\Comment', 'scope' => 'isVisible'],
+        'comments' => [Comment::class, 'scope' => 'isVisible'],
         // @deprecated
         // 'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
     ];
 
     public $belongsTo = [
-        'status' => ['October\Test\Models\Attribute', 'conditions' => "type = 'general.status'"],
+        'status' => [Attribute::class, 'conditions' => "type = 'general.status'"],
+        'user' => User::class,
     ];
 
     public $belongsToMany = [
         'tags' => [
-            'October\Test\Models\Tag',
+            Tag::class,
             'table' => 'october_test_posts_tags',
             'key' => 'post_id',
             'otherKey' => 'tag_id'
@@ -70,11 +71,11 @@ class Post extends Model
     ];
 
     public $morphOne = [
-        'review' => [\October\Test\Models\Review::class, 'name' => 'product'],
+        'review' => [Review::class, 'name' => 'product'],
     ];
 
     public $morphToMany = [
-        'galleries' => [\October\Test\Models\Gallery::class, 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
+        'galleries' => [Gallery::class, 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
     ];
 
     //

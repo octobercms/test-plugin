@@ -1,0 +1,10 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+posts:
+    label: Posts
+    list: $/october/test/models/post/columns.yaml
+    form: $/october/test/models/post/fields_simple.yaml
+    view:
+        showCheckboxes: false

@@ -37,8 +37,14 @@ fields:
     published_at:
         label: Published date and time
         type: datepicker
-        span: full
+        span: auto
         default: "tomorrow + 3 hours 15 minutes"
+
+    user:
+        label: User
+        type: relation
+        span: auto
+        nameFrom: username
 
 tabs:
     fields:

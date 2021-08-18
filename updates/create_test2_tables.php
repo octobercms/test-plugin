@@ -26,6 +26,7 @@ class CreateTest2Tables extends Migration
                 $table->string('tags_string_id')->nullable();
                 $table->boolean('is_published')->default(false);
                 $table->timestamp('published_at')->nullable();
+                $table->integer('user_id')->unsigned()->nullable()->index();
                 $table->integer('status_id')->unsigned()->nullable()->index();
                 $table->timestamps();
             });

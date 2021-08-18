@@ -69,6 +69,10 @@ class User extends Model
     /**
      * @var array Relations
      */
+    public $belongsTo = [
+        'country' => Country::class
+    ];
+
     public $belongsToMany = [
         'roles' => [
             Role::class,
@@ -118,5 +122,4 @@ class User extends Model
             $q->whereIn('id', $filtered);
         });
     }
-
 }

@@ -5,14 +5,24 @@
 fields:
     username:
         label: Username
-        span: auto
+        span: row
+        spanClass: col-md-5
         type: partial
         path: field_uppercase_name
         comment: This username should always appear as uppercase.
 
+    country:
+        label: Country
+        type: relation
+        span: row
+        spanClass: col-md-4
+        nameFrom: name
+        emptyOption: -- select --
+
     security_code:
         label: Security Code
-        span: auto
+        span: row
+        spanClass: col-md-3
         type: number
         comment: This code should appear as a number.
 

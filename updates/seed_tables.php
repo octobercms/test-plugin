@@ -48,11 +48,11 @@ class SeedAllTables extends Seeder
          */
 
         $post = Post::create(['name' => 'First post, yay!', 'content' => 'I have some comments!']);
-        Post::create(['name' => 'A lonely toon', 'content' => 'I have nothing at all']);
+        Post::create(['name' => 'A content image', 'content' => 'I have no comments']);
 
         $post->comments()->create([
             'name' => 'deadmau5',
-            'content' => 'Hai fwiend, hai fwiend, hai fwiend, hai fwiend, hai fwiend. Brrrrrup bloop. Brrrrrp bloop. Brrrrrp bloop. Brrrrrp bloop.',
+            'content' => "Rippin' my heart was so easy, so easy. Launch your assault now, take it easy. Raise your weapon, raise your weapon. One word and it's over",
         ]);
 
         $post->comments()->create([
@@ -75,6 +75,9 @@ class SeedAllTables extends Seeder
         $user = User::first();
         $user->roles()->add($role, null, ['clearance_level' => 'Top Secret', 'is_executive' => true]);
 
+        $post->user()->add($user);
+        $post->save();
+
         /*
          * Test 4: Countries
          */
@@ -92,6 +95,10 @@ class SeedAllTables extends Seeder
                 ['title' => 'Meg'],
             ],
         ]);
+
+        $user = User::first();
+        $user->country()->add($country1);
+        $user->save();
 
         $country2 = Country::create([
             'name' => 'Blueseed',

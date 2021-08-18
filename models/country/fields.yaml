@@ -28,6 +28,11 @@ tabs:
 
     fields:
 
+        posts:
+            label: Posts
+            type: partial
+            tab: Posts
+
         types:
             tab: Characters
             label: Class types
@@ -36,11 +41,11 @@ tabs:
 
         language:
             label: Language
-            tab: Language
+            tab: Locale
 
         currency:
             label: Currency with default value and trigger
-            tab: Currency
+            tab: Locale
             default: 'I have a default value!'
             trigger:
                 field: is_active

@@ -43,9 +43,16 @@ class Country extends Model
      */
     public $belongsToMany = [
         'types' => [
-            'October\Test\Models\Attribute',
+            Attribute::class,
             'table' => 'october_test_countries_types',
             'conditions' => "type = 'general.type'"
+        ],
+    ];
+
+    public $hasManyThrough = [
+        'posts' => [
+            Post::class,
+            'through' => User::class
         ],
     ];
 
