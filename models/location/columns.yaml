@@ -5,10 +5,13 @@
 columns:
     name:
         label: Name
+        searchable: true
+
     city_name:
         label: City
         relation: city
         select: name
+
     country_name:
         label: Country
         relation: country
