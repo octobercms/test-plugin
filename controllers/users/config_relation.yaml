@@ -19,8 +19,9 @@ roles_pivot:
         showSearch: true
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
+        showCheckboxes: true
     pivot:
-        form: ~/plugins/october/test/models/userrolepivot/fields.yaml
+        form: ~/plugins/october/test/models/userrolepivot/fields_basic.yaml
 
 roles_pivot_model:
     label: Role
