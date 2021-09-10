@@ -15,3 +15,9 @@ tabs:
         content:
             label: Content
             tab: Details
+
+        reviews:
+            label: Reviews
+            type: partial
+            path: reviews
+            tab: Reviews

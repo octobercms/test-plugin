@@ -37,10 +37,10 @@ class Plugin extends Model
      * @var array Relations
      */
     public $morphMany = [
-        'reviews' => [\October\Test\Models\Review::class, 'name' => 'product'],
+        'reviews' => [Review::class, 'name' => 'product'],
     ];
 
     public $morphOne = [
-        'meta' => [\October\Test\Models\Meta::class, 'name' => 'taggable'],
+        'meta' => [Meta::class, 'name' => 'taggable'],
     ];
 }
