@@ -134,6 +134,8 @@ tabs:
             prompt: Add new location
             span: full
             type: repeater
+            minItems: 2
+            maxItems: 5
             form:
                 fields:
                     country:

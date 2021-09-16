@@ -12,7 +12,6 @@ recurse:
             prompt: Add content block
             span: full
             type: repeater
-
             groups: $/october/test/config/repeater_fields.yaml
 
 textarea:

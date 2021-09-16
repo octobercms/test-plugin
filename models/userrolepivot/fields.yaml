@@ -13,7 +13,20 @@ fields:
         span: auto
 
     pivot[country]:
+        span: auto
         label: Country
         type: recordfinder
         recordsPerPage: 20
         list: $/october/test/models/country/columns_simple.yaml
+        comment: Record finder inside a popup.
+
+    # Unsupported
+    pivot[pic]:
+        span: auto
+        label: Photo
+        type: fileupload
+        comment: Image upload inside a popup.
+        mode: image
+        imageHeight: 150
+        imageWidth: 150
+

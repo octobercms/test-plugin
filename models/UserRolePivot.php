@@ -19,4 +19,9 @@ class UserRolePivot extends Pivot
     public $belongsTo = [
         'country' => Country::class,
     ];
+
+    // Unsupported
+    public $attachOne = [
+        'pic' => \System\Models\File::class
+    ];
 }
