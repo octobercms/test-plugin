@@ -3,14 +3,14 @@
 # ===================================
 
 scopes:
-    disable_roles:
-        label: Disable Roles
-        type: checkbox
-    roles:
-        label: Role
-        scope: applyRoleFilter
-        modelClass: October\Test\Models\Role
-        nameFrom: name
+    id_group:
+        label: ID Group
+        type: group
+        conditions: id in (:filtered)
+        options:
+            '1': One
+            '2': Two
+            '3': Three
     id_range:
         label: ID Range
         type: numberrange

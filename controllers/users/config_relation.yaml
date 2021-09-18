@@ -6,19 +6,23 @@ roles:
     label: Role
     view:
         list: ~/plugins/october/test/models/role/columns.yaml
+        filter: config_role_filter.yaml
         showSearch: true
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
         form: ~/plugins/october/test/models/role/fields.yaml
+        filter: config_role_filter.yaml
 
 roles_pivot:
     label: Role
     view:
         list: ~/plugins/october/test/models/userrolepivot/columns.yaml
         toolbarButtons: add|remove|create
+        filter: config_role_filter.yaml
         showSearch: true
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
+        filter: config_role_filter.yaml
         showCheckboxes: true
     pivot:
         form: ~/plugins/october/test/models/userrolepivot/fields_basic.yaml
