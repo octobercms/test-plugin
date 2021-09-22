@@ -98,7 +98,7 @@ class SeedAllTables extends Seeder
 
         $user = User::first();
         $user->country()->add($country1);
-        $user->save();
+        $user->forceSave();
 
         $country2 = Country::create([
             'name' => 'Blueseed',
