@@ -1,5 +1,6 @@
 <?php namespace October\Test\Models;
 
+use Str;
 use Model;
 use Cms\Classes\Page;
 
@@ -72,6 +73,10 @@ class Country extends Model
 
         if ($this->is_active) {
             $fields->currency->hidden = true;
+        }
+
+        if (isset($fields->_some_field)) {
+            $fields->_some_field->value = Str::random();
         }
     }
 

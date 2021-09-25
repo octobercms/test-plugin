@@ -128,6 +128,12 @@ tabs:
                                             validation:
                                                 required:
                                                     message: Please select a type
+        _some_field:
+            type: text
+            tab: Related
+            label: Some Field That Updates Randomly
+            dependsOn: locations
+
         locations:
             tab: Related
             label: Locations
