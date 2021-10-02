@@ -12,9 +12,7 @@ class CreateTest7Tables extends Migration
     public function up()
     {
         Db::transaction(function() {
-            Schema::create('october_test_attributes', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_attributes', function($table) {
                 $table->increments('id');
                 $table->string('type')->nullable();
                 $table->string('name')->nullable();

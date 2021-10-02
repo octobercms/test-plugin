@@ -12,9 +12,7 @@ class CreateTest2Tables extends Migration
     public function up()
     {
         Db::transaction(function() {
-            Schema::create('october_test_posts', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_posts', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->text('content')->nullable();
@@ -31,9 +29,7 @@ class CreateTest2Tables extends Migration
                 $table->timestamps();
             });
 
-            Schema::create('october_test_comments', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_comments', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->text('content')->nullable();
@@ -47,17 +43,13 @@ class CreateTest2Tables extends Migration
                 $table->timestamps();
             });
 
-            Schema::create('october_test_tags', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_tags', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->timestamps();
             });
 
-            Schema::create('october_test_posts_tags', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_posts_tags', function($table) {
                 $table->integer('post_id');
                 $table->integer('tag_id');
                 $table->timestamps();

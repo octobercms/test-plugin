@@ -12,9 +12,7 @@ class CreateTest5Tables extends Migration
     public function up()
     {
         Db::transaction(function() {
-            Schema::create('october_test_meta', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_meta', function($table) {
                 $table->increments('id')->unsigned();
                 $table->integer('taggable_id')->unsigned()->index()->nullable();
                 $table->string('taggable_type')->nullable();
@@ -27,9 +25,7 @@ class CreateTest5Tables extends Migration
                 $table->string('robot_follow')->nullable();
             });
 
-            Schema::create('october_test_reviews', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_reviews', function($table) {
                 $table->increments('id');
                 $table->string('product_type')->nullable();
                 $table->integer('product_id')->unsigned()->nullable();
@@ -38,9 +34,7 @@ class CreateTest5Tables extends Migration
                 $table->timestamps();
             });
 
-            Schema::create('october_test_plugins', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_plugins', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->string('code')->nullable();
@@ -48,9 +42,7 @@ class CreateTest5Tables extends Migration
                 $table->timestamps();
             });
 
-            Schema::create('october_test_themes', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_themes', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->string('code')->nullable();

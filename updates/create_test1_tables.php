@@ -12,9 +12,7 @@ class CreateTest1Tables extends Migration
     public function up()
     {
         Db::transaction(function() {
-            Schema::create('october_test_people', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_people', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->string('preferred_name')->nullable();
@@ -30,9 +28,7 @@ class CreateTest1Tables extends Migration
                 $table->timestamps();
             });
 
-            Schema::create('october_test_phones', function($table)
-            {
-                $table->engine = 'InnoDB';
+            Schema::create('october_test_phones', function($table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
                 $table->string('number')->nullable();
