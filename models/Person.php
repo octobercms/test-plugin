@@ -63,6 +63,14 @@ class Person extends Model
     ];
 
     /**
+     * filterFields
+     */
+    public function filterFields($fields)
+    {
+        // $fields->phone->hidden = true;
+    }
+
+    /**
      * __construct
      */
     public function __construct(array $attributes = [])

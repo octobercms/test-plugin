@@ -26,14 +26,4 @@ class Galleries extends Controller
 
         BackendMenu::setContext('October.Test', 'test', 'galleries');
     }
-
-    public function formBeforeSave($model)
-    {
-        if (post('Gallery[is_all_day]')) {
-            $model->is_all_day = true;
-        }
-        else {
-            $model->is_all_day = false;
-        }
-    }
 }

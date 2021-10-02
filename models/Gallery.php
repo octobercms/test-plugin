@@ -58,7 +58,7 @@ class Gallery extends Model
      */
     public function filterFields($fields)
     {
-        if (!$this->is_all_day) {
+        if (!$fields->is_all_day->value) {
             $fields->start_time->hidden = false;
             $fields->end_time->hidden = false;
             $fields->end_date->hidden = true;
