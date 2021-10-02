@@ -22,7 +22,7 @@ fields:
         disabled: true
 
     name:
-        label: Name
+        label: Author Name
         commentAbove: Text field, inside a popup.
         span: auto
 

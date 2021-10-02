@@ -9,7 +9,7 @@
 
 fields:
     name:
-        label: Name
+        label: Full Name
         default: Joe Dirt
         commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
 
