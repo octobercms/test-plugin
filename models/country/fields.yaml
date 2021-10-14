@@ -106,7 +106,7 @@ tabs:
                                     columns:
                                         id:
                                             title:
-                                            width: 30px
+                                            width: 45px
                                             readOnly: true
                                         label:
                                             title: Label

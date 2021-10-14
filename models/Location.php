@@ -35,14 +35,20 @@ class Location extends Model
      */
     public $belongsTo = [
         'country' => Country::class,
-        'city'    => City::class,
+        'city' => City::class,
     ];
 
+    /**
+     * getCountryOptions
+     */
     public function getCountryOptions()
     {
         return Country::lists('name', 'id');
     }
 
+    /**
+     * getCityOptions
+     */
     public function getCityOptions($scopes = null)
     {
         if (!empty($scopes['country']->value)) {
