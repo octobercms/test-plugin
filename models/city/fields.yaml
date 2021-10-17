@@ -2,39 +2,47 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    name:
-        label: Name
-        span: left
+tabs:
+    fields:
+        name:
+            label: Name
+            span: left
+            tab: Details
 
-    country:
-        label: Country
-        type: relation
-        span: right
+        country:
+            label: Country
+            type: relation
+            span: right
+            tab: Details
 
-    _column1:
-        label: Col 1
-        type: text
-        span: row
-        spanClass: col-xs-4
+        _column1:
+            label: Col 1
+            type: text
+            span: row
+            tab: SEO
+            spanClass: col-xs-4
 
-    _column2:
-        label: Col 2
-        type: text
-        span: row
-        spanClass: col-xs-4
+        _column2:
+            label: Col 2
+            type: text
+            span: row
+            tab: SEO
+            spanClass: col-xs-4
 
-    _column3:
-        label: Col 3
-        type: text
-        span: row
-        spanClass: col-xs-4
+        _column3:
+            label: Col 3
+            type: text
+            span: row
+            tab: SEO
+            spanClass: col-xs-4
 
-    _column4:
-        label: Col 3
-        type: text
-        span: row
-        spanClass: col-xs-4
+        _column4:
+            label: Col 3
+            type: text
+            span: row
+            tab: SEO
+            spanClass: col-xs-4
 
-    _column5:
-        label: Full
+        _column5:
+            label: Full
+            tab: SEO
