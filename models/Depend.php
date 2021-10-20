@@ -12,6 +12,12 @@ class Depend extends Model
      */
     public $table = 'october_test_depend';
 
+    /*
+     * Disable timestamps by default.
+     * Remove this line if timestamps are defined in the database table.
+     */
+    public $timestamps = false;
+
     /**
      * @var array Guarded fields
      */
@@ -25,7 +31,7 @@ class Depend extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['repiter'];
+    protected $jsonable = ['slave_repiter'];
 
     /**
      * @var array Rules
