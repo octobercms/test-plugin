@@ -31,3 +31,6 @@
 1.0.11:
     - Seed tables
     - seed_tables.php
+1.0.12:
+    - Create Test 10 Tables
+    - create_test10_tables.php
