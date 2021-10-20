@@ -1,0 +1,43 @@
+fields:
+  first_field:
+    label: 'First Field'
+    type: text
+    span: row
+    disabled: true
+    spanClass: col-xs-3
+  second_field:
+    label: 'Second Field'
+    type: text
+    span: row
+    disabled: false
+    spanClass: col-xs-3
+  _type:
+    label: 'Type'
+    span: row
+    spanClass: col-xs-3
+    type: dropdown
+    options:
+        string: String
+        field: Model Field
+        settings: Settings
+  var:
+    label: 'String'
+    span: row
+    spanClass: col-xs-3
+    type: text
+    trigger:
+        action: show
+        field: '_type'
+        condition: 'value[string]'
+  var2:
+    label: 'Select'
+    span: row
+    spanClass: col-xs-3
+    type: dropdown
+    options:
+        one: One
+        two: Two
+    trigger:
+        action: show
+        field: '_type'
+        condition: 'value[field]'

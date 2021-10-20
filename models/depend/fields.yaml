@@ -1,0 +1,43 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  slave_widget:
+    label: 'Slave Widget'
+    type: richeditor
+    span: right
+    dependsOn: master
+    trigger:
+        action: hide
+        field: 'master'
+        condition: 'value[]'
+  name:
+      label: Name
+      span: auto
+      default: Australia
+  master:
+      label: 'Master Selector'
+      emptyOption: -- Select Type --
+      span: left
+      type: dropdown
+  slave_text:
+      label: 'Slave Text'
+      span: left
+      dependsOn: master
+      trigger:
+          action: hide
+          field: 'master'
+          condition: 'value[]'
+  slave_repiter:
+      label: 'Slave Repiter'
+      type: repeater
+      span: full
+      dependsOn: master
+      minItems: 0
+      titleFrom: schema_fields
+      form: $/october/test/models/depend/repeater_fields.yaml
+      trigger:
+          action: hide
+          field: 'master'
+          condition: 'value[]'

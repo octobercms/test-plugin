@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Depend
+
+# Model Form Field configuration
+form: $/october/test/models/depend/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Depend
+
+# Default redirect location
+defaultRedirect: october/test/depends
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: october/test/depends/update/:id
+    redirectClose: october/test/depends
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: october/test/depends
+    redirectClose: october/test/depends
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

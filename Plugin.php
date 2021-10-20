@@ -87,6 +87,11 @@ class Plugin extends PluginBase
                         'icon'  => 'icon-database',
                         'url'   => Backend::url('october/test/pages'),
                     ],
+                    'depends'     => [
+                        'label' => 'Depends',
+                        'icon'  => 'icon-database',
+                        'url'   => Backend::url('october/test/depends'),
+                    ],
                 ],
             ],
         ];
