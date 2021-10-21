@@ -16,13 +16,13 @@ defaultRedirect: october/test/posts
 
 # Create page
 create:
-    title: Create Posts
+    title: Create Posts (Custom Text)
     redirect: october/test/posts/update/:id
     redirectClose: october/test/posts
 
 # Update page
 update:
-    title: Edit Posts
+    title: Edit Posts (Awesome Title)
     redirect: october/test/posts
     redirectClose: october/test/posts
 
