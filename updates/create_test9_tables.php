@@ -11,19 +11,17 @@ class CreateTest9Tables extends Migration
 {
     public function up()
     {
-        Db::transaction(function() {
-            Schema::create('october_test_pages', function($table) {
-                $table->increments('id')->unsigned();
-                $table->integer('type')->unsigned()->nullable();
-                $table->text('content')->nullable();
-                $table->integer('layout_id')->nullable()->unsigned();
-            });
+        Schema::create('october_test_pages', function($table) {
+            $table->increments('id')->unsigned();
+            $table->integer('type')->unsigned()->nullable();
+            $table->text('content')->nullable();
+            $table->integer('layout_id')->nullable()->unsigned();
+        });
 
-            Schema::create('october_test_layouts', function($table) {
-                $table->increments('id')->unsigned();
-                $table->integer('type')->unsigned()->nullable();
-                $table->text('content')->nullable();
-            });
+        Schema::create('october_test_layouts', function($table) {
+            $table->increments('id')->unsigned();
+            $table->integer('type')->unsigned()->nullable();
+            $table->text('content')->nullable();
         });
     }
 
