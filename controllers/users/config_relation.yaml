@@ -9,6 +9,7 @@ roles:
         filter: config_role_filter.yaml
         showSearch: true
     manage:
+        title: backend::lang.user.role.menu_label
         list: ~/plugins/october/test/models/role/columns.yaml
         form: ~/plugins/october/test/models/role/fields.yaml
         filter: config_role_filter.yaml
