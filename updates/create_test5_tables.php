@@ -30,6 +30,7 @@ class CreateTest5Tables extends Migration
             $table->integer('product_id')->unsigned()->nullable();
             $table->text('content')->nullable();
             $table->boolean('is_positive')->nullable();
+            $table->string('feature_color')->nullable();
             $table->timestamps();
         });
 

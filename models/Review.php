@@ -7,6 +7,8 @@ use Model;
  */
 class Review extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+
     /**
      * @var string The database table used by the model.
      */
@@ -23,6 +25,13 @@ class Review extends Model
     protected $fillable = [];
 
     /**
+     * @var array Rules
+     */
+    public $rules = [
+        'feature_color' => 'required',
+    ];
+
+    /**
      * @var array Relations
      */
     public $morphTo = [
@@ -30,6 +39,6 @@ class Review extends Model
     ];
 
     public $attachOne = [
-        'photo' => ['System\Models\File']
+        'photo' => \System\Models\File::class
     ];
 }

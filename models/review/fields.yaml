@@ -12,6 +12,10 @@ fields:
         label: Positive
         type: checkbox
 
+    feature_color:
+        label: Feature Color
+        type: colorpicker
+
     _internal_comments:
         label: Internal comments
         type: textarea
