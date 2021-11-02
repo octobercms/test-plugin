@@ -3,7 +3,6 @@
 # ===================================
 
 fields:
-
     photo:
         label: Photo
         mode: image
