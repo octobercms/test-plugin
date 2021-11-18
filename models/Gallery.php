@@ -58,6 +58,11 @@ class Gallery extends Model
      */
     public function filterFields($fields)
     {
+        // Simple scope
+        if (!isset($fields->start_time)) {
+            return;
+        }
+
         if (!$this->is_all_day) {
             $fields->start_time->hidden = false;
             $fields->end_time->hidden = false;
