@@ -58,10 +58,14 @@ tabs:
             tab: Comments
 
         galleries:
-            label: Galleries
             commentAbove: RelationController demonstrating morphToMany relationship.
             type: partial
             tab: Galleries
+
+        galleries_pivot:
+            commentAbove: RelationController demonstrating morphToMany (with pivot) relationship.
+            type: partial
+            tab: Galleries (Pivot)
 
         review:
             label: Review

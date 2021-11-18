@@ -75,7 +75,17 @@ class Post extends Model
     ];
 
     public $morphToMany = [
-        'galleries' => [Gallery::class, 'name' => 'entity', 'table' => 'october_test_gallery_entity'],
+        'galleries' => [
+            Gallery::class,
+            'name' => 'entity',
+            'table' => 'october_test_gallery_entity'
+        ],
+        'galleries_pivot' => [
+            Gallery::class,
+            'name' => 'entity',
+            'table' => 'october_test_gallery_entity',
+            'pivot' => ['commission_amount']
+        ],
     ];
 
     //

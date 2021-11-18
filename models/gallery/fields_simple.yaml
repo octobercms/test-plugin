@@ -18,3 +18,47 @@ tabs:
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
             tab: Images
+
+        start_date:
+            label: Start Date
+            tab: Event
+            type: datepicker
+            mode: date
+            firstDay: 1
+            showWeekNumber: true
+            format: d.m.Y
+            span: left
+
+        end_date:
+            label: End Date
+            tab: Event
+            type: datepicker
+            mode: date
+            firstDay: 1
+            showWeekNumber: true
+            format: d.m.Y
+            dependsOn: is_all_day
+            span: right
+
+        is_all_day:
+            label: All Day?
+            tab: Event
+            type: switch
+            default: true
+            span: left
+
+        start_time:
+            label: Start Time
+            tab: Event
+            type: datepicker
+            mode: time
+            dependsOn: is_all_day
+            span: left
+
+        end_time:
+            label: End Time
+            tab: Event
+            type: datepicker
+            mode: time
+            dependsOn: is_all_day
+            span: right

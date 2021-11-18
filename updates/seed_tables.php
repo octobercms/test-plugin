@@ -144,8 +144,8 @@ class SeedAllTables extends Seeder
          * Test 5: Reviews
          */
 
-        Review::create(['content' => 'Orphan review', 'is_positive' => false]);
-        $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true]);
+        Review::create(['content' => 'Orphan review', 'is_positive' => false, 'feature_color' => '#000000']);
+        $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true, 'feature_color' => '#CCCCCC']);
 
         $theme = Theme::create(['name' => 'Bootstrap', 'code' => 'bootstrap', 'content' => 'A bootstrap theme.']);
         $theme->reviews()->add($review);

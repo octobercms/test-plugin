@@ -30,6 +30,20 @@ galleries:
     manage:
         form: $/october/test/models/gallery/fields_simple.yaml
 
+galleries_pivot:
+    label: Galleries
+    view:
+        list: $/october/test/models/gallery/columns.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/october/test/models/gallery/fields_simple.yaml
+    pivot:
+        form:
+            fields:
+                pivot[commission_amount]:
+                    label: Commission Amount
+                    commentAbove: 'in %'
+
 review:
     label: Review
     view:
