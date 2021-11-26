@@ -1,0 +1,14 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+locations:
+    label: Location
+    list: ~/plugins/october/test/models/location/columns.yaml
+    form: ~/plugins/october/test/models/location/fields.yaml
+    manage:
+        recordsPerPage: 10
+        showSearch: true
+    structure:
+        showTree: false
+        showReorder: true

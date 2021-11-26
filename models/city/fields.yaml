@@ -16,6 +16,12 @@ tabs:
             tab: Details
             select: concat(id, ' - ', name)
 
+        locations:
+            label: Locations
+            commentAbove: RelationController used as a partial field type.
+            type: partial
+            tab: Details
+
         _column1:
             label: Col 1
             type: text
@@ -47,3 +53,4 @@ tabs:
         _column5:
             label: Full
             tab: SEO
+

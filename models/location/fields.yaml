@@ -10,6 +10,9 @@ fields:
         on: Yes
         off: No
 
+    name:
+        label: Name
+
     status:
         label: Status
         type: balloon-selector

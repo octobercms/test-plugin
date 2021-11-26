@@ -13,7 +13,6 @@ A Person "Has One" Phone (One to one relationship)
 1. Proxy Form fields
 1. Date pickers
 1. Context-based Form fields
-1. List search policies `@todo`
 
 ### Test 2: Posts
 

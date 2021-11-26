@@ -39,13 +39,13 @@ class CreateTest4Tables extends Migration
 
         Schema::create('october_test_locations', function ($table) {
             $table->increments('id')->unsigned();
-            $table->integer('country_id')->unsigned();
-            $table->integer('city_id')->unsigned();
+            $table->string('name')->nullable();
             $table->string('status')->nullable();
             $table->text('available_services')->nullable();
             $table->boolean('is_enabled')->nullable();
             $table->integer('sort_order')->nullable();
-            $table->string('name');
+            $table->integer('country_id')->unsigned()->nullable()->index();
+            $table->integer('city_id')->unsigned()->nullable()->index();
         });
     }
 
