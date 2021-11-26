@@ -11,6 +11,7 @@ class DropEverything extends Migration
         Schema::dropIfExists('october_test_cities');
         Schema::dropIfExists('october_test_gallery_entity');
         Schema::dropIfExists('october_test_galleries');
+        Schema::dropIfExists('october_test_galleries_countries');
         Schema::dropIfExists('october_test_comments');
         Schema::dropIfExists('october_test_people');
         Schema::dropIfExists('october_test_phones');

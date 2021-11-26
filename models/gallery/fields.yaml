@@ -85,3 +85,8 @@ tabs:
             mode: time
             dependsOn: is_all_day
             span: right
+
+        countries:
+            label: Countries
+            type: partial
+            tab: Event

@@ -31,11 +31,19 @@ class CreateTest8Tables extends Migration
             $table->string('entity_type')->index('entity_type_idx');
             $table->primary(['gallery_id', 'entity_id', 'entity_type'], 'gallery_entity_pk');
         });
+
+        Schema::create('october_test_galleries_countries', function($table) {
+            $table->integer('gallery_id');
+            $table->integer('country_id');
+            $table->integer('sort_order')->nullable();
+            $table->timestamps();
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists('october_test_galleries');
         Schema::dropIfExists('october_test_gallery_entity');
+        Schema::dropIfExists('october_test_galleries_countries');
     }
 }

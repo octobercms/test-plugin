@@ -7,6 +7,7 @@ use Model;
 class Gallery extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\SortableRelation;
 
     /**
      * @var string The database table used by the model.
@@ -39,7 +40,7 @@ class Gallery extends Model
     ];
 
     /**
-     * @var array Relations
+     * @var array morphedByMany
      */
     public $morphedByMany = [
         'posts' => [
@@ -49,6 +50,20 @@ class Gallery extends Model
         ],
     ];
 
+    /**
+     * @var array belongsToMany
+     */
+    public $belongsToMany = [
+        'countries' => [
+            Country::class,
+            'table' => 'october_test_galleries_countries',
+            'pivotSortable' => 'sort_order',
+        ]
+    ];
+
+    /**
+     * @var array attachMany
+     */
     public $attachMany = [
         'images' => \System\Models\File::class,
     ];

@@ -14,3 +14,7 @@ columns:
     is_active:
         label: Active
         type: switch
+
+    pivot[sort_order]:
+        label: Order
+        type: number

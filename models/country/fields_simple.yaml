@@ -1,0 +1,23 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+        span: auto
+        default: Australia
+
+    code:
+        label: Code
+        span: auto
+        preset:
+            field: name
+            type: slug
+
+    is_active:
+        label: Active
+        comment: Check this box to hide some tabs, using depends and trigger API.
+        type: checkbox
+        default: true
