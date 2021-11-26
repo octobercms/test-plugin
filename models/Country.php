@@ -35,12 +35,19 @@ class Country extends Model
     protected $jsonable = ['pages', 'states', 'locations', 'content'];
 
     /**
-     * translatable
+     * @var array translatable
      */
     public $translatable = ['name', 'states', 'content'];
 
     /**
-     * @var array Relations
+     * @var array hasMany
+     */
+    public $hasMany = [
+        'locations' => Location::class
+    ];
+
+    /**
+     * @var array belongsToMany
      */
     public $belongsToMany = [
         'types' => [
@@ -50,6 +57,9 @@ class Country extends Model
         ],
     ];
 
+    /**
+     * @var array hasManyThrough
+     */
     public $hasManyThrough = [
         'posts' => [
             Post::class,
@@ -57,6 +67,9 @@ class Country extends Model
         ],
     ];
 
+    /**
+     * filterFields
+     */
     public function filterFields($fields, $context = null)
     {
         // Repeater field shares this logic

@@ -10,5 +10,5 @@ locations:
         recordsPerPage: 10
         showSearch: true
     structure:
-        showTree: false
+        showTree: true
         showReorder: true

@@ -24,12 +24,15 @@ class City extends Model
     protected $fillable = ['country_id', 'name'];
 
     /**
-     * @var array Relations
+     * @var array hasMany
      */
     public $hasMany = [
         'locations' => Location::class
     ];
 
+    /**
+     * @var array belongsTo
+     */
     public $belongsTo = [
         'country' => Country::class
     ];

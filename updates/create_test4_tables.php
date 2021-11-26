@@ -44,6 +44,7 @@ class CreateTest4Tables extends Migration
             $table->text('available_services')->nullable();
             $table->boolean('is_enabled')->nullable();
             $table->integer('sort_order')->nullable();
+            $table->integer('parent_id')->unsigned()->nullable()->index();
             $table->integer('country_id')->unsigned()->nullable()->index();
             $table->integer('city_id')->unsigned()->nullable()->index();
         });

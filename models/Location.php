@@ -8,6 +8,7 @@ use Model;
 class Location extends Model
 {
     use \October\Rain\Database\Traits\Sortable;
+    use \October\Rain\Database\Traits\SimpleTree;
 
     /**
      * @var string The database table used by the model.
