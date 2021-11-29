@@ -32,7 +32,7 @@ class Gallery extends Model
     ];
 
     public $rules = [
-        'title' => 'required|between:3,255',
+        'title' => 'required|uppercase|between:3,255',
         'start_date' => 'required',
         'end_date' => 'required_if:is_all_day,1',
         'start_time' => 'required_if:is_all_day,0',

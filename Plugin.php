@@ -1,6 +1,4 @@
-<?php
-
-namespace October\Test;
+<?php namespace October\Test;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -106,4 +104,8 @@ class Plugin extends PluginBase
         $this->registerConsoleCommand('test.seed-posts', Console\SeedPosts::class);
     }
 
+    public function boot()
+    {
+        $this->registerValidationRule('uppercase', Rules\UppercaseRule::class);
+    }
 }
