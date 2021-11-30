@@ -17,6 +17,10 @@ fields:
             draft: Draft
             hidden: Hidden
 
+    subtitle:
+        label: Title
+        span: full
+
     party_mode:
         label: Party mode
         type: checkbox

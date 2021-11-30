@@ -1,17 +1,18 @@
-<?php namespace October\Test\Rules;
+<?php namespace October\Test\Classes;
 
 /**
  * UppercaseRule checks if the content is uppercase.
  */
-class UppercaseRule extends \October\Rain\Validation\Rule
+class UppercaseRule
 {
     /**
-     * passes determines if the validation rule passes.
+     * validate determines if the validation rule passes.
      * @param string $attribute
      * @param mixed $value
+     * @param array $params
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function validate($attribute, $value, $params)
     {
         return strtoupper($value) === $value;
     }

@@ -1,6 +1,7 @@
 <?php namespace October\Test;
 
 use Backend;
+use Validator;
 use System\Classes\PluginBase;
 
 /**
@@ -101,11 +102,12 @@ class Plugin extends PluginBase
 
     public function register()
     {
-        $this->registerConsoleCommand('test.seed-posts', Console\SeedPosts::class);
+        $this->registerConsoleCommand('test.seed-posts', \October\Test\Console\SeedPosts::class);
     }
 
     public function boot()
     {
-        $this->registerValidationRule('uppercase', Rules\UppercaseRule::class);
+        Validator::extend('uppercase', \October\Test\Classes\UppercaseRule::class);
+        Validator::extend('betwixt', \October\Test\Classes\BetwixtRule::class);
     }
 }

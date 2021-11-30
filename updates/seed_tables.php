@@ -156,7 +156,7 @@ class SeedAllTables extends Seeder
          * Test 6: Galleries
          */
 
-        $gallery = Gallery::create(['title' => 'Featured', 'start_date' => now()]);
+        $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now()]);
         $gallery->posts()->add(Post::first());
 
         /*

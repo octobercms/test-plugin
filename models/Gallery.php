@@ -20,11 +20,6 @@ class Gallery extends Model
     protected $dates = ['start_date', 'end_date'];
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
      * @var array Fillable fields
      */
     protected $fillable = [
@@ -32,7 +27,8 @@ class Gallery extends Model
     ];
 
     public $rules = [
-        'title' => 'required|uppercase|between:3,255',
+        'title' => 'required|uppercase:strict|between:3,255',
+        'subtitle' => 'required|betwixt:3,20',
         'start_date' => 'required',
         'end_date' => 'required_if:is_all_day,1',
         'start_time' => 'required_if:is_all_day,0',
@@ -67,6 +63,14 @@ class Gallery extends Model
     public $attachMany = [
         'images' => \System\Models\File::class,
     ];
+
+    /**
+     * beforeValidate
+     */
+    public function beforeValidate()
+    {
+        $this->rules['subtitle'] = ['required', 'betwixt:3,255', new \October\Test\Classes\LowercaseRule];
+    }
 
     /**
      * filterFields

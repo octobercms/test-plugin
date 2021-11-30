@@ -14,6 +14,7 @@ class CreateTest8Tables extends Migration
         Schema::create('october_test_galleries', function($table) {
             $table->increments('id');
             $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('status')->nullable();
             $table->boolean('party_mode')->nullable();
             $table->date('start_date')->nullable();
