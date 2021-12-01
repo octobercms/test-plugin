@@ -5,7 +5,7 @@ use Model;
 class Meta extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     public $table = 'october_test_meta';
 
     public $timestamps = false;
@@ -15,13 +15,13 @@ class Meta extends Model
     ];
 
     public $rules = [
-        'meta_title'       => 'required',
+        'meta_title' => 'required',
         'meta_description' => 'required',
-        'meta_keywords'    => 'required',
-        'canonical_url'    => 'url',
-        'redirect_url'     => 'url'
+        'meta_keywords' => 'required',
+        'canonical_url' => 'url',
+        'redirect_url' => 'url'
     ];
-    
+
     public $fillable = [
         'meta_title',
         'meta_description',

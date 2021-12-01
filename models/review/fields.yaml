@@ -2,27 +2,54 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    content:
-        label: Content
-        type: textarea
-        size: small
+tabs:
+    defaultTab: Review
+    fields:
+        content:
+            label: Content
+            type: textarea
+            size: small
 
-    is_positive:
-        label: Positive
-        type: checkbox
+        is_positive:
+            label: Positive
+            type: checkbox
 
-    feature_color:
-        label: Feature Color
-        type: colorpicker
+        feature_color:
+            label: Feature Color
+            type: colorpicker
 
-    _internal_comments:
-        label: Internal comments
-        type: textarea
-        size: tiny
-        comment: This field is a black hole, the value will not be saved anywhere.
+        _internal_comments:
+            label: Internal comments
+            type: textarea
+            size: tiny
+            comment: This field is a black hole, the value will not be saved anywhere.
 
-    _check_time:
-        label: What time is it?
-        type: timecheckertest
-        commentAbove: Custom form widget with AJAX updating.
+        _check_time:
+            label: What time is it?
+            type: timecheckertest
+            commentAbove: Custom form widget with AJAX updating.
+
+        breakdown:
+            tab: Breakdown
+            type: repeater
+            prompt: Add Review Breakdown
+            form:
+                fields:
+                    stars:
+                        type: dropdown
+                        label: Stars
+                        options:
+                            "1": 1 Star
+                            "2": 2 Star
+                            "3": 3 Star
+                            "4": 4 Star
+                            "5": 5 Star
+                        span: row
+                        spanClass: col-md-3
+                    aspect:
+                        placeholder: Provide an aspect to the review
+                        label: Aspect
+                        type: text
+                        span: row
+                        spanClass: col-md-9
+                        required: true

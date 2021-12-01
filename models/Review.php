@@ -25,10 +25,16 @@ class Review extends Model
     protected $fillable = [];
 
     /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['breakdown'];
+
+    /**
      * @var array Rules
      */
     public $rules = [
         'feature_color' => 'required',
+        'breakdown.*.aspect' => 'required',
     ];
 
     /**
