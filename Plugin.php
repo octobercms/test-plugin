@@ -5,26 +5,28 @@ use Validator;
 use System\Classes\PluginBase;
 
 /**
- * Test Plugin Information File
+ * Plugin Information File
  */
 class Plugin extends PluginBase
 {
     /**
-     * Returns information about this plugin.
-     *
+     * pluginDetails
      * @return array
      */
     public function pluginDetails()
     {
         return [
-            'name'        => 'October Tester',
+            'name' => 'October Tester',
             'description' => 'Used for testing the Relation Controller behavior and others.',
-            'author'      => 'Alexey Bobkov, Samuel Georges',
-            'icon'        => 'icon-child',
-            'homepage'    => 'https://github.com/daftspunk/oc-test-plugin',
+            'author' => 'Alexey Bobkov, Samuel Georges',
+            'icon' => 'icon-child',
+            'homepage' => 'https://github.com/daftspunk/oc-test-plugin',
         ];
     }
 
+    /**
+     * registerPermissions
+     */
     public function registerPermissions()
     {
         return [
@@ -35,76 +37,88 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * registerNavigation
+     */
     public function registerNavigation()
     {
         return [
             'test' => [
-                'label'    => 'Playground',
-                'url'      => Backend::url('october/test/people'),
-                'icon'     => 'icon-child',
-                'order'    => 200,
+                'label' => 'Playground',
+                'url' => Backend::url('october/test/people'),
+                'icon' => 'icon-child',
+                'order' => 200,
                 'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
-                    'people'    => [
+                    'people' => [
                         'label' => 'People',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/people'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/people'),
                     ],
-                    'posts'     => [
+                    'posts' => [
                         'label' => 'Posts',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/posts'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/posts'),
                     ],
-                    'users'     => [
+                    'users' => [
                         'label' => 'Users',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/users'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/users'),
                     ],
                     'locations' => [
                         'label' => 'Locations',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/locations'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/locations'),
                     ],
-                    'reviews'   => [
+                    'reviews' => [
                         'label' => 'Reviews',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/reviews'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/reviews'),
                     ],
                     'galleries' => [
                         'label' => 'Galleries',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/galleries'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/galleries'),
                     ],
-                    'trees'     => [
+                    'trees' => [
                         'label' => 'Trees',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/trees'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/trees'),
                     ],
-                    'pages'     => [
+                    'pages' => [
                         'label' => 'Pages',
-                        'icon'  => 'icon-database',
-                        'url'   => Backend::url('october/test/pages'),
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/pages'),
                     ],
                 ],
             ],
         ];
     }
 
+    /**
+     * registerFormWidgets
+     */
     public function registerFormWidgets()
     {
         return [
-            'October\Test\FormWidgets\TimeChecker' => [
+            \October\Test\FormWidgets\TimeChecker::class => [
                 'code' => 'timecheckertest',
             ],
         ];
     }
 
+    /**
+     * register the service provider
+     */
     public function register()
     {
         $this->registerConsoleCommand('test.seed-posts', \October\Test\Console\SeedPosts::class);
     }
 
+    /**
+     * boot the service provider
+     */
     public function boot()
     {
         Validator::extend('uppercase', \October\Test\Classes\UppercaseRule::class);
