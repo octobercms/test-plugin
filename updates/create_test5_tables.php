@@ -29,6 +29,7 @@ class CreateTest5Tables extends Migration
             $table->string('product_type')->nullable();
             $table->integer('product_id')->unsigned()->nullable();
             $table->text('content')->nullable();
+            $table->string('breakdown_type')->nullable();
             $table->text('breakdown')->nullable();
             $table->boolean('is_positive')->nullable();
             $table->string('feature_color')->nullable();
