@@ -29,27 +29,58 @@ tabs:
             type: timecheckertest
             commentAbove: Custom form widget with AJAX updating.
 
+        breakdown_type:
+            tab: Breakdown
+            label: Breakdown Type
+            type: dropdown
+            options:
+                tag_card: Tag card
+                post_card: Post card
+                team_card: Team card
+                icon_card: Icon card
+
         breakdown:
             tab: Breakdown
             type: repeater
             prompt: Add Review Breakdown
             form:
                 fields:
-                    stars:
-                        type: dropdown
-                        label: Stars
-                        options:
-                            "1": 1 Star
-                            "2": 2 Star
-                            "3": 3 Star
-                            "4": 4 Star
-                            "5": 5 Star
-                        span: row
-                        spanClass: col-md-3
-                    aspect:
-                        placeholder: Provide an aspect to the review
-                        label: Aspect
-                        type: text
-                        span: row
-                        spanClass: col-md-9
-                        required: true
+                    data:
+                        type: nestedform
+                        showPanel: false
+                        form:
+                            fields:
+                                stars:
+                                    type: dropdown
+                                    label: Stars
+                                    options:
+                                        "1": 1 Star
+                                        "2": 2 Star
+                                        "3": 3 Star
+                                        "4": 4 Star
+                                        "5": 5 Star
+                                    span: row
+                                    spanClass: col-md-3
+                                aspect:
+                                    placeholder: Provide an aspect to the review
+                                    label: Aspect
+                                    type: text
+                                    span: row
+                                    spanClass: col-md-9
+                                    required: true
+                                position:
+                                    type: text
+                                    label: Position
+                                    span: full
+                                    trigger:
+                                        action: show
+                                        field: '^^breakdown_type'
+                                        condition: value[team_card]
+                                published_at:
+                                    type: datepicker
+                                    label: Published at
+                                    span: full
+                                    trigger:
+                                        action: show
+                                        field: '^^breakdown_type'
+                                        condition: value[post_card]
