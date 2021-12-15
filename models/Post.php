@@ -51,7 +51,7 @@ class Post extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'comments' => [Comment::class, 'scope' => 'isVisible', 'deleted' => true],
+        'comments' => [Comment::class, 'scope' => 'isVisible', 'trashed' => true],
         // @deprecated
         // 'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
     ];
