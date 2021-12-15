@@ -39,6 +39,7 @@ class CreateTest2Tables extends Migration
             $table->text('quotes')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->integer('post_id')->unsigned()->nullable()->index();
+            $table->softDeletes();
             $table->timestamps();
         });
 

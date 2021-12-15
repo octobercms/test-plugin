@@ -7,13 +7,18 @@ use Model;
  */
 class Comment extends Model
 {
-
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\SoftDelete;
 
     /**
      * @var string The database table used by the model.
      */
     public $table = 'october_test_comments';
+
+    /**
+     * @var array dates
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * @var array Guarded fields
