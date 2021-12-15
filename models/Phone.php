@@ -7,7 +7,6 @@ use Model;
  */
 class Phone extends Model
 {
-
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -36,19 +35,19 @@ class Phone extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'person' => ['October\Test\Models\Person']
+        'person' => Person::class
     ];
 
     public $attachOne = [
-        'picture' => ['System\Models\File']
+        'picture' => \System\Models\File::class
     ];
 
     public function getBrandOptions()
     {
         return [
-            'nokia'  => 'Nokia',
-            'apple'  => 'Apple',
-            'samsung' => 'Samsung',
+            'nokia'  => ['Nokia', '#666666'],
+            'apple'  => ['Apple', '#ff9999'],
+            'samsung' => ['Samsung', '#ff0000'],
         ];
     }
 
@@ -61,5 +60,4 @@ class Phone extends Model
     {
         $query->where('name', $term);
     }
-
 }

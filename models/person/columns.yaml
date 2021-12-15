@@ -29,18 +29,29 @@ columns:
         relation: phone
         select: number
 
+    # @todo available in v2.2+
+    # brand:
+    #     label: Brand
+    #     relation: phone
+    #     select: brand
+    #     type: selectable
+
     birth:
         label: Born
         type: timetense
+        invisible: true
 
     birthdate:
         label: Birth day
         type: date
+        invisible: true
 
     birthtime:
         label: Birth time
         type: time
+        invisible: true
 
     created_at:
         label: Created
         type: timetense
+        invisible: true
