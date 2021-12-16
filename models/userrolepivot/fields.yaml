@@ -7,6 +7,12 @@ fields:
         label: Clearance level
         span: auto
 
+    pivot[evolution]:
+        label: Evolution
+        type: dropdown
+        emptyOption: '--- Choose ---'
+        span: auto
+
     pivot[is_executive]:
         label: Executive
         type: checkbox

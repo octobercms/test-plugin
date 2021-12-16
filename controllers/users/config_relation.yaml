@@ -17,7 +17,7 @@ roles:
 roles_pivot:
     label: Role
     view:
-        list: ~/plugins/october/test/models/userrolepivot/columns.yaml
+        list: ~/plugins/october/test/models/userrolepivot/columns_basic.yaml
         toolbarButtons: add|remove|create
         filter: config_role_filter.yaml
         showSearch: true

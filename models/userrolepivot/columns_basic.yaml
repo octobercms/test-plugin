@@ -14,10 +14,6 @@ columns:
     pivot[clearance_level]:
         label: Clearance level
 
-    pivot[evolution]:
-        label: Evolution
-        type: selectable
-
     pivot[is_executive]:
         label: Executive
         type: switch

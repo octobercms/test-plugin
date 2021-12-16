@@ -34,6 +34,7 @@ class CreateTest3Tables extends Migration
             $table->primary(['user_id', 'role_id']);
             $table->string('clearance_level')->nullable();
             $table->boolean('is_executive')->default(false);
+            $table->smallInteger('evolution')->nullable()->unsigned()->default(0);
             $table->integer('country_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });

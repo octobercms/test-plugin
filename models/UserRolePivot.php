@@ -24,4 +24,16 @@ class UserRolePivot extends Pivot
     public $attachOne = [
         'pic' => \System\Models\File::class
     ];
+
+    /**
+     * getEvolutionOptions
+     */
+    public function getEvolutionOptions()
+    {
+        return [
+            1 => 'Primate',
+            2 => 'Humanoid',
+            3 => 'Homo Sapiens',
+        ];
+    }
 }
