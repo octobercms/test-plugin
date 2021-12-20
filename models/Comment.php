@@ -54,6 +54,11 @@ class Comment extends Model
         'photo' => \System\Models\File::class
     ];
 
+    public function scopeIsVisibleWithTrashed($query)
+    {
+        return $query->withTrashed()->isVisible();
+    }
+
     public function scopeIsVisible($query)
     {
         return $query->where('is_visible', true);
