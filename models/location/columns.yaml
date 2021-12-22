@@ -16,3 +16,10 @@ columns:
         label: Country
         relation: country
         select: name
+
+    is_enabled:
+        label: Enabled
+        type: switch
+        options:
+            - Nope
+            - Yeah

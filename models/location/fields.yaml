@@ -7,8 +7,9 @@ fields:
         label: Check for enable
         type: switch
         default: true
-        on: Yes
-        off: No
+        options:
+            - Nope
+            - Yeah
 
     name:
         label: Name
