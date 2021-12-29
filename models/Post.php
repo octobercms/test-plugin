@@ -57,7 +57,10 @@ class Post extends Model
     ];
 
     public $belongsTo = [
-        'status' => [Attribute::class, 'conditions' => "type = 'general.status'"],
+        'status' => [
+            Attribute::class,
+            'conditions' => "type = 'general.status'"
+        ],
         'user' => User::class,
     ];
 

@@ -26,6 +26,4 @@ class Attribute extends Model
      * @var array Fillable fields
      */
     protected $fillable = [];
-
-
 }

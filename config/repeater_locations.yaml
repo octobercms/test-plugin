@@ -1,0 +1,14 @@
+# ===================================
+#  Used as a Simple Repeater
+# ===================================
+
+fields:
+    country:
+        label: Country
+        span: auto
+        type: dropdown
+    state:
+        label: State
+        span: auto
+        dependsOn: country
+        type: dropdown

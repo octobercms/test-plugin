@@ -3,7 +3,6 @@
 # ===================================
 
 fields:
-
     name:
         label: Name
         span: auto
@@ -16,18 +15,42 @@ fields:
             field: name
             type: slug
 
-    is_active:
-        label: Active
-        comment: Check this box to hide some tabs, using depends and trigger API.
-        type: checkbox
-        default: true
-
 tabs:
+    fields:
+        content:
+            tab: Content
+            label: Content
+            prompt: Add content block
+            span: full
+            type: repeater
+            groups: $/october/test/config/repeater_content.yaml
+
+        states:
+            tab: States
+            type: repeater
+            form: $/october/test/config/repeater_states.yaml
+
+        _some_field:
+            type: text
+            tab: Related
+            label: Some Field That Updates Randomly
+            dependsOn: locations
+
+        locations:
+            tab: Related
+            label: Locations
+            prompt: Add new location
+            span: full
+            type: repeater
+            minItems: 2
+            maxItems: 5
+            form: $/october/test/config/repeater_locations.yaml
+
+secondaryTabs:
     lazy:
-        - Currency
+        - Locale
 
     fields:
-
         posts:
             label: Posts
             type: partial
@@ -38,6 +61,13 @@ tabs:
             label: Class types
             commentAbove: Character known to spawn in this location
             type: relation
+
+        is_active:
+            label: Active
+            comment: Check this box to hide some tabs, using depends and trigger API.
+            type: checkbox
+            default: true
+            tab: Locale
 
         language:
             label: Language
@@ -78,87 +108,3 @@ tabs:
                 field: pages[]
                 condition: value[error]
                 action: hide
-
-        states:
-            tab: States
-            type: repeater
-            form:
-                fields:
-                    title:
-                        label: State
-                    item:
-                        type: repeater
-                        prompt: Add new suburb
-                        form:
-                            fields:
-                                subtitle:
-                                    label: Suburb
-                                    span: full
-                                safety:
-                                    type: datatable
-                                    stretch: true
-                                    dynamicHeight: true
-                                    adding: true
-                                    deleting: true
-                                    btnAddRowLabel: Add Crime Type
-                                    btnDeleteRowLabel: Delete Crime Type
-                                    span: full
-                                    columns:
-                                        id:
-                                            title:
-                                            width: 45px
-                                            readOnly: true
-                                        label:
-                                            title: Label
-                                            type: string
-                                            validation:
-                                                required:
-                                                    message: Please enter label
-                                        rating:
-                                            title: Rating
-                                            type: string
-                                            validation:
-                                                required:
-                                                    message: Please enter rating
-                                                float:
-                                                    message: Rating should be a float
-                                        type:
-                                            title: Type
-                                            type: dropdown
-                                            validation:
-                                                required:
-                                                    message: Please select a type
-        _some_field:
-            type: text
-            tab: Related
-            label: Some Field That Updates Randomly
-            dependsOn: locations
-
-        locations:
-            tab: Related
-            label: Locations
-            prompt: Add new location
-            span: full
-            type: repeater
-            minItems: 2
-            maxItems: 5
-            form:
-                fields:
-                    country:
-                        label: Country
-                        span: auto
-                        type: dropdown
-                    state:
-                        label: State
-                        span: auto
-                        dependsOn: country
-                        type: dropdown
-
-        content:
-            tab: Content
-            label: Content
-            prompt: Add content block
-            span: full
-            type: repeater
-
-            groups: $/october/test/config/repeater_fields.yaml

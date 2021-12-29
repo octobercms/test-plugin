@@ -1,0 +1,49 @@
+# ===================================
+#  Used as a Nested Repeater
+# ===================================
+
+fields:
+    title:
+        label: State
+    item:
+        type: repeater
+        prompt: Add new suburb
+        form:
+            fields:
+                subtitle:
+                    label: Suburb
+                    span: full
+                safety:
+                    type: datatable
+                    stretch: true
+                    dynamicHeight: true
+                    adding: true
+                    deleting: true
+                    btnAddRowLabel: Add Crime Type
+                    btnDeleteRowLabel: Delete Crime Type
+                    span: full
+                    columns:
+                        id:
+                            title:
+                            width: 45px
+                            readOnly: true
+                        label:
+                            title: Label
+                            type: string
+                            validation:
+                                required:
+                                    message: Please enter label
+                        rating:
+                            title: Rating
+                            type: string
+                            validation:
+                                required:
+                                    message: Please enter rating
+                                float:
+                                    message: Rating should be a float
+                        type:
+                            title: Type
+                            type: dropdown
+                            validation:
+                                required:
+                                    message: Please select a type
