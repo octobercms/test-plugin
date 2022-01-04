@@ -21,10 +21,18 @@ class CreateTest7Tables extends Migration
             $table->integer('sort_order')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('october_test_repeater_items', function($table) {
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->nullable()->index();
+            $table->mediumText('value')->nullable();
+            $table->timestamps();
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists('october_test_attributes');
+        Schema::dropIfExists('october_test_repeater_items');
     }
 }

@@ -46,6 +46,11 @@ tabs:
             maxItems: 5
             form: $/october/test/config/repeater_locations.yaml
 
+        sisters:
+            tab: Sister Countries
+            type: repeater
+            form: $/october/test/config/repeater_country_sisters.yaml
+
 secondaryTabs:
     lazy:
         - Locale

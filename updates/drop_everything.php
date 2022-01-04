@@ -31,6 +31,7 @@ class DropEverything extends Migration
         Schema::dropIfExists('october_test_related_channels');
         Schema::dropIfExists('october_test_meta');
         Schema::dropIfExists('october_test_attributes');
+        Schema::dropIfExists('october_test_repeater_items');
         Schema::dropIfExists('october_test_tags');
         Schema::dropIfExists('october_test_posts_tags');
         Schema::dropIfExists('october_test_pages');

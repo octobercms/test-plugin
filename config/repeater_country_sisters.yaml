@@ -1,0 +1,10 @@
+# ===================================
+#  Used as a Repeater Model
+# ===================================
+
+fields:
+    title:
+        label: State
+    subtitle:
+        label: Suburb
+        span: full
