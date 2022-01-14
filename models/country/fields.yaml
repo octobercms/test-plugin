@@ -23,6 +23,7 @@ tabs:
             prompt: Add content block
             span: full
             type: repeater
+            groupKeyFrom: _type
             groups: $/october/test/config/repeater_content.yaml
 
         states:
