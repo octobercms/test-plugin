@@ -16,6 +16,7 @@ class CreateTest4Tables extends Migration
             $table->string('name')->nullable();
             $table->string('code')->nullable();
             $table->text('content')->nullable();
+            $table->mediumText('notes')->nullable();
             $table->text('pages')->nullable();
             $table->text('states')->nullable();
             $table->text('locations')->nullable();

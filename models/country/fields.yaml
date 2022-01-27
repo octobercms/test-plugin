@@ -20,11 +20,23 @@ tabs:
         content:
             tab: Content
             label: Content
+            displayMode: builder
             prompt: Add content block
             span: full
             type: repeater
             groupKeyFrom: _type
             groups: $/october/test/config/repeater_content.yaml
+
+        notes:
+            tab: Notes
+            label: Notes
+            displayMode: builder
+            prompt: Add note
+            span: full
+            type: repeater
+            minItems: 1
+            titleFrom: note
+            form: $/october/test/config/repeater_notes.yaml
 
         states:
             tab: States

@@ -1,0 +1,9 @@
+# ===================================
+#  Used as a Simple Repeater
+# ===================================
+
+fields:
+    note:
+        label: Content
+        span: full
+        type: richeditor
