@@ -124,7 +124,7 @@ class SeedAllTables extends Seeder
         $insertCities = [];
         foreach ($cities as $countryId => $cityNames) {
             foreach ($cityNames as $name) {
-                $insertCities[] = ['country_id' => $countryId, 'name' => $name];
+                $insertCities[] = ['custom_country_id' => $countryId, 'name' => $name];
             }
         }
 

@@ -2,6 +2,11 @@
 #  Relation Behavior Config
 # ===================================
 
+country:
+    label: Country
+    form: $/october/test/models/country/fields_simple.yaml
+    list: $/october/test/models/country/columns_simple.yaml
+
 locations:
     label: Location
     list: ~/plugins/october/test/models/location/columns.yaml

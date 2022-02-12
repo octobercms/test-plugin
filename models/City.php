@@ -21,7 +21,7 @@ class City extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['country_id', 'name'];
+    protected $fillable = ['custom_country_id', 'name'];
 
     /**
      * @var array hasMany
@@ -34,6 +34,6 @@ class City extends Model
      * @var array belongsTo
      */
     public $belongsTo = [
-        'country' => Country::class
+        'country' => [Country::class, 'key' => 'custom_country_id'],
     ];
 }

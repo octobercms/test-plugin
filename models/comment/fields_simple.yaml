@@ -9,6 +9,7 @@ fields:
         nameFrom: name
         emptyOption: -- Select Post --
         comment: This Comment belongs to the Post selected above.
+        select: concat(id, ' - ', name)
 
     name:
         label: Name

@@ -34,7 +34,7 @@ class CreateTest4Tables extends Migration
 
         Schema::create('october_test_cities', function ($table) {
             $table->increments('id')->unsigned();
-            $table->integer('country_id')->unsigned();
+            $table->integer('custom_country_id')->unsigned();
             $table->string('name');
         });
 

@@ -12,9 +12,8 @@ tabs:
         country:
             label: Country
             type: relation
-            span: right
-            tab: Details
-            select: concat(id, ' - ', name)
+            tab: Country
+            useController: true
 
         locations:
             label: Locations
