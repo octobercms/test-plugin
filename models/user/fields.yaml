@@ -87,22 +87,24 @@ secondaryTabs:
             tab: Media Manager
             mode: image
 
-        media_files:
-            label: Media (Multi File)
-            span: auto
-            type: mediafinder
-            commentAbove: File selection from the Media Library.
-            tab: Media Manager
-            mode: file
+        # @todo available in v2.2+
+        # media_files:
+        #     label: Media (Multi File)
+        #     span: auto
+        #     type: mediafinder
+        #     commentAbove: File selection from the Media Library.
+        #     tab: Media Manager
+        #     mode: file
 
-        media_images:
-            label: Media (Multi Image)
-            span: auto
-            type: mediafinder
-            commentAbove: Photo selection from the Media Library.
-            tab: Media Manager
-            mode: image
-            maxItems: 2
+        # @todo available in v2.2+
+        # media_images:
+        #     label: Media (Multi Image)
+        #     span: auto
+        #     type: mediafinder
+        #     commentAbove: Photo selection from the Media Library.
+        #     tab: Media Manager
+        #     mode: image
+        #     maxItems: 2
 
         photo:
             label: Photo
