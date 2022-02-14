@@ -3,7 +3,7 @@
 use Model;
 
 /**
- * Model
+ * Layout
  */
 class Layout extends Model
 {
@@ -18,11 +18,17 @@ class Layout extends Model
      */
     public $table = 'october_test_layouts';
 
-    public $fillable = [
+    /**
+     * @var array fillable fields
+     */
+    protected $fillable = [
         'content'
     ];
 
-    public $jsonable = [
+    /**
+     * @var array jsonable attribute names that are json encoded and decoded from the database
+     */
+    protected $jsonable = [
         'content'
     ];
 }

@@ -2,6 +2,9 @@
 
 use Model;
 
+/**
+ * Meta
+ */
 class Meta extends Model
 {
     use \October\Rain\Database\Traits\Validation;
@@ -22,7 +25,10 @@ class Meta extends Model
         'redirect_url' => 'url'
     ];
 
-    public $fillable = [
+    /**
+     * @var array fillable fields
+     */
+    protected $fillable = [
         'meta_title',
         'meta_description',
         'meta_keywords',

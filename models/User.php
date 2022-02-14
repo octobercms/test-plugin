@@ -25,7 +25,7 @@ class User extends Model
     protected $guarded = [];
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = [];
 
@@ -33,6 +33,14 @@ class User extends Model
      * @var array translatable attributes
      */
     public $translatable = [];
+
+    /**
+     * @var array jsonable attribute names that are json encoded and decoded from the database
+     */
+    protected $jsonable = [
+        'media_files',
+        'media_images',
+    ];
 
     /**
      * @var array Rules

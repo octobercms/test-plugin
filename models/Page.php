@@ -3,15 +3,14 @@
 use Model;
 
 /**
- * Model
+ * Page
  */
 class Page extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    /*
-     * Disable timestamps by default.
-     * Remove this line if timestamps are defined in the database table.
+    /**
+     * @var bool timestamps disabled by default
      */
     public $timestamps = false;
 
@@ -20,7 +19,10 @@ class Page extends Model
      */
     public $table = 'october_test_pages';
 
-    public $jsonable = [
+    /**
+     * @var array jsonable attribute names that are json encoded and decoded from the database
+     */
+    protected $jsonable = [
         'content'
     ];
 

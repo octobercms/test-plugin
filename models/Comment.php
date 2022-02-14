@@ -26,7 +26,7 @@ class Comment extends Model
     protected $guarded = ['*'];
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = ['name', 'content'];
 

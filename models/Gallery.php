@@ -21,7 +21,7 @@ class Gallery extends Model
     protected $dates = ['start_date', 'end_date'];
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = [
         'title',

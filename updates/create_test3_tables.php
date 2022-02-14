@@ -17,6 +17,8 @@ class CreateTest3Tables extends Migration
             $table->integer('security_code')->nullable();
             $table->string('media_image')->nullable();
             $table->string('media_file')->nullable();
+            $table->mediumText('media_images')->nullable();
+            $table->mediumText('media_files')->nullable();
             $table->integer('country_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });

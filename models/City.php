@@ -19,7 +19,7 @@ class City extends Model
     public $timestamps = false;
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = ['custom_country_id', 'name'];
 
