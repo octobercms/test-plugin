@@ -67,14 +67,7 @@ class User extends Model
      */
     public function beforeValidate()
     {
-        // @todo available in v2.2+
-        // \Lang::set('validation.custom.username.required', 'Say hello (Username field required)');
-
-        \Event::listen('translator.beforeResolve', function($key, $replace, $locale) {
-            if ($key === 'validation.custom.username.required') {
-                return 'Say hello (Username field required)';
-            }
-        });
+        \Lang::set('validation.custom.username.required', 'Say hello (Username field required)');
     }
 
     /**

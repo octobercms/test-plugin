@@ -7,8 +7,7 @@ use Model;
 class Gallery extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    // @todo available in v2.2+
-    // use \October\Rain\Database\Traits\SortableRelation;
+    use \October\Rain\Database\Traits\SortableRelation;
 
     /**
      * @var string The database table used by the model.

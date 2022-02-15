@@ -7,11 +7,8 @@ columns:
         label: Type
         type: selectable
         options:
-            1: Simple
-            2: Complex
-            # @todo available in v2.2+
-            # 1: [Simple, 'icon-clock-o']
-            # 2: [Complex, 'icon-exclamation']
+            1: [Simple, 'icon-clock-o']
+            2: [Complex, 'icon-exclamation']
 
     content[title]:
         label: content

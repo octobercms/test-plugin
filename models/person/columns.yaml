@@ -29,12 +29,11 @@ columns:
         relation: phone
         select: number
 
-    # @todo available in v2.2+
-    # brand:
-    #     label: Brand
-    #     relation: phone
-    #     select: brand
-    #     type: selectable
+    brand:
+        label: Brand
+        relation: phone
+        select: brand
+        type: selectable
 
     birth:
         label: Born
