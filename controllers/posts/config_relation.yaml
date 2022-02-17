@@ -7,6 +7,8 @@ comments:
     list: ~/plugins/october/test/models/comment/columns.yaml
     form: ~/plugins/october/test/models/comment/fields.yaml
     readOnly: true
+    view:
+        filter: config_comments_filter.yaml
     manage:
         context: relation
         recordsPerPage: 10

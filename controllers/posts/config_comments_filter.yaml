@@ -9,3 +9,8 @@ scopes:
         modelClass: October\Test\Models\Post
         conditions: post_id in (:filtered)
         nameFrom: name
+
+    content:
+        label: Content
+        type: text
+        conditions: content = :value
