@@ -75,12 +75,21 @@ tabs:
 
         # Taglist Tests
 
+        # tags:
+        #     label: Tags by Relation
+        #     commentAbove: Enter some tags here first, select them below
+        #     type: taglist
+        #     mode: relation
+        #     nameFrom: name
+        #     tab: Tags
+
         tags:
-            label: Tags by Relation
+            label: Tags by Relation (Virtual)
             commentAbove: Enter some tags here first, select them below
             type: taglist
             mode: relation
-            nameFrom: name
+            nameFrom: fullname
+            options: getTagsRelationOptions
             tab: Tags
 
         _tags_trigger:
