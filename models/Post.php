@@ -95,6 +95,11 @@ class Post extends Model
     // Options
     //
 
+    public function getTagsRelationOptions($value, $formData)
+    {
+        return Tag::all()->lists('fullname', 'id');
+    }
+
     public function getTagsArrayOptions($value, $formData)
     {
         return Tag::all()->lists('name');

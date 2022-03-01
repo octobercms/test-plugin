@@ -10,6 +10,7 @@ columns:
     username:
         label: Username
         searchable: true
+        select: concat(id, ' ', username)
 
     roles:
         label: Roles

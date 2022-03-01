@@ -10,6 +10,11 @@ class Page extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
+     * implement the TranslatableModel behavior softly
+     */
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    /**
      * @var bool timestamps disabled by default
      */
     public $timestamps = false;
@@ -25,6 +30,11 @@ class Page extends Model
     protected $jsonable = [
         'content'
     ];
+
+    /**
+     * @var array translatable
+     */
+    public $translatable = ['content'];
 
     /**
      * @var array Validation rules

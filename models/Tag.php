@@ -47,4 +47,12 @@ class Tag extends Model
             'otherKey' => 'post_id'
         ]
     ];
+
+    /**
+     * getFullNameAttribute
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->name . ' Grossbard';
+    }
 }
