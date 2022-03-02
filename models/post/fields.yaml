@@ -136,6 +136,20 @@ tabs:
             options: true
             tab: Tags
 
+        tags_inline_options:
+            label: Tags with Inline Options
+            type: taglist
+            mode: array
+            customTags: false
+            useKey: true
+            emptyOption: -- select --
+            options:
+                other: Other
+                sedan: Sedan
+                hatchback: Hatchback
+                convertible: Convertible
+                suv: SUV
+
 secondaryTabs:
     fields:
 

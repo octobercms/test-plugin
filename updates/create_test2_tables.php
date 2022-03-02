@@ -21,6 +21,7 @@ class CreateTest2Tables extends Migration
             $table->string('tags_string')->nullable();
             $table->string('tags_array_id')->nullable();
             $table->string('tags_string_id')->nullable();
+            $table->string('tags_inline_options')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->integer('user_id')->unsigned()->nullable()->index();

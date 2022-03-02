@@ -33,7 +33,7 @@ class Post extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['tags_array', 'tags_array_id'];
+    protected $jsonable = ['tags_array', 'tags_array_id', 'tags_inline_options'];
 
     /**
      * translatable
