@@ -75,3 +75,25 @@ taglist:
             label: Tag list
             type: taglist
             mode: string
+
+nestedform:
+    name: Nested Form
+    description: Testing a nested form
+    icon: icon-cogs
+    fields:
+        content:
+            type: nestedform
+            showPanel: false
+            form:
+                fields:
+                    added_at:
+                        label: Date Added
+                        type: datepicker
+                    details:
+                        label: Details
+                        type: textarea
+                    title:
+                        label: This is the title
+                        type: text
+
+
