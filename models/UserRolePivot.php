@@ -7,7 +7,13 @@ use October\Rain\Database\Pivot;
  */
 class UserRolePivot extends Pivot
 {
+    use \October\Rain\Database\Traits\Nullable;
     use \October\Rain\Database\Traits\Validation;
+
+    /**
+     * @var array nullable attribute names which should be set to null when empty.
+     */
+    protected $nullable = ['evolution'];
 
     /**
      * @var array Rules
