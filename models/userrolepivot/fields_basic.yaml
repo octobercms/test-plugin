@@ -11,3 +11,8 @@ fields:
         label: Executive
         type: checkbox
         span: auto
+
+    pivot[salary]:
+        label: Salary
+        type: number
+        span: auto

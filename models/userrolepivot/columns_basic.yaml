@@ -17,3 +17,7 @@ columns:
     pivot[is_executive]:
         label: Executive
         type: switch
+
+    pivot[salary]:
+        label: Salary
+        format: %.2f
