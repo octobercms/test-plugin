@@ -38,6 +38,16 @@ class Plugin extends PluginBase
     }
 
     /**
+     * registerComponents
+     */
+    public function registerComponents()
+    {
+        return [
+            \October\Test\Components\KitchenSink::class => 'kitchenSink',
+        ];
+    }
+
+    /**
      * registerNavigation
      */
     public function registerNavigation()
