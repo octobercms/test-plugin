@@ -27,7 +27,7 @@ columns:
     phone:
         label: Phone
         relation: phone
-        select: number
+        select: concat(name, ' ', number)
 
     brand:
         label: Brand

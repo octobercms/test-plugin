@@ -30,7 +30,7 @@ tabs:
         notes:
             tab: Notes
             label: Notes
-            displayMode: builder
+            displayMode: accordion
             prompt: Add note
             span: full
             type: repeater
