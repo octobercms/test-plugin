@@ -15,3 +15,6 @@ scopes:
         label: ID Range
         type: numberrange
         conditions: id >= ':min' and id <= ':max'
+    clear:
+        label: Clear filters
+        type: clear
