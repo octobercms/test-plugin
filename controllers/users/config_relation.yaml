@@ -34,6 +34,7 @@ roles_pivot_model:
         list: ~/plugins/october/test/models/userrolepivot/columns.yaml
         toolbarButtons: add|remove|create
         showSearch: true
+        recordsPerPage: 2
     manage:
         list: ~/plugins/october/test/models/role/columns.yaml
     pivot:
