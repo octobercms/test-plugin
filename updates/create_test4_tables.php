@@ -32,6 +32,14 @@ class CreateTest4Tables extends Migration
             $table->primary(['country_id', 'attribute_id']);
         });
 
+        Schema::create('october_test_country_brothers', function($table) {
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->nullable()->index();
+            $table->string('type')->nullable();
+            $table->mediumText('content')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('october_test_cities', function ($table) {
             $table->increments('id')->unsigned();
             $table->integer('custom_country_id')->unsigned();

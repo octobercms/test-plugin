@@ -47,6 +47,11 @@ class Country extends Model
             RepeaterItem::class,
             'key' => 'parent_id',
             'delete' => true
+        ],
+        'brothers' => [
+            CountryBrother::class,
+            'key' => 'parent_id',
+            'delete' => true
         ]
     ];
 

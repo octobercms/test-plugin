@@ -1,0 +1,21 @@
+# ===================================
+#  Used as a Repeater Model
+# ===================================
+
+editor:
+    name: Text Editor
+    icon: icon-file-text-o
+    fields:
+        content:
+            type: richeditor
+            size: large
+
+gallery:
+    name: Photos
+    icon: icon-file-image-o
+    fields:
+        photos:
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200

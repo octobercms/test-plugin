@@ -64,6 +64,12 @@ tabs:
             type: repeater
             form: $/october/test/config/repeater_country_sisters.yaml
 
+        brothers:
+            tab: Brother Countries
+            type: repeater
+            groupKeyFrom: type
+            groups: $/october/test/config/repeater_country_brothers.yaml
+
 secondaryTabs:
     lazy:
         - Locale
