@@ -19,3 +19,14 @@ gallery:
             mode: image
             imageWidth: 200
             imageHeight: 200
+
+sister:
+    name: Sister
+    icon: icon-refresh
+    fields:
+        sisters:
+            label: Sister
+            prompt: Add sister
+            span: full
+            type: repeater
+            form: $/october/test/config/repeater_country_sisters.yaml

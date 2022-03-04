@@ -20,7 +20,7 @@ class Country extends Model
     public $table = 'october_test_countries';
 
     /**
-     * @var array Guarded fields
+     * @var array guarded fields
      */
     protected $guarded = [];
 
@@ -30,7 +30,7 @@ class Country extends Model
     protected $fillable = [];
 
     /**
-     * @var array Jsonable fields
+     * @var array jsonable fields
      */
     protected $jsonable = ['pages', 'states', 'locations', 'content', 'notes'];
 

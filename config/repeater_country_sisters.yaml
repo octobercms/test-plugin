@@ -8,3 +8,9 @@ fields:
     subtitle:
         label: Suburb
         span: full
+    photos:
+        label: Photos
+        type: fileupload
+        mode: image
+        imageWidth: 200
+        imageHeight: 200

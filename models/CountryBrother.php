@@ -18,4 +18,15 @@ class CountryBrother extends Model
     public $attachMany = [
         'photos' => \System\Models\File::class,
     ];
+
+    /**
+     * @var array hasMany
+     */
+    public $hasMany = [
+        'sisters' => [
+            RepeaterItem::class,
+            'key' => 'parent_id',
+            'delete' => true
+        ],
+    ];
 }

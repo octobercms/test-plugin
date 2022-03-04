@@ -33,6 +33,13 @@ class RepeaterItem extends Model
     protected $fieldValues = [];
 
     /**
+     * @var array attachMany
+     */
+    public $attachMany = [
+        'photos' => \System\Models\File::class,
+    ];
+
+    /**
      * afterFetch
      */
     protected function afterFetch()
