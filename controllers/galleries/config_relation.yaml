@@ -3,8 +3,11 @@ posts:
     label: Posts
     list: ~/plugins/october/test/models/post/columns.yaml
     form: ~/plugins/october/test/models/post/fields_simple.yaml
-#    manage:
-#        context: relation
+    view:
+        filter: config_post_filter.yaml
+    manage:
+        showSearch: true
+        filter: config_post_filter.yaml
 
 countries:
     label: Country
