@@ -80,3 +80,34 @@ fields:
                     type: recordfinder
                     useRelation: false
                     modelClass: October\Test\Models\Person
+
+    mainimage:
+        label: Main Image
+        type: nestedform
+        form:
+            fields:
+                image:
+                    type: mediafinder
+                    span: full
+                    mode: image
+                    prompt: Pick a nice image
+                    imageWidth: 140
+                    imageHeight: 140
+                title:
+                    label: Title
+                    type: text
+                    span: full
+                description:
+                    label: Description
+                    type: textarea
+                    size: small
+                    span: full
+
+    image:
+        label: Another Image
+        type: mediafinder
+        span: full
+        mode: image
+        prompt: Pick another nice image
+        imageWidth: 140
+        imageHeight: 140

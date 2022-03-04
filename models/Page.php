@@ -28,13 +28,17 @@ class Page extends Model
      * @var array jsonable attribute names that are json encoded and decoded from the database
      */
     protected $jsonable = [
-        'content'
+        'content',
+        'mainimage'
     ];
 
     /**
      * @var array translatable
      */
-    public $translatable = ['content'];
+    public $translatable = [
+        'content',
+        'mainimage'
+    ];
 
     /**
      * @var array Validation rules
