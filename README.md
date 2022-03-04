@@ -6,6 +6,14 @@ This is a UI test plugin for October CMS. To install this plugin:
 2. migrate the database tables with `php artisan october:migrate`
 3. navigate to the backend and click on **Playground**
 
+If you already have this plugin installed and need to update the database schema, run this command:
+
+```sh
+php artisan plugin:refresh october.test
+```
+
+## Tests
+
 The following sections are explored, tested and demonstrated along with a list of the features used:
 
 ### Test 1: People
