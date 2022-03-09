@@ -3,6 +3,9 @@ columns:
         label: ID
         type: number
 
+    title:
+        label: Title
+
     type:
         label: Type
         type: selectable
@@ -10,6 +13,11 @@ columns:
             1: [Simple, 'icon-clock-o']
             2: [Complex, 'icon-exclamation']
 
+    parent:
+        label: Parent
+        relation: parent
+        select: title
+
     content[title]:
-        label: content
+        label: Content
         type: text

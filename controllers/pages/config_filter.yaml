@@ -1,0 +1,11 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    parent:
+        label: Page Parent
+        modelClass: October\Test\Models\Page
+        conditions: parent_id in (:filtered)
+        nameFrom: title
+        scope: onlyRoot

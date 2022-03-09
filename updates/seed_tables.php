@@ -253,6 +253,7 @@ class SeedAllTables extends Seeder
         $pages = [
             [
                 'id' => 1,
+                'title' => 'First Page',
                 'layout_id' => $layout1->id,
                 'type' => 1,
                 'content' => [
@@ -262,6 +263,7 @@ class SeedAllTables extends Seeder
             ],
             [
                 'id' => 2,
+                'title' => 'Second Page',
                 'layout_id' => $layout2->id,
                 'type' => 2,
                 'content' => [
@@ -273,6 +275,17 @@ class SeedAllTables extends Seeder
                         'primary' => '#ff0000',
                         'secondary' => '#00ff00',
                     ],
+                ],
+            ],
+            [
+                'id' => 3,
+                'title' => 'Third Page',
+                'parent_id' => 1,
+                'layout_id' => $layout1->id,
+                'type' => 2,
+                'content' => [
+                    'title' => 'This is a child page',
+                    'content' => '<h1>Having too much fun</h1>',
                 ],
             ],
         ];

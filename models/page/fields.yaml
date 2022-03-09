@@ -1,11 +1,18 @@
 fields:
 
+    parent:
+        label: Parent
+        type: relation
+        span: auto
+        nameFrom: title
+        emptyOption: -- top level --
+
     type:
         label: Type
         options:
             1: Simple
             2: Complex
-        span: full
+        span: auto
         type: dropdown
 
     content:

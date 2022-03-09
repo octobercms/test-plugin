@@ -49,6 +49,15 @@ class Page extends Model
     ];
 
     public $belongsTo = [
+        'parent' => Page::class,
         'layout' => Layout::class,
     ];
+
+    /**
+     * scopeOnlyRoot
+     */
+    public function scopeOnlyRoot($query)
+    {
+        return $query->whereNull('parent_id');
+    }
 }
