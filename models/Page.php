@@ -54,10 +54,10 @@ class Page extends Model
     ];
 
     /**
-     * scopeOnlyRoot
+     * getParentScopeOptions
      */
-    public function scopeOnlyRoot($query)
+    public function getParentScopeOptions()
     {
-        return $query->whereNull('parent_id');
+        return $this->whereNull('parent_id')->pluck('title', 'id')->all();
     }
 }

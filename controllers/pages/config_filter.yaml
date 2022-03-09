@@ -8,4 +8,4 @@ scopes:
         modelClass: October\Test\Models\Page
         conditions: parent_id in (:filtered)
         nameFrom: title
-        scope: onlyRoot
+        options: getParentScopeOptions
