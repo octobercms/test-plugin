@@ -3,6 +3,7 @@
 use Backend;
 use Validator;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 
 /**
  * Plugin Information File
@@ -105,6 +106,23 @@ class Plugin extends PluginBase
             ],
         ];
     }
+
+    public function registerSettings()
+    {
+        return [
+            'test' => [
+                'label' => 'Playground Settings',
+                'description' => 'Settings for the test plugin',
+                'category' => SettingsManager::CATEGORY_MISC,
+                'icon' => 'icon-child',
+                'class' => \October\Test\Models\Setting::class,
+                'order' => 500,
+                'keywords' => 'settings october test',
+                'permissions' => ['october.test.manage_settings']
+            ]
+        ];
+    }
+
 
     /**
      * registerFormWidgets

@@ -1,0 +1,24 @@
+fields:
+
+    _title:
+        label: Title
+        comment: Description
+        type: section
+
+    copy:
+        type: nestedform
+        form: ~/plugins/october/test/models/setting/nestedform-child.yaml
+        span: left
+
+    image:
+        label: Image
+        type: mediafinder
+        required: true
+        mode: image
+        span: right
+
+    button[label]:
+        label: Button Label
+        commentAbove: Add some text for the button label
+        type: text
+        span: right

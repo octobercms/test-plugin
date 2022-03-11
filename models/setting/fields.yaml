@@ -1,0 +1,16 @@
+tabs:
+    fields:
+        show_all_tests:
+            span: left
+            label: Show all tests
+            comment: Check this to make sure all tests are visible
+            type: switch
+            default: 1
+            tab: General
+
+        footer:
+            translatable: true
+            type: nestedform
+            showPanel: false
+            form: ~/plugins/october/test/models/setting/nestedform.yaml
+            tab: Footer
