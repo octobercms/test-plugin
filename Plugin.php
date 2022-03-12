@@ -45,6 +45,7 @@ class Plugin extends PluginBase
     {
         return [
             \October\Test\Components\KitchenSink::class => 'kitchenSink',
+            \October\Test\Components\RemoveIndex::class => 'removeIndex',
         ];
     }
 
@@ -122,7 +123,6 @@ class Plugin extends PluginBase
             ]
         ];
     }
-
 
     /**
      * registerFormWidgets
