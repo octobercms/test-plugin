@@ -4,5 +4,5 @@
 
 person:
     label: Person
-    list: ~/plugins/october/test/models/person/columns.yaml
-    form: ~/plugins/october/test/models/person/fields.yaml
+    list: $/october/test/models/person/columns.yaml
+    form: $/october/test/models/person/fields.yaml

@@ -7,7 +7,7 @@ fields:
 
     copy:
         type: nestedform
-        form: ~/plugins/october/test/models/setting/nestedform-child.yaml
+        form: $/october/test/models/setting/nestedform-child.yaml
         span: left
 
     image:

@@ -16,7 +16,7 @@ fields:
         label: Record Finder
         comment: Record finder field.
         type: recordfinder
-        list: ~/plugins/october/test/models/person/columns.yaml
+        list: $/october/test/models/person/columns.yaml
         prompt: Click the %s to find an alternative person
         nameFrom: name
         descriptionFrom: number

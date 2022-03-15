@@ -1,4 +1,4 @@
 reviews:
     label: Review
-    list: ~/plugins/october/test/models/review/columns.yaml
-    form: ~/plugins/october/test/models/review/fields_simple.yaml
+    list: $/october/test/models/review/columns.yaml
+    form: $/october/test/models/review/fields_simple.yaml

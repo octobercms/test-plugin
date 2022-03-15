@@ -3,7 +3,10 @@
 # ===================================
 
 # Model List Column configuration
-list: ~/plugins/october/test/models/comment/columns.yaml
+list: $/october/test/models/comment/columns.yaml
+
+# Displays the list filter
+filter: $/october/test/models/comment/scopes.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Comment
@@ -43,6 +46,3 @@ toolbar:
     # Search widget configuration
     search:
         prompt: backend::lang.list.search_prompt
-
-# Displays the list filter
-filter: config_comments_filter.yaml

@@ -6,7 +6,7 @@
 name: Tag
 
 # Model Form Field configuration
-form: ~/plugins/october/test/models/tag/fields_simple.yaml
+form: $/october/test/models/tag/fields_simple.yaml
 
 # Model Class name
 modelClass: October\Test\Models\Tag

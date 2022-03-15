@@ -5,6 +5,9 @@
 # Model List Column configuration
 list: $/october/test/models/page/columns.yaml
 
+# Displays the list filter
+filter: $/october/test/models/page/scopes.yaml
+
 # Model Class name
 modelClass: October\Test\Models\Page
 
@@ -45,6 +48,3 @@ toolbar:
     # Search widget configuration
     search:
         prompt: backend::lang.list.search_prompt
-
-# Displays the list filter
-filter: config_filter.yaml

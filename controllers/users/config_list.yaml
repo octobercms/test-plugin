@@ -3,7 +3,10 @@
 # ===================================
 
 # Model List Column configuration
-list: ~/plugins/october/test/models/user/columns.yaml
+list: $/october/test/models/user/columns.yaml
+
+# Displays the list filter
+filter: $/october/test/models/user/scopes.yaml
 
 # Model Class name
 modelClass: October\Test\Models\User
@@ -43,5 +46,3 @@ toolbar:
     search:
         prompt: backend::lang.list.search_prompt
 
-# Displays the list filter
-filter: config_filter.yaml

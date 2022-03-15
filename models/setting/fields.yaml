@@ -12,5 +12,5 @@ tabs:
             translatable: true
             type: nestedform
             showPanel: false
-            form: ~/plugins/october/test/models/setting/nestedform.yaml
+            form: $/october/test/models/setting/nestedform.yaml
             tab: Footer

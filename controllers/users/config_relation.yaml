@@ -5,37 +5,37 @@
 roles:
     label: Role
     view:
-        list: ~/plugins/october/test/models/role/columns.yaml
-        filter: config_role_filter.yaml
+        list: $/october/test/models/role/columns.yaml
+        filter: $/october/test/models/role/scopes.yaml
         showSearch: true
     manage:
         title: backend::lang.user.role.menu_label
-        list: ~/plugins/october/test/models/role/columns.yaml
-        form: ~/plugins/october/test/models/role/fields.yaml
-        filter: config_role_filter.yaml
+        list: $/october/test/models/role/columns.yaml
+        form: $/october/test/models/role/fields.yaml
+        filter: $/october/test/models/role/scopes.yaml
 
 roles_pivot:
     label: Role
     view:
-        list: ~/plugins/october/test/models/userrolepivot/columns_basic.yaml
+        list: $/october/test/models/userrolepivot/columns_basic.yaml
         toolbarButtons: add|remove|create
-        filter: config_role_filter.yaml
+        filter: $/october/test/models/role/scopes.yaml
         showSearch: true
     manage:
-        list: ~/plugins/october/test/models/role/columns.yaml
-        filter: config_role_filter.yaml
+        list: $/october/test/models/role/columns.yaml
+        filter: $/october/test/models/role/scopes.yaml
         showCheckboxes: true
     pivot:
-        form: ~/plugins/october/test/models/userrolepivot/fields_basic.yaml
+        form: $/october/test/models/userrolepivot/fields_basic.yaml
 
 roles_pivot_model:
     label: Role
     view:
-        list: ~/plugins/october/test/models/userrolepivot/columns.yaml
+        list: $/october/test/models/userrolepivot/columns.yaml
         toolbarButtons: add|remove|create
         showSearch: true
         recordsPerPage: 2
     manage:
-        list: ~/plugins/october/test/models/role/columns.yaml
+        list: $/october/test/models/role/columns.yaml
     pivot:
-        form: ~/plugins/october/test/models/userrolepivot/fields.yaml
+        form: $/october/test/models/userrolepivot/fields.yaml

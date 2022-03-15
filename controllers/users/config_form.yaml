@@ -6,7 +6,7 @@
 name: User
 
 # Model Form Field configuration
-form: ~/plugins/october/test/models/user/fields.yaml
+form: $/october/test/models/user/fields.yaml
 
 # Model Class name
 modelClass: October\Test\Models\User

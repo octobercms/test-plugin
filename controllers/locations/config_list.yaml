@@ -5,6 +5,9 @@
 # Model List Column configuration
 list: $/october/test/models/location/columns.yaml
 
+# List filter
+filter: $/october/test/models/location/scopes.yaml
+
 # Model Class name
 modelClass: October\Test\Models\Location
 
@@ -46,4 +49,3 @@ toolbar:
     search:
         prompt: backend::lang.list.search_prompt
 
-filter: config_filter.yaml
