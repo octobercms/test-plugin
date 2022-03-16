@@ -3,18 +3,44 @@
 # ===================================
 
 scopes:
-    disable_roles:
-        label: Disable Roles
-        type: checkbox
+    username:
+        label: Username
+        type: text
+        # conditions:
+        #     equals: true
+
     roles:
+        type: group
         label: Role
-        scope: applyRoleFilter
+        modelScope: applyRoleFilter
         modelClass: October\Test\Models\Role
         nameFrom: name
-    id_range:
-        label: ID Range
-        type: numberrange
-        conditions: id >= ':min' and id <= ':max'
-    clear:
-        label: Clear filters
-        type: clear
+
+    disable_roles:
+        type: checkbox
+        label: Disable Roles
+        conditions: id = 1
+
+    id:
+        type: number
+        label: ID
+        # conditions: id = ':value'
+
+    created_at:
+        label: Created
+        type: date
+        # conditions: created_at >= ':after' AND created_at <= ':before'
+
+    # id_range:
+    #     type: numberrange
+    #     label: ID Range
+    #     conditions: id >= ':min' and id <= ':max'
+
+    # created_date:
+    #     label: Created
+    #     type: daterange
+    #     conditions: created_at >= ':after' AND created_at <= ':before'
+
+    # clear:
+    #     type: clear
+    #     label: Clear filters
