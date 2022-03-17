@@ -35,3 +35,13 @@ columns:
         label: Photo
         type: image
         sortable: false
+
+    created_at:
+        label: Created
+        type: timetense
+        invisible: true
+
+    updated_at:
+        label: Updated
+        type: timetense
+        invisible: true
