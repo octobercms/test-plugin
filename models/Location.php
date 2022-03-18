@@ -24,7 +24,7 @@ class Location extends Model
     /**
      * @var array fillable fields
      */
-    protected $fillable = ['country_id', 'city_id', 'name'];
+    protected $fillable = ['custom_country_id', 'city_id', 'name'];
 
     /**
      * @var array jsonable fields
@@ -53,7 +53,7 @@ class Location extends Model
     public function getCityOptions($scopes = null)
     {
         if (!empty($scopes['country']->value)) {
-            return City::whereIn('country_id', array_keys($scopes['country']->value))->lists('name', 'id');
+            return City::whereIn('custom_country_id', array_keys($scopes['country']->value))->lists('name', 'id');
         }
         else {
             return City::lists('name', 'id');
