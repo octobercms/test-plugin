@@ -32,13 +32,25 @@ class Member extends Model
     ];
 
     /**
-     * Limit results to only records that are eligible to be parents of the provided model.
-     * Ineligible parents include: The provided model itself, models with the provided model
-     * as it's own parent already, and a model that is already the current model's parent
-     *
-     * @param Query $query
-     * @param Model $model The model to check for eligible parents against
-     * @return Query
+     * filterFields
+     */
+    public function filterFields($fields)
+    {
+        // Simple context scope
+        if (!isset($fields->parent_name)) {
+            return;
+        }
+
+        if ($this->parent) {
+            $fields->parent_name->value = $this->parent->name;
+        }
+    }
+
+    /**
+     * scopeEligibleParents limits results to only records that are eligible to be parents of the
+     * provided model. Ineligible parents include: The provided model itself, models with the
+     * provided model as it's own parent already, and a model that is already the current
+     * model's parent
      */
     public function scopeEligibleParents($query, $model)
     {
