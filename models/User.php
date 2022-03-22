@@ -120,10 +120,21 @@ class User extends Model
         'files_secure' => [\System\Models\File::class, 'public' => false],
     ];
 
+    /**
+     * scopeApplyRoleFilter
+     */
     public function scopeApplyRoleFilter($query, $filtered)
     {
         return $query->whereHas('roles', function($q) use ($filtered) {
             $q->whereIn('id', $filtered);
         });
+    }
+
+    /**
+     * getUserAndCode
+     */
+    public function getUserAndCode()
+    {
+        return "{$this->username} ({$this->security_code})";
     }
 }

@@ -82,4 +82,20 @@ class KitchenSink extends ComponentBase
 
         return $result;
     }
+
+    /**
+     * getFoo
+     */
+    public function getFoo()
+    {
+        return 'bar';
+    }
+
+    /**
+     * getTestUser
+     */
+    public function getTestUser()
+    {
+        return \October\Test\Models\User::first();
+    }
 }
