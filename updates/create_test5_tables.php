@@ -31,6 +31,7 @@ class CreateTest5Tables extends Migration
             $table->text('content')->nullable();
             $table->string('breakdown_type')->nullable();
             $table->text('breakdown')->nullable();
+            $table->text('meta')->nullable();
             $table->boolean('is_positive')->nullable();
             $table->string('feature_color')->nullable();
             $table->timestamps();
