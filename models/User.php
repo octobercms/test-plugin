@@ -121,6 +121,17 @@ class User extends Model
     ];
 
     /**
+     * filterScopes
+     */
+    public function filterScopes($scopes)
+    {
+        traceLog($scopes->disable_roles->value);
+        if ($scopes->disable_roles->value) {
+            $scopes->roles->hidden(true);
+        }
+    }
+
+    /**
      * scopeApplyRoleFilter
      */
     public function scopeApplyRoleFilter($query, $scope)

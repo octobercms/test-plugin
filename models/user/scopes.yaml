@@ -28,6 +28,7 @@ scopes:
         modelScope: applyRoleFilter
         modelClass: October\Test\Models\Role
         nameFrom: name
+        dependsOn: disable_roles
 
     disable_roles:
         type: checkbox
