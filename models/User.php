@@ -125,7 +125,6 @@ class User extends Model
      */
     public function filterScopes($scopes)
     {
-        traceLog($scopes->disable_roles->value);
         if ($scopes->disable_roles->value) {
             $scopes->roles->hidden(true);
         }
