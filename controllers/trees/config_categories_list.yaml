@@ -32,6 +32,7 @@ structure:
     showTree: true
     showReorder: true
     maxDepth: 2
+    dragRow: false
 
 # Toolbar widget configuration
 toolbar:

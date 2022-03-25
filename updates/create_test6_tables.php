@@ -16,6 +16,7 @@ class CreateTest6Tables extends Migration
             $table->integer('parent_id')->unsigned()->index()->nullable();
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('name')->nullable();
+            $table->string('parent_name')->nullable();
             $table->timestamps();
         });
 

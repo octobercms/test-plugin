@@ -129,4 +129,12 @@ class User extends Model
             $q->whereIn('id', $scope->value);
         });
     }
+
+    /**
+     * getUserAndCode
+     */
+    public function getUserAndCode()
+    {
+        return "{$this->username} ({$this->security_code})";
+    }
 }

@@ -27,7 +27,7 @@ class Review extends Model
     /**
      * @var array Jsonable fields
      */
-    protected $jsonable = ['breakdown'];
+    protected $jsonable = ['breakdown', 'meta'];
 
     /**
      * @var array Rules

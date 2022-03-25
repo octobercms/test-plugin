@@ -79,3 +79,17 @@ tabs:
                             action: show
                             field: '^breakdown_type'
                             condition: value[post_card]
+
+        meta[content][refund_rules]:
+            title: Refund
+            tab: Meta
+            type: repeater
+            span: left
+            form:
+                fields:
+                    refund_amount:
+                        type: number
+                        label: Refund Amount
+                    is_partial:
+                        type: checkbox
+                        label: Partial Refund

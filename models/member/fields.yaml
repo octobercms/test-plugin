@@ -6,6 +6,10 @@ fields:
     name:
         label: Name
 
+    parent_name:
+        label: Parent Name
+        dependsOn: parent
+
     parent:
         label: Parent (RecordFinder)
         comment: Record finder field.
@@ -15,4 +19,3 @@ fields:
         prompt: Click the %s to find a parent member
         nameFrom: name
         scope: eligibleParents
-
