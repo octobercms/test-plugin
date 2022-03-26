@@ -50,6 +50,16 @@ class Plugin extends PluginBase
     }
 
     /**
+     * registerFilterWidgets
+     */
+    public function registerFilterWidgets()
+    {
+        return [
+            \October\Test\FilterWidgets\Discount::class => 'discount',
+        ];
+    }
+
+    /**
      * registerNavigation
      */
     public function registerNavigation()

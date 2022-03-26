@@ -57,3 +57,8 @@ scopes:
         # conditions:
         #     equals: true
         #     between: created_at >= ':after' AND created_at <= ':before'
+
+    discount:
+        label: Discount (Custom)
+        type: discount
+        allowSearch: true
