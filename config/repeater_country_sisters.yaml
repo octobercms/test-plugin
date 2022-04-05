@@ -5,9 +5,18 @@
 fields:
     title:
         label: State
+        span: auto
     subtitle:
         label: Suburb
-        span: full
+        span: auto
+    is_enabled:
+        label: Enabled
+        type: switch
+        span: auto
+    is_default:
+        label: Default
+        type: switch
+        span: auto
     photos:
         label: Photos
         type: fileupload
