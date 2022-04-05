@@ -24,7 +24,6 @@ class Discount extends FilterWidgetBase
      */
     public function render()
     {
-        $this->vars['allowSearch'] = $this->allowSearch;
         $this->vars['scope'] = $this->filterScope;
         $this->vars['name'] = $this->getScopeName();
         $this->vars['value'] = $this->getLoadValue();

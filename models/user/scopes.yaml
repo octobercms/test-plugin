@@ -12,7 +12,7 @@ scopes:
 
     status:
         label: Status
-        type: group
+        type: dropdown
         options:
             pending: Pending
             active: Active
