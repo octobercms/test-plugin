@@ -42,6 +42,7 @@ tabs:
             tab: States
             type: repeater
             form: $/october/test/config/repeater_states.yaml
+            itemsExpanded: false
 
         _some_field:
             type: text
