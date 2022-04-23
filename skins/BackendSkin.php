@@ -1,4 +1,4 @@
-<?php namespace October\Test\Classes;
+<?php namespace October\Test\Skins;
 
 use Backend\Classes\Skin as SkinBase;
 
