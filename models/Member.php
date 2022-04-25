@@ -41,7 +41,10 @@ class Member extends Model
             return;
         }
 
-        if ($this->parent) {
+        // @deprecated Polyfill for 3.0
+        $context = post('fields') !== null ? 'refresh' : 'save';
+
+        if ($context === 'refresh' && $this->parent) {
             $fields->parent_name->value = $this->parent->name;
         }
     }
