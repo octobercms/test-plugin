@@ -36,7 +36,7 @@ class TimeChecker extends FormWidgetBase
     {
         $randomDate = Carbon::now()->addMinutes(rand(1, 60));
 
-        $this->vars['testImg'] = 'http://placehold.it/'.post('size', '50x50');
+        $this->vars['testImg'] = 'https://picsum.photos/'.str_replace('x', '/', post('size', '50x50'));
         $this->vars['currentTime'] = Backend::dateTime($randomDate);
     }
 
