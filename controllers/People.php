@@ -89,9 +89,9 @@ class People extends Controller
         $config  = $this->makeConfig([
             'toolbar' => false,
             'columns' => [
-                'type'   => [
-                    'title'   => 'Widget Type',
-                    'type'    => 'dropdown',
+                'type' => [
+                    'title' => 'Widget Type',
+                    'type' => 'dropdown',
                     'options' => [
                         'petty' => 'Petty',
                         'minor' => 'Minor',
@@ -102,12 +102,7 @@ class People extends Controller
             ],
         ]);
 
-        $field = new FormField('add_database_columns', 'add_database_columns');
-        $field->value = [
-            ['a']
-        ];
-
-        $datatable = new DataTable($this, $field, $config);
+        $datatable = $this->makeFormWidget(DataTable::class, 'add_database_columns', $config);
         $datatable->alias = 'add_database_columns_datatable';
         $datatable->bindToController();
 
