@@ -91,6 +91,7 @@ tabs:
         #     nameFrom: fullname
         #     options: getTagsRelationOptions
         #     tab: Tags
+        #     customTags: false
 
         _tags_trigger:
             commentAbove: Enter "a" or "b" as a tag above to hide this
