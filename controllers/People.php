@@ -51,6 +51,7 @@ class People extends Controller
         Mail::rawTo('admin@domain.tld', 'Hello friend');
         Mail::send('october.test::mail.some_html', $data, $recptFunc);
         Mail::sendTo('admin@domain.tld', 'october.test::mail.some_html', $data);
+        Mail::sendTo('admin@domain.tld', 'october.test::mail.with_template', $data);
 
         Flash::success('Done');
     }
