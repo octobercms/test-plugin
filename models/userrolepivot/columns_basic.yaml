@@ -20,4 +20,4 @@ columns:
 
     pivot[salary]:
         label: Salary
-        format: %.2f
+        format: "%.2f"

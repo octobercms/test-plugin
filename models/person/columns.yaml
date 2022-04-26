@@ -22,7 +22,7 @@ columns:
 
     expenses:
         label: Expenses
-        format: $ %.2f
+        format: "$ %.2f"
 
     phone:
         label: Phone
