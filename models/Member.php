@@ -34,16 +34,14 @@ class Member extends Model
     /**
      * filterFields
      */
-    public function filterFields($fields)
+    public function filterFields($fields, $context = null)
     {
         // Simple context scope
         if (!isset($fields->parent_name)) {
             return;
         }
 
-        // @deprecated Polyfill for 3.0
-        $context = post('fields') !== null ? 'refresh' : 'save';
-
+        // Only apply value when refreshing
         if ($context === 'refresh' && $this->parent) {
             $fields->parent_name->value = $this->parent->name;
         }
