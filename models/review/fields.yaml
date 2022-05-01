@@ -81,12 +81,18 @@ tabs:
                             condition: value[post_card]
 
         meta[content][refund_rules]:
-            title: Refund
+            label: Refund
             tab: Meta
             type: repeater
             span: left
             form:
                 fields:
+                    refund_type:
+                        type: dropdown
+                        options:
+                            customer_request: Customer Request
+                            bank_dispute: Bank Dispute
+                            fraud_xfer: Fraudulent Transaction
                     refund_amount:
                         type: number
                         label: Refund Amount
