@@ -132,6 +132,7 @@ tabs:
             tab: Activities
             type: checkboxlist
             span: left
+            cssClass: inline-options
             quickselect: true
             options:
                 adventure: Adventure
