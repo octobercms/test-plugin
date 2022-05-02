@@ -7,19 +7,19 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <?= Form::open(['class' => 'layout']) ?>
-        <div class="padded-container">
-            <div class="callout callout-warning">
-                <div class="header">
-                    <i class="icon-database"></i>
-                    <h3>Page model with a type and jsonable content field.</h3>
-                    <p>Depending on the type different schemas are saved inside of content.</p>
-                </div>
+    <!-- Primary content -->
+    <?php Block::put('form-contents') ?>
+        <div class="callout callout-warning">
+            <div class="header">
+                <i class="icon-database"></i>
+                <h3>Page model with a type and jsonable content field.</h3>
+                <p>Depending on the type different schemas are saved inside of content.</p>
             </div>
         </div>
 
         <div class="layout-row">
-            <?= $this->formRender() ?>
+            <?= $this->formRenderOutsideFields() ?>
+            <?= $this->formRenderPrimaryTabs() ?>
         </div>
 
         <div class="form-buttons">
@@ -54,8 +54,19 @@
                 </span>
             </div>
         </div>
+    <?php Block::endPut() ?>
 
-    <?= Form::close() ?>
+    <!-- Complimentary sidebar -->
+    <?php Block::put('form-sidebar') ?>
+        <?= $this->formRenderSecondaryTabs() ?>
+    <?php Block::endPut() ?>
+
+    <!-- Layout execution -->
+    <?php Block::put('body') ?>
+        <?= Form::open(['class'=>'layout stretch']) ?>
+            <?= $this->makeLayout('form-with-sidebar') ?>
+        <?= Form::close() ?>
+    <?php Block::endPut() ?>
 
 <?php else: ?>
 

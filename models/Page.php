@@ -60,4 +60,14 @@ class Page extends Model
     {
         return $this->whereNull('parent_id')->pluck('title', 'id')->all();
     }
+
+    /**
+     * filterFields
+     */
+    public function filterFields($fields, $context = null)
+    {
+        if ($fields->layout) {
+            $fields->layout->hidden(!$this->use_layout);
+        }
+    }
 }

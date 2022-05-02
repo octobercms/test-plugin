@@ -24,4 +24,14 @@ class Pages extends Controller
 
         BackendMenu::setContext('October.Test', 'test', 'pages');
     }
+
+    /**
+     * update action
+     */
+    public function update(...$args)
+    {
+        $this->bodyClass = 'compact-container';
+
+        return $this->asExtension('FormController')->update(...$args);
+    }
 }

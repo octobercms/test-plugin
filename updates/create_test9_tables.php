@@ -18,6 +18,7 @@ class CreateTest9Tables extends Migration
             $table->text('content')->nullable();
             $table->text('mainimage')->nullable();
             $table->text('image')->nullable();
+            $table->boolean('use_layout')->nullable();
             $table->integer('parent_id')->nullable()->unsigned();
             $table->integer('layout_id')->nullable()->unsigned();
         });
