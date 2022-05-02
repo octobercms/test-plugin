@@ -32,5 +32,7 @@ class Reviews extends Controller
     public function onChangeContent()
     {
         Flash::success('Great job!');
+
+        return $this->formRefreshFields(['_internal_comments', 'is_positive']);
     }
 }
