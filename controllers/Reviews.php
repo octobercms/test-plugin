@@ -1,5 +1,6 @@
 <?php namespace October\Test\Controllers;
 
+use Flash;
 use BackendMenu;
 use Backend\Classes\Controller;
 
@@ -23,5 +24,13 @@ class Reviews extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'reviews');
+    }
+
+    /**
+     * onChangeContent
+     */
+    public function onChangeContent()
+    {
+        Flash::success('Great job!');
     }
 }

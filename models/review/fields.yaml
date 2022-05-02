@@ -9,6 +9,7 @@ tabs:
             label: Content
             type: textarea
             size: small
+            changeHandler: onChangeContent
 
         is_positive:
             label: Positive
