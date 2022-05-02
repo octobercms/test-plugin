@@ -14,3 +14,33 @@ tabs:
             showPanel: false
             form: $/october/test/models/setting/nestedform.yaml
             tab: Footer
+
+        properties:
+            label: Properties
+            tab: Properties
+            type: nestedform
+            form:
+                fields:
+                    images:
+                        commentAbove: Media image max items 3
+                        span: full
+                        type: mediafinder
+                        mode: image
+                        maxItems: 3
+                        tab: Images
+
+        image_properties:
+            label: Images
+            tab: Properties
+            commentAbove: Media image max items 3
+            span: full
+            type: mediafinder
+            mode: image
+            maxItems: 3
+
+        _json_values:
+            tab: Properties
+            label: JSON Attributes
+            type: partial
+            path: $/october/test/models/setting/_json_values.php
+            dependsOn: ['image_properties', 'properties']
