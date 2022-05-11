@@ -33,7 +33,7 @@ scopes:
     disable_roles:
         type: checkbox
         label: Disable Roles
-        # conditions: id = 1
+        conditions: id = 1
         # default: 1
 
     disable_roles_switch:

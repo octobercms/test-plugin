@@ -5,6 +5,7 @@ posts:
     form: $/october/test/models/post/fields_simple.yaml
     view:
         filter: $/october/test/models/post/scopes.yaml
+        showSearch: true
     manage:
         showSearch: true
         filter: $/october/test/models/post/scopes.yaml

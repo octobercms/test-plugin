@@ -17,6 +17,7 @@ fields:
         span: auto
         commentAbove: Generic model filtered by relation conditions.
         context: [create, update, relation]
+        useController: false
 
     # Relation Controller
     status@relationcontroller:
