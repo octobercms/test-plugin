@@ -29,6 +29,8 @@ scopes:
         modelClass: October\Test\Models\Role
         nameFrom: name
         dependsOn: disable_roles
+        # default:
+        #     - 1
 
     disable_roles:
         type: checkbox
