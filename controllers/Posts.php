@@ -20,6 +20,7 @@ class Posts extends Controller
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
         \Backend\Behaviors\RelationController::class,
+        \Backend\Behaviors\ImportExportController::class
     ];
 
     public $formConfig = 'config_post_form.yaml';
@@ -31,6 +32,8 @@ class Posts extends Controller
     ];
 
     public $relationConfig = 'config_relation.yaml';
+
+    public $importExportConfig = 'config_import_export.yaml';
 
     public $requiredPermissions = ['october.test.access_plugin'];
 

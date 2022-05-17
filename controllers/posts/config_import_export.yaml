@@ -1,0 +1,10 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    useList: posts
+    fileName: posts.csv
+
+defaultFormatOptions:
+    fileFormat: json
