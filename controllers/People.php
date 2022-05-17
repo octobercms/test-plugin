@@ -4,9 +4,9 @@ use Mail;
 use Flash;
 use BackendMenu;
 use October\Test\Models\Phone;
-use Backend\Classes\FormField;
 use Backend\Classes\Controller;
 use Backend\FormWidgets\DataTable;
+use AjaxException;
 
 /**
  * People Back-end Controller
@@ -30,6 +30,11 @@ class People extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'people');
+    }
+
+    public function onShowAjaxError()
+    {
+        throw new AjaxException(['messageFromData' => 'This message came from a smart error 406.']);
     }
 
     public function onSendTestEmail()
