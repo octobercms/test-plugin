@@ -34,6 +34,7 @@ quote:
             span: auto
             label: Quote Position
             type: radio
+            cssClass: inline-options
             options:
                 left: Left
                 center: Center
