@@ -69,5 +69,12 @@ class Page extends Model
         if ($fields->layout) {
             $fields->layout->hidden(!$this->use_layout);
         }
+
+        // Hide ghosted fields
+        foreach ($fields as $field) {
+            if (starts_with($field->fieldName, 'ghost_')) {
+                $field->hidden();
+            }
+        }
     }
 }

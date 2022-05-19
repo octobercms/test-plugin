@@ -98,6 +98,16 @@ tabs:
                         useRelation: false
                         modelClass: October\Test\Models\Person
 
+        ghost_field:
+            tab: Ghost
+            label: Ghost
+            comment: You should never see this field
+
+        ghost_field_2:
+            tab: Ghost
+            label: Ghost 2
+            comment: You should never see this field either
+
 secondaryTabs:
     defaultTab: Images
     fields:
