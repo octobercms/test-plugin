@@ -22,7 +22,9 @@ php artisan plugin:refresh october.test
 
 To uninstall this plugin:
 
+```bash
 php artisan plugin:remove October.Test
+```
 
 ## Tests
 
