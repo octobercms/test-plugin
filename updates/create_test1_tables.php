@@ -1,7 +1,7 @@
 <?php namespace October\Test\Updates;
 
-use Db;
 use Schema;
+use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
 /**
@@ -11,7 +11,7 @@ class CreateTest1Tables extends Migration
 {
     public function up()
     {
-        Schema::create('october_test_people', function($table) {
+        Schema::create('october_test_people', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('preferred_name')->nullable();
@@ -27,7 +27,7 @@ class CreateTest1Tables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('october_test_phones', function($table) {
+        Schema::create('october_test_phones', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('number')->nullable();
