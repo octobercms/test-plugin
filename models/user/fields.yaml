@@ -68,6 +68,12 @@ tabs:
             commentAbove: Tag list relation mode.
             tab: Standard
 
+        posts:
+            label: Posts
+            type: relation
+            useController: true
+            tab: Posts
+
 secondaryTabs:
     fields:
 

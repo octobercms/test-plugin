@@ -39,3 +39,14 @@ roles_pivot_model:
         list: $/october/test/models/role/columns.yaml
     pivot:
         form: $/october/test/models/userrolepivot/fields.yaml
+
+posts:
+    label: Post
+    view:
+        showSearch: true
+        list: $/october/test/models/post/columns.yaml
+        form: $/october/test/models/post/fields.yaml
+        toolbarButtons: create|delete
+    manage:
+        list: $/october/test/models/post/columns.yaml
+        form: $/october/test/models/post/fields.yaml

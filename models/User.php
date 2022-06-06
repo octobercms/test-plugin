@@ -120,6 +120,10 @@ class User extends Model
         'files_secure' => [\System\Models\File::class, 'public' => false],
     ];
 
+    public $hasMany = [
+        'posts' => [Post::class],
+    ];
+
     /**
      * filterScopes
      */

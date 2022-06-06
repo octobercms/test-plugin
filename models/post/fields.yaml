@@ -55,23 +55,27 @@ tabs:
         comments:
             label: Comments
             commentAbove: RelationController used as a partial field type.
-            type: partial
+            type: relation
+            useController: true
             tab: Comments
 
         galleries:
             commentAbove: RelationController demonstrating morphToMany relationship.
-            type: partial
+            type: relation
+            useController: true
             tab: Galleries
 
         galleries_pivot:
             commentAbove: RelationController demonstrating morphToMany (with pivot) relationship.
-            type: partial
+            type: relation
+            useController: true
             tab: Galleries (Pivot)
 
         review:
             label: Review
             commentAbove: RelationController demonstrating morphOne relationship.
-            type: partial
+            type: relation
+            useController: true
             tab: Reviews
 
         # Taglist Tests
