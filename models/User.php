@@ -77,6 +77,10 @@ class User extends Model
         'country' => Country::class
     ];
 
+    public $hasMany = [
+        'posts' => Post::class
+    ];
+
     public $belongsToMany = [
         'roles' => [
             Role::class,
