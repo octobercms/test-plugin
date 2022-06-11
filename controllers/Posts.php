@@ -70,6 +70,11 @@ class Posts extends Controller
         }
     }
 
+    public function formExtendFields($form, $fields)
+    {
+        $fields['name']->value = lcfirst($form->model->name);
+    }
+
     //
     // Custom Delete workflow
     //

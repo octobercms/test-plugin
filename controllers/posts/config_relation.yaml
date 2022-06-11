@@ -45,7 +45,6 @@ galleries_pivot:
                 pivot[commission_amount]:
                     label: Commission Amount
                     commentAbove: 'in %'
-
 review:
     label: Review
     view:
