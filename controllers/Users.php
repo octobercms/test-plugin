@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Flash;
 
 /**
  * Users Back-end Controller
@@ -25,5 +26,10 @@ class Users extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'users');
+    }
+
+    public function onSelectPeriod()
+    {
+        Flash::success('Selected priod: '.post('period'));
     }
 }
