@@ -1,0 +1,21 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+country:
+    label: Country
+    view:
+        form: $/october/test/models/country/fields_simple_form.yaml
+        toolbarButtons: update|link|unlink
+    manage:
+        form: $/october/test/models/country/fields_simple_form.yaml
+        list: $/october/test/models/country/columns_simple.yaml
+
+# city:
+#     label: City
+#     view:
+#         form: $/october/test/models/city/fields.yaml
+#         toolbarButtons: link|unlink
+#     manage:
+#         form: $/october/test/models/city/fields.yaml
+#         list: $/october/test/models/city/columns.yaml

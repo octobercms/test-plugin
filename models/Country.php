@@ -32,12 +32,12 @@ class Country extends Model
     /**
      * @var array jsonable fields
      */
-    protected $jsonable = ['pages', 'states', 'locations', 'content', 'notes'];
+    protected $jsonable = ['pages', 'states', 'locations', 'content', 'notes', 'footer'];
 
     /**
      * @var array translatable
      */
-    public $translatable = ['name', 'states', 'content'];
+    public $translatable = ['name', 'states', 'content', 'footer'];
 
     /**
      * @var array hasMany

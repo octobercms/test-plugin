@@ -38,3 +38,15 @@ fields:
             action: enable
             field: is_enabled
             condition: checked
+
+tabs:
+    fields:
+        country:
+            label: Country
+            tab: Country
+            type: relation
+
+        city:
+            label: City
+            tab: City
+            type: relation
