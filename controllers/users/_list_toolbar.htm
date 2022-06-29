@@ -1,4 +1,17 @@
 <div data-control="toolbar">
     <a href="<?= Backend::url('october/test/users/create') ?>" class="btn btn-primary oc-icon-plus">New User</a>
-    <?= Form::select('period', range(0, 12), 1, ['class' => 'form-control custom-select', 'data-request' => 'onSelectPeriod']) ?>
+    <?= Form::select('period', range(0, 12), 1, [
+        'class' => 'form-control custom-select',
+        'data-request' => 'onSelectPeriod',
+        'data-request-data' => 'foo: "bar"'
+    ]) ?>
+
+    <select
+        class="form-control custom-select"
+        style="width: 200px"
+        data-handler="onGetSelectOptions"
+        data-minimum-input-length="1"
+        data-ajax--delay="300"
+        data-request-data="foo: 'bar'">
+    </select>
 </div>

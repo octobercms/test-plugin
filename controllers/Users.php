@@ -32,4 +32,15 @@ class Users extends Controller
     {
         Flash::success('Selected priod: '.post('period'));
     }
+
+    public function onGetSelectOptions()
+    {
+        return [
+            'results' => [
+                'w25' => 'Width 25',
+                'h40' => 'Height 40',
+                'p90' => 'Padding 40',
+            ]
+        ];
+    }
 }
