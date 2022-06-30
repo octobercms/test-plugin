@@ -2,3 +2,4 @@
 .vscode/
 .sftp-config
 .ftpconfig
+.phpunit.result.cache
