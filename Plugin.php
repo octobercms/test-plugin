@@ -159,7 +159,9 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        Validator::extend('uppercase', \October\Test\Classes\UppercaseRule::class);
-        Validator::extend('betwixt', \October\Test\Classes\BetwixtRule::class);
+        $this->app->resolving('validator', function ($validator) {
+            $validator->extend('uppercase', \October\Test\Classes\UppercaseRule::class);
+            $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
+        });
     }
 }
