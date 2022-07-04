@@ -1,5 +1,6 @@
 <?php namespace October\Test\Components;
 
+use Flash;
 use Cms\Classes\ComponentBase;
 
 /**
@@ -97,5 +98,13 @@ class KitchenSink extends ComponentBase
     public function getTestUser()
     {
         return \October\Test\Models\User::first();
+    }
+
+    /**
+     * onFilterCars
+     */
+    public function onFilterCars()
+    {
+        Flash::success('This came from a component');
     }
 }
