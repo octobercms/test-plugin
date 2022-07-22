@@ -18,7 +18,7 @@ fields:
             hidden: Hidden
 
     subtitle:
-        label: Title
+        label: Subtitle
         span: full
 
     party_mode:
