@@ -87,8 +87,13 @@ tabs:
             prompt: Add Person
             span: full
             type: repeater
+            titleFrom: description
             form:
                 fields:
+                    description:
+                        label: Describe this person
+                        size: tiny
+                        type: textarea
                     person:
                         label: Testing Widget Inside Repeater
                         nameFrom: name
