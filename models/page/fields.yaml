@@ -113,6 +113,14 @@ tabs:
             label: Ghost 2
             comment: You should never see this field either
 
+        _alt_ghost_field:
+            tab: Alt Ghost
+            comment: This field should hide its parent tab when [use_layout] is checked
+            trigger:
+                action: hide
+                field: use_layout
+                condition: checked
+
 secondaryTabs:
     defaultTab: Images
     fields:
