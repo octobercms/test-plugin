@@ -92,6 +92,7 @@ secondaryTabs:
             commentAbove: Photo selection from the Media Library.
             tab: Media Manager
             mode: image
+            thumbOptions: false
 
         media_files:
             label: Media (Multi File)
