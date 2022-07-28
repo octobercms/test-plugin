@@ -6,6 +6,7 @@ fields:
         span: auto
         nameFrom: title
         emptyOption: -- top level --
+        order: 200
 
     type:
         label: Type
@@ -14,7 +15,7 @@ fields:
             2: Complex
         span: auto
         type: dropdown
-
+        order: 100
 
 tabs:
     defaultTab: Content
