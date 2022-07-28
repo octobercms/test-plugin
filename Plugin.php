@@ -164,4 +164,12 @@ class Plugin extends PluginBase
             $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
         });
     }
+
+    /**
+     * registerSchedule
+     */
+    public function registerSchedule($schedule)
+    {
+        $schedule->command('cache:clear')->everyMinute();
+    }
 }
