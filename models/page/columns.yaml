@@ -2,13 +2,16 @@ columns:
     id:
         label: ID
         type: number
+        order: 900
 
     title:
         label: Title
+        order: 800
 
     type:
         label: Type
         type: selectable
+        order: 700
         options:
             1: [Simple, 'icon-clock-o']
             2: [Complex, 'icon-exclamation']
@@ -17,7 +20,9 @@ columns:
         label: Parent
         relation: parent
         select: title
+        order: 600
 
     content[title]:
         label: Content
         type: text
+        order: 500
