@@ -26,6 +26,25 @@ class Plugin extends PluginBase
     }
 
     /**
+     * register the service provider
+     */
+    public function register()
+    {
+        $this->registerConsoleCommand('test.seed-posts', \October\Test\Console\SeedPosts::class);
+    }
+
+    /**
+     * boot the service provider
+     */
+    public function boot()
+    {
+        $this->callAfterResolving('validator', function ($validator) {
+            $validator->extend('uppercase', \October\Test\Classes\UppercaseRule::class);
+            $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
+        });
+    }
+
+    /**
      * registerPermissions
      */
     public function registerPermissions()
@@ -144,25 +163,6 @@ class Plugin extends PluginBase
                 'code' => 'timecheckertest',
             ],
         ];
-    }
-
-    /**
-     * register the service provider
-     */
-    public function register()
-    {
-        $this->registerConsoleCommand('test.seed-posts', \October\Test\Console\SeedPosts::class);
-    }
-
-    /**
-     * boot the service provider
-     */
-    public function boot()
-    {
-        $this->callAfterResolving('validator', function ($validator) {
-            $validator->extend('uppercase', \October\Test\Classes\UppercaseRule::class);
-            $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
-        });
     }
 
     /**
