@@ -1,0 +1,25 @@
+<?= Form::open() ?>
+    <div class="modal-header">
+        <h4 class="modal-title">Test</h4>
+        <button type="button" class="btn-close" data-dismiss="popup"></button>
+    </div>
+    <div class="modal-body"></div>
+    <div class="modal-footer">
+        <button
+            type="button"
+            data-request="onShowFlashMessage"
+            data-popup-load-indicator
+            data-request-confirm="Test"
+            class="btn btn-primary">
+            With confirm
+        </button>
+
+        <button
+            type="button"
+            data-request="onShowFlashMessage"
+            data-popup-load-indicator
+            class="btn btn-primary">
+            Without confirm
+        </button>
+    </div>
+<?= Form::close() ?>

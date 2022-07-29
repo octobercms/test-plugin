@@ -37,6 +37,16 @@ class People extends Controller
         throw new AjaxException(['messageFromData' => 'This message came from a smart error 406.']);
     }
 
+    public function onShowFlashMessage()
+    {
+        Flash::success('All good');
+    }
+
+    public function onModalShowTest()
+    {
+        return $this->makePartial('test_modal');
+    }
+
     public function onSendTestEmail()
     {
         $data = ['msg' => 'Hello world'];
