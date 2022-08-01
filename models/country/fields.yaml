@@ -25,6 +25,7 @@ tabs:
             span: full
             type: repeater
             groupKeyFrom: _type
+            titleFrom: text_area
             groups: $/october/test/config/repeater_content.yaml
 
         notes:

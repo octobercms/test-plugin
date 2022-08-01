@@ -1,10 +1,6 @@
 # Test Plugin
 
-This is a UI test plugin for October CMS. To install this plugin:
-
-1. download and extract this archive to `/plugins/october/test`
-2. migrate the database tables with `php artisan october:migrate`
-3. navigate to the backend and click on **Playground**
+This is a UI test plugin for October CMS.
 
 ## Installation Instructions
 
@@ -17,7 +13,7 @@ php artisan plugin:install October.Test --from=https://github.com/octobercms/tes
 If you already have this plugin installed and need to update the database schema, run this command:
 
 ```bash
-php artisan plugin:refresh october.test
+php artisan plugin:refresh October.Test
 ```
 
 To uninstall this plugin:
@@ -64,14 +60,14 @@ User "Belongs To Many" Roles (Many to many relationship)
 1. Form field partial
 1. Tag List in relation mode
 
-### Test 4: Locations (A)
+### Test 4: Locations
 
 1. City "Has Many" Locations
 1. City "Belongs To" Country
 1. Location "Belongs To" Country
 1. Location "Belongs To" City
 
-### Test 4: Countries (B)
+#### Countries
 
 A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
@@ -81,9 +77,16 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 1. Repeater fields
 1. Tabs empty with no fields
 
-### Test 4: Cities (C)
+#### Cities
 
 A City "Belongs To" a Country and "Has Many" Locations.
+
+#### Attributes
+
+An Attribute is a single generic model with many relationship types.
+
+1. Posts "Belong To" (Attribute) Status (`general.status`).
+1. Countries "Belong To Many" (Attribute) Types (`general.types`).
 
 ### Test 5: Reviews
 
@@ -104,33 +107,10 @@ A City "Belongs To" a Country and "Has Many" Locations.
 1. A Category uses a simple tree structure, with sorting.
 1. A Channel uses a nested set tree structure.
 
-### Test 8: Attributes
-
-An Attribute is a single generic model with many relationship types.
-
-1. Posts "Belong To" (Attribute) Status (`general.status`).
-1. Countries "Belong To Many" (Attribute) Types (`general.types`).
-
-### Test 9: Pages
+### Test 8: Pages
 
 1. Page "Belongs To" Layout
 
-## Tests that need attention
+### Test 9: Product
 
-- An attach relation when required inside a tab does not make the tab active.
-
-- Proxy fields throw a nasty error when the relation is non existant.
-
-- Record Finder does not incorporate deferred bindings.
-
-- HasOne relations acting as HasMany will break the list completely.
-
-- Pivot model with required field doesn't show the asterisk on the form.
-
-## Incorporating functional tests
-
-- All relation controllers
-
-- Test that input preset API works on fields
-
-- Test that trigger API works on fields
+1. Product
