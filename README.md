@@ -81,13 +81,6 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 
 A City "Belongs To" a Country and "Has Many" Locations.
 
-#### Attributes
-
-An Attribute is a single generic model with many relationship types.
-
-1. Posts "Belong To" (Attribute) Status (`general.status`).
-1. Countries "Belong To Many" (Attribute) Types (`general.types`).
-
 ### Test 5: Reviews
 
 1. Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationships)
@@ -96,16 +89,16 @@ An Attribute is a single generic model with many relationship types.
 1. Plugins and Themes "Morph One" Meta
 1. Plugins should not create when Meta validation fails.
 
-### Test 6: Galleries
-
-1. Galleries are "Morphed By Many" Posts
-1. Posts "Morph To Many" Galleries
-
-### Test 7: Trees
+### Test 6: Trees
 
 1. A Member uses a simple tree (parent-child) structure.
 1. A Category uses a simple tree structure, with sorting.
 1. A Channel uses a nested set tree structure.
+
+### Test 7: Galleries
+
+1. Galleries are "Morphed By Many" Posts
+1. Posts "Morph To Many" Galleries
 
 ### Test 8: Pages
 
@@ -114,3 +107,18 @@ An Attribute is a single generic model with many relationship types.
 ### Test 9: Product
 
 1. Product
+
+### General Tests
+
+Uncategorized tests
+
+#### Attributes
+
+An Attribute is a single generic model with many relationship types.
+
+1. Posts "Belong To" (Attribute) Status (`general.status`).
+1. Countries "Belong To Many" (Attribute) Types (`general.types`).
+
+#### Repeater Items
+
+1. Relational Repeater tests

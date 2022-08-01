@@ -37,6 +37,7 @@ class DropEverything extends Migration
         Schema::dropIfExists('october_test_posts_tags');
         Schema::dropIfExists('october_test_pages');
         Schema::dropIfExists('october_test_layouts');
+        Schema::dropIfExists('october_test_products');
     }
 
     public function down()
