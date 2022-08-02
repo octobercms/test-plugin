@@ -132,6 +132,11 @@ class Plugin extends PluginBase
                         'icon' => 'icon-database',
                         'url' => Backend::url('october/test/pages'),
                     ],
+                    'products' => [
+                        'label' => 'Products',
+                        'icon' => 'icon-database',
+                        'url' => Backend::url('october/test/products'),
+                    ],
                 ],
             ],
         ];

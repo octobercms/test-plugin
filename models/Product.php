@@ -7,6 +7,7 @@ use Model;
  */
 class Product extends Model
 {
+    use \System\Traits\MultisiteModel;
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -69,4 +70,12 @@ class Product extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    /**
+     * isMultisiteEnabled
+     */
+    public function isMultisiteEnabled()
+    {
+        return true;
+    }
 }
