@@ -27,7 +27,6 @@ class SeedAllTables extends Seeder
         /*
          * Test 1: People
          */
-
         $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'expenses' => 19999, 'favcolor' => '#5fb6f5']);
         $person->phone = Phone::create(['name' => 'Mobile', 'number' => '(360) 733-2263']);
         $person->alt_phone = Phone::create(['name' => 'Home', 'number' => '(360) 867-3563']);
@@ -46,7 +45,6 @@ class SeedAllTables extends Seeder
         /*
          * Test 2: Posts
          */
-
         $post = Post::create(['name' => 'First post, yay!', 'content' => 'I have some comments!']);
         Post::create(['name' => 'A content image', 'content' => 'I have no comments']);
 
@@ -64,7 +62,6 @@ class SeedAllTables extends Seeder
         /*
          * Test 3: Users
          */
-
         User::make(['username' => 'Neo', 'security_code' => '1111'])->forceSave();
         User::make(['username' => 'Morpheus', 'security_code' => '8888'])->forceSave();
 
@@ -77,6 +74,14 @@ class SeedAllTables extends Seeder
 
         $post->user()->add($user);
         $post->save();
+
+        foreach (range(1, 20) as $index) {
+            Role::create([
+                'name' => 'Roles test ' . ($index + 1),
+                'description' => 'Roles for relation test',
+                'users' => [$user->id],
+            ]);
+        }
 
         /*
          * Test 4: Countries
@@ -114,7 +119,7 @@ class SeedAllTables extends Seeder
         ]);
 
         /*
-         * Test 9: Locations
+         * Test 4a: Locations
          */
         $cities = [
             $country1->id => ['Regina', 'Vancouver', 'Toronto', 'Ottawa'],
@@ -143,7 +148,6 @@ class SeedAllTables extends Seeder
         /*
          * Test 5: Reviews
          */
-
         Review::create(['content' => 'Orphan review', 'is_positive' => false, 'feature_color' => '#000000']);
         $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true, 'feature_color' => '#CCCCCC']);
 
@@ -153,16 +157,8 @@ class SeedAllTables extends Seeder
         Plugin::create(['name' => 'Angular', 'code' => 'angular', 'content' => 'An AngularJS plugin.']);
 
         /*
-         * Test 6: Galleries
+         * Test 6: Trees
          */
-
-        $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now()]);
-        $gallery->posts()->add(Post::first());
-
-        /*
-         * Test 7: Trees
-         */
-
         $fourUpManager = Member::create(['name' => 'Khaleesi']);
         $threeUpManager = Member::create(['name' => 'Ian', 'parent_id' => $fourUpManager->id]);
         $twoUpManager = Member::create(['name' => 'Vangelis', 'parent_id' => $threeUpManager->id]);
@@ -197,51 +193,14 @@ class SeedAllTables extends Seeder
         Category::create(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
 
         /*
-         * Test 8: Attributes
+         * Test 7: Galleries
          */
-
-        $generalStatus = [
-            ['name' => 'Draft', 'code' => 'draft'],
-            ['name' => 'Pending', 'code' => 'pending'],
-            ['name' => 'Rejected', 'code' => 'rejected'],
-            ['name' => 'Active', 'code' => 'active'],
-            ['name' => 'Suspended', 'code' => 'suspended'],
-            ['name' => 'Expired', 'code' => 'expired'],
-            ['name' => 'Cancelled', 'code' => 'cancelled'],
-            ['name' => 'Completed', 'code' => 'completed'],
-            ['name' => 'Closed', 'code' => 'closed'],
-        ];
-
-        $generalTypes = [
-            ['name' => 'Warrior', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'warrior'],
-            ['name' => 'Paladin', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'paladin'],
-            ['name' => 'Hunter', 'label' => 'Ranged Physical Damage Dealer', 'code' => 'hunter'],
-            ['name' => 'Rogue', 'label' => 'Melee Damage Dealer', 'code' => 'rogue'],
-            ['name' => 'Priest', 'label' => 'Healer, Ranged Magic Damage Dealer', 'code' => 'priest'],
-            ['name' => 'Death Knight', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'death-knight'],
-            ['name' => 'Shaman', 'label' => 'Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'shaman'],
-            ['name' => 'Mage', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'mage'],
-            ['name' => 'Warlock', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'warlock'],
-            ['name' => 'Monk', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'monk'],
-            ['name' => 'Druid', 'label' => 'Tank, Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'druid'],
-            ['name' => 'Demon Hunter', 'label' => 'Melee Damage Dealer, Tank', 'code' => 'demon-hunter'],
-        ];
-
-        $map = [
-            Attribute::GENERAL_STATUS => $generalStatus,
-            Attribute::GENERAL_TYPE => $generalTypes,
-        ];
-
-        foreach ($map as $type => $items) {
-            foreach ($items as $data) {
-                Attribute::create(array_merge($data, ['type' => $type]));
-            }
-        }
+        $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now()]);
+        $gallery->posts()->add(Post::first());
 
         /*
-         * Test 9: Pages
+         * Test 8: Pages
          */
-
         $layout1 = Layout::create([
             'content' => 'Yes',
         ]);
@@ -291,6 +250,51 @@ class SeedAllTables extends Seeder
         ];
         foreach ($pages as $page) {
             Page::create($page);
+        }
+
+        /*
+         * Test 9: Product
+         */
+
+        /*
+         * General Test: Attributes
+         */
+        $generalStatus = [
+            ['name' => 'Draft', 'code' => 'draft'],
+            ['name' => 'Pending', 'code' => 'pending'],
+            ['name' => 'Rejected', 'code' => 'rejected'],
+            ['name' => 'Active', 'code' => 'active'],
+            ['name' => 'Suspended', 'code' => 'suspended'],
+            ['name' => 'Expired', 'code' => 'expired'],
+            ['name' => 'Cancelled', 'code' => 'cancelled'],
+            ['name' => 'Completed', 'code' => 'completed'],
+            ['name' => 'Closed', 'code' => 'closed'],
+        ];
+
+        $generalTypes = [
+            ['name' => 'Warrior', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'warrior'],
+            ['name' => 'Paladin', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'paladin'],
+            ['name' => 'Hunter', 'label' => 'Ranged Physical Damage Dealer', 'code' => 'hunter'],
+            ['name' => 'Rogue', 'label' => 'Melee Damage Dealer', 'code' => 'rogue'],
+            ['name' => 'Priest', 'label' => 'Healer, Ranged Magic Damage Dealer', 'code' => 'priest'],
+            ['name' => 'Death Knight', 'label' => 'Tank, Melee Damage Dealer', 'code' => 'death-knight'],
+            ['name' => 'Shaman', 'label' => 'Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'shaman'],
+            ['name' => 'Mage', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'mage'],
+            ['name' => 'Warlock', 'label' => 'Ranged Magic Damage Dealer', 'code' => 'warlock'],
+            ['name' => 'Monk', 'label' => 'Tank, Healer, Melee Damage Dealer', 'code' => 'monk'],
+            ['name' => 'Druid', 'label' => 'Tank, Healer, Ranged Magic Damage Dealer, Melee Damage Dealer', 'code' => 'druid'],
+            ['name' => 'Demon Hunter', 'label' => 'Melee Damage Dealer, Tank', 'code' => 'demon-hunter'],
+        ];
+
+        $map = [
+            Attribute::GENERAL_STATUS => $generalStatus,
+            Attribute::GENERAL_TYPE => $generalTypes,
+        ];
+
+        foreach ($map as $type => $items) {
+            foreach ($items as $data) {
+                Attribute::create(array_merge($data, ['type' => $type]));
+            }
         }
     }
 }
