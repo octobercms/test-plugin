@@ -7,7 +7,7 @@ use Model;
  */
 class Product extends Model
 {
-    use \System\Traits\MultisiteModel;
+    use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
 
     /**
