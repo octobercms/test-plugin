@@ -17,6 +17,7 @@ recurse:
 textarea:
     name: Textarea
     description: Basic text field
+    titleFrom: text_area
     icon: icon-file-text-o
     fields:
         text_area:
@@ -35,6 +36,7 @@ quote:
     name: Quote
     description: Quote item
     icon: icon-quote-right
+    titleFrom: quote_content
     fields:
         quote_position:
             span: auto

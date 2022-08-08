@@ -70,12 +70,4 @@ class Product extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
-    /**
-     * isMultisiteEnabled
-     */
-    public function isMultisiteEnabled()
-    {
-        return true;
-    }
 }
