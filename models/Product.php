@@ -59,6 +59,16 @@ class Product extends Model
     ];
 
     /**
+     * @var array propagatable list of attributes to propagate to other sites.
+     */
+    public $propagatable = ['description'];
+
+    /**
+     * @var bool propagatableSync will enforce model structures between all sites
+     */
+    protected $propagatableSync = true;
+
+    /**
      * @var array hasOne and other relations
      */
     public $hasOne = [];

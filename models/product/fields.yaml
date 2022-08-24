@@ -5,3 +5,7 @@
 fields:
     title:
         label: Label
+        translatable: site
+
+    description:
+        label: Description (Propagatable)

@@ -14,6 +14,7 @@ class CreateTest9Tables extends Migration
         Schema::create('october_test_products', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
             $table->timestamps();
