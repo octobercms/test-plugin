@@ -16,7 +16,7 @@ fields:
         commentAbove: Text field, inside a popup.
         span: auto
 
-    error_button:
+    _error_button:
         type: partial
         comment: This button will throw an error
         span: auto

@@ -26,28 +26,28 @@ tabs:
             type: text
             span: row
             tab: SEO
-            spanClass: col-xs-4
+            spanClass: col-4
 
         _column2:
             label: Col 2
             type: text
             span: row
             tab: SEO
-            spanClass: col-xs-4
+            spanClass: col-4
 
         _column3:
             label: Col 3
             type: text
             span: row
             tab: SEO
-            spanClass: col-xs-4
+            spanClass: col-4
 
         _column4:
             label: Col 3
             type: text
             span: row
             tab: SEO
-            spanClass: col-xs-4
+            spanClass: col-4
 
         _column5:
             label: Full
