@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Products Backend Controller
+ * Product Categories Backend Controller
  */
-class Products extends Controller
+class ProductCategories extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,

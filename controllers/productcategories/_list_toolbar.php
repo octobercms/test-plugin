@@ -1,8 +1,8 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('october/test/products/create') ?>"
+        href="<?= Backend::url('october/test/productcategories/create') ?>"
         class="btn btn-primary oc-icon-plus">
-        <?= e(trans('backend::lang.list.create_button', ['name'=>'Product'])) ?>
+        <?= e(trans('backend::lang.list.create_button', ['name'=>'Product Category'])) ?>
     </a>
 
     <button
@@ -13,10 +13,4 @@
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
-
-    <a
-        href="<?= Backend::url('october/test/productcategories') ?>"
-        class="btn btn-default oc-icon-database">
-        Manage Categories
-    </a>
 </div>

@@ -3,12 +3,9 @@
 # ===================================
 
 fields:
-    title:
-        label: Product Name
-
-    price:
-        label: Price (Propagated)
-        type: number
+    name:
+        label: Name
+        translatable: site
 
     description:
         label: Description

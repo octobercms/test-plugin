@@ -3,9 +3,9 @@
 use Model;
 
 /**
- * Product Model
+ * ProductCategory Model
  */
-class Product extends Model
+class ProductCategory extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
@@ -13,7 +13,7 @@ class Product extends Model
     /**
      * @var string table associated with the model
      */
-    public $table = 'october_test_products';
+    public $table = 'october_test_product_categories';
 
     /**
      * @var array rules for validation
@@ -21,30 +21,12 @@ class Product extends Model
     public $rules = [];
 
     /**
-     * @var array dates attributes that should be mutated to dates
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at'
-    ];
-
-    /**
      * @var array propagatable list of attributes to propagate to other sites.
      */
-    public $propagatable = ['price'];
+    public $propagatable = [];
 
     /**
      * @var bool propagatableSync will enforce model structures between all sites
      */
     protected $propagatableSync = true;
-
-    /**
-     * @var array belongsToMany and other relations
-     */
-    public $belongsToMany = [
-        'categories' => [
-            ProductCategory::class,
-            'table' => 'october_test_products_categories'
-        ]
-    ];
 }

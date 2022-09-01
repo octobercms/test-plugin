@@ -15,14 +15,32 @@ class CreateTest9Tables extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->decimal('price', 15, 2)->default(0);
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
             $table->timestamps();
+        });
+
+        Schema::create('october_test_product_categories', function($table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('site_id')->nullable()->unsigned();
+            $table->integer('site_root_id')->nullable()->unsigned();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_products_categories', function($table) {
+            $table->integer('product_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->primary(['product_id', 'category_id']);
         });
     }
 
     public function down()
     {
         Schema::dropIfExists('october_test_products');
+        Schema::dropIfExists('october_test_product_categories');
+        Schema::dropIfExists('october_test_products_categories');
     }
 }
