@@ -5,3 +5,12 @@
 columns:
     title:
         label: Label
+
+    price:
+        label: Price
+
+    category_name:
+        label: Categories
+        relation: categories
+        select: name
+

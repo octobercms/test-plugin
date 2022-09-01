@@ -21,6 +21,11 @@ class ProductCategory extends Model
     public $rules = [];
 
     /**
+     * @var mixed attributes that aren't mass assignable.
+     */
+    protected $guarded = false;
+
+    /**
      * @var array propagatable list of attributes to propagate to other sites.
      */
     public $propagatable = [];

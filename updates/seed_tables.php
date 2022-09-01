@@ -19,6 +19,8 @@ use October\Test\Models\Review;
 use October\Test\Models\Role;
 use October\Test\Models\Theme;
 use October\Test\Models\User;
+use October\Test\Models\Product;
+use October\Test\Models\ProductCategory;
 
 class SeedAllTables extends Seeder
 {
@@ -255,6 +257,21 @@ class SeedAllTables extends Seeder
         /*
          * Test 9: Product
          */
+        $product1 = Product::make(['title' => '2 Pizzas', 'price' => '49.95']);
+        $product2 = Product::make(['title' => 'Cola', 'price' => '4.99']);
+        $product1->savePropagate();
+        $product2->savePropagate();
+
+        $category1 = ProductCategory::make(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
+        $category2 = ProductCategory::make(['name' => 'Drink', 'description' => 'The balance has been restored']);
+        $category1->savePropagate();
+        $category2->savePropagate();
+
+        $product1->categories()->add($category1);
+        $product2->categories()->add($category2);
+
+        ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
+        ProductCategory::create(['name' => 'Entree', 'description' => 'I hope you enjoyed the show']);
 
         /*
          * General Test: Attributes

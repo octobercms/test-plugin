@@ -12,3 +12,8 @@ fields:
 
     description:
         label: Description
+
+    categories:
+        label: Category
+        type: relation
+

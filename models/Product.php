@@ -21,6 +21,11 @@ class Product extends Model
     public $rules = [];
 
     /**
+     * @var mixed attributes that aren't mass assignable.
+     */
+    protected $guarded = false;
+
+    /**
      * @var array dates attributes that should be mutated to dates
      */
     protected $dates = [
@@ -44,7 +49,9 @@ class Product extends Model
     public $belongsToMany = [
         'categories' => [
             ProductCategory::class,
-            'table' => 'october_test_products_categories'
+            'table' => 'october_test_products_categories',
+            'key' => 'category_id',
+            'otherKey' => 'product_id'
         ]
     ];
 }
