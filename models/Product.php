@@ -36,7 +36,12 @@ class Product extends Model
     /**
      * @var array propagatable list of attributes to propagate to other sites.
      */
-    public $propagatable = ['price'];
+    public $propagatable = [
+        'price',
+        // 'certificate',
+        // 'gallery',
+        // 'categories'
+    ];
 
     /**
      * @var bool propagatableSync will enforce model structures between all sites
