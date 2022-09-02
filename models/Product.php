@@ -50,8 +50,17 @@ class Product extends Model
         'categories' => [
             ProductCategory::class,
             'table' => 'october_test_products_categories',
-            'key' => 'category_id',
-            'otherKey' => 'product_id'
+            'key' => 'product_id',
+            'otherKey' => 'category_id',
+            'relatedKey' => 'site_root_id'
         ]
+    ];
+
+    public $attachOne = [
+        'certificate' => \System\Models\File::class
+    ];
+
+    public $attachMany = [
+        'gallery' => \System\Models\File::class
     ];
 }

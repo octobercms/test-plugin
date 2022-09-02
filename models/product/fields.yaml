@@ -17,3 +17,11 @@ fields:
         label: Category
         type: relation
 
+    certificate:
+        label: Certificate
+        type: fileupload
+
+    gallery:
+        label: Gallery
+        type: fileupload
+

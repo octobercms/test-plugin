@@ -14,3 +14,7 @@ columns:
         relation: categories
         select: name
 
+    gallery:
+        label: Gallery
+        type: image
+
