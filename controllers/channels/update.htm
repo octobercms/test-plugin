@@ -33,16 +33,27 @@
                     class="btn btn-default">
                     Save and Close
                 </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="Deleting Channel..."
-                    data-request-confirm="Do you really want to delete this channel?">
-                </button>
                 <span class="btn-text">
                     or <a href="<?= Backend::url('october/test/trees') ?>">Cancel</a>
                 </span>
+                <?php if ($formModel->trashed()): ?>
+                    <button
+                        type="button"
+                        class="oc-icon-life-ring btn-icon info pull-right"
+                        data-request="onRestore"
+                        title="Restore this record"
+                        data-load-indicator="<?= e(trans('backend::lang.form.restoring')) ?>"
+                        data-request-confirm="<?= e(trans('backend::lang.form.confirm_restore')) ?>">
+                    </button>
+                <?php else: ?>
+                    <button
+                        type="button"
+                        class="oc-icon-trash-o btn-icon danger pull-right"
+                        data-request="onDelete"
+                        data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
+                        data-request-confirm="Do you really want to delete this channel?">
+                    </button>
+                <?php endif ?>
             </div>
         </div>
 

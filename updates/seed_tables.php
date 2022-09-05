@@ -262,13 +262,14 @@ class SeedAllTables extends Seeder
         $product1->savePropagate();
         $product2->savePropagate();
 
-        $category1 = ProductCategory::make(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
-        $category2 = ProductCategory::make(['name' => 'Drink', 'description' => 'The balance has been restored']);
-        $category1->savePropagate();
-        $category2->savePropagate();
+        $category1 = ProductCategory::create(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
+        $category2 = ProductCategory::create(['name' => 'Drink', 'description' => 'The balance has been restored']);
 
         $product1->categories()->add($category1);
         $product2->categories()->add($category2);
+
+        $category1->savePropagate();
+        $category2->savePropagate();
 
         ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
         ProductCategory::create(['name' => 'Entree', 'description' => 'I hope you enjoyed the show']);

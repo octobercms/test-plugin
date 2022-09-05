@@ -7,7 +7,6 @@ use Model;
  */
 class Category extends Model
 {
-
     use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\SimpleTree;
 
@@ -38,5 +37,4 @@ class Category extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
 }

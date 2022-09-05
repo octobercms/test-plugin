@@ -8,6 +8,7 @@ use Model;
 class Channel extends Model
 {
     use \October\Rain\Database\Traits\NestedTree;
+    use \October\Rain\Database\Traits\SoftDelete;
 
     /**
      * @var string The database table used by the model.
