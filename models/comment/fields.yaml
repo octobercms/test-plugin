@@ -123,6 +123,7 @@ secondaryTabs:
         content_md:
             label: Content
             type: markdown
+            sideBySide: false
             tab: Markdown Editor
             commentAbove: Content inside a tab, inside a popup.
 

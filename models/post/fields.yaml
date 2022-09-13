@@ -167,7 +167,6 @@ secondaryTabs:
             label: Content
             type: markdown
             size: huge
-            mode: split
             tab: Markdown Editor
             commentAbove: Markdown editor field.
 
