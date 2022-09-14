@@ -32,6 +32,7 @@ class CreateTest2Tables extends Migration
         Schema::create('october_test_comments', function($table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('status')->nullable();
             $table->text('content')->nullable();
             $table->text('content_md')->nullable();
             $table->text('content_html')->nullable();

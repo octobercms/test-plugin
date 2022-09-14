@@ -1,6 +1,7 @@
 <?php namespace October\Test\Models;
 
 use Model;
+use October\Test\Classes\StatusEnum;
 
 /**
  * Comment Model
@@ -19,6 +20,13 @@ class Comment extends Model
      * @var array dates
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * @var array casts
+     */
+    protected $casts = [
+        'status' => StatusEnum::class,
+    ];
 
     /**
      * @var array Guarded fields
@@ -54,21 +62,43 @@ class Comment extends Model
         'photo' => \System\Models\File::class
     ];
 
+    /**
+     * scopeIsVisibleWithTrashed
+     */
     public function scopeIsVisibleWithTrashed($query)
     {
         return $query->withTrashed()->isVisible();
     }
 
+    /**
+     * scopeIsVisible
+     */
     public function scopeIsVisible($query)
     {
         return $query->where('is_visible', true);
     }
 
+    /**
+     * getStatusOptions
+     */
+    public function getStatusOptions()
+    {
+        return [
+            StatusEnum::DRAFT->value => 'Draft',
+            StatusEnum::APPROVED->value => 'Approved',
+            StatusEnum::REJECTED->value => 'Rejected',
+            StatusEnum::PUBLISHED->value => 'Published',
+        ];
+    }
+
+    /**
+     * getFeelingOptions
+     */
     public function getFeelingOptions()
     {
         return [
-            'sad'      => 'Sad',
-            'happy'    => 'Happy',
+            'sad' => 'Sad',
+            'happy' => 'Happy',
             'trolling' => "Just trollin' y'all",
         ];
     }

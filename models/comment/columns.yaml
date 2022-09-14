@@ -22,3 +22,7 @@ columns:
     mood[feeling]:
         label: Mood
         type: selectable
+
+    status:
+        label: Status
+        type: selectable
