@@ -23,6 +23,7 @@ columns:
         label: Mood
         type: selectable
 
-    status:
-        label: Status
-        type: selectable
+    # PHP 8.1
+    # status:
+    #     label: Status
+    #     type: selectable

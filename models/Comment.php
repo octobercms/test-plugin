@@ -25,7 +25,8 @@ class Comment extends Model
      * @var array casts
      */
     protected $casts = [
-        'status' => StatusEnum::class,
+        // PHP 8.1
+        // 'status' => StatusEnum::class,
     ];
 
     /**

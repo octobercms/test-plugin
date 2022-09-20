@@ -5,6 +5,7 @@
 fields:
     title:
         label: Product Name
+        required: true
 
     price:
         label: Price (Propagated)

@@ -26,11 +26,12 @@ fields:
         commentAbove: Text field, inside a popup.
         span: auto
 
-    status:
-        label: Status
-        commentAbove: Enum based options
-        type: dropdown
-        span: auto
+    # PHP 8.1
+    # status:
+    #     label: Status
+    #     commentAbove: Enum based options
+    #     type: dropdown
+    #     span: auto
 
     _error_button:
         type: partial
