@@ -9,6 +9,7 @@ class Product extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
+    use \Tailor\Traits\BlueprintRelationModel;
 
     /**
      * @var string table associated with the model
@@ -51,6 +52,13 @@ class Product extends Model
     /**
      * @var array belongsToMany and other relations
      */
+    public $belongsTo = [
+        'author' => [
+            \Tailor\Models\EntryRecord::class,
+            'blueprint' => '6947ff28-b660-47d7-9240-24ca6d58aeae'
+        ]
+    ];
+
     public $belongsToMany = [
         'categories' => [
             ProductCategory::class,

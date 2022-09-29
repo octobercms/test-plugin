@@ -6,10 +6,17 @@ fields:
     title:
         label: Product Name
         required: true
+        span: auto
 
     price:
         label: Price (Propagated)
         type: number
+        span: auto
+
+    author:
+        label: Author
+        type: relation
+        nameFrom: title
 
     description:
         label: Description

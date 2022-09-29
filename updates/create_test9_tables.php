@@ -16,6 +16,7 @@ class CreateTest9Tables extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price', 15, 2)->default(0);
+            $table->integer('author_id')->nullable()->unsigned();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
             $table->timestamps();
