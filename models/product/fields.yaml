@@ -7,6 +7,7 @@ fields:
         label: Product Name
         required: true
         span: auto
+        default: Sneakers
 
     price:
         label: Price (Propagated)
@@ -18,8 +19,11 @@ fields:
         type: relation
         nameFrom: title
 
-    description:
-        label: Description
+    description@create:
+        label: Create a Description
+
+    description@update:
+        label: Update a Description
 
     categories:
         label: Category
@@ -32,4 +36,3 @@ fields:
     gallery:
         label: Gallery
         type: fileupload
-
