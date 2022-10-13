@@ -32,4 +32,12 @@ class Products extends Controller
 
         BackendMenu::setContext('October.Test', 'test', 'products');
     }
+
+    /**
+     * formBeforeSave
+     */
+    public function formBeforeSave($model)
+    {
+        $this->formSetSaveValue('title', null);
+    }
 }

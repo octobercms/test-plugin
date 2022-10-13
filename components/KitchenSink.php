@@ -46,7 +46,26 @@ class KitchenSink extends ComponentBase
                 'type' => 'checkbox',
                 'default' => 1,
                 'description' => 'Used as default entry point when previewing the record.',
-            ]
+            ],
+            'sortColumn' => [
+                'title' => 'Sort by Column',
+                'description' => 'Model column the records should be ordered by',
+                'type' => 'autocomplete',
+                'group' => 'Sorting',
+                'showExternalParam' => false
+            ],
+        ];
+    }
+
+    /**
+     * getSortColumnOptions
+     */
+    public function getSortColumnOptions()
+    {
+        return [
+            'create' => 'Create',
+            'update' => 'Update',
+            'delete' => 'Delete',
         ];
     }
 
