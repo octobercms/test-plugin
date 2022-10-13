@@ -1,8 +1,6 @@
 <?php namespace October\Test\Models;
 
-use Yaml;
 use Model;
-use October\Contracts\Element\ListElement;
 
 /**
  * Location Model
@@ -40,17 +38,6 @@ class Location extends Model
         'country' => Country::class,
         'city' => City::class,
     ];
-
-    /**
-     * defineListColumns
-     */
-    public function defineListColumns(ListElement $host)
-    {
-        $columns = Yaml::parseFileCached(__DIR__.'/location/columns.yaml')['columns'] ?? [];
-        foreach ($columns as $name => $column) {
-            $host->defineColumn($name)->useConfig($column);
-        }
-    }
 
     /**
      * getCountryOptions
