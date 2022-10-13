@@ -18,3 +18,12 @@ columns:
         label: Gallery
         type: image
 
+    location_built:
+        label: Built At
+        relation: location_built
+        select: name
+
+    location_sold:
+        label: Sold At
+        relation: location_sold
+        select: name

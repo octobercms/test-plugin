@@ -53,6 +53,10 @@ class Product extends Model
      * @var array belongsToMany and other relations
      */
     public $belongsTo = [
+        'location_built' => [
+            Location::class,
+            'key' => 'location_id'
+        ],
         'author' => [
             \Tailor\Models\EntryRecord::class,
             'blueprint' => '6947ff28-b660-47d7-9240-24ca6d58aeae'
@@ -60,6 +64,12 @@ class Product extends Model
     ];
 
     public $belongsToMany = [
+        'location_sold' => [
+            Location::class,
+            'table' => 'october_test_products_locations',
+            'key' => 'product_id',
+            'otherKey' => 'location_id',
+        ],
         'categories' => [
             ProductCategory::class,
             'table' => 'october_test_products_categories',

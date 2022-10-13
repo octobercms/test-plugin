@@ -14,25 +14,44 @@ fields:
         type: number
         span: auto
 
-    author:
-        label: Author
-        type: relation
-        nameFrom: title
+tabs:
+    fields:
+        location_built:
+            label: Location Built
+            type: recordfinder
+            tab: Location
+            list: $/october/test/models/location/columns.yaml
 
-    description@create:
-        label: Create a Description
+        location_sold:
+            label: Locations Sold
+            type: relation
+            tab: Location
 
-    description@update:
-        label: Update a Description
+        author:
+            label: Author
+            type: relation
+            nameFrom: title
+            tab: Details
 
-    categories:
-        label: Category
-        type: relation
+        description@create:
+            label: Create a Description
+            tab: Details
 
-    certificate:
-        label: Certificate
-        type: fileupload
+        description@update:
+            label: Update a Description
+            tab: Details
 
-    gallery:
-        label: Gallery
-        type: fileupload
+        categories:
+            label: Category
+            type: relation
+            tab: Details
+
+        certificate:
+            label: Certificate
+            type: fileupload
+            tab: Details
+
+        gallery:
+            label: Gallery
+            type: fileupload
+            tab: Media
