@@ -2,6 +2,7 @@
 
 use Mail;
 use Flash;
+use Response;
 use BackendMenu;
 use October\Test\Models\Phone;
 use Backend\Classes\Controller;
@@ -78,10 +79,8 @@ class People extends Controller
             $model->_previous_names = 'Hippo, Campus';
         }
 
-        /*
-         * Init proxy field model if we are creating the model
-         * and the context is proxy fields.
-         */
+        // Init proxy field model if we are creating the model
+        // and the context is proxy fields.
         if ($this->formGetContext() === 'proxyfields' && !$model->phone) {
             $model->phone = new Phone;
         }
@@ -125,5 +124,19 @@ class People extends Controller
         return $this->makePartial('datatable', [
             'datatable' => $datatable,
         ]);
+    }
+
+    /**
+     * onDownloadOrPrompt will randomly show a popup or download a file
+     */
+    public function onDownloadOrPrompt()
+    {
+        if (rand() % 2 === 0) {
+            return $this->makePartial('download_prompt');
+        }
+
+        $imagePath = base_path('modules/media/tests/fixtures/media/images/small.png');
+
+        return Response::download($imagePath, 'small.png');
     }
 }
