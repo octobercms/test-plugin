@@ -42,6 +42,12 @@ class Plugin extends PluginBase
             $validator->extend('uppercase', \October\Test\Classes\UppercaseRule::class);
             $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
         });
+
+        \October\Test\Models\Page::extend(function($model) {
+            $model->translatable = array_merge($model->translatable, [
+                'parent_id',
+            ]);
+        });
     }
 
     /**
