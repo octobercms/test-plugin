@@ -19,14 +19,17 @@ textarea:
     description: Basic text field
     titleFrom: text_area
     icon: icon-file-text-o
+    useTabs: true
     fields:
         text_area:
             label: Text Content
+            tab: Content
             type: textarea
             size: large
             default: Whether 'tis nobler in the mind to suffer. The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles. And by opposing end them.
         selection:
             label: Selection
+            tab: Extras
             type: dropdown
             options:
                 a: a

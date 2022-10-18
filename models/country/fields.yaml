@@ -36,6 +36,7 @@ tabs:
             type: repeater
             minItems: 1
             titleFrom: note
+            useTabs: true
             form: $/october/test/config/repeater_notes.yaml
 
         states:
