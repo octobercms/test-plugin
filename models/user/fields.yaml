@@ -111,6 +111,14 @@ secondaryTabs:
             mode: image
             maxItems: 2
 
+        media_folder:
+            label: Media (Folder)
+            span: auto
+            type: mediafinder
+            commentAbove: Folder selection from the Media Library.
+            tab: Media Manager
+            mode: folder
+
         photo:
             label: Photo
             span: auto
