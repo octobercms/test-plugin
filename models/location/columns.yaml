@@ -23,3 +23,7 @@ columns:
         options:
             - Nope
             - Yeah
+
+    sort_order:
+        label: Sort
+        type: number
