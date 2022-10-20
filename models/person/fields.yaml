@@ -119,6 +119,7 @@ tabs:
             mode: time
             tab: Birthday
             span: auto
+            twelveHour: true
 
         favcolor:
             label: Favorite color
