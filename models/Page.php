@@ -37,7 +37,9 @@ class Page extends Model
      */
     public $translatable = [
         'content',
-        'mainimage'
+        'mainimage',
+        'image',
+        'secondimage'
     ];
 
     /**
@@ -51,6 +53,10 @@ class Page extends Model
     public $belongsTo = [
         'parent' => Page::class,
         'layout' => Layout::class,
+    ];
+
+    public $attachOne = [
+        'secondimage' => \System\Models\File::class
     ];
 
     /**
