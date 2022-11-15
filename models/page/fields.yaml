@@ -155,3 +155,11 @@ secondaryTabs:
             prompt: Pick another nice image
             imageWidth: 140
             imageHeight: 140
+
+        secondimage:
+            span: full
+            label: Photo
+            type: fileupload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150

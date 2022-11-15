@@ -50,5 +50,6 @@ class CreateTest9Tables extends Migration
         Schema::dropIfExists('october_test_products');
         Schema::dropIfExists('october_test_product_categories');
         Schema::dropIfExists('october_test_products_categories');
+        Schema::dropIfExists('october_test_products_locations');
     }
 }
