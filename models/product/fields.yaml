@@ -55,3 +55,8 @@ tabs:
             label: Gallery
             type: fileupload
             tab: Media
+
+        featured_page:
+            label: Featured Page
+            type: pagefinder
+            tab: Media
