@@ -52,11 +52,10 @@ class Location extends Model
      */
     public function getCityOptions($scopes = null)
     {
-        if (!empty($scopes['country']->value)) {
-            return City::whereIn('custom_country_id', $scopes['country']->value)->lists('name', 'id');
+        if ($scopes->country && ($selectedId = $scopes->country->value)) {
+            return City::whereIn('custom_country_id', $selectedId)->lists('name', 'id');
         }
-        else {
-            return City::lists('name', 'id');
-        }
+
+        return City::lists('name', 'id');
     }
 }
