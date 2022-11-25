@@ -20,6 +20,7 @@ class CreateTest9Tables extends Migration
             $table->integer('location_id')->nullable()->unsigned();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
 

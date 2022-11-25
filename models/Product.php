@@ -9,6 +9,7 @@ class Product extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\SoftDelete;
     use \Tailor\Traits\BlueprintRelationModel;
 
     /**
@@ -47,7 +48,7 @@ class Product extends Model
     /**
      * @var bool propagatableSync will enforce model structures between all sites
      */
-    protected $propagatableSync = true;
+    protected $propagatableSync = false;
 
     /**
      * @var array belongsToMany and other relations
