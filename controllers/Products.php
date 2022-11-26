@@ -38,6 +38,6 @@ class Products extends Controller
      */
     public function formBeforeSave($model)
     {
-        $this->formSetSaveValue('title', null);
+        $this->formSetSaveValue('title', strtoupper(post('Product[title]')));
     }
 }
