@@ -10,18 +10,17 @@ scopes:
         # conditions:
         #     equals: true
 
-    # @todo available in v3+
-    # status:
-    #     label: Status
-    #     type: dropdown
-    #     options:
-    #         pending: Pending
-    #         active: Active
-    #         closed: Closed
-    #     conditions: '1 = 1'
-    #     # default:
-    #     #     - pending
-    #     #     - active
+    status:
+        label: Status
+        type: dropdown
+        options:
+            pending: Pending
+            active: Active
+            closed: Closed
+        conditions: '1 = 1'
+        # default:
+        #     - pending
+        #     - active
 
     roles:
         type: group
@@ -62,8 +61,7 @@ scopes:
         #     equals: true
         #     between: created_at >= ':after' AND created_at <= ':before'
 
-    # @todo available in v3+
-    # discount:
-    #     label: Discount (Custom)
-    #     type: discount
-    #     allowSearch: true
+    discount:
+        label: Discount (Custom)
+        type: discount
+        allowSearch: true
