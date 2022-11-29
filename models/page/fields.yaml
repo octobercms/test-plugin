@@ -82,7 +82,7 @@ tabs:
             type: relation
             nameFrom: id
 
-        _people:
+        people:
             tab: People
             label: People
             prompt: Add Person

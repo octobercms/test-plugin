@@ -28,6 +28,7 @@ class Page extends Model
      * @var array jsonable attribute names that are json encoded and decoded from the database
      */
     protected $jsonable = [
+        'people',
         'content',
         'mainimage'
     ];
