@@ -1,0 +1,53 @@
+uuid: 5faa4126-44c2-4944-8873-fd070da68967
+handle: Test\Blog\PostContent
+type: mixin
+name: Blog Post Content
+
+fields:
+    banner:
+        tab: Manage
+        label: Banner
+        type: fileupload
+        mode: image
+        maxFiles: 1
+
+    author:
+        tab: Manage
+        label: Author
+        commentAbove: 'Select the author for this blog post'
+        type: entries
+        maxItems: 1
+        source: Test\Blog\Authors
+
+    categories:
+        tab: Manage
+        label: Categories
+        commentAbove: 'Select categories the blog post belongs to'
+        type: entries
+        source: Test\Blog\Categories
+
+    is_featured:
+        tab: Featured
+        label: Featured Post
+        comment: Check this box to flag this post as special
+        type: checkbox
+
+    featured_text:
+        tab: Featured
+        label: Featured Text
+        type: textarea
+        size: small
+
+    gallery:
+        label: Gallery
+        type: fileupload
+        mode: image
+        span: adaptive
+        tab: Gallery
+
+    gallery_media:
+        label: Media
+        type: mediafinder
+        mode: image
+        span: adaptive
+        tab: Media

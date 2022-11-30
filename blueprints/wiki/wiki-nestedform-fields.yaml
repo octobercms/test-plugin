@@ -1,0 +1,32 @@
+uuid: 4dbb99c1-ee80-4679-8fc3-0a349ada4a75
+handle: Test\Wiki\NestedFormFields
+name: Wiki NestedForm Fields
+type: mixin
+
+fields:
+    platform:
+        span: auto
+        label: Platform
+        type: dropdown
+        options:
+            facebook: Facebook
+            linkedin: LinkedIn
+            dribbble: Dribbble
+            twitter: Twitter
+            youtube: YouTube
+
+    url:
+        span: auto
+        label: Social Link
+        type: text
+        placeholder: "https://..."
+
+    author:
+        tab: Manage
+        label: Author
+        commentAbove: 'Select the author for this blog post'
+        type: entries
+        maxItems: 1
+        source: Blog\Author
+        # displayMode: relation
+

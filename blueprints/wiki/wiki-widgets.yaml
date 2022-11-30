@@ -1,0 +1,32 @@
+uuid: b3dc3abb-6bd5-4f11-a67a-c16710100400
+handle: Test\Wiki\Widgets
+name: Wiki Widgets
+type: mixin
+
+fields:
+    gallery:
+        label: Gallery
+        type: fileupload
+        mode: image
+
+    list_items:
+        label: List Items
+        type: datatable
+        btnAddRowLabel: Add Item
+        btnDeleteRowLabel: Delete Item
+        columns:
+            text:
+                type: string
+                title: Text
+            number:
+                type: string
+                title: Number
+
+    nested_form:
+        label: Nested Form
+        type: nestedform
+        form:
+            fields:
+                nested_form:
+                    type: mixin
+                    source: Test\Wiki\NestedFormFields

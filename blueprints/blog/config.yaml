@@ -1,0 +1,46 @@
+uuid: f1176537-3622-4963-8bf0-8722e392ee7b
+handle: Test\Blog\Config
+type: global
+name: Blog Settings
+
+navigation:
+    mode: secondary
+    parent: Blog
+    icon: icon-cog
+    order: 200
+
+fields:
+    blog_name:
+        label: Blog Name
+        tab: General
+        placeholder: Latest News
+
+    about_this_blog:
+        label: About This Blog
+        comment: Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.
+        tab: General
+
+    _section1:
+        label: Social Media
+        type: section
+        tab: General
+
+    facebook_url:
+        label: Facebook URL
+        placeholder: "https://..."
+        tab: General
+
+    twitter_url:
+        label: Twitter URL
+        placeholder: "https://..."
+        tab: General
+
+    github_url:
+        label: GitHub URL
+        placeholder: "https://..."
+        tab: General
+
+    linkedin_url:
+        label: LinkedIn URL
+        placeholder: "https://..."
+        tab: General

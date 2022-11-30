@@ -1,0 +1,76 @@
+uuid: b79827ef-028a-4307-ac0a-279d0619eced
+handle: Test\Wiki\Fields
+name: Wiki Fields
+type: mixin
+
+fields:
+    a_text:
+        span: auto
+        label: A Text
+        type: text
+
+    a_number:
+        span: auto
+        label: A Number
+        type: number
+
+    a_password:
+        span: auto
+        label: A Password
+        type: password
+
+    a_email:
+        span: auto
+        label: A Email
+        type: email
+
+    a_textarea:
+        span: auto
+        label: A Textarea
+        type: textarea
+        size: tiny
+
+    a_dropdown:
+        span: auto
+        label: A Dropdown
+        type: dropdown
+        options:
+            draft: Draft
+            published: Published
+            archived: Archived
+
+    a_radio:
+        span: auto
+        label: A Radio
+        type: radio
+        options:
+            all: All
+            registered: Registered only
+            guests: Guests only
+
+    a_balloon_selector:
+        span: auto
+        label: A Balloon Selector
+        type: balloon-selector
+        options:
+            female: Female
+            male: Male
+
+    a_checkbox:
+        span: auto
+        label: A Checkbox
+        type: checkbox
+
+    a_switch:
+        span: auto
+        label: A Switch
+        type: switch
+
+    a_checkboxlist:
+        span: auto
+        label: A Checkbox List
+        type: checkboxlist
+        options:
+            open_account: Open account
+            close_account: Close account
+            modify_account: Modify account

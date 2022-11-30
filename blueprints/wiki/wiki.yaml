@@ -1,0 +1,42 @@
+uuid: 66ee3772-c72e-4e04-884e-931268ca32e2
+handle: Test\Wiki
+type: structure
+name: Test Wiki
+maxDepth: 3
+useDrafts: true
+
+navigation:
+    icon: icon-wikipedia-w
+
+fields:
+    content:
+        label: Content
+        tab: Edit
+        type: richeditor
+        span: adaptive
+
+    show_in_toc:
+        label: Show in TOC
+        comment: Include this article in the table of contents
+        type: checkbox
+
+    summary_text:
+        label: Summary Text
+        type: textarea
+        size: small
+        default: My Lovely
+
+    generics:
+        type: mixin
+        source: Test\Wiki\Fields
+        tab: Generics
+
+    widgets:
+        type: mixin
+        source: Test\Wiki\Widgets
+        tab: Widgets
+
+    builder:
+        type: mixin
+        source: Test\Wiki\Builder
+        tab: Builder
