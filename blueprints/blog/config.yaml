@@ -1,11 +1,11 @@
 uuid: f1176537-3622-4963-8bf0-8722e392ee7b
 handle: Test\Blog\Config
 type: global
-name: Blog Settings
+name: Test Settings
 
 navigation:
     mode: secondary
-    parent: Blog
+    parent: Test\Blog
     icon: icon-cog
     order: 200
 

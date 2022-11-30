@@ -94,7 +94,7 @@ class Plugin extends PluginBase
                 'label' => 'Playground',
                 'url' => Backend::url('october/test/people'),
                 'icon' => 'icon-child',
-                'order' => 200,
+                'order' => 198,
                 'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
