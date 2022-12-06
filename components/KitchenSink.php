@@ -9,6 +9,11 @@ use Cms\Classes\ComponentBase;
 class KitchenSink extends ComponentBase
 {
     /**
+     * @var bool isSubmitted
+     */
+    public $isSubmitted = false;
+
+    /**
      * componentDetails
      */
     public function componentDetails()
@@ -55,6 +60,15 @@ class KitchenSink extends ComponentBase
                 'showExternalParam' => false
             ],
         ];
+    }
+
+    /**
+     * onTestAjax
+     */
+    public function onTestAjax()
+    {
+        Flash::success('This came from the kitchen sink!');
+        $this->isSubmitted = true;
     }
 
     /**
