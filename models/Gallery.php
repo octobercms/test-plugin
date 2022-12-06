@@ -26,6 +26,14 @@ class Gallery extends Model
         'title',
     ];
 
+    /**
+     * @var array Jsonable fields
+     */
+    protected $jsonable = ['gallery'];
+
+    /**
+     * @var array rules
+     */
     public $rules = [
         'title' => 'required|uppercase:strict|between:3,255',
         'subtitle' => 'required|betwixt:3,20',

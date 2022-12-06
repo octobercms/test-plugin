@@ -21,6 +21,7 @@ class CreateTest7Tables extends Migration
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->boolean('is_all_day')->default(true);
+            $table->mediumText('gallery')->nullable();
             $table->timestamps();
         });
 
