@@ -51,6 +51,24 @@ class Plugin extends PluginBase
     }
 
     /**
+     * registerMailTemplates
+     */
+    public function registerMailTemplates()
+    {
+        return [
+            'templates' => [
+                'october.test::mail.test-message'
+            ],
+            'layouts' => [
+                'test' => 'october.test::mail.test-layout'
+            ],
+            'partials' => [
+                'test' => 'october.test::mail.test-partial'
+            ]
+        ];
+    }
+
+    /**
      * registerPermissions
      */
     public function registerPermissions()
