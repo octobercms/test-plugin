@@ -43,10 +43,13 @@ tabs:
     fields:
         country:
             label: Country
-            tab: Country
+            tab: Location
             type: relation
 
         city:
             label: City
-            tab: City
+            comment: This is filtered by the selected country
+            tab: Location
             type: relation
+            scope: filterCities
+            dependsOn: country
