@@ -9,6 +9,11 @@ fields:
         span: auto
         default: Sneakers
 
+    slug:
+        label: Slug
+        span: auto
+        disabled: true
+
     price:
         label: Price (Propagated)
         type: number

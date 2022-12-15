@@ -10,11 +10,28 @@ fields:
         commentHtml: true
         span: auto
 
+    slug:
+        label: Slug
+        span: auto
+        commentAbove: Automatically generated
+        disabled: true
+
+    published_at:
+        label: Published date and time
+        type: datepicker
+        span: auto
+        default: "tomorrow + 3 hours 15 minutes"
+
+    user:
+        label: User
+        type: relation
+        span: auto
+        nameFrom: username
+
     # Relation form field (default)
     status:
         label: Status
         type: relation
-        span: auto
         commentAbove: Generic model filtered by relation conditions.
         context: [create, update, relation]
         useController: false
@@ -32,20 +49,7 @@ fields:
         list: $/october/test/models/attribute/columns.yaml
         nameFrom: name
         descriptionFrom: label
-        span: auto
         commentAbove: Generic model filtered by relation conditions.
-
-    published_at:
-        label: Published date and time
-        type: datepicker
-        span: auto
-        default: "tomorrow + 3 hours 15 minutes"
-
-    user:
-        label: User
-        type: relation
-        span: auto
-        nameFrom: username
 
 tabs:
     fields:

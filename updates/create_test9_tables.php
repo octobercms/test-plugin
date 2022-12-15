@@ -14,9 +14,10 @@ class CreateTest9Tables extends Migration
         Schema::create('october_test_products', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->text('featured_page')->nullable();
-            $table->decimal('price', 15, 2)->default(0);
+            $table->decimal('price', 15, 2)->default(0)->nullable();
             $table->integer('author_id')->nullable()->unsigned();
             $table->integer('location_id')->nullable()->unsigned();
             $table->integer('site_id')->nullable()->unsigned();

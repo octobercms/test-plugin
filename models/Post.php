@@ -8,6 +8,7 @@ use October\Test\Models\Tag;
  */
 class Post extends Model
 {
+    use \October\Rain\Database\Traits\Sluggable;
     use \October\Rain\Database\Traits\Validation;
 
     /**
@@ -34,6 +35,11 @@ class Post extends Model
      * @var array Jsonable fields
      */
     protected $jsonable = ['tags_array', 'tags_array_id', 'tags_inline_options'];
+
+    /**
+     * @var array slugs for these attributes.
+     */
+    protected $slugs = ['slug' => 'name'];
 
     /**
      * translatable
