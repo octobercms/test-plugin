@@ -258,8 +258,10 @@ class SeedAllTables extends Seeder
          * Test 9: Product
          */
         $product1 = Product::make(['title' => '2 Pizzas', 'price' => '49.95']);
-        $product2 = Product::make(['title' => 'Cola', 'price' => '4.99']);
+        $product1->slug = 'custom-slug';
         $product1->savePropagate();
+
+        $product2 = Product::make(['title' => 'Cola', 'price' => '4.99']);
         $product2->savePropagate();
 
         $category1 = ProductCategory::create(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
