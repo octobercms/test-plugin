@@ -12,7 +12,6 @@ fields:
     slug:
         label: Slug
         span: auto
-        disabled: true
 
     price:
         label: Price (Propagated)
