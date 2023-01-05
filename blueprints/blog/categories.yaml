@@ -16,3 +16,16 @@ fields:
 
     description@create:
         label: Description (Create)
+
+    status:
+        label: Status
+        type: text
+
+    items:
+        type: repeater
+        form:
+            fields:
+                title:
+                    label: Title
+                price:
+                    label: Price

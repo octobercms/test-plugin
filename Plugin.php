@@ -1,7 +1,6 @@
 <?php namespace October\Test;
 
 use Backend;
-use Validator;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 
