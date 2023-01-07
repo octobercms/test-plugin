@@ -687,7 +687,7 @@ fields:
                 fields:
                     events:
                         type: mixin
-                        source: Content\Posts
+                        source: Test\Wiki\NestedFormFields
 
             form:
                 name: Form

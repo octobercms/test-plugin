@@ -26,7 +26,7 @@ fields:
         label: Author
         commentAbove: 'Select the author for this blog post'
         type: entries
-        maxItems: 1
-        source: Blog\Author
-        # displayMode: relation
+        # maxItems: 1
+        source: Test\Blog\Authors
+        displayMode: relation
 
