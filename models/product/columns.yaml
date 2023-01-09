@@ -33,3 +33,4 @@ columns:
         type: partial
         path: $/october/test/models/product/_column_dropdown.php
         clickable: false
+        sortable: false
