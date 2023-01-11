@@ -8,6 +8,7 @@ use Model;
 class Product extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
+    use \October\Rain\Database\Traits\Sluggable;
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
     use \Tailor\Traits\BlueprintRelationModel;
@@ -39,16 +40,20 @@ class Product extends Model
      * @var array propagatable list of attributes to propagate to other sites.
      */
     public $propagatable = [
+        'title',
         'price',
-        // 'certificate',
-        // 'gallery',
-        // 'categories'
+        'slug',
     ];
 
     /**
      * @var bool propagatableSync will enforce model structures between all sites
      */
-    protected $propagatableSync = false;
+    protected $propagatableSync = true;
+
+    /**
+     * @var array slugs for these attributes.
+     */
+    protected $slugs = ['slug' => 'title'];
 
     /**
      * @var array belongsToMany and other relations

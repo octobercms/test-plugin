@@ -27,3 +27,10 @@ columns:
         label: Sold At
         relation: location_sold
         select: name
+
+    _dropdown:
+        label: Dropdown
+        type: partial
+        path: $/october/test/models/product/_column_dropdown.php
+        clickable: false
+        sortable: false

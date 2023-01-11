@@ -18,6 +18,7 @@ tabs:
         feature_color:
             label: Feature Color
             type: colorpicker
+            allowCustom: false
 
         _internal_comments:
             label: Internal comments

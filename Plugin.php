@@ -1,7 +1,6 @@
 <?php namespace October\Test;
 
 use Backend;
-use Validator;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 
@@ -51,6 +50,24 @@ class Plugin extends PluginBase
     }
 
     /**
+     * registerMailTemplates
+     */
+    public function registerMailTemplates()
+    {
+        return [
+            'templates' => [
+                'october.test::mail.test-message'
+            ],
+            'layouts' => [
+                'test' => 'october.test::mail.test-layout'
+            ],
+            'partials' => [
+                'test' => 'october.test::mail.test-partial'
+            ]
+        ];
+    }
+
+    /**
      * registerPermissions
      */
     public function registerPermissions()
@@ -94,7 +111,7 @@ class Plugin extends PluginBase
                 'label' => 'Playground',
                 'url' => Backend::url('october/test/people'),
                 'icon' => 'icon-child',
-                'order' => 200,
+                'order' => 198,
                 'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [

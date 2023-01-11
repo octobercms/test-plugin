@@ -42,9 +42,25 @@ tabs:
             label: Images
             type: fileupload
             mode: image
+            span: left
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
             tab: Images
+
+        gallery:
+            label: Gallery
+            type: repeater
+            tab: Images
+            span: right
+            form:
+                fields:
+                    title:
+                        label: Gallery Title
+                    images:
+                        label: Gallery Images
+                        type: mediafinder
+                        maxItems: 0
+                        mode: image
 
         start_date:
             label: Start Date

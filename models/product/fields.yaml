@@ -9,6 +9,10 @@ fields:
         span: auto
         default: Sneakers
 
+    slug:
+        label: Slug
+        span: auto
+
     price:
         label: Price (Propagated)
         type: number
@@ -54,4 +58,9 @@ tabs:
         gallery:
             label: Gallery
             type: fileupload
+            tab: Media
+
+        featured_page:
+            label: Featured Page
+            type: pagefinder
             tab: Media

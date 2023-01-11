@@ -27,3 +27,10 @@ columns:
     # status:
     #     label: Status
     #     type: selectable
+
+    _dropdown:
+        label: Dropdown
+        type: partial
+        path: $/october/test/models/product/_column_dropdown.php
+        clickable: false
+        sortable: false

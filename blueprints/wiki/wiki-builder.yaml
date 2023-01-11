@@ -1,0 +1,700 @@
+uuid: 475ae354-0298-49ba-93ff-b3904b1ad618
+handle: Test\Wiki\Builder
+type: mixin
+name: Builder
+
+fields:
+    builder:
+        type: repeater
+        label: Builder
+        displayMode: builder
+        span: adaptive
+        prompt: Add a Block
+        groups:
+            hero:
+                name: Hero
+                icon: icon-laptop
+                description: A section with a main image.
+                titleFrom: title
+                fields:
+                    title:
+                        label: Title
+                        commentAbove: Title of this section. Used for organizational purposes!
+                        type: text
+                        span: left
+                        default: Test Default Value
+
+                    background_style:
+                        label: Background Style
+                        commentAbove: The Background Style of all the slides.
+                        type: dropdown
+                        span: right
+                        options:
+                            none: None
+                            texture_1: Texture 1
+                            texture_2: Texture 2
+                            texture_3: Texture 3
+                            texture_4: Texture 4
+                    image:
+                        label: Image
+                        type: mediafinder
+                        commentAbove: Add an image to the slide
+                        span: left
+                        mode: image
+                        maxItems: 1
+                    image_mask:
+                        label: Image Shape
+                        type: dropdown
+                        commentAbove: The shape of the image.
+                        span: right
+                        options:
+                            mask-1: Pear Shape 1
+                            mask-2: Pear Shape 2
+                            mask-3: Starburst
+                    hr_2:
+                        type: ruler
+                    section_title:
+                        label: Section Title Text
+                        type: text
+                        commentAbove: The title content of the section
+                        span: left
+                    alignment:
+                        label: Content Alignment
+                        type: dropdown
+                        commentAbove: Align the text in the hero
+                        span: right
+                        options:
+                            text-start: Left
+                            text-center: Center
+                            text-end: Right
+                    content:
+                        label: Hero Content
+                        type: richeditor
+                        toolbarButtons: bold,italic,underline,insertLink
+                        commentAbove: The text of the Hero.
+                    hr_1:
+                        type: ruler
+                    buttons:
+                        type: mixin
+                        source: Content\Buttons
+                        maxItems: 1
+                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+
+            hero_slider:
+                name: Hero Slider
+                icon: icon-play-circle
+                description: A section with a configurable slideshow
+                titleFrom: title
+                fields:
+                    title:
+                        label: Title
+                        commentAbove: Title of this section. Used for organizational purposes.
+                        type: text
+                        span: left
+                    background_style:
+                        label: Background Style
+                        commentAbove: The Background Style of all the slides.
+                        type: dropdown
+                        span: right
+                        options:
+                            none: None
+                            texture_1: Texture 1
+                            texture_2: Texture 2
+                            texture_3: Texture 3
+                            texture_4: Texture 4
+                    autoplay:
+                        label: Autoplay Slides
+                        type: switch
+                        comment: Auto cycle through the slides
+                        span: left
+                        cssClass: mt-4
+                    slide_interval:
+                        label: Slide Interval
+                        type: Number
+                        commentAbove: How long should a slide stay before switching in seconds.
+                        span: right
+                        default: 7
+                        trigger:
+                            action: hide
+                            field: autoplay
+                            condition: unchecked
+                    slides:
+                        label: Slides
+                        type: repeater
+                        commentAbove: Add slides to this Hero
+                        displayMode: builder
+                        groups:
+                            text:
+                                name: Text Slide
+                                description: A text-based  slide with "highlights"
+                                icon: icon-header
+                                fields:
+                                    headline:
+                                        type: text
+                                        commentAbove: The first line of text in the Hero
+                                        label: Headline
+                                        span: left
+                                    sub_headline:
+                                        type: text
+                                        commentAbove: The second line of text in the Hero
+                                        label: Sub Headline
+                                        span: right
+                                    text_to_highlight:
+                                        label: Text To Highlight
+                                        type: text
+                                        commentAbove: The text to "highlight" in the first Headline
+                                        span: left
+                                    show_citrus_fruits:
+                                        type: switch
+                                        comment: Show the citrus fruits in the hero
+                                        label: Show Citrus Fruits?
+                                        default: checked
+                                        cssClass: mt-3
+                                        span: right
+                                    hr_1:
+                                        type: ruler
+                                    buttons:
+                                        type: mixin
+                                        source: Content\Buttons
+                                        maxItems: 1
+                                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+                            image:
+                                name: Image Slide
+                                description: An image based slide with text
+                                icon: icon-file-image-o
+                                fields:
+                                    image:
+                                        label: Image
+                                        type: mediafinder
+                                        commentAbove: Add an image to the slide
+                                        span: left
+                                        mode: image
+                                        maxItems: 1
+                                    image_mask:
+                                        label: Image Shape
+                                        type: dropdown
+                                        commentAbove: The shape of the image.
+                                        span: right
+                                        options:
+                                            mask-1: Pear Shape 1
+                                            mask-2: Pear Shape 2
+                                            mask-3: Starburst
+                                    title:
+                                        label: Slide Title Text
+                                        type: text
+                                        commentAbove: The title content of the slide
+                                        span: left
+                                    alignment:
+                                        label: Content Alignment
+                                        type: dropdown
+                                        commentAbove: Align the text in the hero
+                                        span: right
+                                        options:
+                                            text-start: Left
+                                            text-center: Center
+                                            text-end: Right
+                                    content:
+                                        label: Hero Slide Content
+                                        type: richeditor
+                                        toolbarButtons: bold,italic,underline,insertLink
+                                        commentAbove: The text of the Hero slide.
+                                    buttons:
+                                        type: mixin
+                                        source: Content\Buttons
+                                        maxItems: 1
+                                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+
+            section:
+                name: Section
+                icon: icon-columns
+                description: Section with configurable columns.
+                titleFrom: title
+                fields:
+                    title:
+                        label: Title
+                        type: text
+                        commentAbove: Title of this section. Used for organizational purposes.
+                        span: full
+                    style:
+                        label: Style
+                        type: dropdown
+                        commentAbove: Style of this section.
+                        span: left
+                        options:
+                            none: None
+                            light: Light
+                            dark: Dark
+                    background_style:
+                        label: Background Style
+                        commentAbove: The Background Style of all the slides.
+                        type: dropdown
+                        span: right
+                        options:
+                            none: None
+                            texture_1: Texture 1
+                            texture_2: Texture 2
+                            texture_3: Texture 3
+                            texture_4: Texture 4
+                    reverse_columns_on_mobile:
+                        label: Reverse Columns on Mobile
+                        comment: Useful if you have content that needs to be stacked a different way on a phone.
+                        type: switch
+                        span: left
+                        cssClass: mt-3
+                    animation:
+                        label: Add Growing Animation
+                        comment: Add a leaf growing animation in the section
+                        type: switch
+                        span: right
+                        cssClass: mt-3
+                    header:
+                        label: Make Section a Header
+                        comment: Useful if you don't want to use a Hero, but want to follow best SEO practices.
+                        type: switch
+                        span: left
+                        cssClass: mt-3
+                    animation_position:
+                        label: Animation Position
+                        commentAbove: Which side of the screen should the animation grow?
+                        type: dropdown
+                        span: right
+                        options:
+                            left: Left
+                            right: Right
+                        trigger:
+                            action: show
+                            field: animation
+                            condition: checked
+                    hr_1:
+                        type: ruler
+                    columns:
+                        label: Content
+                        type: repeater
+                        commentAbove: Create content for this section. Each content block uses it's own column. Max of 4 per section.
+                        span: full
+                        displayMode: builder
+                        maxItems: 4
+                        groups:
+                            header:
+                                name: Special Header
+                                icon: icon-header
+                                description: Headline text with configurable accents. Also includes configurable content.
+                                fields:
+                                    header_text:
+                                        label: Header Text
+                                        commentAbove: The title text for this block
+                                        type: text
+                                        span: left
+                                    alignment:
+                                        label: Text Alignment
+                                        type: dropdown
+                                        commentAbove: Position the text in this block
+                                        span: right
+                                        options:
+                                            text-start: Left
+                                            text-center: Center
+                                            text-end: Right
+                                    content:
+                                        type: richeditor
+                                        label: Content
+                                        toolbarButtons: bold,italic,underline,insertLink
+                                    hr_1:
+                                        type: ruler
+                                    accent:
+                                        label: Accent
+                                        type: dropdown
+                                        commentAbove: Choose what type of accent this text should have
+                                        span: left
+                                        options:
+                                            leaf: Leaf
+                                            thumbs_up: Thumbs Up
+                                            none: None
+                                    accent_position:
+                                        type: dropdown
+                                        label: Accent Position
+                                        commentAbove: The position of the accent
+                                        span: right
+                                        options:
+                                            left: Left
+                                            right: Right
+                                        trigger:
+                                            action: show
+                                            field: accent
+                                            condition: value[leaf]
+                                    hr_2:
+                                        type: ruler
+                                    buttons:
+                                        type: mixin
+                                        source: Content\Buttons
+                                        maxItems: 3
+                                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+                                    hr_3:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            content:
+                                name: Text With Buttons
+                                icon: icon-align-left
+                                description: Add text and buttons to your section.
+                                titleFrom: title
+                                fields:
+                                    title:
+                                        label: Title
+                                        commentAbove: Title of this column. Used for organizational purposes.
+                                        type: text
+                                    content:
+                                        label: Content
+                                        type: richeditor
+                                    hr_1:
+                                        type: ruler
+                                    buttons:
+                                        type: mixin
+                                        source: Content\Buttons
+                                        maxItems: 3
+                                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+                                    hr_2:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            buttons:
+                                name: Buttons
+                                icon: icon-link
+                                titleFrom: title
+                                description: Add buttons to your section.
+                                fields:
+                                    title:
+                                        label: Title
+                                        type: text
+                                        commentAbove: Title of this column. Used for organizational purposes.
+                                    buttons:
+                                        type: mixin
+                                        source: Content\Buttons
+                                        maxItems: 3
+                                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+                                    hr_2:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            image:
+                                name: Image
+                                icon: icon-image
+                                description: Add an image to your section.
+                                titleFrom: title
+                                fields:
+                                    title:
+                                        label: Title
+                                        type: text
+                                        commentAbove: Title of this column. Used for organizational purposes.
+                                        span: full
+                                    hr_1:
+                                        type: ruler
+                                    image:
+                                        label: Image
+                                        type: mediafinder
+                                        commentAbove: Pick an image for this column.
+                                        span: left
+                                        mode: image
+                                        maxItems: 1
+                                    image_description:
+                                        label: Image Description
+                                        type: text
+                                        commentAbove: The Description of the image. Use for SEO purposes.
+                                        span: right
+                                    mask_type:
+                                        label: Mask Image
+                                        commentAbove: Contain this image in a shape
+                                        type: dropdown
+                                        span: left
+                                        options:
+                                            none: None
+                                            leaves: Leaves
+                                            starburst: Starburst
+                                    accent:
+                                        label: Add Animated Leaves
+                                        comment: Add animated leaves to this image
+                                        type: switch
+                                        default: unchecked
+                                        cssClass: mt-4
+                                        span: right
+                                        trigger:
+                                            action: clear|disable
+                                            field: mask_type
+                                            condition: value[none]
+                                    hr_2:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            processing:
+                                name: Processing
+                                icon: icon-flask
+                                description: Section with processing content.
+                                titleFrom: title
+                                fields:
+                                    processing:
+                                        type: mixin
+                                        source: Content\ProcessingColumn
+                                    hr_1:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            events:
+                                name: Events
+                                icon: icon-calendar
+                                description: Column with events.
+                                titleFrom: title
+                                fields:
+                                    events:
+                                        type: mixin
+                                        source: Content\EventsColumn
+                                    hr_1:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            featured_ingredients:
+                                name: Featured Ingredients
+                                icon: icon-flask
+                                description: Column with Featured Ingredients.
+                                titleFrom: title
+                                fields:
+                                    events:
+                                        type: mixin
+                                        source: Content\FeaturedIngredientsColumn
+                                    hr_1:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            products:
+                                name: Products
+                                icon: icon-cube
+                                description: Column with products.
+                                titleFrom: title
+                                fields:
+                                    products:
+                                        type: mixin
+                                        source: Content\ProductsColumn
+                                    hr_1:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+                            form:
+                                name: Form
+                                icon: icon-list-alt
+                                description: Section with a form.
+                                titleFrom: title
+                                fields:
+                                    form:
+                                        type: mixin
+                                        source: Content\FormColumn
+                                    hr_1:
+                                        type: ruler
+                                    column_options:
+                                        type: mixin
+                                        source: Content\ColumnOptions
+
+            animal_ingredients_section:
+                name: Animal Ingredients Section
+                icon: icon-paw
+                description: Section with featured animal ingredients
+                titleFrom: title
+                fields:
+                    title:
+                        label: Title
+                        type: text
+                        commentAbove: Title of this section. Used for organizational purposes.
+                        span: left
+                    section_title:
+                        label: Section Title
+                        type: text
+                        commentAbove: Title used on the frontend of the site
+                        span: right
+                    content:
+                        label: Content
+                        type: richeditor
+                        toolbarButtons: bold,italic,underline,insertLink
+                        commentAbove: The text of this section.
+                        span: right
+                    image:
+                        type: mediafinder
+                        mode: image
+                        maxItems: 1
+                        label: Image
+                        commentAbove: Image for this section
+                        span: left
+                    image_description:
+                        type: text
+                        label: Image Description
+                        commentAbove: Used for SEO Purposes
+                        span: left
+                    hr_2:
+                        type: ruler
+                    buttons:
+                        type: mixin
+                        source: Content\Buttons
+                        maxItems: 1
+                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+
+            request_sample_section:
+                name: Request a Sample Section
+                icon: icon-eyedropper
+                description: Special section with text accents.
+                titleFrom: title
+                fields:
+                    title:
+                        label: Title
+                        type: text
+                        commentAbove: Title of this section. Used for organizational purposes.
+                        span: left
+                        default: Request a free sample
+                    section_title:
+                        label: Section Title
+                        type: text
+                        commentAbove: Title used on the frontend of the site
+                        span: right
+                        default: Request a free sample
+                    content:
+                        label: Content
+                        type: richeditor
+                        toolbarButtons: bold,italic,underline,insertLink
+                        commentAbove: The text of this section.
+                        span: right
+                        default: "<p>Let us know which ingredient you are interested in and someone from our team will be in touch to help you right away!</p>"
+                    image:
+                        type: mediafinder
+                        mode: image
+                        maxItems: 1
+                        label: Image
+                        commentAbove: Image for this section
+                        span: left
+                        default: "/request-sample-photos/processing-texture-3.jpg"
+                    image_description:
+                        type: text
+                        label: Image Description
+                        commentAbove: Used for SEO Purposes
+                        span: left
+                        default: "Image of Processed Product"
+                    hr_2:
+                        type: ruler
+                    accent:
+                        type: switch
+                        label: Show Extra Accent
+                        comment: Show a Starburst Accent with leaves. You can add text to this accent.
+                        default: unchecked
+                        span: left
+                    accent_text:
+                        type: text
+                        label: Accent Text
+                        commentAbove: Text to show on the accent
+                        span: right
+                        default: "Paragraph Text Goes Here"
+                        trigger:
+                            action: show
+                            field: accent
+                            condition: checked
+                    certification_logos:
+                        type: mediafinder
+                        mode: image
+                        commentAbove: Add your certification logos here to display with the sample section
+                        label: Certification Logos
+                        default: [
+                            "/certification-logos/certification-1.png",
+                            "/certification-logos/certification-2.png",
+                            "/certification-logos/certification-3.png",
+                            "/certification-logos/certification-4.png",
+                            "/certification-logos/certification-5.png",
+                            "/certification-logos/certification-6.png",
+                            "/certification-logos/certification-7.png"
+                        ]
+                    hr_3:
+                        type: ruler
+                    buttons:
+                        type: mixin
+                        source: Content\Buttons
+                        maxItems: 1
+                        commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+
+            ingredients_component:
+                name: Ingredients Component
+                icon: icon-flask
+                description: Section with the Ingredients Component.
+                titleFrom: title
+                fields:
+                    events:
+                        type: mixin
+                        source: Content\IngredientComponent
+
+            timeline_component:
+                name: Timeline
+                icon: icon-film
+                description: Add a timeline of events to this page.
+                titleFrom: Title
+                fields:
+                    title:
+                        label: Title
+                        type: text
+                        commentAbove: Title of this section. Used for organizational purposes.
+                        span: full
+                    items:
+                        label: Timeline Items
+                        commentAbove: Add items to this timeline
+                        type: repeater
+                        displayMode: builder
+                        form:
+                            fields:
+                                title:
+                                    label: Title
+                                    type: text
+                                    span: left
+                                    commentAbove: Title of this item. Used on the website.
+                                year:
+                                    type: number
+                                    min: 1675
+                                    max: 3034
+                                    commentAbove: The Year of the event
+                                    span: right
+                                    label: Year
+                                image:
+                                    label: Image
+                                    span: left
+                                    type: mediafinder
+                                    mode: image
+                                    commentAbove: The Background Image of the timeline element.
+                                    maxItems: 1
+                                content:
+                                    label: Content
+                                    span: right
+                                    type: richeditor
+                                    toolbarButtons: bold,italic,underline,insertLink
+                                    commentAbove: The content of this timeline element.
+                                color:
+                                    label: Color
+                                    commentAbove: Color of this timeline element.
+                                    type: colorpicker
+                                    availableColors: [ '#62AC46', '#8DC63F', '#AEC62D', '#D3E27A', '#FFCC40', '#FAA61A' ]
+
+            blog:
+                name: News & Events
+                icon: icon-newspaper-o
+                description: Show the most recent blog posts.
+                titleFrom: title
+                fields:
+                    events:
+                        type: mixin
+                        source: Test\Wiki\NestedFormFields
+
+            form:
+                name: Form
+                icon: icon-list-alt
+                description: Section with a form.
+                titleFrom: title
+                fields:
+                    form:
+                        type: mixin
+                        source: Content\Form

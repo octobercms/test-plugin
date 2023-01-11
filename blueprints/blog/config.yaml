@@ -1,0 +1,61 @@
+uuid: f1176537-3622-4963-8bf0-8722e392ee7b
+handle: Test\Blog\Config
+type: global
+name: Test Settings
+
+navigation:
+    mode: secondary
+    parent: Test\Blog
+    icon: icon-cog
+    order: 200
+
+fields:
+    blog_name:
+        label: Blog Name
+        tab: General
+        placeholder: Latest News
+
+    about_this_blog:
+        label: About This Blog
+        comment: Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.
+        tab: General
+
+    _section1:
+        label: Social Media
+        type: section
+        tab: General
+
+    button_enabled:
+        type: checkbox
+        tab: General
+        label: Add Button
+        comment: Check this to clear the fields below.
+
+    link_method:
+        validation: "required_if:button_enabled,1"
+        tab: General
+        type: balloon-selector
+        label: Link Type
+        cssClass: field-indent
+        options:
+            automatic: Automatic
+            manual: Manual
+        trigger:
+            action: empty
+            field: button_enabled
+            condition: checked
+
+    permissions:
+        label: Permissions
+        tab: General
+        type: checkboxlist
+        cssClass: field-indent
+        quickselect: true
+        options:
+            open_account: Open account
+            close_account: Close account
+            modify_account: Modify account
+        trigger:
+            action: empty
+            field: button_enabled
+            condition: checked

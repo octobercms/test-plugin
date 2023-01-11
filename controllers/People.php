@@ -69,6 +69,9 @@ class People extends Controller
         Mail::sendTo('admin@domain.tld', 'october.test::mail.some_html', $data);
         Mail::sendTo('admin@domain.tld', 'october.test::mail.with_template', $data);
 
+        // Database stored
+        Mail::sendTo('test@email.tld', 'october.test::mail.test-message', ['user' => 'Some Guy']);
+
         Flash::success('Done');
     }
 

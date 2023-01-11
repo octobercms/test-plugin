@@ -36,4 +36,14 @@ class City extends Model
     public $belongsTo = [
         'country' => [Country::class, 'key' => 'custom_country_id'],
     ];
+
+    /**
+     * scopeFilterCities
+     */
+    public function scopeFilterCities($query, $model)
+    {
+        if ($countryId = $model->country_id) {
+            $query->where('custom_country_id', $countryId);
+        }
+    }
 }

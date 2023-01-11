@@ -1,0 +1,42 @@
+uuid: b6884c2f-81c8-4f07-bf93-0f0424b07a45
+handle: Test\Blog
+type: stream
+name: Test Posts
+useDrafts: true
+
+primaryNavigation:
+    label: Playground 2
+    icon: icon-child
+    order: 199
+
+navigation:
+    mode: primary
+    icon: icon-pencil
+    order: 100
+
+groups:
+    regular_post:
+        name: Regular Post
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: richeditor
+                span: adaptive
+
+            blog_post_content:
+                type: mixin
+                source: Test\Blog\PostContent
+
+    markdown_post:
+        name: Markdown Post
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: markdown
+                span: adaptive
+
+            blog_post_content:
+                type: mixin
+                source: Test\Blog\PostContent

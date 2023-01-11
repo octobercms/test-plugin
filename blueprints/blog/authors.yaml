@@ -1,0 +1,41 @@
+uuid: e183d98c-e7ef-4142-a5d4-f56b596a9fa3
+handle: Test\Blog\Authors
+type: entry
+name: Test Authors
+useDrafts: false
+
+navigation:
+    mode: secondary
+    parent: Test\Blog
+    icon: icon-user
+    order: 200
+
+fields:
+    avatar:
+        label: Avatar
+        type: mediafinder
+        mode: image
+
+    about:
+        label: About
+        type: textarea
+
+    facebook_url:
+        label: Facebook URL
+        tab: Social
+        placeholder: "https://..."
+
+    twitter_url:
+        label: Twitter URL
+        tab: Social
+        placeholder: "https://..."
+
+    github_url:
+        label: GitHub URL
+        tab: Social
+        placeholder: "https://..."
+
+    linkedin_url:
+        label: LinkedIn URL
+        tab: Social
+        placeholder: "https://..."
