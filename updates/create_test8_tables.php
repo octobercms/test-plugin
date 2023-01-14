@@ -14,6 +14,7 @@ class CreateTest8Tables extends Migration
             $table->increments('id')->unsigned();
             $table->string('title')->nullable();
             $table->integer('type')->unsigned()->nullable();
+            $table->string('status')->nullable();
             $table->text('content')->nullable();
             $table->text('mainimage')->nullable();
             $table->text('image')->nullable();
