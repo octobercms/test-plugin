@@ -16,5 +16,5 @@ scopes:
         modelClass: October\Test\Models\Page
         options: getStatusOptions
         conditions: status in (:filtered)
-        default:
-            - 0
+        # default:
+        #     - 0
