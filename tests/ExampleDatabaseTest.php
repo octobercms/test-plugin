@@ -1,9 +1,16 @@
 <?php namespace October\Test\Tests;
 
+use Schema;
 use PluginTestCase;
 
+/**
+ * ExampleDatabaseTest
+ */
 class ExampleDatabaseTest extends PluginTestCase
 {
+    /**
+     * setUp
+     */
     public function setUp(): void
     {
         parent::setUp();
@@ -12,15 +19,18 @@ class ExampleDatabaseTest extends PluginTestCase
         $this->migrateDatabase();
     }
 
+    /**
+     * testDatabaseAvailable
+     */
     public function testDatabaseAvailable()
     {
         // Core
-        $this->assertTrue(\Schema::hasTable('migrations'));
+        $this->assertTrue(Schema::hasTable('migrations'));
 
         // Module
-        $this->assertTrue(\Schema::hasTable('system_files'));
+        $this->assertTrue(Schema::hasTable('system_files'));
 
         // Plugin
-        $this->assertTrue(\Schema::hasTable('october_test_people'));
+        $this->assertTrue(Schema::hasTable('october_test_people'));
     }
 }

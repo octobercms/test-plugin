@@ -4,8 +4,14 @@ use Request;
 use PluginTestCase;
 use October\Test\Models\Comment;
 
+/**
+ * ExampleModelTest
+ */
 class ExampleModelTest extends PluginTestCase
 {
+    /**
+     * testItSaves
+     */
     public function testItSaves()
     {
         $model = new Comment();
@@ -18,6 +24,9 @@ class ExampleModelTest extends PluginTestCase
         $this->assertEquals('content', $model->content);
     }
 
+    /**
+     * testItPosts
+     */
     public function testItPosts()
     {
         Request::setMethod('POST');
