@@ -2,7 +2,7 @@ columns:
     id:
         label: ID
         type: number
-        order: 900
+        order: 200
 
     title:
         label: Title
@@ -26,3 +26,8 @@ columns:
         label: Content
         type: text
         order: 500
+
+    status:
+        label: Status
+        type: selectable
+        order: 900

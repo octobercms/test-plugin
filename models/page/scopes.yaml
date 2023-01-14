@@ -9,3 +9,12 @@ scopes:
         conditions: parent_id in (:filtered)
         nameFrom: title
         options: getParentScopeOptions
+
+    status:
+        label: Status
+        type: group
+        modelClass: October\Test\Models\Page
+        options: getStatusOptions
+        conditions: status in (:filtered)
+        default:
+            - 0

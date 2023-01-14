@@ -69,6 +69,21 @@ class Page extends Model
     }
 
     /**
+     * getStatusOptions
+     */
+    public function getStatusOptions()
+    {
+        return [
+            0  => 'Not Validated',
+            10 => 'Main Collection',
+            11 => 'User Collection',
+            12 => 'Skinfile Added',
+            20 => 'Blacklisted',
+            21 => 'Deleted',
+        ];
+    }
+
+    /**
      * filterFields
      */
     public function filterFields($fields, $context = null)

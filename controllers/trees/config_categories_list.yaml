@@ -33,6 +33,7 @@ structure:
     showReorder: true
     maxDepth: 2
     dragRow: false
+    permissions: general.backend.perform_updates
 
 # Toolbar widget configuration
 toolbar:

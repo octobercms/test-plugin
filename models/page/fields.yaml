@@ -125,6 +125,10 @@ tabs:
 secondaryTabs:
     defaultTab: Images
     fields:
+        status:
+            type: dropdown
+            label: Status
+
         mainimage:
             label: Main Image
             type: nestedform
