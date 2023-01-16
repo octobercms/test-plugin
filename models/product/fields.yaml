@@ -64,3 +64,4 @@ tabs:
             label: Featured Page
             type: pagefinder
             tab: Media
+            singleMode: false
