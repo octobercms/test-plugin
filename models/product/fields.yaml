@@ -20,6 +20,13 @@ fields:
 
 tabs:
     fields:
+        content:
+            # label: Content
+            # type: richeditor
+            type: markdown
+            tab: Content
+            stretch: true
+
         location_built:
             label: Location Built
             type: recordfinder

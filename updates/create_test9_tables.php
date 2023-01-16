@@ -15,6 +15,7 @@ class CreateTest9Tables extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
+            $table->mediumText('content')->nullable();
             $table->text('description')->nullable();
             $table->text('featured_page')->nullable();
             $table->decimal('price', 15, 2)->default(0)->nullable();

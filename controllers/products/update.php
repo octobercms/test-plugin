@@ -13,7 +13,7 @@
             <?= $this->formRender() ?>
         </div>
 
-        <div class="form-buttons">
+        <div class="form-buttons pt-4">
             <div class="loading-indicator-container">
                 <button
                     type="submit"
