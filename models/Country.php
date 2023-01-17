@@ -37,7 +37,7 @@ class Country extends Model
     /**
      * @var array translatable
      */
-    public $translatable = ['name', 'states', 'content', 'footer'];
+    public $translatable = ['name', 'states', 'content', 'footer', 'is_active'];
 
     /**
      * @var array hasMany
