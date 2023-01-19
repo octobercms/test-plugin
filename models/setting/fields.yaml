@@ -8,6 +8,10 @@ tabs:
             default: 1
             tab: General
 
+        title:
+            label: Title
+            tab: General
+
         footer:
             translatable: true
             type: nestedform
