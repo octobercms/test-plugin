@@ -4,9 +4,9 @@ use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest8Tables Pages
+ * Migration for Test 8 (Pages)
  */
-class CreateTest8Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -36,4 +36,4 @@ class CreateTest8Tables extends Migration
         Schema::dropIfExists('october_test_pages');
         Schema::dropIfExists('october_test_layouts');
     }
-}
+};

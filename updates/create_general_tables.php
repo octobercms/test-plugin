@@ -4,9 +4,9 @@ use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateGeneralTables Attributes
+ * Migration for Attributes
  */
-class CreateGeneralTables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -34,4 +34,5 @@ class CreateGeneralTables extends Migration
         Schema::dropIfExists('october_test_attributes');
         Schema::dropIfExists('october_test_repeater_items');
     }
-}
+};
+

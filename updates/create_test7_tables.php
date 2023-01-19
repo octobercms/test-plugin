@@ -4,9 +4,9 @@ use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest7Tables Galleries
+ * Migration for Test 7 (Galleries)
  */
-class CreateTest7Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -47,4 +47,4 @@ class CreateTest7Tables extends Migration
         Schema::dropIfExists('october_test_gallery_entity');
         Schema::dropIfExists('october_test_galleries_countries');
     }
-}
+};

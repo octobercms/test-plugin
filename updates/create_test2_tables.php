@@ -1,13 +1,12 @@
 <?php namespace October\Test\Updates;
 
-use Db;
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest2Tables Posts
+ * Migration for Test 2 (Posts)
  */
-class CreateTest2Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -66,4 +65,4 @@ class CreateTest2Tables extends Migration
         Schema::dropIfExists('october_test_tags');
         Schema::dropIfExists('october_test_posts_tags');
     }
-}
+};

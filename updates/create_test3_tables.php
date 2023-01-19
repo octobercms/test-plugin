@@ -1,13 +1,12 @@
 <?php namespace October\Test\Updates;
 
-use Db;
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest3Tables Users
+ * Migration for Test 3 (Users)
  */
-class CreateTest3Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -50,4 +49,4 @@ class CreateTest3Tables extends Migration
         Schema::dropIfExists('october_test_roles');
         Schema::dropIfExists('october_test_users_roles');
     }
-}
+};

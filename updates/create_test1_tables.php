@@ -5,9 +5,9 @@ use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest1Tables People
+ * Migration for Test 1 (People)
  */
-class CreateTest1Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -43,4 +43,4 @@ class CreateTest1Tables extends Migration
         Schema::dropIfExists('october_test_people');
         Schema::dropIfExists('october_test_phones');
     }
-}
+};

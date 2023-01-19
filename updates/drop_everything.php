@@ -3,7 +3,10 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class DropEverything extends Migration
+/**
+ * Migration to clean up
+ */
+return new class extends Migration
 {
     public function up()
     {
@@ -46,4 +49,4 @@ class DropEverything extends Migration
     public function down()
     {
     }
-}
+};

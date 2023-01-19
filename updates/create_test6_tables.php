@@ -1,13 +1,12 @@
 <?php namespace October\Test\Updates;
 
-use Db;
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * CreateTest6Tables Trees
+ * Migration for Test 6 (Trees)
  */
-class CreateTest6Tables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -58,4 +57,4 @@ class CreateTest6Tables extends Migration
         Schema::dropIfExists('october_test_channels');
         Schema::dropIfExists('october_test_related_channels');
     }
-}
+};
