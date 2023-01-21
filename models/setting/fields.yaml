@@ -12,6 +12,10 @@ tabs:
             label: Title
             tab: General
 
+        other_title:
+            label: Other Title
+            tab: General
+
         footer:
             translatable: true
             type: nestedform
