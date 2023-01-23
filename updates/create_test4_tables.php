@@ -42,7 +42,7 @@ return new class extends Migration
 
         Schema::create('october_test_cities', function ($table) {
             $table->increments('id')->unsigned();
-            $table->integer('custom_country_id')->unsigned();
+            $table->integer('custom_country_id')->unsigned()->nullable();
             $table->string('name');
         });
 

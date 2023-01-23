@@ -9,6 +9,8 @@ use Cms\Classes\Page;
  */
 class Country extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+
     /**
      * implement the TranslatableModel behavior softly
      */
@@ -38,6 +40,13 @@ class Country extends Model
      * @var array translatable
      */
     public $translatable = ['name', 'states', 'content', 'footer', 'is_active'];
+
+    /**
+     * @var array Rules
+     */
+    public $rules = [
+        'name' => 'required',
+    ];
 
     /**
      * @var array hasMany
