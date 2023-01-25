@@ -8,13 +8,21 @@ class ProductsTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testProductsIndex
      */
     public function testProductsIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/products')
                 ->assertTitleContains('Manage Products |');
@@ -28,7 +36,7 @@ class ProductsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Product Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Product Updated')
                 ->click('a.flash-close');
         });
     }
@@ -52,7 +60,7 @@ class ProductsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Product Category Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Product Category Updated')
                 ->click('a.flash-close');
         });
     }

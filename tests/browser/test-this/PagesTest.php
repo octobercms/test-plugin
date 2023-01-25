@@ -8,13 +8,21 @@ class PagesTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testPagesIndex
      */
     public function testPagesIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/pages')
                 ->assertTitleContains('Manage Pages |');
@@ -28,7 +36,7 @@ class PagesTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Page Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
                 ->click('a.flash-close');
         });
     }

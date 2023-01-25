@@ -8,13 +8,21 @@ class ReviewsTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testReviewsIndex
      */
     public function testReviewsIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/reviews')
                 ->assertTitleContains('Manage Reviews |');
@@ -28,8 +36,32 @@ class ReviewsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Review Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Review Updated')
                 ->click('a.flash-close');
+        });
+    }
+
+    /**
+     * testReviewsCreate
+     */
+    public function testReviewsCreate()
+    {
+        $this->browse(function($browser) {
+            $browser
+                ->visit('/admin/october/test/reviews')
+                ->assertTitleContains('Manage Reviews |');
+
+            $browser
+                ->clickLink('New Review')
+                ->waitForLocation('/admin/october/test/reviews/create')
+                ->waitForEvent('page:load', 'document')
+            ;
+
+            $browser
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.error', 'The Feature Color field is required.')
+                ->click('a.flash-close')
+            ;
         });
     }
 }

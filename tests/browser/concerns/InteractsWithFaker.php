@@ -29,15 +29,24 @@ trait InteractsWithFaker
     /**
      * generateRandomSentence
      */
-    public function generateRandomSentence($words = 6)
+    public function generateRandomSentence($words = null)
     {
+        if ($words === null) {
+            $words = rand(20, 80);
+        }
+
         $string = '';
 
         for ($i = 1; $i <= $words; $i++) {
             $length = rand(3,6) * 2;
-            $string .= ' ' . $this->generateRandomWord($length);
+            $string .= $string === ''
+                ? ucfirst($this->generateRandomWord($length))
+                : ' ' . $this->generateRandomWord($length);
+
+            // Random comma
+            $string .= rand(1, $words) <= 2 ? ',' : '';
         }
 
-        return trim($string);
+        return trim($string, ' ,').'.';
     }
 }

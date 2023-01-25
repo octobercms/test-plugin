@@ -8,13 +8,21 @@ class LocationsTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testLocationsIndex
      */
     public function testLocationsIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/locations')
                 ->assertTitleContains('Manage Locations |');
@@ -28,7 +36,7 @@ class LocationsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Location Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Location Updated')
                 ->click('a.flash-close');
         });
     }
@@ -52,7 +60,7 @@ class LocationsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Country Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Country Updated')
                 ->click('a.flash-close');
         });
     }
@@ -76,7 +84,7 @@ class LocationsTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'City Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'City Updated')
                 ->click('a.flash-close');
         });
     }

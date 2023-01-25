@@ -8,13 +8,21 @@ class GalleriesTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testGalleriesIndex
      */
     public function testGalleriesIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/galleries')
                 ->assertTitleContains('Manage Galleries |');
@@ -28,8 +36,32 @@ class GalleriesTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Gallery Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Gallery Updated')
                 ->click('a.flash-close');
+        });
+    }
+
+    /**
+     * testGalleriesCreate
+     */
+    public function testGalleriesCreate()
+    {
+        $this->browse(function($browser) {
+            $browser
+                ->visit('/admin/october/test/galleries')
+                ->assertTitleContains('Manage Galleries |');
+
+            $browser
+                ->clickLink('New Gallery')
+                ->waitForLocation('/admin/october/test/galleries/create')
+                ->waitForEvent('page:load', 'document')
+            ;
+
+            $browser
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.error', 'The Title field is required.')
+                ->click('a.flash-close')
+            ;
         });
     }
 }

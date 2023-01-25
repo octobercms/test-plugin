@@ -9,13 +9,21 @@ class EntryStreamTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithFaker;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testCreateEntries
      */
     public function testCreateEntries()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/tailor/entries/test_blog')
                 ->assertTitleContains('Manage Entries |')
@@ -26,10 +34,10 @@ class EntryStreamTest extends BrowserTestCase
                 ->waitForLocation('/admin/tailor/entries/test_blog/create')
                 ->waitForEvent('page:load', 'document')
                 ->pause(300)
-                ->type('EntryRecord[title]', $title = $this->generateRandomSentence())
-                ->type('.fr-element.fr-view', $this->generateRandomSentence(50).PHP_EOL.$this->generateRandomSentence(75).PHP_EOL.$this->generateRandomSentence(25))
+                ->type('EntryRecord[title]', $title = $this->generateRandomSentence(6))
+                ->type('.fr-element.fr-view', $this->generateRandomSentence().PHP_EOL.$this->generateRandomSentence().PHP_EOL.$this->generateRandomSentence())
                 ->press('Save and Close')
-                ->waitForTextIn('.oc-flash-message', 'Entry Created')
+                ->waitForTextIn('.oc-flash-message.success', 'Entry Created')
                 ->click('a.flash-close');
             ;
 

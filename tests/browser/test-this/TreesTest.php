@@ -8,13 +8,21 @@ class TreesTest extends BrowserTestCase
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
+     * testBrowserLogin
+     */
+    public function testBrowserLogin()
+    {
+        $this->browse(function($browser) {
+            $this->loginToBrowser($browser);
+        });
+    }
+
+    /**
      * testMembersIndex
      */
     public function testMembersIndex()
     {
         $this->browse(function($browser) {
-            $this->loginToBrowser($browser);
-
             $browser
                 ->visit('/admin/october/test/trees')
                 ->assertTitleContains('Manage Members |');
@@ -28,7 +36,7 @@ class TreesTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Member Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Member Updated')
                 ->click('a.flash-close');
         });
     }
@@ -52,7 +60,7 @@ class TreesTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Category Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Category Updated')
                 ->click('a.flash-close');
         });
     }
@@ -76,7 +84,7 @@ class TreesTest extends BrowserTestCase
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Channel Updated')
+                ->waitForTextIn('.oc-flash-message.success', 'Channel Updated')
                 ->click('a.flash-close');
         });
     }
