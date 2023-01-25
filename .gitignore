@@ -2,4 +2,8 @@
 .vscode/
 .sftp-config
 .ftpconfig
+composer.lock
 .phpunit.result.cache
+tests/browser/console
+tests/browser/screenshots
+tests/browser/source
