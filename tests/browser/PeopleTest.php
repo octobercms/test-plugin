@@ -53,7 +53,8 @@ class PeopleTest extends BrowserTestCase
                 ->assertTitleContains('Edit People |');
 
             $browser
-                ->click('[data-request=onSave]')
+                ->pause(300)
+                ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message', 'Person Updated')
                 ->click('a.flash-close');
         });

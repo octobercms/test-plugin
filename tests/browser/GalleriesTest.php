@@ -1,34 +1,34 @@
 <?php
 
 /**
- * PagesTest
+ * GalleriesTest
  */
-class PagesTest extends BrowserTestCase
+class GalleriesTest extends BrowserTestCase
 {
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
-     * testPagesIndex
+     * testGalleriesIndex
      */
-    public function testPagesIndex()
+    public function testGalleriesIndex()
     {
         $this->browse(function($browser) {
             $this->loginToBrowser($browser);
 
             $browser
-                ->visit('/admin/october/test/pages')
-                ->assertTitleContains('Manage Pages |');
+                ->visit('/admin/october/test/galleries')
+                ->assertTitleContains('Manage Galleries |');
 
             $browser
                 ->click('.list-cell-index-1')
-                ->waitForLocation('/admin/october/test/pages/update/1')
+                ->waitForLocation('/admin/october/test/galleries/update/1')
                 ->waitForEvent('page:load', 'document')
-                ->assertTitleContains('Edit Page |');
+                ->assertTitleContains('Edit Gallery |');
 
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Page Updated')
+                ->waitForTextIn('.oc-flash-message', 'Gallery Updated')
                 ->click('a.flash-close');
         });
     }

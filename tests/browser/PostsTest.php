@@ -1,34 +1,34 @@
 <?php
 
 /**
- * PagesTest
+ * PostsTest
  */
-class PagesTest extends BrowserTestCase
+class PostsTest extends BrowserTestCase
 {
     use \October\Test\Tests\Browser\Concerns\InteractsWithAuth;
 
     /**
-     * testPagesIndex
+     * testPostsIndex
      */
-    public function testPagesIndex()
+    public function testPostsIndex()
     {
         $this->browse(function($browser) {
             $this->loginToBrowser($browser);
 
             $browser
-                ->visit('/admin/october/test/pages')
-                ->assertTitleContains('Manage Pages |');
+                ->visit('/admin/october/test/posts')
+                ->assertTitleContains('Manage Posts |');
 
             $browser
                 ->click('.list-cell-index-1')
-                ->waitForLocation('/admin/october/test/pages/update/1')
+                ->waitForLocation('/admin/october/test/posts/update/1')
                 ->waitForEvent('page:load', 'document')
-                ->assertTitleContains('Edit Page |');
+                ->assertTitleContains('Edit Posts (Awesome Title) |');
 
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
-                ->waitForTextIn('.oc-flash-message', 'Page Updated')
+                ->waitForTextIn('.oc-flash-message', 'Post Updated')
                 ->click('a.flash-close');
         });
     }

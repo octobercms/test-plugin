@@ -9,6 +9,7 @@ fields:
     parent:
         label: Parent
         type: relation
+        emptyOption: -- none --
 
 tabs:
     fields:
