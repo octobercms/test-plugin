@@ -49,19 +49,75 @@ class LocationsTest extends BrowserTestCase
         $this->browse(function($browser) {
             $browser
                 ->visit('/admin/october/test/countries')
-                ->assertTitleContains('Manage Countries |');
+                ->assertTitleContains('Manage Countries |')
+            ;
 
             $browser
                 ->click('.list-cell-index-2')
                 ->waitForLocation('/admin/october/test/countries/update/1')
                 ->waitForEvent('page:load', 'document')
-                ->assertTitleContains('Edit Countries |');
+                ->assertTitleContains('Edit Countries |')
+            ;
 
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Country Updated')
-                ->click('a.flash-close');
+                ->click('a.flash-close')
+            ;
+        });
+    }
+
+    /**
+     * testRecordFinderInRepeater
+     */
+    public function testRecordFinderInRepeater()
+    {
+        $this->browse(function($browser) {
+            $browser
+                ->visit('/admin/october/test/countries/update/1')
+                ->assertTitleContains('Edit Countries |')
+            ;
+
+            $browser
+                ->click('a[href="#primarytab-notes"]')
+                ->pause(300)
+                ->click('a[href="#secondarytab-additional-information"]')
+                ->pause(300)
+                ->click('button[data-handler="formNotesForm0Person::onFindRecord"]')
+                ->waitForTextIn('.modal-title', 'Find Record')
+            ;
+
+            $browser
+                ->click('#Lists-formNotesForm0PersonList .list-cell-name-id a')
+                ->waitUntilMissing('html[data-ajax-progress]')
+                ->pause(300)
+                ->waitFor('#Lists-formNotesForm0PersonList .list-cell-name-id.active a')
+            ;
+
+            $browser
+                ->click('#Lists-formNotesForm0PersonList .list-cell-name-name a')
+                ->waitUntilMissing('html[data-ajax-progress]')
+                ->pause(300)
+                ->waitFor('#Lists-formNotesForm0PersonList .list-cell-name-name.active a')
+            ;
+
+            $browser
+                ->type('formNotesForm0PersonSearch[term]', 'Lara Croft')
+                ->waitForTextIn('#Lists-formNotesForm0PersonList .list-cell-index-2 span', 'Lara Croft')
+                ->click('.list-cell-index-1')
+                ->waitForTextIn('.recordname', 'Lara Croft')
+                ->click('.find-remove-button')
+                ->waitForTextIn('.modal-body > p', 'Are you sure?')
+                ->press('OK')
+            ;
+
+            $browser
+                ->pause(300)
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'Country Updated')
+                ->click('a.flash-close')
+            ;
         });
     }
 
