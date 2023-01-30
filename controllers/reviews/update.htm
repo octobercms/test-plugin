@@ -7,7 +7,7 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <?= Form::open(['class' => 'layout']) ?>
+    <?= Form::open(['class' => 'layout', 'data-change-monitor' => true]) ?>
 
         <?php if ($formModel->product): ?>
             <div class="scoreboard">
