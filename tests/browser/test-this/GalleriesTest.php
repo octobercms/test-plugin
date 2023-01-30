@@ -57,6 +57,11 @@ class GalleriesTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
             ;
 
+            // Checking default value on balloon selector
+            $browser
+                ->waitFor('#Form-field-Gallery-status li[data-value="draft"].active')
+            ;
+
             $browser
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The Title field is required.')

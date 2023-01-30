@@ -12,6 +12,7 @@ fields:
         label: Status
         type: balloon-selector
         span: auto
+        default: draft
         options:
             active: Active
             draft: Draft
