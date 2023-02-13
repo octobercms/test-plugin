@@ -16,6 +16,10 @@ tabs:
             type: datepicker
             changeHandler: onChangeReviewDate
             span: auto
+            trigger:
+                action: enable
+                field: is_positive
+                condition: checked
 
         is_positive:
             label: Positive
