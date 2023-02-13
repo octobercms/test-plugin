@@ -32,6 +32,7 @@ return new class extends Migration
             $table->text('breakdown')->nullable();
             $table->text('meta')->nullable();
             $table->boolean('is_positive')->nullable();
+            $table->timestamp('reviewed_at')->nullable();
             $table->string('feature_color')->nullable();
             $table->timestamps();
         });

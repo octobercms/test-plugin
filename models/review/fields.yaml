@@ -11,9 +11,17 @@ tabs:
             size: small
             changeHandler: onChangeContent
 
+        reviewed_at:
+            label: Reviewed date and time
+            type: datepicker
+            changeHandler: onChangeReviewDate
+            span: auto
+
         is_positive:
             label: Positive
+            comment: Check if this review was positive
             type: checkbox
+            span: auto
 
         feature_color:
             label: Feature Color
