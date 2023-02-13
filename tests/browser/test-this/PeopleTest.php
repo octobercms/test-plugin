@@ -60,6 +60,12 @@ class PeopleTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
                 ->assertTitleContains('Edit People |');
 
+            // Test Lazy Loaded tab
+            $browser
+                ->clickLink('Activities')
+                ->waitForTextIn('#Form-field-Person-hobbies-group', 'Hobbies')
+            ;
+
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
