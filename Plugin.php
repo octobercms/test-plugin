@@ -98,6 +98,7 @@ class Plugin extends PluginBase
     {
         return [
             \October\Test\FilterWidgets\Discount::class => 'discount',
+            \October\Test\FilterWidgets\InlineSearch::class => 'inlinesearch',
         ];
     }
 
