@@ -24,7 +24,7 @@ class ProductsTest extends BrowserTestCase
     {
         $this->browse(function($browser) {
             $browser
-                ->visit('/admin/october/test/products')
+                ->visit('/admin/october/test/products?_site_id=1')
                 ->assertTitleContains('Manage Products |');
 
             $browser
