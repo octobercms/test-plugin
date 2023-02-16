@@ -57,6 +57,19 @@ class ReviewsTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
             ;
 
+            // Ensure datepickers support disable and enable state
+            $browser
+                ->waitUntilDisabled('#DatePicker-formReviewedAt-date-reviewed_at')
+                ->check('Review[is_positive]')
+                ->waitUntilEnabled('#DatePicker-formReviewedAt-date-reviewed_at')
+                ->click('#DatePicker-formReviewedAt-date-reviewed_at')
+                ->waitFor('.pika-single.is-bound')
+                ->click('#DatePicker-formReviewedAt-time-reviewed_at')
+                ->waitFor('.clockpicker-popover')
+                ->uncheck('Review[is_positive]')
+                ->waitUntilDisabled('#DatePicker-formReviewedAt-date-reviewed_at')
+            ;
+
             $browser
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The Feature Color field is required.')
