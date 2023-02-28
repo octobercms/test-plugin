@@ -58,4 +58,21 @@ class Location extends Model
 
         return City::lists('name', 'id');
     }
+
+    public function filterFields($fields, $context = null)
+    {
+        //trying to get by $this->relation
+        if ($this->country?->code == 'petoria' && $context == 'refresh') {
+            $fields->city->hidden = true;
+        } else {
+            $fields->city->hidden = false;
+        }
+
+        //trying to get the value that should contain the ID of the record.
+        if ($fields->country?->value == 1 && $context == 'refresh') {
+            $fields->city->hidden = true;
+        } else {
+            $fields->city->hidden = false;
+        }
+    }
 }

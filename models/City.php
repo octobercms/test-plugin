@@ -7,6 +7,12 @@ use Model;
  */
 class City extends Model
 {
+    use October\Rain\Database\Traits\Validation;
+
+    public $rules = [
+        'country' => 'required'
+    ];
+
     /**
      * @var string The database table used by the model.
      */
