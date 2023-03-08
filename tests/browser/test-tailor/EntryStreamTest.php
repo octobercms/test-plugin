@@ -30,7 +30,7 @@ class EntryStreamTest extends BrowserTestCase
             ;
 
             $browser
-                ->click('#Toolbar-listToolbar .btn-primary')
+                ->click('#Toolbar-listTestBlogToolbar .btn-primary')
                 ->waitForLocation('/admin/tailor/entries/test_blog/create')
                 ->waitForEvent('page:load', 'document')
                 ->pause(300)

@@ -96,10 +96,10 @@ class LocationsTest extends BrowserTestCase
             ;
 
             $browser
-                ->click('#Lists-formNotesForm0PersonList .list-cell-name-name a')
+                ->click('#Lists-formNotesForm0PersonList .list-cell-name-bio a')
                 ->waitUntilMissing('html[data-ajax-progress]')
                 ->pause(300)
-                ->waitFor('#Lists-formNotesForm0PersonList .list-cell-name-name.active a')
+                ->waitFor('#Lists-formNotesForm0PersonList .list-cell-name-bio.active a')
             ;
 
             $browser
