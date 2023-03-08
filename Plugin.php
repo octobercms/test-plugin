@@ -47,6 +47,10 @@ class Plugin extends PluginBase
                 'parent_id',
             ]);
         });
+
+        // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
+        //     unset($presets['punch']);
+        // });
     }
 
     /**
