@@ -5,3 +5,6 @@
 columns:
     name:
         label: Name
+
+    description:
+        label: Description

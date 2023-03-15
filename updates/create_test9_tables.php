@@ -31,6 +31,10 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
+            $table->integer('parent_id')->nullable()->unsigned();
+            $table->integer('nest_left')->nullable();
+            $table->integer('nest_right')->nullable();
+            $table->integer('nest_depth')->nullable();
             $table->timestamps();
         });
 

@@ -18,7 +18,7 @@ recordUrl: october/test/productcategories/update/:id
 noRecordsMessage: backend::lang.list.no_records
 
 # Records to display per page
-recordsPerPage: 20
+recordsPerPage: 5
 
 # Display page numbers with pagination, disable to improve performance
 showPageNumbers: true
@@ -45,3 +45,10 @@ toolbar:
     # Search widget configuration
     search:
         prompt: backend::lang.list.search_prompt
+
+# Structure
+structure:
+    showTree: true
+    showReorder: true
+    showSorting: false
+    treeExpanded: true
