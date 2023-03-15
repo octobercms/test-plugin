@@ -50,5 +50,5 @@ toolbar:
 structure:
     showTree: true
     showReorder: true
-    showSorting: false
+    showSorting: true
     treeExpanded: true
