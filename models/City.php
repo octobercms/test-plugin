@@ -7,6 +7,8 @@ use Model;
  */
 class City extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+
     /**
      * @var string The database table used by the model.
      */
@@ -22,6 +24,13 @@ class City extends Model
      * @var array fillable fields
      */
     protected $fillable = ['custom_country_id', 'name'];
+
+    /**
+     * @var array rules
+     */
+    public $rules = [
+        'country' => 'required'
+    ];
 
     /**
      * @var array hasMany

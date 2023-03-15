@@ -144,4 +144,63 @@ class LocationsTest extends BrowserTestCase
                 ->click('a.flash-close');
         });
     }
+
+    /**
+     * testCitiesCreate
+     */
+    public function testCitiesCreate()
+    {
+        $this->browse(function($browser) {
+            $browser
+                ->visit('/admin/october/test/cities')
+                ->assertTitleContains('Manage Cities |')
+            ;
+
+            $browser
+                ->clickLink('New City')
+                ->waitForLocation('/admin/october/test/cities/create')
+                ->waitForEvent('page:load', 'document')
+            ;
+
+            $browser
+                ->type('City[name]', 'Dusk Test')
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.error', 'The Country field is required.')
+                ->click('a.flash-close')
+            ;
+
+            $browser
+                ->clickLink('Country')
+                ->waitForTextIn('#Form-field-City-country-group', 'Country')
+            ;
+
+            $browser
+                ->clickLink('Link Country')
+                ->waitForTextIn('#Lists-relationCountryManageList .list-cell-index-1', 'Petoria')
+                ->pause(300)
+                ->click('.list-cell-index-1')
+                ->waitForTextIn('.oc-flash-message.success', 'Country Linked')
+                ->click('a.flash-close')
+                ->waitForTextIn('#Form-relationCountryViewForm-field-Country-name-group', 'Petoria')
+            ;
+
+            $browser
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'City Created')
+                ->click('a.flash-close')
+            ;
+
+            $browser
+                ->ajaxRequest('.form-buttons [data-request=onDelete]')
+                ->waitForTextIn('.modal-body > p', 'Delete this city?')
+                ->press('OK')
+            ;
+
+            $browser
+                ->waitForLocation('/admin/october/test/cities')
+                ->waitForTextIn('.oc-flash-message.success', 'City Deleted')
+                ->click('a.flash-close')
+            ;
+        });
+    }
 }
