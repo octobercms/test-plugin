@@ -9,3 +9,4 @@ fields:
 
     description:
         label: Description
+        type: textarea
