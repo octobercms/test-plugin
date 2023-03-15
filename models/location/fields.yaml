@@ -46,6 +46,7 @@ tabs:
             tab: Location
             type: relation
             useController: false
+            emptyOption: -- select --
 
         city:
             label: City

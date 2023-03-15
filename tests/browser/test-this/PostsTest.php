@@ -34,7 +34,7 @@ class PostsTest extends BrowserTestCase
                 ->assertTitleContains('Edit Posts (Awesome Title) |');
 
             $browser
-                ->pause(300)
+                ->pause(600)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Post Updated')
                 ->click('a.flash-close');

@@ -35,6 +35,7 @@ class EntryStreamTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
                 ->pause(300)
                 ->type('EntryRecord[title]', $title = $this->generateRandomSentence(6))
+                ->pause(300)
                 ->type('.fr-element.fr-view', $this->generateRandomSentence().PHP_EOL.$this->generateRandomSentence().PHP_EOL.$this->generateRandomSentence())
                 ->press('Save and Close')
                 ->waitForTextIn('.oc-flash-message.success', 'Entry Created')
