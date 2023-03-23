@@ -35,4 +35,12 @@ class Reviews extends Controller
 
         return $this->formRefreshFields(['_internal_comments', 'is_positive']);
     }
+
+    /**
+     * onChangeReviewDate
+     */
+    public function onChangeReviewDate()
+    {
+        traceLog(post());
+    }
 }

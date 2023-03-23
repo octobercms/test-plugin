@@ -4,6 +4,10 @@ name: Wiki Widgets
 type: mixin
 
 fields:
+    added_at:
+        label: Date Added
+        type: datepicker
+
     gallery:
         label: Gallery
         type: fileupload

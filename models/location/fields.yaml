@@ -45,11 +45,14 @@ tabs:
             label: Country
             tab: Location
             type: relation
+            useController: false
+            emptyOption: -- select --
 
         city:
             label: City
             comment: This is filtered by the selected country
             tab: Location
             type: relation
-            scope: filterCities
+            # scope: filterCities
             dependsOn: country
+            conditions: custom_country_id = :country_id

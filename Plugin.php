@@ -47,6 +47,10 @@ class Plugin extends PluginBase
                 'parent_id',
             ]);
         });
+
+        // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
+        //     unset($presets['punch']);
+        // });
     }
 
     /**
@@ -98,6 +102,7 @@ class Plugin extends PluginBase
     {
         return [
             \October\Test\FilterWidgets\Discount::class => 'discount',
+            \October\Test\FilterWidgets\InlineSearch::class => 'inlinesearch',
         ];
     }
 

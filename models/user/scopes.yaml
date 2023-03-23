@@ -65,3 +65,7 @@ scopes:
         label: Discount (Custom)
         type: discount
         allowSearch: true
+
+    testsearch:
+        label: Search (Custom)
+        type: inlinesearch

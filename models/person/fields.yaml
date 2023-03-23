@@ -18,6 +18,7 @@ fields:
 
     _previous_names:
         label: Previous Names
+        placeholder: Enter previous names
 
     # Nullable
     is_married:

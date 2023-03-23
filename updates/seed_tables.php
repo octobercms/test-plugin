@@ -247,7 +247,7 @@ class SeedAllTables extends Seeder
         /*
          * Test 7: Galleries
          */
-        $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now()]);
+        $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now(), 'end_date' => now()->addDay()]);
         $gallery->posts()->add(Post::first());
 
         /*
@@ -323,8 +323,39 @@ class SeedAllTables extends Seeder
         $category1->savePropagate();
         $category2->savePropagate();
 
-        ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
+        $mains = ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
         ProductCategory::create(['name' => 'Entree', 'description' => 'I hope you enjoyed the show']);
+        ProductCategory::create(['name' => 'Dessert', 'description' => "I've never seen a diamond in the flesh"]);
+        ProductCategory::create(['name' => 'Beverages', 'description' => "I cut my teeth on wedding rings in the movies"]);
+        $chicken = ProductCategory::create(['name' => 'Chicken', 'description' => "And I'm not proud of my address"]);
+        $fish = ProductCategory::create(['name' => 'Fish', 'description' => "In a torn up town, no postcode envy"]);
+        $beef = ProductCategory::create(['name' => 'Beef', 'description' => "Gold teeth, Grey Goose, trippin' in the bathroom"]);
+        $veg = ProductCategory::create(['name' => 'Vegetables', 'description' => "Bloodstains, ball gowns, trashin' the hotel room"]);
+        ProductCategory::create(['name' => 'Souvenirs', 'description' => "We're driving Cadillacs in our dreams"]);
+        ProductCategory::create(['name' => 'Candy', 'description' => "Cristal, Maybach, diamonds on your timepiece"]);
+        ProductCategory::create(['name' => 'Automotive', 'description' => "Jet planes, islands, tigers on a gold leash"]);
+        ProductCategory::create(['name' => 'Pets', 'description' => "My friends and I, we've cracked the code"]);
+        ProductCategory::create(['name' => 'Hats', 'description' => "We count our dollars on the train to the party"]);
+        ProductCategory::create(['name' => 'Jackets', 'description' => "And everyone who knows us knows"]);
+        ProductCategory::create(['name' => 'Shoes', 'description' => "That we're fine with this, we didn't come from money"]);
+        ProductCategory::create(['name' => 'Pants', 'description' => "It don't run in our blood"]);
+        ProductCategory::create(['name' => 'Jewelry', 'description' => "That kind of luxe just ain't for us"]);
+        ProductCategory::create(['name' => 'Eyewear', 'description' => "We crave a different kind of buzz"]);
+        ProductCategory::create(['name' => 'Soap', 'description' => "Let me be your ruler (ruler)"]);
+        ProductCategory::create(['name' => 'Perfume', 'description' => "You can call me queen bee"]);
+        ProductCategory::create(['name' => 'Cologne', 'description' => "And baby, I'll rule (I'll rule, I'll rule, I'll rule)"]);
+        ProductCategory::create(['name' => 'Gifts', 'description' => "Let me live that fantasy"]);
+
+        $mains->savePropagate();
+        $chicken->savePropagate();
+        $fish->savePropagate();
+        $beef->savePropagate();
+        $veg->savePropagate();
+
+        $chicken->makeChildOf($mains);
+        $fish->makeChildOf($mains);
+        $beef->makeChildOf($mains);
+        $veg->makeChildOf($mains);
 
         /*
          * General Test: Attributes

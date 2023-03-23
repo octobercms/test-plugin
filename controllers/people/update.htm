@@ -30,10 +30,11 @@
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
+                    data-browser-redirect-back
                     data-hotkey="ctrl+enter, cmd+enter"
                     data-load-indicator="Saving Person..."
                     class="btn btn-default">
-                    Save and Close
+                    Save and Back
                 </button>
                 <button
                     type="button"
@@ -43,7 +44,7 @@
                     data-request-confirm="Do you really want to delete this person?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/people') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('october/test/people') ?>" data-browser-redirect-back>Cancel</a>
                 </span>
             </div>
         </div>

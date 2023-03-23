@@ -9,6 +9,7 @@ class ProductCategory extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\NestedTree;
 
     /**
      * @var string table associated with the model

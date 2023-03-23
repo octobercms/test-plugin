@@ -1,26 +1,31 @@
 <?php namespace October\Test\Models;
 
-use October\Rain\Database\Model;
+use System\Models\SettingModel;
 
 /**
  * Setting model
  */
-class Setting extends Model
+class Setting extends SettingModel
 {
+    // use \October\Rain\Database\Traits\Multisite;
     use \October\Rain\Database\Traits\Validation;
 
     public $implement = [
-        \System\Behaviors\SettingsModel::class,
         '@'.\RainLab\Translate\Behaviors\TranslatableModel::class
     ];
 
-    public $translatable = ['footer'];
+    protected $propagatable = ['other_title'];
+
+    protected $propagatableSync = true;
+
+    public $translatable = ['title', 'footer'];
 
     public $settingsCode = 'october_test_settings';
 
     public $settingsFields = 'fields.yaml';
 
     public $rules = [
-        'show_all_posts' => ['boolean'],
+        'title' => 'required',
+        'show_all_posts' => 'boolean',
     ];
 }

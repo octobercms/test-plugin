@@ -4,6 +4,16 @@ name: Wiki NestedForm Fields
 type: mixin
 
 fields:
+    status:
+        label: Status
+        type: balloon-selector
+        span: auto
+        default: draft
+        options:
+            active: Active
+            draft: Draft
+            hidden: Hidden
+
     platform:
         span: auto
         label: Platform

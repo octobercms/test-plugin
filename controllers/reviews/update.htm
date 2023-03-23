@@ -7,7 +7,7 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <?= Form::open(['class' => 'layout']) ?>
+    <?= Form::open(['class' => 'layout', 'data-change-monitor' => true]) ?>
 
         <?php if ($formModel->product): ?>
             <div class="scoreboard">
@@ -42,6 +42,7 @@
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
                     data-load-indicator="Saving Review..."
+                    data-change-monitor-commit
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
@@ -51,6 +52,7 @@
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
                     data-load-indicator="Saving Review..."
+                    data-change-monitor-commit
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -59,6 +61,7 @@
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
                     data-load-indicator="Deleting Review..."
+                    data-change-monitor-commit
                     data-request-confirm="Do you really want to delete this review?">
                 </button>
                 <span class="btn-text">
