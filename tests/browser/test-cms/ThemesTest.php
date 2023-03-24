@@ -28,6 +28,7 @@ class ThemesTest extends BrowserTestCase
                 ->assertTitleContains('Frontend Theme |')
             ;
 
+            // Create theme
             $browser
                 ->clickLink('Create a New Blank Theme')
                 ->waitForTextIn('.modal-title', 'Create Theme')
@@ -41,6 +42,17 @@ class ThemesTest extends BrowserTestCase
                 ->click('a.flash-close')
             ;
 
+            // Select this theme
+            $browser->click('#themeListItem-dusk-test-theme button[data-request="onSetActiveTheme"]')
+                ->waitFor('#themeListItem-dusk-test-theme.active')
+            ;
+
+            // Select demo theme
+            $browser->click('#themeListItem-demo button[data-request="onSetActiveTheme"]')
+                ->waitFor('#themeListItem-demo.active')
+            ;
+
+            // Delete theme
             $browser
                 ->click('#themeListItem-dusk-test-theme button.btn-secondary')
                 ->clickLink('Delete')
