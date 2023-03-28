@@ -125,6 +125,22 @@ class User extends Model
     ];
 
     /**
+     * __construct
+     */
+    public function __construct(...$args)
+    {
+        parent::__construct(...$args);
+
+        $this->bindEvent('model.relation.detach', function (string $relationName, array $ids) {
+            traceLog("Relation {$relationName} was removed", $ids);
+        });
+
+        $this->bindEvent('model.relation.attach', function (string $relationName, array $ids, array $attributes) {
+            traceLog("New relation {$relationName} was created", $ids, $attributes);
+        });
+    }
+
+    /**
      * filterScopes
      */
     public function filterScopes($scopes)
