@@ -98,5 +98,18 @@ class Page extends Model
                 $field->hidden();
             }
         }
+
+        // Prepopulate people repeater
+        if ($context === 'refresh' && $fields->_prepopulate_people !== null) {
+            if ($fields->_prepopulate_people->value) {
+                $fields->people->value = [
+                    ['description' => 'First Person'],
+                    ['description' => 'Second Person']
+                ];
+            }
+            else {
+                $fields->people->value = [];
+            }
+        }
     }
 }

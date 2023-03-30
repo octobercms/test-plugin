@@ -82,6 +82,11 @@ tabs:
             type: relation
             nameFrom: id
 
+        _prepopulate_people:
+            label: Prepopulate People
+            type: switch
+            tab: People
+
         people:
             tab: People
             label: People
@@ -89,6 +94,7 @@ tabs:
             span: full
             type: repeater
             titleFrom: description
+            dependsOn: _prepopulate_people
             form:
                 fields:
                     description:

@@ -33,6 +33,24 @@ class PagesTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
                 ->assertTitleContains('Edit Page |');
 
+            // Prepopulate repeater
+            $browser
+                ->click('a[href="#primarytab-people"]')
+                ->pause(300)
+                ->waitFor('#Form-field-Page-_prepopulate_people')
+                ->check('#Form-field-Page-_prepopulate_people')
+                ->waitFor('#Form-formPeopleForm0-field-Page-people-0-description')
+                ->assertValue('#Form-formPeopleForm0-field-Page-people-0-description', 'First Person')
+                ->assertValue('#Form-formPeopleForm1-field-Page-people-1-description', 'Second Person')
+            ;
+
+            // Unpopulate repeater
+            $browser
+                ->uncheck('#Form-field-Page-_prepopulate_people')
+                ->waitUntilMissing('#Form-formPeopleForm0-field-Page-people-0-description')
+                ->waitUntilMissing('#Form-formPeopleForm1-field-Page-people-1-description')
+            ;
+
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
