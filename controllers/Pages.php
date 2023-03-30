@@ -34,4 +34,25 @@ class Pages extends Controller
 
         return $this->asExtension('FormController')->update(...$args);
     }
+
+    /**
+     * formExtendRefreshData manipulates the data
+     * @see October\Test\Models\Page::filterFields
+     */
+    public function formExtendRefreshData($form, $data)
+    {
+        if (array_key_exists('_prepopulate_people', $data)) {
+            if ($data['_prepopulate_people']) {
+                $data['people'] = [
+                    ['description' => 'First Person'],
+                    ['description' => 'Second Person']
+                ];
+            }
+            else {
+                $data['people'] = [];
+            }
+        }
+
+        return $data;
+    }
 }

@@ -99,17 +99,21 @@ class Page extends Model
             }
         }
 
+        // Uncomment below if October version >=3.4
+        // @see October\Test\Controllers\Pages::formExtendRefreshData
+        // Remove code in reference above
+        //
         // Prepopulate people repeater
-        if ($context === 'refresh' && $fields->_prepopulate_people !== null) {
-            if ($fields->_prepopulate_people->value) {
-                $fields->people->value = [
-                    ['description' => 'First Person'],
-                    ['description' => 'Second Person']
-                ];
-            }
-            else {
-                $fields->people->value = [];
-            }
-        }
+        // if ($context === 'refresh' && $fields->_prepopulate_people !== null) {
+        //     if ($fields->_prepopulate_people->value) {
+        //         $fields->people->value = [
+        //             ['description' => 'First Person'],
+        //             ['description' => 'Second Person']
+        //         ];
+        //     }
+        //     else {
+        //         $fields->people->value = [];
+        //     }
+        // }
     }
 }
