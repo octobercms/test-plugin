@@ -115,12 +115,22 @@ secondaryTabs:
             type: section
             dependsOn: pages
 
+        _disable_pages:
+            label: Enable Pages
+            type: checkbox
+            tab: Pages
+
         pages:
             tab: Pages
             type: checkboxlist
+            trigger:
+                action: enable
+                field: _disable_pages
+                condition: checked
 
         _page_404:
             tab: Pages
+            span: auto
             commentAbove: This field is enabled when the 404 page is selected
             trigger:
                 field: pages[]
@@ -129,6 +139,7 @@ secondaryTabs:
 
         _page_error:
             tab: Pages
+            span: auto
             commentAbove: This field is hidden when the error page is selected
             trigger:
                 field: pages[]
