@@ -28,6 +28,15 @@ class Users extends Controller
         BackendMenu::setContext('October.Test', 'test', 'users');
     }
 
+    public function relationExtendManageWidget($widget, $field, $model)
+    {
+        if ($field === 'roles') {
+            $widget->bindEvent('list.extendQuery', function($query) {
+                $query->where('name', 'LIKE', '%test%');
+            });
+        }
+    }
+
     public function onSelectPeriod()
     {
         Flash::success('Selected priod: '.post('period'));
