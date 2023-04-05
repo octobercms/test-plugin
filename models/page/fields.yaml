@@ -128,6 +128,33 @@ tabs:
                 field: use_layout
                 condition: checked
 
+        devices:
+            tab: Device
+            label: Devices
+            type: taglist
+            options:
+                mobile: mobile
+                tablet: tablet
+                desktop: desktop
+
+        mobile_size:
+            tab: Device
+            label: Mobile size
+            type: number
+            trigger:
+                action: show
+                field: devices[]
+                condition: value[mobile]
+
+        tablet_size:
+            tab: Device
+            label: Tablet size
+            type: number
+            trigger:
+                action: show
+                field: devices[]
+                condition: value[tablet]
+
 secondaryTabs:
     defaultTab: Images
     fields:

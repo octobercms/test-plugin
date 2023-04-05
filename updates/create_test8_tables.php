@@ -19,6 +19,9 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('people')->nullable();
             $table->boolean('use_layout')->nullable();
+            $table->text('devices')->nullable();
+            $table->string('mobile_size')->nullable();
+            $table->string('tablet_size')->nullable();
             $table->integer('parent_id')->nullable()->unsigned();
             $table->integer('layout_id')->nullable()->unsigned();
         });
