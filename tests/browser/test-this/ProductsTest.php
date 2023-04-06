@@ -33,6 +33,27 @@ class ProductsTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
                 ->assertTitleContains('Edit Product |');
 
+            // Prepopulate repeater
+            $browser
+                ->click('a[href="#primarytab-bulk-pricing"]')
+                ->pause(300)
+                ->waitUntilMissing('[data-request="formPrices::onAddItem"]')
+                ->check('#Form-field-Product-bulk_pricing')
+                ->waitFor('[data-request="formPrices::onAddItem"]')
+                ->click('[data-request="formPrices::onAddItem"]')
+                ->waitFor('#Form-formPricesForm1-field-Product-prices-1-bulk_price')
+                ->click('[data-request="formPrices::onAddItem"]')
+                ->waitFor('#Form-formPricesForm2-field-Product-prices-2-bulk_price')
+            ;
+
+            // Unpopulate repeater
+            $browser
+                ->pause(300)
+                ->uncheck('#Form-field-Product-bulk_pricing')
+                ->waitUntilMissing('#Form-formPricesForm1-field-Product-prices-1-bulk_price')
+                ->waitUntilMissing('#Form-formPricesForm2-field-Product-prices-2-bulk_price')
+            ;
+
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
