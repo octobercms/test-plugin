@@ -56,6 +56,13 @@ class Product extends Model
     protected $slugs = ['slug' => 'title'];
 
     /**
+     * @var array jsonable attribute names that are json encoded and decoded from the database
+     */
+    protected $jsonable = [
+        'prices'
+    ];
+
+    /**
      * @var array belongsToMany and other relations
      */
     public $belongsTo = [
@@ -92,4 +99,20 @@ class Product extends Model
     public $attachMany = [
         'gallery' => \System\Models\File::class
     ];
+
+    /**
+     * filterFields
+     */
+    public function filterFields($fields)
+    {
+        if ($fields->prices && $fields->bulk_pricing) {
+            if ($fields->bulk_pricing->value) {
+                $fields->prices->maxItems = 0;
+            }
+            else {
+                $fields->prices->maxItems = 1;
+                $fields->prices->value = array_slice((array) $fields->prices->value, 0, 1, true);
+            }
+        }
+    }
 }

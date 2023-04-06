@@ -40,4 +40,12 @@ class Products extends Controller
     {
         $this->formSetSaveValue('title', strtoupper(post('Product[title]')));
     }
+
+    /**
+     * formExtendFields
+     */
+    public function formExtendFields($widget, $fields)
+    {
+        $fields['prices']['maxItems'] = $widget->model->bulk_pricing ? 0 : 1;
+    }
 }

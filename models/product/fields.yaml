@@ -72,3 +72,24 @@ tabs:
             type: pagefinder
             tab: Media
             singleMode: false
+
+        bulk_pricing:
+            type: checkbox
+            tab: Bulk Pricing
+            label: Use Bulk Pricing
+
+        prices:
+            type: repeater
+            tab: Bulk Pricing
+            dependsOn: bulk_pricing
+            minItems: 1
+            form:
+                fields:
+                    bulk_quantity:
+                        type: number
+                        placeholder: Quantity
+                        span: auto
+                    bulk_price:
+                        type: number
+                        placeholder: Price
+                        span: auto

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('location_id')->nullable()->unsigned();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
+            $table->boolean('bulk_pricing')->default(0)->nullable();
+            $table->text('prices')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
