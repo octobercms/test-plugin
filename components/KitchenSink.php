@@ -82,6 +82,47 @@ class KitchenSink extends ComponentBase
                 'title' => 'Options',
                 'type' => 'dictionary',
                 'default' => ['option1' => 'Option 1'],
+            ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-object.html
+            'address' => [
+                'title' => 'Address',
+                'type' => 'object',
+                'properties' => [
+                    'streetAddress' => [
+                        'title' => 'Street Address',
+                        'type' => 'string'
+                    ],
+                    'city' => [
+                        'title' => 'City',
+                        'type' => 'string'
+                    ],
+                    'country' => [
+                        'title' => 'Country',
+                        'type' => 'dropdown',
+                        'options' => [
+                            'us' => 'US',
+                            'ca' => 'Canada'
+                        ]
+                    ]
+                ],
+            ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-objectlist.html
+            'addressList' => [
+                'title' => 'Address (List)',
+                'type' => 'objectList',
+                'titleProperty' => 'fullName',
+                'itemProperties' => [
+                    'fullName' => [
+                        'title' => 'Full Name',
+                        'type' => 'string'
+                    ],
+                    'address' => [
+                        'title' => 'Address',
+                        'type' => 'string'
+                    ]
+                ]
             ]
         ];
     }
