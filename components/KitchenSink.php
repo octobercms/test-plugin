@@ -30,6 +30,7 @@ class KitchenSink extends ComponentBase
     public function defineProperties()
     {
         return [
+            // https://docs.octobercms.com/3.x/element/inspector/type-dropdown.html
             'type' => [
                 'title' => 'Entity Type',
                 'type' => 'dropdown',
@@ -41,24 +42,40 @@ class KitchenSink extends ComponentBase
                 'depends' => ['type'],
                 'showExternalParam' => false
             ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-string.html
             'slug' => [
                 'title' => 'Slug',
                 'type' => 'string',
                 'description' => 'Specify a slug to make this a primary page for the record.'
             ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-checkbox.html
             'defaultView' => [
                 'title' => 'Default View',
                 'type' => 'checkbox',
                 'default' => 1,
                 'description' => 'Used as default entry point when previewing the record.',
             ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-autocomplete.html
             'sortColumn' => [
                 'title' => 'Sort by Column',
                 'description' => 'Model column the records should be ordered by',
                 'type' => 'autocomplete',
-                'group' => 'Sorting',
                 'showExternalParam' => false
             ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-set.html
+            'units' => [
+                'title' => 'Select Muitple Units',
+                'description' => 'Hello',
+                'type' => 'set',
+                'items' => [
+                    'metric' => 'Metric',
+                    'imperial' => 'Imperial'
+                ]
+            ]
         ];
     }
 
