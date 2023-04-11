@@ -75,6 +75,13 @@ class KitchenSink extends ComponentBase
                     'metric' => 'Metric',
                     'imperial' => 'Imperial'
                 ]
+            ],
+
+            // https://docs.octobercms.com/3.x/element/inspector/type-dictionary.html
+            'options' => [
+                'title' => 'Options',
+                'type' => 'dictionary',
+                'default' => ['option1' => 'Option 1'],
             ]
         ];
     }
