@@ -83,7 +83,7 @@ tabs:
             label: Overall feeling
             span: auto
             type: dropdown
-            options: getFeelingOptions
+            optionsMethod: getFeelingzOptions
             tab: Mood
 
         mood[comment]:

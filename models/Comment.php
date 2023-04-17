@@ -93,9 +93,9 @@ class Comment extends Model
     }
 
     /**
-     * getFeelingOptions
+     * getFeelingzOptions
      */
-    public function getFeelingOptions()
+    public function getFeelingzOptions()
     {
         return [
             'sad' => 'Sad',
