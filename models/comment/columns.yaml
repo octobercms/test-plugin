@@ -22,6 +22,7 @@ columns:
     mood[feeling]:
         label: Mood
         type: selectable
+        optionsMethod: getFeelingzOptions
 
     # PHP 8.1
     # status:
