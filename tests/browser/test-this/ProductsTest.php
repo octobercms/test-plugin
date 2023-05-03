@@ -33,7 +33,7 @@ class ProductsTest extends BrowserTestCase
                 ->waitForEvent('page:load', 'document')
                 ->assertTitleContains('Edit Product |');
 
-            // Prepopulate repeater
+            // Pre-populate repeater
             $browser
                 ->click('a[href="#primarytab-bulk-pricing"]')
                 ->pause(300)
@@ -46,7 +46,7 @@ class ProductsTest extends BrowserTestCase
                 ->waitFor('#Form-formPricesForm2-field-Product-prices-2-bulk_price')
             ;
 
-            // Unpopulate repeater
+            // Un-populate repeater
             $browser
                 ->pause(300)
                 ->uncheck('#Form-field-Product-bulk_pricing')
@@ -54,11 +54,31 @@ class ProductsTest extends BrowserTestCase
                 ->waitUntilMissing('#Form-formPricesForm2-field-Product-prices-2-bulk_price')
             ;
 
+            // Test "between" validation of relation
+            $browser
+                ->click('a[href="#primarytab-location"]')
+                ->pause(300)
+                ->check('#checkbox_Form-field-Product-location_sold_1')
+                ->check('#checkbox_Form-field-Product-location_sold_2')
+                ->check('#checkbox_Form-field-Product-location_sold_3')
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.error', 'The Locations Sold field must be between')
+                ->click('a.flash-close')
+            ;
+
+            $browser
+                ->uncheck('#checkbox_Form-field-Product-location_sold_3')
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'Product Updated')
+            ;
+
+            // Finish up
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Product Updated')
-                ->click('a.flash-close');
+                ->click('a.flash-close')
+            ;
         });
     }
 

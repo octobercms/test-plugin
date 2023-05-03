@@ -106,6 +106,7 @@ class LocationsTest extends BrowserTestCase
                 ->type('formNotesForm0PersonSearch[term]', 'Lara Croft')
                 ->waitForTextIn('#Lists-formNotesForm0PersonList .list-cell-index-2 span', 'Lara Croft')
                 ->click('.list-cell-index-1')
+                ->pause(300)
                 ->waitForTextIn('.recordname', 'Lara Croft')
                 ->click('.find-remove-button')
                 ->waitForTextIn('.modal-body > p', 'Are you sure?')

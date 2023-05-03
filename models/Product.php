@@ -21,7 +21,9 @@ class Product extends Model
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'location_sold' => 'between:0,2'
+    ];
 
     /**
      * @var mixed attributes that aren't mass assignable.
