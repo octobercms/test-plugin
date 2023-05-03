@@ -1,4 +1,6 @@
 fields:
+    title:
+        label: Title
 
     parent:
         label: Parent

@@ -61,6 +61,19 @@ class Page extends Model
     ];
 
     /**
+     * beforeValidate
+     */
+    public function beforeValidate()
+    {
+        if ($this->id === 3) {
+            $this->rules += [
+                'parent' => 'required',
+                'parent.title' => 'size:10'
+            ];
+        }
+    }
+
+    /**
      * getParentScopeOptions
      */
     public function getParentScopeOptions()

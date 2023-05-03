@@ -58,4 +58,52 @@ class PagesTest extends BrowserTestCase
                 ->click('a.flash-close');
         });
     }
+
+    /**
+     * testPagesValidateParentField tests a special rule: record 3 wants parent.title size:10
+     */
+    public function testPagesValidateParentField()
+    {
+        $this->browse(function($browser) {
+            // Set parent to some invalid value
+            $browser
+                ->visit('/admin/october/test/pages/update/1')
+                ->assertTitleContains('Edit Page |')
+                ->type('Page[title]', 'First Page!')
+                ->pause(300)
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
+                ->click('a.flash-close');
+            ;
+
+            // Expecting invalid response
+            $browser
+                ->visit('/admin/october/test/pages/update/3')
+                ->assertTitleContains('Edit Page |')
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.error', 'The parent.title field must be 10 characters')
+                ->click('a.flash-close')
+            ;
+
+            // Set parent back to original value
+            $browser
+                ->visit('/admin/october/test/pages/update/1')
+                ->assertTitleContains('Edit Page |')
+                ->type('Page[title]', 'First Page')
+                ->pause(300)
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
+                ->click('a.flash-close');
+            ;
+
+            // Expecting success response
+            $browser
+                ->visit('/admin/october/test/pages/update/3')
+                ->assertTitleContains('Edit Page |')
+                ->click('.form-buttons [data-request=onSave]')
+                ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
+                ->click('a.flash-close');
+            ;
+        });
+    }
 }
