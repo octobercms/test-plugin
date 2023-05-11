@@ -6,7 +6,7 @@ use October\Rain\Database\Updates\Migration;
 /**
  * Migration for Test 1 (People)
  */
-return new class extends Migration
+return new class() extends Migration
 {
     public function up()
     {
