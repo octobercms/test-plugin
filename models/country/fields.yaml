@@ -17,6 +17,11 @@ fields:
 
 tabs:
     fields:
+        cities:
+            tab: Cities
+            label: Cities
+            type: relation
+
         content:
             tab: Content
             label: Content

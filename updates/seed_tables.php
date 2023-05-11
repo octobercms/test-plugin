@@ -1,5 +1,6 @@
 <?php namespace October\Test\Updates;
 
+use Str;
 use October\Rain\Database\Updates\Seeder;
 use October\Test\Models\Attribute;
 use October\Test\Models\Category;
@@ -196,6 +197,24 @@ class SeedAllTables extends Seeder
             ['country_id' => $country2->id, 'city_id' => 7, 'name' => '22 2201 Seymour Drive'],
             ['country_id' => $country2->id, 'city_id' => 8, 'name' => '2322 Xray Alphabet'],
         ]);
+
+        /*
+         * Test 4b: Regions
+         */
+        $country = Country::create([
+            'name' => 'Dimension C-137',
+            'code' => 'dimension-c-137',
+            'language' => 'bp',
+            'currency' => 'smk',
+            'is_active' => false,
+        ]);
+
+        foreach (range(1, 1000) as $index) {
+            City::create([
+                'name' => 'City test ' . Str::random(),
+                'country' => $country,
+            ]);
+        }
 
         /*
          * Test 5: Reviews

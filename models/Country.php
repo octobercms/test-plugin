@@ -52,6 +52,10 @@ class Country extends Model
      * @var array hasMany
      */
     public $hasMany = [
+        'cities' => [
+            City::class,
+            'key' => 'custom_country_id'
+        ],
         'sisters' => [
             RepeaterItem::class,
             'key' => 'parent_id',
