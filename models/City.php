@@ -43,7 +43,10 @@ class City extends Model
      * @var array belongsTo
      */
     public $belongsTo = [
-        'country' => [Country::class, 'key' => 'custom_country_id'],
+        'country' => [
+            Country::class,
+            'key' => 'custom_country_id'
+        ],
     ];
 
     /**
