@@ -58,7 +58,8 @@ class Person extends Model
         ],
         'alt_phone' => [
             \October\Test\Models\Phone::class,
-            'key' => 'person_id'
+            'key' => 'person_id',
+            'otherKey' => 'alt_id',
         ]
     ];
 
@@ -79,5 +80,16 @@ class Person extends Model
 
         // Default value, model driven
         $this->preferred_name = 'Joey';
+    }
+
+    /**
+     * afterCreate
+     */
+    public function afterCreate()
+    {
+        $this->newQueryWithoutScopes()
+            ->where($this->getKeyName(), $this->id)
+            ->update(['alt_id' => $this->id + 100])
+        ;
     }
 }

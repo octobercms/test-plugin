@@ -43,7 +43,6 @@ fields:
         type: recordfinder
         list: $/october/test/models/phone/columns.yaml
         title: Please pick a phone
-        prompt: Click the %s to find an alternative phone
         nameFrom: name
         descriptionFrom: number
         searchScope: customSearch
@@ -90,6 +89,17 @@ fields:
         span: left
         comment: Proxy dropdown field for Phone model.
         type: dropdown
+
+
+    # Record Finder With Alternate Local Key
+    alt_phone:
+        label: Alt Phone
+        comment: Record finder field.
+        type: recordfinder
+        list: $/october/test/models/phone/columns.yaml
+        title: Please pick an alternative phone
+        nameFrom: name
+        descriptionFrom: number
 
 tabs:
     lazy:

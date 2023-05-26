@@ -12,6 +12,7 @@ return new class() extends Migration
     {
         Schema::create('october_test_people', function(Blueprint $table) {
             $table->increments('id');
+            $table->integer('alt_id')->unsigned()->nullable()->index();
             $table->string('name')->nullable();
             $table->string('preferred_name')->nullable();
             $table->string('bio')->nullable();
