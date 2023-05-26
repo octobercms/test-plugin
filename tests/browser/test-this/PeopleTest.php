@@ -66,6 +66,33 @@ class PeopleTest extends BrowserTestCase
                 ->waitForTextIn('#Form-field-Person-hobbies-group', 'Hobbies')
             ;
 
+            // Test Record Finder
+            $browser
+                ->waitForTextIn('#RecordFinder-formAltPhone-alt_phone .recordname', 'Home')
+                ->click('#RecordFinder-formAltPhone-alt_phone .find-remove-button')
+                ->waitForTextIn('.modal-body > p', 'Are you sure?')
+                ->press('OK')
+            ;
+
+            $browser
+                ->click('button[data-handler="formAltPhone::onFindRecord"]')
+                ->waitForTextIn('.modal-title', 'Please pick an alternative phone')
+            ;
+
+            $browser
+                ->click('#Lists-formAltPhoneList .list-cell-name-id a')
+                ->waitUntilMissing('html[data-ajax-progress]')
+                ->pause(300)
+                ->waitFor('#Lists-formAltPhoneList .list-cell-name-id.active a')
+            ;
+
+            $browser
+                ->type('formAltPhoneSearch[term]', 'Home')
+                ->waitForTextIn('#Lists-formAltPhoneList .list-cell-index-2', 'Home')
+                ->click('.list-cell-index-1')
+                ->waitForTextIn('#RecordFinder-formAltPhone-alt_phone .recordname', 'Home')
+            ;
+
             $browser
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
