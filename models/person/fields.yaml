@@ -10,19 +10,24 @@
 fields:
     name:
         label: Full Name
+        span: auto
         default: Joe Dirt
         commentAbove: Text field, required. Given name in the first box, preferred name in the second box.
+
+    _previous_names:
+        label: Previous Names
+        span: auto
+        placeholder: Enter previous names
+        commentAbove: Previously used <strong>names, monikers or aliases</strong>
+        commentHtml: true
 
     # Testing form field with no config
     preferred_name:
 
-    _previous_names:
-        label: Previous Names
-        placeholder: Enter previous names
-
     # Nullable
     is_married:
         label: Married
+        span: auto
         type: dropdown
         emptyOption: Unknown
         options:
@@ -31,6 +36,7 @@ fields:
 
     ajax_options:
         label: AJAX Options
+        span: auto
         comment: These options should be populated using AJAX
         path: $/october/test/controllers/people/_ajax_options.htm
         type: partial
@@ -54,6 +60,11 @@ fields:
         type: partial
 
     # Proxy Fields
+    _section_proxy_fields:
+        context: proxyfields
+        type: section
+        label: Proxy Fields
+
     phone[name]:
         context: proxyfields
         span: auto
@@ -89,17 +100,6 @@ fields:
         span: left
         comment: Proxy dropdown field for Phone model.
         type: dropdown
-
-
-    # Record Finder With Alternate Local Key
-    alt_phone:
-        label: Alt Phone
-        comment: Record finder field.
-        type: recordfinder
-        list: $/october/test/models/phone/columns.yaml
-        title: Please pick an alternative phone
-        nameFrom: name
-        descriptionFrom: number
 
 tabs:
     lazy:
@@ -138,6 +138,17 @@ tabs:
             default: "#27ae60"
             tab: Birthday
             span: auto
+
+        # Record Finder With Alternate Local Key
+        alt_phone:
+            label: Emergency Contact
+            tab: Activities
+            comment: Record finder field that uses custom keys.
+            type: recordfinder
+            list: $/october/test/models/phone/columns.yaml
+            title: Please pick an alternative phone
+            nameFrom: name
+            descriptionFrom: number
 
         sports:
             label: Sports
