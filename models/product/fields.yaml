@@ -66,6 +66,8 @@ tabs:
             label: Gallery
             type: fileupload
             tab: Media
+            mimeTypes: jpg,webp
+            comment: Please only jpg and webp files
 
         featured_page:
             label: Featured Page
