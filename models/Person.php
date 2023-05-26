@@ -87,9 +87,14 @@ class Person extends Model
      */
     public function afterCreate()
     {
+        // Spoof a alternative ID
+        $altId = $this->id + 100;
+
         $this->newQueryWithoutScopes()
             ->where($this->getKeyName(), $this->id)
-            ->update(['alt_id' => $this->id + 100])
+            ->update(['alt_id' => $altId])
         ;
+
+        $this->alt_id = $altId;
     }
 }
