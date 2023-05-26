@@ -37,6 +37,7 @@ class Page extends Model
      * @var array translatable
      */
     public $translatable = [
+        'title',
         'content',
         'mainimage',
         'image',
