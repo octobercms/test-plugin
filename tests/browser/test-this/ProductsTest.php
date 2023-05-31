@@ -25,7 +25,10 @@ class ProductsTest extends BrowserTestCase
         $this->browse(function($browser) {
             $browser
                 ->visit('/admin/october/test/products?_site_id=1')
-                ->assertTitleContains('Manage Products |');
+                ->assertTitleContains('Manage Products |')
+                ->waitForTextIn('#Lists tr:nth-child(1) .list-cell-index-8', 'Tezla')
+                ->waitForTextIn('#Lists tr:nth-child(2) .list-cell-index-8', 'Neztle')
+            ;
 
             $browser
                 ->click('.list-cell-index-1')
