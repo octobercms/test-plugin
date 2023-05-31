@@ -22,6 +22,7 @@ use October\Test\Models\Theme;
 use October\Test\Models\User;
 use October\Test\Models\Product;
 use October\Test\Models\ProductCategory;
+use October\Test\Models\Company;
 
 class SeedAllTables extends Seeder
 {
@@ -326,12 +327,24 @@ class SeedAllTables extends Seeder
         /*
          * Test 9: Product
          */
+        $company1 = Company::create(['name' => 'Tezla']);
+        $company2 = Company::create(['name' => 'Neztle']);
+        $company3 = Company::create(['name' => 'Zubway']);
+        $company4 = Company::create(['name' => 'Zoogle']);
+
         $product1 = Product::make(['title' => '2 Pizzas', 'price' => '49.95']);
         $product1->slug = 'custom-slug';
+        $product1->company = $company1;
         $product1->savePropagate();
 
         $product2 = Product::make(['title' => 'Cola', 'price' => '4.99']);
+        $product2->company = $company2;
         $product2->savePropagate();
+
+        // Testing soft deletes
+        $company2->delete();
+        $company3->delete();
+        $company4->delete();
 
         $category1 = ProductCategory::create(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
         $category2 = ProductCategory::create(['name' => 'Drink', 'description' => 'The balance has been restored']);

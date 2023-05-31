@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('price', 15, 2)->default(0)->nullable();
             $table->integer('author_id')->nullable()->unsigned();
             $table->integer('location_id')->nullable()->unsigned();
+            $table->integer('company_id')->nullable()->unsigned();
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
             $table->boolean('bulk_pricing')->default(0)->nullable();
@@ -51,6 +52,13 @@ return new class extends Migration
             $table->integer('location_id')->unsigned();
             $table->primary(['product_id', 'location_id']);
         });
+
+        Schema::create('october_test_companies', function($table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     public function down()
@@ -59,5 +67,6 @@ return new class extends Migration
         Schema::dropIfExists('october_test_product_categories');
         Schema::dropIfExists('october_test_products_categories');
         Schema::dropIfExists('october_test_products_locations');
+        Schema::dropIfExists('october_test_companies');
     }
 };

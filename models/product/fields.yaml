@@ -18,6 +18,11 @@ fields:
         type: number
         span: auto
 
+    company:
+        label: Company
+        type: relation
+        span: auto
+
 tabs:
     fields:
         content:

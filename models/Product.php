@@ -75,6 +75,10 @@ class Product extends Model
         'author' => [
             \Tailor\Models\EntryRecord::class,
             'blueprint' => '6947ff28-b660-47d7-9240-24ca6d58aeae'
+        ],
+        'company' => [
+            Company::class,
+            'scope' => 'withTrashed'
         ]
     ];
 

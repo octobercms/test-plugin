@@ -34,3 +34,9 @@ columns:
         path: $/october/test/models/product/_column_dropdown.php
         clickable: false
         sortable: false
+
+    company_name:
+        label: Company Name
+        relation: company
+        select: name
+        searchable: true

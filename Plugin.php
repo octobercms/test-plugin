@@ -95,6 +95,13 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPageSnippets()
+    {
+        return [
+           \October\Test\Components\KitchenSink::class => 'weather'
+        ];
+    }
+
     /**
      * registerFilterWidgets
      */

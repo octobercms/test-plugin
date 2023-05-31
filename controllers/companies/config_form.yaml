@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Company
+
+# Model Form Field configuration
+form: $/october/test/models/company/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Company
+
+# Default redirect location
+defaultRedirect: october/test/companies
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: october/test/companies/update/:id
+    redirectClose: october/test/companies
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: october/test/companies
+    redirectClose: october/test/companies
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

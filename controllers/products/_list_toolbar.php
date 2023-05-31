@@ -19,4 +19,10 @@
         class="btn btn-default oc-icon-database">
         Manage Categories
     </a>
+
+    <a
+        href="<?= Backend::url('october/test/companies') ?>"
+        class="btn btn-default oc-icon-database">
+        Manage Companies
+    </a>
 </div>
