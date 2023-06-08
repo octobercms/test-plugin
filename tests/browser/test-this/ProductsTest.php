@@ -73,6 +73,7 @@ class ProductsTest extends BrowserTestCase
                 ->uncheck('#checkbox_Form-field-Product-location_sold_3')
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Product Updated')
+                ->click('a.flash-close')
             ;
 
             // Finish up
