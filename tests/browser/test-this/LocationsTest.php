@@ -84,7 +84,7 @@ class LocationsTest extends BrowserTestCase
                 ->pause(300)
                 ->click('a[href="#secondarytab-additional-information"]')
                 ->pause(300)
-                ->click('button[data-handler="formNotesForm0Person::onFindRecord"]')
+                ->click('#RecordFinder-formNotesForm0Person-person .toolbar-find-button')
                 ->waitForTextIn('.modal-title', 'Find Record')
             ;
 
@@ -107,7 +107,8 @@ class LocationsTest extends BrowserTestCase
                 ->waitForTextIn('#Lists-formNotesForm0PersonList .list-cell-index-2 span', 'Lara Croft')
                 ->click('.list-cell-index-3')
                 ->waitForTextIn('.recordname', 'Lara Croft')
-                ->click('.find-remove-button')
+                ->pause(300)
+                ->click('#RecordFinder-formNotesForm0Person-person .find-remove-button')
                 ->waitForTextIn('.modal-body > p', 'Are you sure?')
                 ->press('OK')
             ;
