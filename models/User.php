@@ -131,11 +131,11 @@ class User extends Model
     {
         parent::__construct(...$args);
 
-        $this->bindEvent('model.relation.detach', function (string $relationName, array $ids) {
-            traceLog("Relation {$relationName} was removed", $ids);
+        $this->bindEvent('model.relation.detach', function ($relationName, $ids) {
+            traceLog("Relation {$relationName} was removed", (array) $ids);
         });
 
-        $this->bindEvent('model.relation.attach', function (string $relationName, array $ids, array $attributes) {
+        $this->bindEvent('model.relation.attach', function ($relationName, $ids, $attributes) {
             traceLog("New relation {$relationName} was created", $ids, $attributes);
         });
     }
