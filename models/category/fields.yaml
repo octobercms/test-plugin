@@ -13,29 +13,6 @@ fields:
 
 tabs:
     fields:
-        _textarea_tiny:
-            type: textarea
-            size: tiny
-            tab: Text Area
-            placeholder: Size tiny
-
-        _textarea_small:
-            type: textarea
-            size: small
-            tab: Text Area
-            placeholder: Size small
-
-        _textarea_large:
-            type: textarea
-            size: large
-            tab: Text Area
-            placeholder: Size large
-
-        _textarea_huge:
-            type: textarea
-            size: huge
-            tab: Text Area
-            placeholder: Size huge
 
         _textarea_giant:
             type: textarea
@@ -43,29 +20,29 @@ tabs:
             tab: Text Area
             placeholder: Size giant
 
-        _richeditor_tiny:
-            type: richeditor
-            size: tiny
-            tab: Rich Editor
-            placeholder: Size tiny
+        _textarea_huge:
+            type: textarea
+            size: huge
+            tab: Text Area
+            placeholder: Size huge
 
-        _richeditor_small:
-            type: richeditor
-            size: small
-            tab: Rich Editor
-            placeholder: Size small
-
-        _richeditor_large:
-            type: richeditor
+        _textarea_large:
+            type: textarea
             size: large
-            tab: Rich Editor
+            tab: Text Area
             placeholder: Size large
 
-        _richeditor_huge:
-            type: richeditor
-            size: huge
-            tab: Rich Editor
-            placeholder: Size huge
+        _textarea_small:
+            type: textarea
+            size: small
+            tab: Text Area
+            placeholder: Size small
+
+        _textarea_tiny:
+            type: textarea
+            size: tiny
+            tab: Text Area
+            placeholder: Size tiny
 
         _richeditor_giant:
             type: richeditor
@@ -73,29 +50,29 @@ tabs:
             tab: Rich Editor
             placeholder: Size giant
 
-        _codeeditor_tiny:
-            type: codeeditor
-            size: tiny
-            tab: Code Editor
-            placeholder: Size tiny
+        _richeditor_huge:
+            type: richeditor
+            size: huge
+            tab: Rich Editor
+            placeholder: Size huge
 
-        _codeeditor_small:
-            type: codeeditor
-            size: small
-            tab: Code Editor
-            placeholder: Size small
-
-        _codeeditor_large:
-            type: codeeditor
+        _richeditor_large:
+            type: richeditor
             size: large
-            tab: Code Editor
+            tab: Rich Editor
             placeholder: Size large
 
-        _codeeditor_huge:
-            type: codeeditor
-            size: huge
-            tab: Code Editor
-            placeholder: Size huge
+        _richeditor_small:
+            type: richeditor
+            size: small
+            tab: Rich Editor
+            placeholder: Size small
+
+        _richeditor_tiny:
+            type: richeditor
+            size: tiny
+            tab: Rich Editor
+            placeholder: Size tiny
 
         _codeeditor_giant:
             type: codeeditor
@@ -103,23 +80,35 @@ tabs:
             tab: Code Editor
             placeholder: Size giant
 
-        _markdown_tiny:
-            type: markdown
-            size: tiny
-            tab: Markdown Editor
-            placeholder: Size tiny
+        _codeeditor_huge:
+            type: codeeditor
+            size: huge
+            tab: Code Editor
+            placeholder: Size huge
 
-        _markdown_small:
-            type: markdown
+        _codeeditor_large:
+            type: codeeditor
+            size: large
+            tab: Code Editor
+            placeholder: Size large
+
+        _codeeditor_small:
+            type: codeeditor
             size: small
-            tab: Markdown Editor
+            tab: Code Editor
             placeholder: Size small
 
-        _markdown_large:
+        _codeeditor_tiny:
+            type: codeeditor
+            size: tiny
+            tab: Code Editor
+            placeholder: Size tiny
+
+        _markdown_giant:
             type: markdown
-            size: large
+            size: giant
             tab: Markdown Editor
-            placeholder: Size large
+            placeholder: Size giant
 
         _markdown_huge:
             type: markdown
@@ -127,8 +116,20 @@ tabs:
             tab: Markdown Editor
             placeholder: Size huge
 
-        _markdown_giant:
+        _markdown_large:
             type: markdown
-            size: giant
+            size: large
             tab: Markdown Editor
-            placeholder: Size giant
+            placeholder: Size large
+
+        _markdown_small:
+            type: markdown
+            size: small
+            tab: Markdown Editor
+            placeholder: Size small
+
+        _markdown_tiny:
+            type: markdown
+            size: tiny
+            tab: Markdown Editor
+            placeholder: Size tiny
