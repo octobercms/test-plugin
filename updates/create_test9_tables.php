@@ -56,6 +56,9 @@ return new class extends Migration
         Schema::create('october_test_companies', function($table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('preset_icon')->nullable();
+            $table->string('preset_locales')->nullable();
+            $table->string('preset_locales_icons')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

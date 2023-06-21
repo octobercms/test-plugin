@@ -5,3 +5,22 @@
 fields:
     name:
         label: Name
+        span: auto
+
+    preset_icon:
+        label: Icon (Preset)
+        span: auto
+        type: dropdown
+        optionsPreset: icons
+
+    preset_locales:
+        label: Locales (Preset)
+        span: auto
+        type: dropdown
+        optionsPreset: locales
+
+    preset_locales_icons:
+        label: Locales with Icons (Preset)
+        span: auto
+        type: dropdown
+        optionsPreset: localeIcons

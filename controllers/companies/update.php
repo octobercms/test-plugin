@@ -13,6 +13,18 @@
             <?= $this->formRender() ?>
         </div>
 
+        <h5>All Icons</h5>
+        <div class="form-preview">
+            <div class="row text-center">
+                <?php foreach (\System\Helpers\Preset::icons() as $icon): ?>
+                    <div class="col-1">
+                        <h1 title="<?= $icon[1] ?>"><i class="<?= $icon[1] ?>"></i></h1>
+                        <small><?= $icon[1] ?></small>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+
         <div class="form-buttons">
             <div class="loading-indicator-container">
                 <button
