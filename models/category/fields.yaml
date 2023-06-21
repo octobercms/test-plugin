@@ -109,6 +109,7 @@ tabs:
             size: giant
             tab: Markdown Editor
             placeholder: Size giant
+            sideBySide: true
 
         _markdown_huge:
             type: markdown
