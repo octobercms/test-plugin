@@ -13,6 +13,47 @@
             <?= $this->formRender() ?>
         </div>
 
+        <h5>All UI</h5>
+        <div class="form-preview">
+            <h6>Button</h6>
+            <div class="mb-4">
+                <?= Ui::button('Return Home', '/') ?>
+            </div>
+
+            <h6>Form Toolbar</h6>
+            <?= Ui::formToolbar(
+                Ui::ajaxButton('Delete Record', 'onDeleteRecord')
+                    ->loadingMessage('Processing...')
+                    ->primary()
+            ) ?>
+
+            <h6>Callout</h6>
+            <?= Ui::callout(function() { ?>
+                <p>There is something missing here.</p>
+            <?php }) ?>
+
+            <h6>Callout with Button</h6>
+            <?= Ui::callout()
+                ->danger()
+                ->label('You may need to do something')
+                ->action(
+                    Ui::popupButton('Do Something', 'onDoSomething')
+                        ->danger()
+                        ->loading()
+                )
+            ?>
+
+            <h6>Search Input</h6>
+            <div class="row">
+                <div class="col-6">
+                    <?= Ui::searchInput('Search...', 'search_term') ?>
+                </div>
+                <div class="col-6">
+                    <?= Ui::searchInput('Search with AJAX...', 'search_term_ajax')->ajaxHandler('onAjax') ?>
+                </div>
+            </div>
+        </div>
+
         <div class="form-buttons">
             <div class="loading-indicator-container">
                 <button
