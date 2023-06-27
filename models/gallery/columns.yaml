@@ -11,3 +11,9 @@ columns:
     title:
         label: Title
         searchable: true
+
+    countries:
+        type: text
+        relation: countries
+        select: name
+        clickable: false
