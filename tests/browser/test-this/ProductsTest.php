@@ -106,13 +106,13 @@ class ProductsTest extends BrowserTestCase
 
             // Expanding and collapsing tree
             $browser
-                ->click('[data-tree-id="7"] a.tree-expand-collapse.is-expanded')
-                ->waitUntilMissing('[data-tree-id="11"]')
+                ->click('[data-tree-id="1"] a.tree-expand-collapse.is-expanded')
+                ->waitUntilMissingText("And I'm not proud of my address")
             ;
 
             $browser
-                ->click('[data-tree-id="7"] a.tree-expand-collapse')
-                ->waitFor('[data-tree-id="11"]')
+                ->click('[data-tree-id="1"] a.tree-expand-collapse')
+                ->waitForText("And I'm not proud of my address")
             ;
 
             // Sorting and paging list
@@ -138,6 +138,7 @@ class ProductsTest extends BrowserTestCase
             // Searching and paging list
             $browser
                 ->type('listToolbarSearch[term]', 'a ')
+                ->waitFor('#ListStructure .list-pagination-links')
                 ->waitForTextIn('#ListStructure .list-cell-index-1', 'Mains')
                 ->click('#ListStructure .list-pagination-links .page-link.page-next')
                 ->waitForTextIn('#ListStructure .list-cell-index-1', 'Hats')

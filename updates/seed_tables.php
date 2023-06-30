@@ -346,6 +346,7 @@ class SeedAllTables extends Seeder
         $company3->delete();
         $company4->delete();
 
+        $mains = ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
         $category1 = ProductCategory::create(['name' => 'Food', 'description' => 'Chocolate fruit cake with beans on it']);
         $category2 = ProductCategory::create(['name' => 'Drink', 'description' => 'The balance has been restored']);
 
@@ -355,7 +356,6 @@ class SeedAllTables extends Seeder
         $category1->savePropagate();
         $category2->savePropagate();
 
-        $mains = ProductCategory::create(['name' => 'Mains', 'description' => 'We have been to town and back']);
         ProductCategory::create(['name' => 'Entree', 'description' => 'I hope you enjoyed the show']);
         ProductCategory::create(['name' => 'Dessert', 'description' => "I've never seen a diamond in the flesh"]);
         ProductCategory::create(['name' => 'Beverages', 'description' => "I cut my teeth on wedding rings in the movies"]);
