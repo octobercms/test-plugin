@@ -19,6 +19,7 @@ class UsersTest extends BrowserTestCase
 
     /**
      * testUsersIndex
+     * @todo need to make sure the first user can be saved, validation fails by default
      */
     public function testUsersIndex()
     {
@@ -75,6 +76,7 @@ class UsersTest extends BrowserTestCase
             $browser
                 ->attach('#FileUpload-formPhoto-photo .dz-hidden-input', __DIR__.'/../../fixtures/sample-image.jpg')
                 ->waitForTextIn('#FileUpload-formPhoto-photo .upload-files-container .upload-object h4.filename', 'sample-image.jpg')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The Portfolio field is WOW required.')
                 ->click('a.flash-close')
