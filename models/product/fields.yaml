@@ -100,3 +100,7 @@ tabs:
                         type: number
                         placeholder: Price
                         span: auto
+
+        members:
+            type: relation
+            tab: Members

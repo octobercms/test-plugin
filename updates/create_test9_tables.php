@@ -53,6 +53,12 @@ return new class extends Migration
             $table->primary(['product_id', 'location_id']);
         });
 
+        Schema::create('october_test_products_members', function($table) {
+            $table->integer('product_id')->unsigned();
+            $table->integer('member_id')->unsigned();
+            $table->primary(['product_id', 'member_id']);
+        });
+
         Schema::create('october_test_companies', function($table) {
             $table->increments('id');
             $table->string('name')->nullable();
@@ -70,6 +76,7 @@ return new class extends Migration
         Schema::dropIfExists('october_test_product_categories');
         Schema::dropIfExists('october_test_products_categories');
         Schema::dropIfExists('october_test_products_locations');
+        Schema::dropIfExists('october_test_products_members');
         Schema::dropIfExists('october_test_companies');
     }
 };
