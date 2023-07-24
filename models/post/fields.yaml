@@ -107,7 +107,7 @@ tabs:
                 condition: value[a][b]
 
         tags_array:
-            label: Tags saved as Array
+            label: Tags (Array)
             type: taglist
             mode: array
             customTags: false
@@ -115,7 +115,7 @@ tabs:
             tab: Tags
 
         tags_string:
-            label: Tags saved as String
+            label: Tags (String)
             type: taglist
             mode: string
             separator: comma
@@ -124,7 +124,7 @@ tabs:
             tab: Tags
 
         tags_array_id:
-            label: Tags saved as Array of IDs
+            label: Tags (Array of IDs)
             type: taglist
             mode: array
             useKey: true
@@ -133,7 +133,7 @@ tabs:
             tab: Tags
 
         tags_string_id:
-            label: Tags saved as String of IDs
+            label: Tags (String of IDs)
             type: taglist
             mode: string
             useKey: true
@@ -143,7 +143,7 @@ tabs:
             tab: Tags
 
         tags_inline_options:
-            label: Tags with Inline Options
+            label: Tags (Inline Options)
             type: taglist
             mode: array
             customTags: false

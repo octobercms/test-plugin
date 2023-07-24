@@ -97,30 +97,41 @@ class Post extends Model
         ],
     ];
 
-    //
-    // Options
-    //
-
+    /**
+     * getTagsRelationOptions
+     */
     public function getTagsRelationOptions($value, $formData)
     {
         return Tag::all()->lists('fullname', 'id');
     }
 
+    /**
+     * getTagsArrayOptions
+     */
     public function getTagsArrayOptions($value, $formData)
     {
         return Tag::all()->lists('name');
     }
 
+    /**
+     * getTagsStringOptions
+     */
     public function getTagsStringOptions($value, $formData)
     {
         return $this->getTagsArrayOptions($value, $formData);
     }
 
+    /**
+     * getTagsArrayIdOptions
+     */
     public function getTagsArrayIdOptions($value, $formData)
     {
         return Tag::all()->pluck('name', 'id')->toArray();
     }
 
+    /**
+     * getTagsStringIdOptions
+     */
     public function getTagsStringIdOptions($value, $formData)
     {
         return $this->getTagsArrayIdOptions($value, $formData);

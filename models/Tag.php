@@ -32,7 +32,7 @@ class Tag extends Model
     ];
 
     /**
-     * @var bool Use timetamps
+     * @var bool Use timestamps
      */
     public $timestamps = false;
 
