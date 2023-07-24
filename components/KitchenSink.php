@@ -20,7 +20,8 @@ class KitchenSink extends ComponentBase
     {
         return [
             'name' => 'Kitchen Sink',
-            'description' => 'Who left this here?'
+            'description' => 'Who left this here?',
+            'snippetAjax' => true
         ];
     }
 
@@ -151,7 +152,7 @@ class KitchenSink extends ComponentBase
     /**
      * getEntityTypeOptions
      */
-    public function getEntityTypeOptions()
+    public function getTypeOptions()
     {
         return [
             'entry' => 'Entry',
