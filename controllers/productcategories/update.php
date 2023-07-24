@@ -21,11 +21,13 @@
             </div>
 
             <h6>Form Toolbar</h6>
-            <?= Ui::formToolbar(
-                Ui::ajaxButton('Delete Record', 'onDeleteRecord')
-                    ->loadingMessage('Processing...')
-                    ->primary()
-            ) ?>
+            <div class="form-buttons">
+                <div class="loading-indicator-container">
+                    <?= Ui::ajaxButton('Delete Record', 'onDeleteRecord')
+                        ->loadingMessage('Processing...')
+                        ->primary() ?>
+                </div>
+            </div>
 
             <h6>Callout</h6>
             <?= Ui::callout(function() { ?>
