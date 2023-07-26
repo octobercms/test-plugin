@@ -37,6 +37,7 @@ roles_pivot_model:
         recordsPerPage: 2
     manage:
         list: $/october/test/models/role/columns.yaml
+        form: $/october/test/models/role/fields.yaml
     pivot:
         form: $/october/test/models/userrolepivot/fields.yaml
 
