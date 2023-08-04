@@ -72,6 +72,10 @@ tabs:
             showWeekNumber: true
             format: d.m.Y
             span: left
+            disableDays:
+                - 0 # Sunday
+                - 6 # Saturday
+                - "2023-08-10" # Date
 
         end_date:
             label: End Date
