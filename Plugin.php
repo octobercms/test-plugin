@@ -51,6 +51,10 @@ class Plugin extends PluginBase
         // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
         //     unset($presets['punch']);
         // });
+
+        \Backend\FormWidgets\RichEditor::extend(function($controller) {
+            $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
+        });
     }
 
     /**

@@ -180,3 +180,4 @@ secondaryTabs:
             size: huge
             tab: Rich Editor
             commentAbove: Rich editor (WYSIWYG) field.
+            toolbarButtons: insertCustomThing,html,undo,redo,bold,italic,underline,paragraphFormat,fontFamily,fontSize,align
