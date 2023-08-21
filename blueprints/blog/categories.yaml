@@ -21,6 +21,10 @@ fields:
         label: Status
         type: text
 
+    reference:
+        label: Reference
+        type: pagefinder
+
     items:
         type: repeater
         form:

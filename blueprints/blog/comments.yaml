@@ -1,0 +1,33 @@
+uuid: e32bf358-f11f-4541-9864-e328361fd15b
+handle: Test\Blog\Comments
+type: entry
+name: Test Comments
+useDrafts: false
+navigation: false
+
+groups:
+    regular_post:
+        name: Regular Comment
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: richeditor
+                span: adaptive
+
+            blog_post_content:
+                type: mixin
+                source: Test\Blog\PostContent
+
+    markdown_post:
+        name: Markdown Comment
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: markdown
+                span: adaptive
+
+            blog_post_content:
+                type: mixin
+                source: Test\Blog\PostContent
