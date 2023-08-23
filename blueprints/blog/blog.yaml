@@ -34,6 +34,7 @@ groups:
                 displayMode: controller
                 source: Test\Blog\Comments
                 toolbarButtons: create|delete
+                span: adaptive
 
     markdown_post:
         name: Markdown Post
@@ -54,4 +55,4 @@ groups:
                 displayMode: controller
                 source: Test\Blog\Comments
                 toolbarButtons: create|delete
-
+                span: adaptive
