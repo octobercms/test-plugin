@@ -102,6 +102,12 @@ class Product extends Model
             'key' => 'product_id',
             'otherKey' => 'member_id',
         ],
+        'related_products' => [
+            Product::class,
+            'table' => 'october_test_products_related_products',
+            'key' => 'product_id',
+            'otherKey' => 'related_product_id',
+        ],
     ];
 
     public $attachOne = [

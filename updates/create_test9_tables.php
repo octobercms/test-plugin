@@ -41,6 +41,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('october_test_products_related_products', function($table) {
+            $table->integer('product_id')->unsigned();
+            $table->integer('related_product_id')->unsigned();
+            $table->primary(['product_id', 'related_product_id']);
+        });
+
         Schema::create('october_test_products_categories', function($table) {
             $table->integer('product_id')->unsigned();
             $table->integer('category_id')->unsigned();
@@ -68,6 +74,20 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        Schema::create('october_test_orders', function($table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->text('notes')->nullable();
+            $table->decimal('price', 15, 2)->default(0)->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_orders_products', function($table) {
+            $table->integer('order_id')->unsigned();
+            $table->integer('product_id')->unsigned();
+            $table->primary(['order_id', 'product_id']);
+        });
     }
 
     public function down()
@@ -78,5 +98,7 @@ return new class extends Migration
         Schema::dropIfExists('october_test_products_locations');
         Schema::dropIfExists('october_test_products_members');
         Schema::dropIfExists('october_test_companies');
+        Schema::dropIfExists('october_test_orders');
+        Schema::dropIfExists('october_test_orders_products');
     }
 };

@@ -104,3 +104,14 @@ tabs:
         members:
             type: relation
             tab: Members
+
+        related_products:
+            label: Related Products
+            tab: Related Products
+            type: relation
+            controller:
+                label: Related Product
+                list: $/october/test/models/product/columns.yaml
+                form: $/october/test/models/product/fields.yaml
+                view:
+                    toolbarButtons: add|remove
