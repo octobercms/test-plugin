@@ -4,8 +4,13 @@
 
 country:
     label: Country
-    form: $/october/test/models/country/fields_simple.yaml
+    form: $/october/test/models/country/fields_simple_nested.yaml
     list: $/october/test/models/country/columns_simple.yaml
+
+country[cities]:
+    label: City
+    form: $/october/test/models/city/fields.yaml
+    list: $/october/test/models/city/columns.yaml
 
 locations:
     label: Location
