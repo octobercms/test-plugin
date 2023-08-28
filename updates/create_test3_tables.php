@@ -26,6 +26,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('description')->nullable();
+            $table->string('language')->nullable();
             $table->timestamps();
         });
 

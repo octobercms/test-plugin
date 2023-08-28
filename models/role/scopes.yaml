@@ -11,7 +11,36 @@ scopes:
             '1': One
             '2': Two
             '3': Three
+
     id_range:
         label: ID Range
         type: numberrange
-        conditions: id >= ':min' and id <= ':max'
+        conditions: id >= :min and id <= :max
+
+    id_number:
+        label: ID Number
+        type: number
+        conditions:
+            greater: id >= :value
+            between: id >= :min and id <= :max
+
+    language:
+        label: Language
+        type: dropdown
+        conditions: language = :value
+        emptyOption: All Languages
+        optionsMethod: System\Helpers\Preset::locales
+
+    name:
+        label: Name
+        type: text
+        conditions:
+            equals: name = :value
+            contains: name like %:value%
+
+    created_at:
+        label: Created
+        type: date
+        conditions:
+            before: october_test_roles.created_at <= :value
+            between: october_test_roles.created_at >= :after AND october_test_roles.created_at <= :before
