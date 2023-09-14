@@ -22,6 +22,7 @@ fields:
         label: Company
         type: relation
         span: auto
+        emptyOption: --select--
 
 tabs:
     fields:

@@ -45,6 +45,7 @@ class Product extends Model
         'title',
         'price',
         'slug',
+        'company',
     ];
 
     /**

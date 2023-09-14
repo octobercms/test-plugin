@@ -73,6 +73,7 @@ return new class extends Migration
             $table->string('preset_locales_icons')->nullable();
             $table->softDeletes();
             $table->timestamps();
+            $table->multisite();
         });
 
         Schema::create('october_test_orders', function($table) {

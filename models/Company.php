@@ -10,6 +10,7 @@ class Company extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
+    use \October\Rain\Database\Traits\Multisite;
 
     /**
      * @var string The database table used by the model.
@@ -22,4 +23,14 @@ class Company extends Model
     public $rules = [
         'name' => 'required',
     ];
+
+    /**
+     * @var array propagatable list of attributes to propagate to other sites.
+     */
+     protected $propagatable = [];
+
+    /**
+     * @var bool propagatableSync will enforce model structures between all sites
+     */
+     protected $propagatableSync = true;
 }
