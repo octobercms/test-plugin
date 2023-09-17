@@ -8,7 +8,7 @@
 
 <div class="ps-4">
     <div class="row gx-0">
-        <div class="col-sm-3">
+        <div class="col-sm-3" id="<?= $this->getId('listTabs') ?>">
             <?= $this->makePartial('list_tabs') ?>
         </div>
         <div class="col-sm-9">
