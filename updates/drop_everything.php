@@ -43,9 +43,12 @@ return new class extends Migration
         Schema::dropIfExists('october_test_products');
         Schema::dropIfExists('october_test_product_categories');
         Schema::dropIfExists('october_test_products_categories');
+        Schema::dropIfExists('october_test_products_related_products');
         Schema::dropIfExists('october_test_products_locations');
         Schema::dropIfExists('october_test_products_members');
         Schema::dropIfExists('october_test_companies');
+        Schema::dropIfExists('october_test_orders');
+        Schema::dropIfExists('october_test_orders_products');
     }
 
     public function down()

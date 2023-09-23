@@ -119,9 +119,9 @@ class SeedAllTables extends Seeder
         User::make(['username' => 'Neo', 'security_code' => '1111'])->forceSave();
         User::make(['username' => 'Morpheus', 'security_code' => '8888'])->forceSave();
 
-        $role = Role::create(['name' => 'Chief Executive Orangutan', 'description' => 'You can call this person CEO for short']);
-        Role::create(['name' => 'Chief Friendship Organiser', 'description' => 'You can call this person CFO for short']);
-        Role::create(['name' => 'Caring Technical Officer', 'description' => 'You can call this person CTO for short']);
+        $role = Role::create(['name' => 'Chief Executive Orangutan', 'description' => 'You can call this person CEO for short', 'language' => 'en']);
+        Role::create(['name' => 'Chief Friendship Organiser', 'description' => 'You can call this person CFO for short', 'language' => 'fr']);
+        Role::create(['name' => 'Caring Technical Officer', 'description' => 'You can call this person CTO for short', 'language' => 'de']);
 
         $user = User::first();
         $user->roles()->add($role, null, ['clearance_level' => 'Top Secret', 'is_executive' => true]);

@@ -131,6 +131,15 @@ class Plugin extends PluginBase
                 'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
+                    'people_create' => [
+                        'label' => 'New Person',
+                        'icon' => 'icon-plus',
+                        'url' => Backend::url('october/test/people/create'),
+                        'itemType' => 'primary',
+                    ],
+                    'people_ruler' => [
+                        'itemType' => 'ruler',
+                    ],
                     'people' => [
                         'label' => 'People',
                         'icon' => 'icon-database',
@@ -146,6 +155,13 @@ class Plugin extends PluginBase
                         'icon' => 'icon-database',
                         'url' => Backend::url('october/test/users'),
                     ],
+                    '_ruler1' => [
+                        'itemType' => 'ruler',
+                    ],
+                    '_section1' => [
+                        'itemType' => 'section',
+                        'label' => 'Advanced',
+                    ],
                     'locations' => [
                         'label' => 'Locations',
                         'icon' => 'icon-database',
@@ -160,6 +176,13 @@ class Plugin extends PluginBase
                         'label' => 'Galleries',
                         'icon' => 'icon-database',
                         'url' => Backend::url('october/test/galleries'),
+                    ],
+                    '_ruler2' => [
+                        'itemType' => 'ruler',
+                    ],
+                    '_section2' => [
+                        'itemType' => 'section',
+                        'label' => 'Structures',
                     ],
                     'trees' => [
                         'label' => 'Trees',

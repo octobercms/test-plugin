@@ -43,4 +43,27 @@ class Reviews extends Controller
     {
         traceLog(post());
     }
+
+    /**
+     * listExtendQuery
+     */
+    public function listExtendQuery($query, $definition = null)
+    {
+        if (get('filter') === 'positive') {
+            $query->where('is_positive', true);
+        }
+        elseif (get('filter') === 'negative') {
+            $query->where('is_positive', false);
+        }
+    }
+
+    /**
+     * onRefreshList
+     */
+    public function onRefreshList()
+    {
+        return array_merge($this->listRefresh(), [
+            '#' . $this->getId('listTabs') => $this->makePartial('list_tabs')
+        ]);
+    }
 }

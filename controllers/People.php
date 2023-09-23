@@ -33,6 +33,13 @@ class People extends Controller
         BackendMenu::setContext('October.Test', 'test', 'people');
     }
 
+    public function create()
+    {
+        BackendMenu::setContextSideMenu('people_create');
+
+        return $this->asExtension('FormController')->create();
+    }
+
     public function onShowAjaxError()
     {
         throw new AjaxException(['messageFromData' => 'This message came from a smart error 406.']);

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/october/test/models/order/fields.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Order
+
+# Default redirect location
+defaultRedirect: october/test/orders
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: october/test/orders/update/:id
+    redirectClose: october/test/orders
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: october/test/orders
+    redirectClose: october/test/orders
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

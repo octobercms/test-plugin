@@ -9,7 +9,7 @@ roles:
         filter: $/october/test/models/role/scopes.yaml
         showSearch: true
     manage:
-        title: backend::lang.user.role.menu_label
+        title: Manage Roles
         list: $/october/test/models/role/columns.yaml
         form: $/october/test/models/role/fields.yaml
         filter: $/october/test/models/role/scopes.yaml
@@ -37,6 +37,7 @@ roles_pivot_model:
         recordsPerPage: 2
     manage:
         list: $/october/test/models/role/columns.yaml
+        form: $/october/test/models/role/fields.yaml
     pivot:
         form: $/october/test/models/userrolepivot/fields.yaml
 

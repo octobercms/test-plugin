@@ -1,0 +1,31 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Order Name
+        required: true
+        span: auto
+
+    price:
+        label: Price
+        type: number
+        span: auto
+
+tabs:
+    fields:
+        products:
+            label: Products
+            tab: Products
+            type: relation
+            controller:
+                label: Product
+                list: $/october/test/models/product/columns.yaml
+                form: $/october/test/models/product/fields.yaml
+
+        notes:
+            label: Notes
+            tab: Notes
+            type: textarea
+            size: huge

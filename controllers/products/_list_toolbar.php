@@ -15,6 +15,12 @@
     </button>
 
     <a
+        href="<?= Backend::url('october/test/orders') ?>"
+        class="btn btn-default oc-icon-database">
+        Manage Orders
+    </a>
+
+    <a
         href="<?= Backend::url('october/test/productcategories') ?>"
         class="btn btn-default oc-icon-database">
         Manage Categories
