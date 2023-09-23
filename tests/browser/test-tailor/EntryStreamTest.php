@@ -26,7 +26,7 @@ class EntryStreamTest extends BrowserTestCase
         $this->browse(function($browser) {
             $browser
                 ->visit('/admin/tailor/entries/test_blog')
-                ->assertTitleContains('Manage Entries |')
+                ->assertTitleContains('Manage Test Posts Entries |')
             ;
 
             $browser
