@@ -111,6 +111,7 @@ tabs:
                         type: recordfinder
                         useRelation: false
                         modelClass: October\Test\Models\Person
+                        changeHandler: onTestChangeHandler
 
         ghost_field:
             tab: Ghost

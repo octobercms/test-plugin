@@ -34,4 +34,12 @@ class Pages extends Controller
 
         return $this->asExtension('FormController')->update(...$args);
     }
+
+    /**
+     * onTestChangeHandler
+     */
+    public function onTestChangeHandler()
+    {
+        traceLog(post());
+    }
 }
