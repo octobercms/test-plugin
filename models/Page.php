@@ -113,6 +113,13 @@ class Page extends Model
             }
         }
 
+        // Nested repeater item logic
+        if ($context === 'update' && isset($fields->person)) {
+            if ($fields->person->value) {
+                $fields->description->comment = "Person ID: {$fields->person->value}";
+            }
+        }
+
         // Prepopulate people repeater
         if ($context === 'refresh' && $fields->_prepopulate_people !== null) {
             if ($fields->_prepopulate_people->value) {
