@@ -47,6 +47,7 @@ tabs:
             tab: Breakdown
             label: Breakdown Type
             type: dropdown
+            changeHandler: onChangeBreakdownType
             options:
                 tag_card: Tag card
                 post_card: Post card

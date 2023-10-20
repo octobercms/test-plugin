@@ -45,6 +45,14 @@ class Reviews extends Controller
     }
 
     /**
+     * onChangeBreakdownType
+     */
+    public function onChangeBreakdownType()
+    {
+        traceLog(post('Review[breakdown_type]'));
+    }
+
+    /**
      * listExtendQuery
      */
     public function listExtendQuery($query, $definition = null)
