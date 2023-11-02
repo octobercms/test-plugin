@@ -24,6 +24,7 @@ roles_pivot:
     manage:
         list: $/october/test/models/role/columns.yaml
         filter: $/october/test/models/role/scopes.yaml
+        form: $/october/test/models/role/fields.yaml
         showCheckboxes: true
     pivot:
         form: $/october/test/models/userrolepivot/fields_basic.yaml
