@@ -4,6 +4,12 @@ This is a UI test plugin for October CMS.
 
 ## Installation Instructions
 
+Before installing this plugin, you will need to change your minimum stability to `dev` with composer.
+
+```bash
+composer config minimum-stability dev
+```
+
 Run the following to install this plugin:
 
 ```bash
