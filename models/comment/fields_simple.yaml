@@ -3,41 +3,63 @@
 # ===================================
 
 fields:
-
     post:
         type: relation
         nameFrom: name
         emptyOption: -- Select Post --
         comment: This Comment belongs to the Post selected above.
         select: concat(id, ' - ', name)
-
-    name:
-        label: Name
-        commentAbove: Text field, inside a popup.
         span: auto
 
-    # PHP 8.1
-    # status:
-    #     label: Status
-    #     commentAbove: Enum based options
-    #     type: dropdown
-    #     span: auto
-
-    _error_button:
-        type: partial
-        comment: This button will throw an error
+    _type:
+        comment: Use this to toggle trigger API
+        type: dropdown
         span: auto
+        options:
+            show: Visible
+            hide: Hidden
 
-    quotes:
-        label: Quotes
-        type: datatable
-        tab: Quotes
-        columns:
-            name:
-                type: string
-                title: Name
-            quote:
-                type: string
-                title: Quote
-        btnAddRowLabel: Add Quote
-        btnDeleteRowLabel: Delete Quote
+tabs:
+    defaultTab: Details
+    fields:
+        name:
+            label: Name
+            commentAbove: Text field, inside a popup.
+            trigger:
+                action: hide
+                field: _type
+                condition: value[hide]
+
+        # PHP 8.1
+        # status:
+        #     label: Status
+        #     commentAbove: Enum based options
+        #     type: dropdown
+        #     span: auto
+
+        quotes:
+            label: Quotes
+            type: datatable
+            columns:
+                name:
+                    type: string
+                    title: Name
+                quote:
+                    type: string
+                    title: Quote
+            btnAddRowLabel: Add Quote
+            btnDeleteRowLabel: Delete Quote
+            trigger:
+                action: hide
+                field: _type
+                condition: value[hide]
+
+        _error_button:
+            type: partial
+            comment: This button will throw an error
+            span: auto
+            tab: Danger Zone
+            trigger:
+                action: hide
+                field: _type
+                condition: value[hide]
