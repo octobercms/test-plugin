@@ -56,3 +56,171 @@ tabs:
             # scope: filterCities
             dependsOn: country
             conditions: custom_country_id = :country_id
+
+        file01:
+            label: File 01
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file02:
+            label: File 02
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file03:
+            label: File 03
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file04:
+            label: File 04
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file05:
+            label: File 05
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file06:
+            label: File 06
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file07:
+            label: File 07
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file08:
+            label: File 08
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file09:
+            label: File 09
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file10:
+            label: File 10
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file11:
+            label: File 11
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file12:
+            label: File 12
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file13:
+            label: File 13
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file14:
+            label: File 14
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file15:
+            label: File 15
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file16:
+            label: File 16
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file17:
+            label: File 17
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file18:
+            label: File 18
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file19:
+            label: File 19
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file20:
+            label: File 20
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file21:
+            label: File 21
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file22:
+            label: File 22
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file23:
+            label: File 23
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
+
+        file24:
+            label: File 24
+            tab: Files
+            type: fileupload
+            mode: file
+            span: auto
