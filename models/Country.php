@@ -9,6 +9,7 @@ use Cms\Classes\Page;
  */
 class Country extends Model
 {
+    use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\Validation;
 
     /**

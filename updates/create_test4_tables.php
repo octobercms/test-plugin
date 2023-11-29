@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('language')->nullable();
             $table->string('currency')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->integer('sort_order')->nullable();
             $table->timestamps();
         });
 
