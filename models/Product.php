@@ -22,6 +22,7 @@ class Product extends Model
      * @var array rules for validation
      */
     public $rules = [
+        'title' => 'unique',
         'location_sold' => 'between:0,2'
     ];
 
