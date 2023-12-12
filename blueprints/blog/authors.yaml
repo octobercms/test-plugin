@@ -1,8 +1,11 @@
 uuid: e183d98c-e7ef-4142-a5d4-f56b596a9fa3
 handle: Test\Blog\Authors
-type: entry
+type: structure
 name: Test Authors
 useDrafts: false
+
+structure:
+    maxDepth: 1
 
 navigation:
     mode: secondary

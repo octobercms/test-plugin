@@ -76,7 +76,7 @@ class Product extends Model
         ],
         'author' => [
             \Tailor\Models\EntryRecord::class,
-            'blueprint' => '6947ff28-b660-47d7-9240-24ca6d58aeae'
+            'blueprint' => 'e183d98c-e7ef-4142-a5d4-f56b596a9fa3'
         ],
         'company' => [
             Company::class,
