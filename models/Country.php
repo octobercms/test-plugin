@@ -91,6 +91,14 @@ class Country extends Model
     ];
 
     /**
+     * getCountryNameCustomAttribute
+     */
+    public function getCountryNameCustomAttribute()
+    {
+        return "[{$this->name}]";
+    }
+
+    /**
      * filterFields
      */
     public function filterFields($fields, $context = null)

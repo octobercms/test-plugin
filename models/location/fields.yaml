@@ -47,6 +47,7 @@ tabs:
             type: relation
             useController: false
             emptyOption: -- select --
+            nameFrom: country_name_custom
 
         city:
             label: City
