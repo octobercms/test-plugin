@@ -1,6 +1,6 @@
 uuid: e183d98c-e7ef-4142-a5d4-f56b596a9fa3
 handle: Test\Blog\Authors
-type: structure
+type: entry
 name: Test Authors
 useDrafts: false
 
