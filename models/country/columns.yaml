@@ -11,6 +11,7 @@ columns:
         cssClass: column-button
         valueFrom: id
         width: 150px
+        path: google_button
 
     name:
         label: Name

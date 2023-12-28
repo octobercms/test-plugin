@@ -20,6 +20,7 @@ tabs:
             commentAbove: RelationController used as a partial field type.
             type: partial
             tab: Details
+            path: locations
 
         _column1:
             label: Col 1

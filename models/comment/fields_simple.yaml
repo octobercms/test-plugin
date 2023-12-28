@@ -59,6 +59,7 @@ tabs:
             comment: This button will throw an error
             span: auto
             tab: Danger Zone
+            path: error_button
             trigger:
                 action: hide
                 field: _type

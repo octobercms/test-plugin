@@ -36,6 +36,7 @@ tabs:
             label: Roles
             commentAbove: RelationController used as a partial field type.
             type: partial
+            path: roles
             tab: Standard
 
         roles_pivot:
@@ -43,6 +44,7 @@ tabs:
             label: Roles
             commentAbove: RelationController with pivot data.
             type: partial
+            path: roles_pivot
             tab: Pivot Data
 
         roles_pivot_model:
@@ -50,6 +52,7 @@ tabs:
             label: Roles
             commentAbove: RelationController using a custom pivot model with validation.
             type: partial
+            path: roles_pivot_model
             tab: Pivot Model
 
         # Relation form field

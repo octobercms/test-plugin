@@ -41,6 +41,7 @@ fields:
         label: Status
         commentAbove: Generic model filtered by relation conditions.
         type: partial
+        path: status
 
     # Record finder
     status@recordfinder:
@@ -50,6 +51,7 @@ fields:
         nameFrom: name
         descriptionFrom: label
         commentAbove: Generic model filtered by relation conditions.
+        path: status
 
 tabs:
     fields:
@@ -60,22 +62,26 @@ tabs:
             label: Comments
             commentAbove: RelationController used as a partial field type.
             type: partial
+            path: comments
             tab: Comments
 
         galleries:
             commentAbove: RelationController demonstrating morphToMany relationship.
             type: partial
             tab: Galleries
+            path: galleries
 
         galleries_pivot:
             commentAbove: RelationController demonstrating morphToMany (with pivot) relationship.
             type: partial
             tab: Galleries (Pivot)
+            path: galleries_pivot
 
         review:
             label: Review
             commentAbove: RelationController demonstrating morphOne relationship.
             type: partial
+            path: review
             tab: Reviews
 
         # Taglist Tests

@@ -86,6 +86,7 @@ secondaryTabs:
             label: Posts
             type: partial
             tab: Posts
+            path: posts
 
         types:
             tab: Characters

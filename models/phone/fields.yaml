@@ -27,6 +27,7 @@ fields:
         label: Relation Controller
         commentAbove: RelationController used as a partial field type.
         type: partial
+        path: person
 
     # Proxy Fields
     person[name]:

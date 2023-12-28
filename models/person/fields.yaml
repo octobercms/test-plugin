@@ -58,6 +58,7 @@ fields:
         label: Relation Controller
         commentAbove: RelationController used as a partial field type.
         type: partial
+        path: phone
 
     # Proxy Fields
     _section_proxy_fields:

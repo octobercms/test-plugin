@@ -38,6 +38,7 @@ tabs:
             label: Posts
             type: partial
             tab: Posts
+            path: posts
 
         images:
             label: Images
@@ -115,3 +116,4 @@ tabs:
             label: Countries
             type: partial
             tab: Event
+            path: countries
