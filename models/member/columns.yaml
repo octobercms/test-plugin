@@ -12,3 +12,4 @@ columns:
         relation: user
         select: username
         default: none
+        tooltip: Related User
