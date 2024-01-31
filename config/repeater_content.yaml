@@ -2,6 +2,9 @@
 #  Used by Grouped Repeater
 # ===================================
 
+_ignored:
+    name: Ignore this group
+
 recurse:
     name: Recurse
     description: Repeater recursion

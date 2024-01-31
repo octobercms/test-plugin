@@ -56,7 +56,7 @@ scopes:
         label: Created
         type: date
         showWeekNumber: true
-        # default: '2020-01-02'
+        default: '2020-01-02'
         # conditions:
         #     equals: true
         #     between: created_at >= ':after' AND created_at <= ':before'
