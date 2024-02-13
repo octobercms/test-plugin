@@ -108,6 +108,7 @@ tabs:
                         nameFrom: name
                         descriptionFrom: description
                         list: $/october/test/models/person/columns.yaml
+                        filter: $/october/test/models/person/scopes.yaml
                         type: recordfinder
                         useRelation: false
                         modelClass: October\Test\Models\Person

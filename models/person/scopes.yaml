@@ -1,0 +1,8 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    id:
+        label: ID
+        type: text
