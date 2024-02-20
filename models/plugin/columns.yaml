@@ -9,5 +9,10 @@ columns:
     code:
         label: Code
 
+    icon:
+        label: Icon
+        type: selectable
+        optionsPreset: phosphorIcons
+
     content:
         label: Content

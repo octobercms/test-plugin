@@ -12,6 +12,12 @@ tabs:
             label: Code
             tab: Details
 
+        icon:
+            label: Icon
+            type: dropdown
+            optionsPreset: phosphorIcons
+            tab: Details
+
         content:
             label: Content
             tab: Details

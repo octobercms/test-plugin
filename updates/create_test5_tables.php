@@ -40,6 +40,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('code')->nullable();
+            $table->string('icon')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
         });
@@ -48,6 +49,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('code')->nullable();
+            $table->string('icon')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
         });
