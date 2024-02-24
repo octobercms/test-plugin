@@ -14,6 +14,7 @@ countries:
     label: Country
     list: $/october/test/models/country/columns_simple.yaml
     form: $/october/test/models/country/fields_simple.yaml
+    deferredBinding: true
     structure:
         showReorder: true
         showTree: false

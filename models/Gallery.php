@@ -61,6 +61,7 @@ class Gallery extends Model
         'countries' => [
             Country::class,
             'table' => 'october_test_galleries_countries',
+            'conditions' => '1 = 1',
             'pivotSortable' => 'sort_order',
         ]
     ];

@@ -55,7 +55,8 @@ class Country extends Model
     public $hasMany = [
         'cities' => [
             City::class,
-            'key' => 'custom_country_id'
+            'key' => 'custom_country_id',
+            'conditions' => '2 = 2'
         ],
         'sisters' => [
             RepeaterItem::class,
