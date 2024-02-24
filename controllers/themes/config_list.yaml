@@ -13,6 +13,7 @@ title: Manage Themes
 
 # Link URL for each record
 recordUrl: october/test/themes/update/:id
+# recordOnClick: popup
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

@@ -29,3 +29,7 @@ update:
 # Preview page
 preview:
     title: Preview Theme
+
+# Form Design
+design:
+    displayMode: sidebar

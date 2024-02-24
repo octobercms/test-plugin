@@ -93,7 +93,7 @@ tabs:
             label: All Day?
             tab: Event
             type: switch
-            default: true
+            # default: true
             span: left
 
         start_time:
