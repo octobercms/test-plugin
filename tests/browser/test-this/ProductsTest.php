@@ -97,7 +97,7 @@ class ProductsTest extends BrowserTestCase
 
             // Reset List
             $browser
-                ->click('#ListStructure .list-setup > a')
+                ->click('#Toolbar-listToolbar .toolbar-setup > a')
                 ->waitForTextIn('.modal-title', 'List Setup')
                 ->pause(300)
                 ->press('Reset to Default')
