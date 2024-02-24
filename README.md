@@ -82,6 +82,7 @@ A Country "Has Many" Posts "Through" a User (Has many through relationship)
 1. Field dependency and filtering
 1. Repeater fields
 1. Tabs empty with no fields
+1. Sister Countries test for related repeaters
 
 #### Cities
 

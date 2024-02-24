@@ -24,6 +24,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->nullable()->index();
             $table->mediumText('value')->nullable();
+            $table->integer('sort_order')->nullable();
             $table->timestamps();
         });
     }

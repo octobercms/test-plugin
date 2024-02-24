@@ -7,6 +7,8 @@ use October\Rain\Database\ExpandoModel;
  */
 class RepeaterItem extends ExpandoModel
 {
+    use \October\Rain\Database\Traits\Sortable;
+
     /**
      * @var string table used by the model.
      */
@@ -25,7 +27,7 @@ class RepeaterItem extends ExpandoModel
     /**
      * @var array expandoPassthru attributes that should not be serialized
      */
-    protected $expandoPassthru = ['parent_id'];
+    protected $expandoPassthru = ['parent_id', 'sort_order'];
 
     /**
      * @var array attachMany
