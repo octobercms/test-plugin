@@ -29,9 +29,11 @@ tabs:
         content:
             # label: Content
             # type: richeditor
+            # legacyMode: true
             type: markdown
             tab: Content
             stretch: true
+            # toolbarButtons: undo|redo
 
         location_built:
             label: Location Built
