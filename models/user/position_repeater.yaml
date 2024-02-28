@@ -1,0 +1,15 @@
+product:
+    name: Product
+    description: Add product from catalog
+    icon: icon-file-text-o
+    fields:
+        _product:
+            label: Product
+            nameFrom: title
+            descriptionFrom: description_short
+            list: $/october/test/models/product/columns.yaml
+            type: recordfinder
+            recordsPerPage: 1
+            useRelation: false
+            modelClass: October\Test\Models\Product
+            spanClass: col-12

@@ -78,6 +78,12 @@ tabs:
             useController: true
             tab: Posts
 
+        _products:
+            label: Invoice Position
+            tab: Products
+            type: repeater
+            groups: $/october/test/models/user/position_repeater.yaml
+
 secondaryTabs:
     fields:
 
