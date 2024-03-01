@@ -9,6 +9,7 @@ product:
             descriptionFrom: description_short
             list: $/october/test/models/product/columns.yaml
             type: recordfinder
+            showSetup: true
             recordsPerPage: 1
             useRelation: false
             modelClass: October\Test\Models\Product

@@ -2,3 +2,5 @@ reviews:
     label: Review
     list: $/october/test/models/review/columns.yaml
     form: $/october/test/models/review/fields_simple.yaml
+    view:
+        showSetup: true
