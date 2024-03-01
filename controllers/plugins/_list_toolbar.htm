@@ -1,7 +1,10 @@
 <div data-control="toolbar">
-    <a
-        href="<?= Backend::url('october/test/plugins/create') ?>"
-        class="btn btn-primary oc-icon-plus">
+    <button
+        type="button"
+        data-control="popup"
+        data-handler="onLoadPopupForm"
+        class="btn btn-primary">
+        <i class="icon-plus"></i>
         New Plugin
-    </a>
+    </button>
 </div>

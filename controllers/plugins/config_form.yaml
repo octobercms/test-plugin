@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Plugin
 # Default redirect location
 defaultRedirect: october/test/plugins
 
+# Form Design
+design:
+    displayMode: popup
+
 # Create page
 create:
     title: Create Plugin

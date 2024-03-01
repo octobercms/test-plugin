@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Theme
 # Default redirect location
 defaultRedirect: october/test/themes
 
+# Form Design
+design:
+    displayMode: sidebar
+
 # Create page
 create:
     title: Create Theme
@@ -29,7 +33,3 @@ update:
 # Preview page
 preview:
     title: Preview Theme
-
-# Form Design
-design:
-    displayMode: sidebar

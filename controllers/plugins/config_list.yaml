@@ -12,7 +12,7 @@ modelClass: October\Test\Models\Plugin
 title: Manage Plugins
 
 # Link URL for each record
-recordUrl: october/test/plugins/update/:id
+recordOnClick: popup
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
