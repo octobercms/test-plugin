@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+
+    stocks:
+        tab: Stocks
+        label: Stocks
+        type: relation
+        controller:
+            label: Stock
+            form: $/october/test/models/productofferstock/fields.yaml
+            list: $/october/test/models/productofferstock/columns.yaml

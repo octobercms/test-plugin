@@ -118,3 +118,11 @@ tabs:
                 form: $/october/test/models/product/fields.yaml
                 view:
                     toolbarButtons: add|remove
+
+        offers:
+            tab: Offers
+            type: relation
+            controller:
+                label: Offer
+                form: $/october/test/models/productoffer/fields.yaml
+                list: $/october/test/models/productoffer/columns.yaml

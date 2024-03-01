@@ -1,0 +1,19 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+
+    gallery:
+        label: Gallery
+        type: fileupload
+
+    leads:
+        label: Leads
+        type: relation
+        controller:
+            label: Lead
+            form: $/october/test/models/productofferstocklead/fields.yaml
+            list: $/october/test/models/productofferstocklead/columns.yaml

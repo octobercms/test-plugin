@@ -112,6 +112,10 @@ class Product extends Model
         ],
     ];
 
+    public $hasMany = [
+        'offers' => [ProductOffer::class, 'delete' => true]
+    ];
+
     public $attachOne = [
         'certificate' => \System\Models\File::class
     ];

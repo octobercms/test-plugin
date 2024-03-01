@@ -89,6 +89,27 @@ return new class extends Migration
             $table->integer('product_id')->unsigned();
             $table->primary(['order_id', 'product_id']);
         });
+
+        Schema::create('october_test_product_offers', function($table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->integer('product_id')->nullable()->unsigned();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_product_offer_stocks', function($table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->integer('offer_id')->nullable()->unsigned();
+            $table->timestamps();
+        });
+
+        Schema::create('october_test_product_offer_stock_leads', function($table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->integer('stock_id')->nullable()->unsigned();
+            $table->timestamps();
+        });
     }
 
     public function down()
@@ -102,5 +123,8 @@ return new class extends Migration
         Schema::dropIfExists('october_test_companies');
         Schema::dropIfExists('october_test_orders');
         Schema::dropIfExists('october_test_orders_products');
+        Schema::dropIfExists('october_test_product_offers');
+        Schema::dropIfExists('october_test_product_offer_stocks');
+        Schema::dropIfExists('october_test_product_offer_stock_leads');
     }
 };

@@ -3,7 +3,7 @@
 use Model;
 
 /**
- * Post Model
+ * Tag Model
  */
 class Tag extends Model
 {
