@@ -52,6 +52,7 @@ fields:
         nameFrom: name
         descriptionFrom: number
         searchScope: customSearch
+        inlineOptions: false
 
     # Relation Controller
     phone@relationcontroller:
