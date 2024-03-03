@@ -39,6 +39,7 @@ return new class extends Migration
             $table->text('mood')->nullable();
             $table->text('quotes')->nullable();
             $table->boolean('is_visible')->default(true);
+            $table->integer('parent_comment_id')->unsigned()->nullable()->index();
             $table->integer('post_id')->unsigned()->nullable()->index();
             $table->softDeletes();
             $table->timestamps();

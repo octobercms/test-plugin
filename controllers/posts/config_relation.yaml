@@ -6,7 +6,7 @@ comments:
     label: Comment
     list: $/october/test/models/comment/columns.yaml
     form: $/october/test/models/comment/fields.yaml
-    readOnly: true
+    # readOnly: true
     view:
         filter: $/october/test/models/comment/scopes.yaml
     manage:

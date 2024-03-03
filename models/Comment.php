@@ -30,29 +30,24 @@ class Comment extends Model
     ];
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
      * @var array fillable fields
      */
     protected $fillable = ['name', 'content'];
 
     /**
-     * @var array Jsonable fields
+     * @var array jsonable fields
      */
     protected $jsonable = ['breakdown', 'mood', 'quotes'];
 
     /**
-     * @var array Rules
+     * @var array rules
      */
     public $rules = [
         'name' => 'required',
     ];
 
     /**
-     * @var array Relations
+     * @var array belongsTo
      */
     public $belongsTo = [
         'user' => User::class,
@@ -61,6 +56,17 @@ class Comment extends Model
 
     public $attachOne = [
         'photo' => \System\Models\File::class
+    ];
+
+    /**
+     * @var array hasMany
+     */
+    public $hasMany = [
+        'child_comments' => [
+            Comment::class,
+            'key' => 'parent_comment_id',
+            'scope' => 'withTrashed'
+        ],
     ];
 
     /**

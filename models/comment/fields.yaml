@@ -42,6 +42,13 @@ fields:
 tabs:
 
     fields:
+        child_comments:
+            tab: Children
+            type: relation
+            controller:
+                label: Child Comment
+                list: $/october/test/models/comment/columns.yaml
+                form: $/october/test/models/comment/fields.yaml
 
         breakdown:
             tab: Breakdown
