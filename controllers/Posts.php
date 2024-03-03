@@ -75,6 +75,16 @@ class Posts extends Controller
         $fields['name']->value = lcfirst($form->model->name);
     }
 
+    /**
+     * relationExtendManageFormQuery
+     */
+    public function relationExtendManageFormQuery($field, $query)
+    {
+        if ($field === 'comments[child_comments]') {
+            $query->withTrashed();
+        }
+    }
+
     //
     // Custom Delete workflow
     //
