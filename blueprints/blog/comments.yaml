@@ -17,7 +17,7 @@ groups:
 
             blog_post_content:
                 type: mixin
-                source: Test\Blog\PostContent
+                source: Test\Blog\CommentContent
 
     markdown_post:
         name: Markdown Comment
@@ -30,4 +30,4 @@ groups:
 
             blog_post_content:
                 type: mixin
-                source: Test\Blog\PostContent
+                source: Test\Blog\CommentContent

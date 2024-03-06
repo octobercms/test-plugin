@@ -51,3 +51,12 @@ fields:
         mode: image
         span: adaptive
         tab: Media
+
+    comments:
+        tab: Comments
+        type: entries
+        displayMode: controller
+        source: Test\Blog\Comments
+        toolbarButtons: create|delete
+        span: adaptive
+        popupSize: 1000

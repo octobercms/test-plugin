@@ -1,0 +1,22 @@
+uuid: 5ca12420-24a5-4304-a30a-39fd901ec4b1
+handle: Test\Blog\CommentContent
+type: mixin
+name: Blog Post Content
+
+fields:
+    author:
+        tab: Manage
+        label: Author
+        commentAbove: 'Select the author for this blog post'
+        type: entries
+        maxItems: 1
+        source: Test\Blog\Authors
+
+    products:
+        label: Products
+        tab: Products
+        type: recordfinder
+        modelClass: October\Test\Models\Product
+        list: $/october/test/models/product/columns.yaml
+        maxItems: 1
+        # displayMode: controller

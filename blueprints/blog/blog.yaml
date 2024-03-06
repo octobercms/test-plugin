@@ -28,14 +28,6 @@ groups:
                 type: mixin
                 source: Test\Blog\PostContent
 
-            comment:
-                tab: Comments
-                type: entries
-                displayMode: controller
-                source: Test\Blog\Comments
-                toolbarButtons: create|delete
-                span: adaptive
-
     markdown_post:
         name: Markdown Post
         fields:
@@ -48,11 +40,3 @@ groups:
             blog_post_content:
                 type: mixin
                 source: Test\Blog\PostContent
-
-            comment:
-                tab: Comments
-                type: entries
-                displayMode: controller
-                source: Test\Blog\Comments
-                toolbarButtons: create|delete
-                span: adaptive
