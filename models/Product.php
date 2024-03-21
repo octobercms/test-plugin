@@ -139,4 +139,21 @@ class Product extends Model
             }
         }
     }
+
+    public function getDropdownOptions($value, $fieldName, $data)
+    {
+        if ($this->bulk_pricing) {
+            return [
+                0 => 'Bulk Enabled',
+                1 => 'Enabled bulk',
+                2 => 'enabled'
+            ];
+        }
+
+        return [
+                0 => 'Bulk Disabled',
+                1 => 'Disabled bulk',
+                2 => 'disabled'
+        ];
+    }
 }

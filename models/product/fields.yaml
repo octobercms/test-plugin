@@ -95,6 +95,9 @@ tabs:
             minItems: 1
             form:
                 fields:
+                    dropdown_field:
+                        type: dropdown
+                        options: getDropdownOptions
                     bulk_quantity:
                         type: number
                         placeholder: Quantity
