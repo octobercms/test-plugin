@@ -6,7 +6,7 @@ columns:
     name:
         label: Name
         searchable: true
-        
+
     country_name:
         label: Country
         relation: country
