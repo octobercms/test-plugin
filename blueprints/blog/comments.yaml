@@ -4,6 +4,7 @@ type: entry
 name: Test Comments
 useDrafts: false
 navigation: false
+pagefinder: false
 
 groups:
     regular_post:

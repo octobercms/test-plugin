@@ -3,6 +3,7 @@ type: entry
 handle: Test\Blog\Categories
 name: Test Categories
 useDrafts: false
+pagefinder: false
 
 navigation:
     mode: secondary

@@ -3,6 +3,7 @@ handle: Test\Blog
 type: stream
 name: Test Posts
 useDrafts: true
+pagefinder: false
 
 primaryNavigation:
     label: Playground 2

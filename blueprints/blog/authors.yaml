@@ -3,6 +3,7 @@ handle: Test\Blog\Authors
 type: entry
 name: Test Authors
 useDrafts: false
+pagefinder: false
 
 structure:
     maxDepth: 1
