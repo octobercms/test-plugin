@@ -11,6 +11,11 @@ class UserRolePivot extends Pivot
     use \October\Rain\Database\Traits\Validation;
 
     /**
+     * @var bool incrementing identifier
+     */
+    public $incrementing = true;
+
+    /**
      * @var array nullable attribute names which should be set to null when empty.
      */
     protected $nullable = ['evolution'];
