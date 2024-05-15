@@ -104,8 +104,9 @@ class User extends Model
             Role::class,
             'table' => 'october_test_users_roles',
             'pivot' => ['clearance_level', 'is_executive', 'country_id', 'evolution', 'salary'],
-            'timestamps' => true,
+            'pivotKey' => 'id',
             'pivotModel' => UserRolePivot::class,
+            'timestamps' => true,
         ],
     ];
 
