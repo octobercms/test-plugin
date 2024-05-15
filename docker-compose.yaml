@@ -1,0 +1,11 @@
+version: '2.2'
+services:
+    web:
+        image: aspendigital/octobercms
+        environment:
+            INIT_OCTOBER: "true"
+            APP_DEBUG: "true"
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www/html/plugins/october/test
