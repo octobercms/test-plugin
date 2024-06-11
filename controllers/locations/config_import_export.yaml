@@ -1,0 +1,18 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    #useList: false
+    fileName: locations.csv
+    title: 'Export Locations'
+    modelClass: October\Test\Models\LocationExport
+    list: $/october/test/models/locationexport/columns.yaml
+    redirect: october/test/locations
+
+defaultFormatOptions:
+    fileFormat: csv_custom
+    delimiter: ','
+    enclosure: '"'
+    escape: '\'
+    encoding: 'utf-8'
