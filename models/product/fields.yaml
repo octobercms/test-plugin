@@ -129,3 +129,31 @@ tabs:
                 label: Offer
                 form: $/october/test/models/productoffer/fields.yaml
                 list: $/october/test/models/productoffer/columns.yaml
+
+
+        _partial_folder:
+            label: Select Folder
+            span: row
+            spanClass: col-12 col-md-6
+            type: dropdown
+            options: [A, B, C]
+            tab: Multi Depends
+
+        _partial_file:
+            label: Select Partial
+            type: dropdown
+            span: row
+            spanClass: col-12 col-md-6
+            dependsOn: _partial_folder
+            options: [D, E, F]
+            tab: Multi Depends
+
+        _partial_fields:
+            label: Select Partial fields
+            span: row
+            spanClass: col-12
+            type: checkboxlist
+            dependsOn: _partial_file
+            options: [G, H, I, J, K]
+            quickselect: true
+            tab: Multi Depends
