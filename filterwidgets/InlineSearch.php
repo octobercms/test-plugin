@@ -39,11 +39,11 @@ class InlineSearch extends FilterWidgetBase
             return null;
         }
 
-        if (!$this->hasPostValue('value')) {
+        if (!strlen(trim(post('InlineSearch[value]'))) > 0) {
             return null;
         }
 
-        return post('Filter');
+        return post('InlineSearch');
     }
 
     /**
