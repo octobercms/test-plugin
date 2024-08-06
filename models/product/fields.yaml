@@ -78,10 +78,19 @@ tabs:
             comment: Please only jpg and webp files
 
         featured_page:
+            tab: Media
             label: Featured Page
             type: pagefinder
-            tab: Media
             singleMode: false
+
+        _display_mode:
+            tab: Media
+            label: Display mode
+            type: dropdown
+            trigger:
+                field: featured_page
+                action: enable
+                condition: value[october://cms-page*]
 
         bulk_pricing:
             type: checkbox
