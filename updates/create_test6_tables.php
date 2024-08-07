@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('october_test_members', function($table) {
             $table->increments('id');
+            $table->integer('grand_parent_id')->unsigned()->index()->nullable();
             $table->integer('parent_id')->unsigned()->index()->nullable();
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('name')->nullable();

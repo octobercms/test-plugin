@@ -28,7 +28,8 @@ class Member extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'user' => \October\Test\Models\User::class
+        'user' => \October\Test\Models\User::class,
+        'grand_parent' => \October\Test\Models\Member::class
     ];
 
     /**
@@ -36,6 +37,10 @@ class Member extends Model
      */
     public function filterFields($fields, $context = null)
     {
+        if ($fields->grand_parent && $this->parent?->parent) {
+            $fields->grand_parent->value = $this->parent->parent->id;
+        }
+
         // Simple context scope
         if (!isset($fields->parent_name)) {
             return;

@@ -3,6 +3,9 @@
 # ===================================
 
 columns:
+    # id:
+    #     label: ID
+
     name:
         label: Member
         searchable: true

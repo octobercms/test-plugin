@@ -19,3 +19,13 @@ fields:
         prompt: Click the %s to find a parent member
         nameFrom: name
         scope: eligibleParents
+
+    grand_parent:
+        label: Grand Parent (RecordFinder)
+        comment: Select a parent and its grand parent should go here.
+        type: recordfinder
+        list: $/october/test/models/member/columns.yaml
+        title: Please pick a parent member
+        prompt: Click the %s to find a parent member
+        nameFrom: name
+        dependsOn: parent
