@@ -1,0 +1,9 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    is_enabled: Enabled
+    name: Address
+    city_name: City
+    country_name: Country
