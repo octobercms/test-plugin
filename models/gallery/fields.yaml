@@ -54,6 +54,9 @@ tabs:
             type: repeater
             tab: Images
             span: right
+            default:
+                - title: First Title
+                - title: Second Title
             form:
                 fields:
                     title:
