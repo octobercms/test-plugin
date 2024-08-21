@@ -1,6 +1,7 @@
 fields:
     title:
         label: Title
+        comment: october.test::lang.test.component_name
 
     parent:
         label: Parent
