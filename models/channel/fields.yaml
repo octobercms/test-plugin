@@ -18,3 +18,46 @@ fields:
         type: relation
         nameFrom: custom_title
         span: auto
+
+
+tabs:
+    defaultTab: Options Definitions
+    fields:
+        _simple_dropdown:
+            label: Dropdown Simple
+            span: auto
+            type: dropdown
+            optionsMethod: getSimpleFieldOptions
+
+        _advanced_dropdown:
+            label: Dropdown Advanced
+            span: auto
+            type: dropdown
+            optionsMethod: getAdvancedFieldOptions
+
+        _simple_radio:
+            label: Radio Simple
+            span: auto
+            type: radio
+            optionsMethod: getSimpleFieldOptions
+
+        _advanced_radio:
+            label: Radio Advanced
+            span: auto
+            type: radio
+            optionsMethod: getAdvancedFieldOptions
+
+        _simple_checkboxlist:
+            label: Checkboxes Simple
+            span: auto
+            type: checkboxlist
+            optionsMethod: getSimpleFieldOptions
+            quickselect: true
+
+        _advanced_checkboxlist:
+            label: Checkboxes Advanced
+            span: auto
+            type: checkboxlist
+            optionsMethod: getAdvancedFieldOptions
+            quickselect: true
+            # disabled: true

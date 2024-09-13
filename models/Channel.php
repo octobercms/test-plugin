@@ -16,22 +16,20 @@ class Channel extends Model
     public $table = 'october_test_channels';
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
      * @var array fillable fields
      */
     protected $fillable = [];
 
     /**
-     * @var array Relations
+     * @var array belongsTo
      */
     public $belongsTo = [
         'user' => User::class
     ];
 
+    /**
+     * @var array belongsToMany
+     */
     public $belongsToMany = [
         'related' => [
             Channel::class,
@@ -40,8 +38,42 @@ class Channel extends Model
         ]
     ];
 
+    /**
+     * getCustomTitleAttribute
+     */
     public function getCustomTitleAttribute()
     {
         return $this->title.' (#'.$this->id.')';
+    }
+
+    /**
+     * getSimpleRadioOptions
+     */
+    public function getSimpleFieldOptions()
+    {
+        return [
+            1 => ['Option 1', 'This is option one'],
+            2 => ['Option 2', 'This is option two']
+        ];
+    }
+
+    /**
+     * getAdvancedRadioOptions
+     */
+    public function getAdvancedFieldOptions()
+    {
+        return [
+            100 => [
+                'label' => 'Option 100',
+                'comment' => 'This is option one',
+                // 'readOnly' => true,
+            ],
+            200 => [
+                'label' => 'Option 200',
+                'comment' => 'This is option two (disabled)',
+                'disabled' => true,
+                'children' => $this->getSimpleFieldOptions()
+            ]
+        ];
     }
 }
