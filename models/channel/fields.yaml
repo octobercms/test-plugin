@@ -59,5 +59,6 @@ tabs:
             span: auto
             type: checkboxlist
             optionsMethod: getAdvancedFieldOptions
+            cumulative: true
             quickselect: true
             # disabled: true
