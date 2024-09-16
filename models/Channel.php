@@ -66,13 +66,15 @@ class Channel extends Model
             100 => [
                 'label' => 'Option 100',
                 'comment' => 'This is option one',
+                'icon' => 'icon-cogs',
                 // 'readOnly' => true,
             ],
             200 => [
                 'label' => 'Option 200',
                 'comment' => 'This is option two (disabled)',
                 'disabled' => true,
-                'children' => $this->getSimpleFieldOptions()
+                'children' => $this->getSimpleFieldOptions(),
+                'color' => '#ff0000',
             ]
         ];
     }
