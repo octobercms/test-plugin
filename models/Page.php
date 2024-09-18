@@ -55,6 +55,7 @@ class Page extends Model
     public $belongsTo = [
         'parent' => Page::class,
         'layout' => Layout::class,
+        'pagebanner' => PageBanner::class,
     ];
 
     public $attachOne = [

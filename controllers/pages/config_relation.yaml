@@ -1,0 +1,4 @@
+pagebanner:
+    label: Page Banner
+    form: $/october/test/models/pagebanner/fields.yaml
+    list: $/october/test/models/pagebanner/columns.yaml

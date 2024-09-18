@@ -1,0 +1,27 @@
+fields:
+    is_active:
+        label: Is Active
+        span: full
+        type: switch
+        default: 1
+
+    title:
+        label: Title
+        span: full
+        type: text
+
+    url:
+        label: URL
+        span: full
+        type: text
+
+    image_desktop:
+        label: Image Desktop
+        mode: image
+        fileTypes: 'png'
+        useCaption: 0
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

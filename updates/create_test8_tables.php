@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('tablet_size')->nullable();
             $table->integer('parent_id')->nullable()->unsigned();
             $table->integer('layout_id')->nullable()->unsigned();
+            $table->integer('pagebanner_id')->nullable()->unsigned();
         });
 
         Schema::create('october_test_layouts', function($table) {
@@ -31,11 +32,20 @@ return new class extends Migration
             $table->integer('type')->unsigned()->nullable();
             $table->text('content')->nullable();
         });
+
+        Schema::create('october_test_page_banners', function($table) {
+            $table->increments('id')->unsigned();
+            $table->boolean('is_active')->nullable();
+            $table->string('title')->nullable();
+            $table->string('url')->nullable();
+            $table->timestamps();
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists('october_test_pages');
         Schema::dropIfExists('october_test_layouts');
+        Schema::dropIfExists('october_test_page_banners');
     }
 };

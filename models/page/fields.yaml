@@ -160,6 +160,11 @@ tabs:
                 field: devices[]
                 condition: value[tablet]
 
+        pagebanner:
+            label: Page Banner
+            tab: Page Banner
+            type: relation
+
 secondaryTabs:
     defaultTab: Images
     fields:
