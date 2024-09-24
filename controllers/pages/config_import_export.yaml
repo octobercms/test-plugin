@@ -1,0 +1,16 @@
+# config_import_export.yaml
+import:
+    title: Import Pages
+    modelClass: October\Test\Models\Page\PageImport
+    list: $/october/test/models/page/columns.yaml
+
+export:
+    title: Export Pages
+    modelClass: October\Test\Models\Page\PageExport
+    list: $/october/test/models/page/columns.yaml
+    form:
+        fields:
+            skip_first_record:
+                label: Skip first record
+                type: checkbox
+                default: true

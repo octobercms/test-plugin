@@ -18,4 +18,15 @@
         data-stripe-load-indicator>
         Delete selected
     </button>
+
+    <a
+        href="<?= Backend::url('october/test/pages/export') ?>"
+        class="btn btn-default oc-icon-download">
+        Export Records
+    </a>
+    <a
+        href="<?= Backend::url('october/test/pages/import') ?>"
+        class="btn btn-default oc-icon-upload">
+        Import Records
+    </a>
 </div>
