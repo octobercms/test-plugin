@@ -23,6 +23,5 @@ secondaryTabs:
     fields:
         reviews:
             label: Reviews
-            type: partial
-            path: reviews
             tab: Reviews
+            type: relation

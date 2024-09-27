@@ -7,7 +7,6 @@ use Model;
  */
 class Theme extends Model
 {
-
     /**
      * @var string The database table used by the model.
      */
