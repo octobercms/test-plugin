@@ -133,6 +133,7 @@ tabs:
             tab: Birthday
             span: auto
             twelveHour: true
+            hoursOnly: true
 
         favcolor:
             label: Favorite color
