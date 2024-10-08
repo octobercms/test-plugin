@@ -62,3 +62,9 @@ tabs:
             cumulative: true
             quickselect: true
             # disabled: true
+
+        _basic_child_dropdown:
+            label: Dropdown Optgroup
+            span: auto
+            type: dropdown
+            optionsMethod: getBasicChildFieldOptions

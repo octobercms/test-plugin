@@ -78,4 +78,25 @@ class Channel extends Model
             ]
         ];
     }
+
+    /**
+     * getBasicChildFieldOptions
+     */
+    public function getBasicChildFieldOptions()
+    {
+        return [
+            'Option Group' => [
+                'children' => [
+                    1 => [
+                        'label' => 'Option 1',
+                        'comment' => 'This is option one',
+                    ],
+                    2 => [
+                        'label' => 'Option 2',
+                        'comment' => 'This is option two',
+                    ],
+                ]
+            ],
+        ];
+    }
 }
