@@ -95,6 +95,8 @@ class PeopleTest extends BrowserTestCase
 
             $browser
                 ->pause(300)
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Person Updated')
                 ->click('a.flash-close');
@@ -120,6 +122,8 @@ class PeopleTest extends BrowserTestCase
 
             $browser
                 ->type('Person[name]', '')
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The Full Name field is required.')
                 ->click('a.flash-close')

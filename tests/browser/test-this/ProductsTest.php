@@ -132,7 +132,7 @@ class ProductsTest extends BrowserTestCase
                 ->click('#ListStructure .list-cell-name-name a')
                 ->waitForTextIn('#ListStructure .list-cell-index-1', 'Automotive')
                 ->click('#ListStructure .list-cell-name-name a')
-                ->waitFor('#ListStructure .no-pagination')
+                ->waitUntilMissing('#ListStructure .list-pagination')
             ;
 
             // Searching and paging list
@@ -143,7 +143,7 @@ class ProductsTest extends BrowserTestCase
                 ->click('#ListStructure .list-pagination-links .page-link.page-next')
                 ->waitForTextIn('#ListStructure .list-cell-index-1', 'Hats')
                 ->click('#Search-listToolbarSearch .clear-input-text')
-                ->waitFor('#ListStructure .no-pagination')
+                ->waitUntilMissing('#ListStructure .list-pagination')
             ;
 
             // Update record
@@ -154,6 +154,8 @@ class ProductsTest extends BrowserTestCase
                 ->assertTitleContains('Edit Product Category |');
 
             $browser
+                ->pause(300)
+                ->scrollIntoView('.form-buttons')
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Product Category Updated')
