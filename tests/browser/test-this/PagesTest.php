@@ -71,6 +71,8 @@ class PagesTest extends BrowserTestCase
                 ->assertTitleContains('Edit Page |')
                 ->type('Page[title]', 'First Page!')
                 ->pause(300)
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
                 ->click('a.flash-close');
@@ -80,6 +82,8 @@ class PagesTest extends BrowserTestCase
             $browser
                 ->visit('/admin/october/test/pages/update/3')
                 ->assertTitleContains('Edit Page |')
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The parent.title field must be 10 characters')
                 ->click('a.flash-close')
@@ -91,6 +95,8 @@ class PagesTest extends BrowserTestCase
                 ->assertTitleContains('Edit Page |')
                 ->type('Page[title]', 'First Page')
                 ->pause(300)
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
                 ->click('a.flash-close');
@@ -100,6 +106,8 @@ class PagesTest extends BrowserTestCase
             $browser
                 ->visit('/admin/october/test/pages/update/3')
                 ->assertTitleContains('Edit Page |')
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Page Updated')
                 ->click('a.flash-close');
