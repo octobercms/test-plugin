@@ -43,7 +43,10 @@ class ThemesTest extends BrowserTestCase
             ;
 
             // Select this theme
-            $browser->click('#themeListItem-dusk-test-theme button[data-request="onSetActiveTheme"]')
+            $browser
+                ->scrollIntoView('#themeListItem-dusk-test-theme')
+                ->pause(300)
+                ->click('#themeListItem-dusk-test-theme button[data-request="onSetActiveTheme"]')
                 ->waitFor('#themeListItem-dusk-test-theme.active')
             ;
 
