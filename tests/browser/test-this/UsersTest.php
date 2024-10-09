@@ -36,6 +36,8 @@ class UsersTest extends BrowserTestCase
 
             $browser
                 ->pause(300)
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'User Updated')
                 ->click('a.flash-close');
@@ -122,6 +124,8 @@ class UsersTest extends BrowserTestCase
                 ->waitForTextIn('.modal-body > p', 'Are you sure?')
                 ->press('OK')
                 ->waitUntilMissing('#FileUpload-formPhoto-photo .upload-files-container .upload-object')
+                ->scrollIntoView('.form-buttons')
+                ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.error', 'The Photo field is required PHOTO.')
                 ->click('a.flash-close')

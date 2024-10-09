@@ -58,6 +58,8 @@ class TreesTest extends BrowserTestCase
                 ->assertTitleContains('Edit Category |');
 
             $browser
+                ->pause(600)
+                ->scrollIntoView('.form-buttons')
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Category Updated')
@@ -82,6 +84,8 @@ class TreesTest extends BrowserTestCase
                 ->assertTitleContains('Edit Channel |');
 
             $browser
+                ->pause(300)
+                ->scrollIntoView('.form-buttons')
                 ->pause(300)
                 ->click('.form-buttons [data-request=onSave]')
                 ->waitForTextIn('.oc-flash-message.success', 'Channel Updated')
