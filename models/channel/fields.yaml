@@ -68,3 +68,9 @@ tabs:
             span: auto
             type: dropdown
             optionsMethod: getBasicChildFieldOptions
+
+        _advanced_taglist:
+            label: TagList Advanced
+            span: full
+            type: taglist
+            optionsMethod: getAdvancedFieldOptions
