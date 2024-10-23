@@ -2,7 +2,7 @@
 
 use Backend\Classes\FilterWidgetBase;
 
-class InlineSearch extends FilterWidgetBase
+class InlineBalloon extends FilterWidgetBase
 {
     /**
      * {@inheritDoc}
@@ -20,7 +20,7 @@ class InlineSearch extends FilterWidgetBase
         $this->vars['name'] = $this->getScopeName();
         $this->vars['value'] = $this->getLoadValue();
 
-        return $this->makePartial('inlinesearch');
+        return $this->makePartial('inlineballoon');
     }
 
     /**

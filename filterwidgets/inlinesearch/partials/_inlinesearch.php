@@ -6,7 +6,7 @@
     data-scope-name="<?= $scope->scopeName ?>">
     <input
         placeholder="<?= e($this->getHeaderValue($scope)) ?>"
-        name="InlineSearch[value]"
+        name="<?= $name ?>[value]"
         value="<?= e($activeValue) ?>"
         class="form-control form-control-sm" />
     <button

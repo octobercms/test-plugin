@@ -71,3 +71,10 @@ scopes:
     testsearch:
         label: Search (Custom)
         type: inlinesearch
+
+    testtoggle:
+        label: Switch (Custom)
+        type: inlineballoon
+        options:
+            neo: Neo
+            morpheus: Morpheus
