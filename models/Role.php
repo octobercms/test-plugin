@@ -32,4 +32,12 @@ class Role extends Model
     public $attachMany = [
         'photos' => \System\Models\File::class,
     ];
+
+    /**
+     * scopeApplyRoleOptionsFilter
+     */
+    public function scopeApplyRoleOptionsFilter($query)
+    {
+        return $query->where('id', '<>', 1);
+    }
 }

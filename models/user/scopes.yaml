@@ -27,6 +27,7 @@ scopes:
         label: Role
         modelScope: applyRoleFilter
         modelClass: October\Test\Models\Role
+        optionsScope: applyRoleOptionsFilter
         nameFrom: name
         dependsOn: disable_roles
         # default:
