@@ -48,6 +48,14 @@ class Plugin extends PluginBase
             ]);
         });
 
+        // @todo fix this
+        $widgetManager = \Backend\Classes\DashboardManager::instance();
+        $widgetManager->registerVueReportWidget(
+            \October\Test\VueComponents\MyCustomWidget::class,
+            "Custom widget",
+            "Acme author"
+        );
+
         // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
         //     unset($presets['punch']);
         // });
