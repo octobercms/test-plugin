@@ -12,6 +12,10 @@ navigation:
     order: 150
 
 fields:
+    mycontentfield:
+        label: Custom Content Field
+        type: mycontentfield
+
     description@update:
         label: Description (Update)
 

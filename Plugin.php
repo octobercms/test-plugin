@@ -65,6 +65,13 @@ class Plugin extends PluginBase
         // });
     }
 
+    public function registerContentFields()
+    {
+        return [
+            \October\Test\ContentFields\MyContentField::class => 'mycontentfield'
+        ];
+    }
+
     /**
      * registerMailTemplates
      */
