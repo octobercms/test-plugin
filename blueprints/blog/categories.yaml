@@ -15,6 +15,8 @@ fields:
     mycontentfield:
         label: Custom Content Field
         type: mycontentfield
+        firstColor: red
+        secondColor: blue
 
     description@update:
         label: Description (Update)
