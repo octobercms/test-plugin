@@ -48,14 +48,6 @@ class Plugin extends PluginBase
             ]);
         });
 
-        // @todo fix this
-        // $widgetManager = \Backend\Classes\DashboardManager::instance();
-        // $widgetManager->registerVueReportWidget(
-        //     \October\Test\VueComponents\MyCustomWidget::class,
-        //     "Custom widget",
-        //     "Acme author"
-        // );
-
         // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
         //     unset($presets['punch']);
         // });
@@ -63,6 +55,29 @@ class Plugin extends PluginBase
         // \Backend\FormWidgets\RichEditor::extend(function($controller) {
         //     $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
         // });
+    }
+
+    /**
+     * registerReportWidgets
+     */
+    public function registerReportWidgets()
+    {
+        return [];
+
+        return [
+            // Report Widget
+            \Backend\ReportWidgets\Welcome::class => [
+                'label' => 'backend::lang.dashboard.welcome.widget_title_default',
+                'context' => 'dashboard'
+            ],
+
+            // Vue Report Widget
+            \October\Test\VueComponents\MyCustomWidget::class => [
+                'label' => 'Custom Widget',
+                'group' => 'Acme Author',
+                'vue' => true
+            ]
+        ];
     }
 
     public function registerContentFields()
