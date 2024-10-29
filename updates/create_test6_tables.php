@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('name')->nullable();
             $table->string('parent_name')->nullable();
+            $table->integer('site_id')->nullable()->unsigned();
+            $table->integer('site_root_id')->nullable()->unsigned();
             $table->timestamps();
         });
 
@@ -26,6 +28,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->integer('sort_order')->nullable();
             $table->boolean('is_visible')->default(true);
+            $table->integer('site_id')->nullable()->unsigned();
+            $table->integer('site_root_id')->nullable()->unsigned();
             $table->timestamps();
         });
 

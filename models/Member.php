@@ -8,6 +8,7 @@ use Model;
 class Member extends Model
 {
     use \October\Rain\Database\Traits\SimpleTree;
+    use \October\Rain\Database\Traits\Multisite;
 
     /**
      * @var string The database table used by the model.
@@ -23,6 +24,16 @@ class Member extends Model
      * @var array fillable fields
      */
     protected $fillable = [];
+
+    /**
+     * @var array propagatable list of attributes to propagate to other sites.
+     */
+    protected $propagatable = [];
+
+    /**
+     * @var bool|array propagatableSync will enforce model structures between all sites.
+     */
+    protected $propagatableSync = true;
 
     /**
      * @var array Relations
@@ -61,7 +72,7 @@ class Member extends Model
     public function scopeEligibleParents($query, $model)
     {
         $query
-            ->where('id', '!=', $model->id)
+            ->where('id', '<>', $model->id)
             ->where(function($query) use ($model) {
                 $query
                     ->where('parent_id', '!=', $model->id)
@@ -71,7 +82,7 @@ class Member extends Model
         ;
 
         if ($model->parent_id) {
-            $query->where('id', '!=', $model->parent_id);
+            $query->where('id', '<>', $model->parent_id);
         }
 
         return $query;

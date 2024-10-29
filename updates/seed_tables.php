@@ -231,38 +231,73 @@ class SeedAllTables extends Seeder
         /*
          * Test 6: Trees
          */
-        $fourUpManager = Member::create(['name' => 'Khaleesi']);
-        $threeUpManager = Member::create(['name' => 'Ian', 'parent_id' => $fourUpManager->id]);
-        $twoUpManager = Member::create(['name' => 'Vangelis', 'parent_id' => $threeUpManager->id]);
-        $oneUpManager = Member::create(['name' => 'Joe', 'parent_id' => $twoUpManager->id]);
-        Member::create(['name' => 'Johnny', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
-        Member::create(['name' => 'Sally', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
-        Member::create(['name' => 'Rick', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        // Members
+        $fourUpManager = new Member(['name' => 'Khaleesi']);
+        $fourUpManager->save(['propagate' => true]);
 
+        $threeUpManager = new Member(['name' => 'Ian', 'parent_id' => $fourUpManager->id]);
+        $threeUpManager->save(['propagate' => true]);
+
+        $twoUpManager = new Member(['name' => 'Vangelis', 'parent_id' => $threeUpManager->id]);
+        $twoUpManager->save(['propagate' => true]);
+
+        $oneUpManager = new Member(['name' => 'Joe', 'parent_id' => $twoUpManager->id]);
+        $oneUpManager->save(['propagate' => true]);
+
+        $manager = new Member(['name' => 'Johnny', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        $manager->save(['propagate' => true]);
+
+        $manager = new Member(['name' => 'Sally', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        $manager->save(['propagate' => true]);
+
+        $manager = new Member(['name' => 'Rick', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
+        $manager->save(['propagate' => true]);
+
+        // Categories
+        $parent = new Category(['name' => 'Web', 'description' => 'Websites & Web Applications']);
+        $parent->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Create a website', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Convert a template to a website', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $parent = new Category(['name' => 'Desktop', 'description' => 'Desktop Software']);
+        $parent->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Write software for Windows', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Write software for Mac', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Write software for Linux', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $parent = new Category(['name' => 'Mobile', 'description' => 'Mobile Apps']);
+        $parent->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Write software for iPhone / iPad', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Write software for Android', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        $child = new Category(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
+        $child->save(['propagate' => true]);
+
+        // Channels
         $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
         $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Disccusion about the season of falling leaves.']);
         $autumn->children()->create(['title' => 'September', 'description' => 'The start of the fall season.']);
-        $october = $autumn->children()->create(['title' => 'October', 'description' => 'The middle of the fall season.']);
+        $autumn->children()->create(['title' => 'October', 'description' => 'The middle of the fall season.']);
         $autumn->children()->create(['title' => 'November', 'description' => 'The end of the fall season.']);
         $orange->children()->create(['title' => 'Summer Breeze', 'description' => 'Disccusion about the wind at the ocean.']);
 
         $green = Channel::create(['title' => 'Channel Green', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
         $green->children()->create(['title' => 'Winter Snow', 'description' => 'Disccusion about the frosty snow flakes.']);
         $green->children()->create(['title' => 'Spring Trees', 'description' => 'Disccusion about the blooming gardens.']);
-
-        $parent = Category::create(['name' => 'Web', 'description' => 'Websites & Web Applications']);
-        Category::create(['name' => 'Create a website', 'parent_id' => $parent->id]);
-        Category::create(['name' => 'Convert a template to a website', 'parent_id' => $parent->id]);
-
-        $parent = Category::create(['name' => 'Desktop', 'description' => 'Desktop Software']);
-        Category::create(['name' => 'Write software for Windows', 'parent_id' => $parent->id]);
-        Category::create(['name' => 'Write software for Mac', 'parent_id' => $parent->id]);
-        Category::create(['name' => 'Write software for Linux', 'parent_id' => $parent->id]);
-
-        $parent = Category::create(['name' => 'Mobile', 'description' => 'Mobile Apps']);
-        Category::create(['name' => 'Write software for iPhone / iPad', 'parent_id' => $parent->id]);
-        Category::create(['name' => 'Write software for Android', 'parent_id' => $parent->id]);
-        Category::create(['name' => 'Create a mobile website', 'parent_id' => $parent->id]);
 
         /*
          * Test 7: Galleries
