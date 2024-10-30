@@ -8,6 +8,10 @@ columns:
         searchable: true
         type: partial
         path: $/october/test/controllers/people/_id.htm
+        sortable: false
+        tooltip:
+            title: I cannot be sorted
+            icon: icon-warning
 
     name:
         label: Name
