@@ -4,6 +4,7 @@ type: stream
 name: Test Posts
 useDrafts: true
 pagefinder: false
+multisite: true
 
 primaryNavigation:
     label: Playground 2

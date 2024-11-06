@@ -1,0 +1,14 @@
+uuid: 5ca12420-24a5-4304-a30a-39fd901ec4b1
+handle: Test\Blog\Tag
+type: entry
+name: Blog Post Tag
+
+navigation:
+    mode: secondary
+    parent: Test\Blog
+    icon: icon-tags
+    order: 150
+
+fields:
+    description:
+        label: Description

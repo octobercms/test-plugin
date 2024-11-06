@@ -26,6 +26,14 @@ fields:
         type: entries
         source: Test\Blog\Categories
 
+    tags:
+        tab: Manage
+        label: Tags
+        type: entries
+        displayMode: taglist
+        source: Test\Blog\Tag
+        # translatable: false
+
     is_featured:
         tab: Featured
         label: Featured Post
