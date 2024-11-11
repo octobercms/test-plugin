@@ -39,6 +39,7 @@ return new class extends Migration
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->text('services')->nullable();
             $table->integer('nest_left')->nullable();
             $table->integer('nest_right')->nullable();
             $table->integer('nest_depth')->nullable();

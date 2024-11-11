@@ -21,6 +21,11 @@ class Channel extends Model
     protected $fillable = [];
 
     /**
+     * @var array jsonable fields
+     */
+    protected $jsonable = ['services'];
+
+    /**
      * @var array belongsTo
      */
     public $belongsTo = [
@@ -44,6 +49,18 @@ class Channel extends Model
     public function getCustomTitleAttribute()
     {
         return $this->title.' (#'.$this->id.')';
+    }
+
+    /**
+     * getBasicFieldOptions
+     */
+    public function getBasicFieldOptions()
+    {
+        return [
+            1 => 'Calibration',
+            2 => 'Commerce',
+            3 => 'Service'
+        ];
     }
 
     /**
@@ -92,6 +109,27 @@ class Channel extends Model
                     2 => 'Option 2',
                     // ...
                 ]
+            ],
+        ];
+
+        $categories = [
+            'Option Group' => [
+                'optgroup' => true,
+                'children' => [
+                    1 => 'Option 1',
+                    2 => 'Option 2',
+                ]
+            ],
+        ];
+
+        $arAdditionFields = [
+            'bling_category_id'     => [
+                'tab'      => 'Bling ERP',
+                'label'    => 'Categoria relacionada',
+                'type'     => 'dropdown',
+                'span'     => 'storm',
+                'cssClass' => 'col-md-6',
+                'options'  => $categories
             ],
         ];
     }

@@ -23,6 +23,16 @@ fields:
 tabs:
     defaultTab: Options Definitions
     fields:
+        services:
+            label: Services
+            type: taglist
+            mode: array
+            useKey: true
+            customTags: false
+            placeholder: Choose Cervices
+            optionsMethod: getBasicFieldOptions
+            span: full
+
         _simple_dropdown:
             label: Dropdown Simple
             span: auto
@@ -74,3 +84,18 @@ tabs:
             span: full
             type: taglist
             optionsMethod: getAdvancedFieldOptions
+
+        _inline_dropdown:
+            type: dropdown
+            label: Inline Dropdown
+            span: row
+            spanClass: col-md-6
+            options:
+                Option Group:
+                    optgroup: true
+                    children:
+                        1: Option 1
+                        2: Option 2
+
+
+
