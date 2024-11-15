@@ -75,7 +75,6 @@ class Plugin extends PluginBase
             \October\Test\VueComponents\MyCustomWidget::class => [
                 'label' => 'Custom Widget',
                 'group' => 'Acme Author',
-                'vue' => true
             ]
         ];
     }

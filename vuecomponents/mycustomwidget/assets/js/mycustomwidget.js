@@ -1,6 +1,6 @@
 oc.Modules.register('october.test.component.mycustomwidget', function () {
     Vue.component('october-test-vuecomponents-mycustomwidget', {
-        extends: oc.Modules.import('backend.vuecomponents.dashboard.widget-base'),
+        extends: new Backend_VueComponents_Dashboard_WidgetBase,
         data: function () {
             return {
             }
