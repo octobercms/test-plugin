@@ -109,6 +109,7 @@ class Product extends Model
             'table' => 'october_test_products_related_products',
             'key' => 'product_id',
             'otherKey' => 'related_product_id',
+            'pivot' => ['group_name']
         ],
     ];
 

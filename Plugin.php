@@ -55,6 +55,21 @@ class Plugin extends PluginBase
         // \Backend\FormWidgets\RichEditor::extend(function($controller) {
         //     $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
         // });
+
+
+        \Event::listen('backend.form.extendFields', function (\Backend\Widgets\Form $widget) {
+            if (!$widget->getController() instanceof \October\Test\Controllers\Products || $widget->isNested) {
+                return;
+            }
+
+            if (!$widget->model instanceof \October\Test\Models\Product) {
+                return;
+            }
+
+            $widget->addField('garbage', [
+                'label' => 'Garbage field'
+            ]);
+        });
     }
 
     /**

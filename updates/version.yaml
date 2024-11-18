@@ -34,3 +34,6 @@ v1.0.11:
 v1.0.12:
     - Seed tables
     - seed_tables.php
+v1.0.13:
+    - Example Pivot Leak
+    - example_pivot_leak.php
