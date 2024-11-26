@@ -25,5 +25,14 @@ class Galleries extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'galleries');
+
+        \Event::listen('backend.form.extendFields', static function ($form) {
+            if ($form->getController() instanceof \October\Test\Controllers\Galleries) {
+                if ($posts = $form->getField('posts')) {
+                    $posts->readOnly = true;
+                    // $posts->previewMode = true;
+                }
+            }
+        });
     }
 }

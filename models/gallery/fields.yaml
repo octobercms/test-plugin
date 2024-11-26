@@ -36,9 +36,9 @@ tabs:
     fields:
         posts:
             label: Posts
-            type: partial
+            type: relation
             tab: Posts
-            # path: posts
+            # readOnly: true
 
         images:
             label: Images
