@@ -44,16 +44,23 @@ tabs:
             label: Images
             type: fileupload
             mode: image
-            span: left
+            span: auto
             fileTypes: ['png', 'jpg', 'jpeg']
             mimeTypes: 'png,jpg,jpeg'
+            tab: Images
+
+        _avatar:
+            label: Avatar
+            type: mediafinder
+            mode: image
+            span: auto
             tab: Images
 
         gallery:
             label: Gallery
             type: repeater
             tab: Images
-            span: right
+            span: full
             default:
                 - title: First Title
                 - title: Second Title
