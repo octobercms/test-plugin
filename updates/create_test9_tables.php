@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('site_id')->nullable()->unsigned();
             $table->integer('site_root_id')->nullable()->unsigned();
             $table->boolean('bulk_pricing')->default(0)->nullable();
+            $table->string('garbage')->nullable();
             $table->text('prices')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -44,6 +45,7 @@ return new class extends Migration
         Schema::create('october_test_products_related_products', function($table) {
             $table->integer('product_id')->unsigned();
             $table->integer('related_product_id')->unsigned();
+            $table->string('group_name')->nullable();
             $table->primary(['product_id', 'related_product_id']);
         });
 

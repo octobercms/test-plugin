@@ -130,7 +130,12 @@ tabs:
                 form: $/october/test/models/product/fields.yaml
                 view:
                     toolbarButtons: add|remove
-
+                pivot:
+                    context: pivot
+                    form:
+                        fields:
+                            pivot[group_name]:
+                                label: Group Name
         offers:
             tab: Offers
             type: relation
