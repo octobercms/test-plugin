@@ -3,13 +3,18 @@
 # ===================================
 
 fields:
-    name:
-        label: Name
-
     parent:
         label: Parent
         type: relation
         emptyOption: -- none --
+
+    name:
+        label: Name
+        span: auto
+
+    code:
+        label: Code
+        span: auto
 
 tabs:
     fields:

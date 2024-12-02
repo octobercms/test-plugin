@@ -25,6 +25,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->index()->nullable();
             $table->string('name')->nullable();
+            $table->string('code')->nullable();
             $table->string('description')->nullable();
             $table->integer('sort_order')->nullable();
             $table->boolean('is_visible')->default(true);

@@ -1,7 +1,6 @@
 <?php namespace October\Test\Models;
 
 use Model;
-use October\Test\Classes\StatusEnum;
 
 /**
  * Company Model
