@@ -16,6 +16,13 @@ navigation:
     icon: icon-pencil
     order: 100
 
+extraNavigation:
+    product_companies:
+        label: Product Companies
+        order: 210
+        icon: icon-group
+        url: october/test/companies
+
 groups:
     regular_post:
         name: Regular Post

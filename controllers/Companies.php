@@ -37,7 +37,8 @@ class Companies extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.Test', 'test', 'products');
+        // BackendMenu::setContext('October.Test', 'test', 'products');
+        BackendMenu::setTailorContext('Test\Blog', 'product_companies');
     }
 
     /**
