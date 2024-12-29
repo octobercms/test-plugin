@@ -11,6 +11,7 @@ tabs:
         code:
             label: Code
             tab: Details
+            autoFocus: true
 
         icon:
             label: Icon
