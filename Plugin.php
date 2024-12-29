@@ -166,9 +166,11 @@ class Plugin extends PluginBase
                         'icon' => 'icon-plus',
                         'url' => Backend::url('october/test/people/create'),
                         'itemType' => 'primary',
+                        'visibleOn' => 'people',
                     ],
                     'people_ruler' => [
                         'itemType' => 'ruler',
+                        'visibleOn' => 'people',
                     ],
                     'people' => [
                         'label' => 'People',
