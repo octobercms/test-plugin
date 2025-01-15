@@ -109,4 +109,13 @@ class Gallery extends Model
             );
         }
     }
+
+    public static function getAllDisabledDatesForEndDate()
+    {
+        return [
+            Date::now()->format('Y-m-d'),
+            Date::now()->addDays(1)->format('Y-m-d'),
+            Date::now()->addDays(-1)->format('Y-m-d')
+        ];
+    }
 }

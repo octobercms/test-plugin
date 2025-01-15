@@ -98,6 +98,7 @@ tabs:
             format: d.m.Y
             dependsOn: is_all_day
             span: right
+            disableDays: October\Test\Models\Gallery::getAllDisabledDatesForEndDate
 
         is_all_day:
             label: All Day?
