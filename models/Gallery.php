@@ -1,7 +1,6 @@
-<?php
+<?php namespace October\Test\Models;
 
-namespace October\Test\Models;
-
+use Date;
 use Model;
 
 class Gallery extends Model
@@ -100,6 +99,14 @@ class Gallery extends Model
             $fields->start_time->hidden = true;
             $fields->end_time->hidden = true;
             $fields->end_date->hidden = false;
+        }
+
+        // Always disable today
+        if ($fields->start_date) {
+            $fields->start_date->disableDays = array_merge(
+                (array) $fields->start_date->disableDays,
+                [Date::now()->format('Y-m-d')]
+            );
         }
     }
 }
