@@ -156,8 +156,10 @@ class User extends Model
      */
     public function scopeApplyRoleFilter($query, $scope)
     {
-        return $query->whereHas('roles', function($q) use ($scope) {
-            $q->whereIn('id', $scope->value);
+        $action = $scope->mode === 'exclude' ? 'whereDoesntHave' : 'whereHas';
+
+        return $query->{$action}('roles', function($q) use ($scope) {
+            $q->whereIn('october_test_roles.id', $scope->value);
         });
     }
 

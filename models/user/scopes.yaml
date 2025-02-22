@@ -30,6 +30,7 @@ scopes:
         optionsScope: applyRoleOptionsFilter
         nameFrom: name
         dependsOn: disable_roles
+        matchMode: toggle
         # default:
         #     - 1
 
