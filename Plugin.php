@@ -66,9 +66,9 @@ class Plugin extends PluginBase
 
         return [
             // Report Widget
-            \Backend\ReportWidgets\Welcome::class => [
-                'label' => 'backend::lang.dashboard.welcome.widget_title_default',
-                'context' => 'dashboard'
+            \October\Test\ReportWidgets\ClearCache::class => [
+                'label' => "Clear Cache",
+                'group' => 'Acme Author'
             ],
 
             // Vue Report Widget
