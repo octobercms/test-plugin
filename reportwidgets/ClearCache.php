@@ -2,6 +2,8 @@
 
 use Dashboard\Classes\ReportWidgetBase;
 use Exception;
+use Artisan;
+use Flash;
 
 /**
  * ClearCache Report Widget
@@ -50,5 +52,11 @@ class ClearCache extends ReportWidgetBase
 
     protected function loadAssets()
     {
+    }
+
+    public function onClearCache()
+    {
+        Artisan::call('cache:clear');
+        Flash::success('Cache cleared.');
     }
 }
