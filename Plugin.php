@@ -62,13 +62,11 @@ class Plugin extends PluginBase
      */
     public function registerReportWidgets()
     {
-        return [];
-
         return [
             // Report Widget
             \October\Test\ReportWidgets\ClearCache::class => [
                 'label' => "Clear Cache",
-                'group' => 'Acme Author'
+                'group' => 'Acme Author',
             ],
 
             // Vue Report Widget
