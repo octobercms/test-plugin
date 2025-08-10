@@ -17,20 +17,27 @@ class ClearCache extends ReportWidgetBase
     public function defineProperties()
     {
         return [
-            'name' => [
-                'title' => 'Name',
-                'default' => 'Clear Cache Report Widget',
+            'title' => [
+                'title' => 'Widget title',
+                'default' => 'Top Pages',
                 'type' => 'string',
                 'validation' => [
                     'required' => [
-                        'message' => 'The Name field is required'
+                        'message' => 'The Widget Title is required.'
                     ],
-                    'regex' => [
-                        'message' => 'The Name field can contain only Latin letters.',
-                        'pattern' => '^[a-zA-Z]+$'
-                    ]
                 ]
             ],
+            'days' => [
+                'title' => 'Number of days to display data for',
+                'default' => '7',
+                'type' => 'string',
+                'validation' => [
+                    'regex' => [
+                        'message' => 'The days property can contain only numeric symbols.',
+                        'pattern' => '^[0-9]+$'
+                    ]
+                ]
+            ]
         ];
     }
 
