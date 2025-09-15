@@ -92,6 +92,7 @@ tabs:
             type: taglist
             mode: relation
             nameFrom: name
+            customTags: true
             tab: Tags
 
         # tags:
@@ -104,13 +105,45 @@ tabs:
         #     tab: Tags
         #     customTags: false
 
-        _tags_trigger:
+        _tags_trigger_a_or_b:
             commentAbove: Enter "a" or "b" as a tag above to hide this
             tab: Tags
             trigger:
                 action: hide
                 field: tags[]
                 condition: value[a][b]
+
+        _tags_trigger_empty:
+            commentAbove: Delete all tags above to hide this
+            tab: Tags
+            trigger:
+                action: hide
+                field: tags[]
+                condition: value[]
+
+        _tags_trigger_empty_or_a:
+            commentAbove: Enter "a" as a tag or delete all tags above to hide this
+            tab: Tags
+            trigger:
+                action: hide
+                field: tags[]
+                condition: value[][a]
+
+        _tags_trigger_value:
+            commentAbove: Enter any tag above to hide this
+            tab: Tags
+            trigger:
+                action: hide
+                field: tags[]
+                condition: value[*]
+
+        _tags_trigger_contains_a:
+            commentAbove: Enter any tag containing "a" above to hide this
+            tab: Tags
+            trigger:
+                action: hide
+                field: tags[]
+                condition: value[*a*]
 
         tags_array:
             label: Tags (Array)
