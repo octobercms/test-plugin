@@ -1,0 +1,42 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+env:
+  DOCKER_TAG: ghcr.io/${{ github.repository }}:pr-${{ github.event.pull_request.number }}
+
+jobs:
+
+  build_push_docker_image:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      run: docker build --file .github/workflows/Dockerfile --tag ${{ env.DOCKER_TAG }} .
+
+    - name: Login to GitHub container registry
+      # run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Push the Docker image to GitHub container registry
+      run: docker push ${{ env.DOCKER_TAG }}
+
+    - name: Post testing instructions as comment
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          If you want to test out this PR, run the following command from a CLI with [Docker installed](https://docs.docker.com/get-docker/).
+          ```
+          docker run --rm -p 80:80 ${{ env.DOCKER_TAG }}
+          ```
+          You can optionally merge a specific PR from the main `october/october` repository if this feature depends on it.
+          ```
+          docker run --rm -p 80:80 -e "GIT_MERGE_PR=1234" ${{ env.DOCKER_TAG }}
+          ```
+          Don't forget to give feedback once tested!
