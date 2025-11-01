@@ -6,7 +6,7 @@
         <p>Title (prop): <?= $this->property('title') ?></p>
         <p>Days (prop): <?= $this->property('days') ?></p>
         <button data-request="<?= $this->getEventHandler('onClearCache') ?>" class="btn btn-outline-warning">
-            <span class="fa icon-trash"></span> Clear Cache</button>
+            <span class="icon-delete"></span> Clear Cache</button>
     <?php else: ?>
         <p class="flash-message static warning"><?= e($error) ?></p>
     <?php endif ?>
