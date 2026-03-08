@@ -82,10 +82,14 @@ tabs:
                         prompt: Add evidence to the point
                         form:
                             fields:
-                                 title:
+                                title:
                                     placeholder: Provide evidence to support that point
                                     label: Evidence
                                     type: text
+                                image:
+                                    type: mediafinder
+                                    label: Supporting Documents
+                                    mode: image
 
         mood[feeling]:
             label: Overall feeling
