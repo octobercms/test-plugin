@@ -11,6 +11,11 @@ class UserRolePivot extends Pivot
     use \October\Rain\Database\Traits\Validation;
 
     /**
+     * @var string table associated with the model.
+     */
+    public $table = 'october_test_user_roles';
+
+    /**
      * @var bool incrementing identifier
      */
     public $incrementing = true;
