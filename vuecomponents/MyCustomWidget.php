@@ -6,6 +6,8 @@ use Carbon\Carbon;
 
 class MyCustomWidget extends VueReportWidgetBase
 {
+    protected $componentName = 'october-test-vuecomponents-mycustomwidget';
+
     public function getData(ReportFetchData $data): mixed
     {
         return [
