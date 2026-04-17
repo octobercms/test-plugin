@@ -1,7 +1,7 @@
 uuid: 2c04cc66-f217-462c-9451-d130ea482565
 handle: Test\Blog\CommentContent
 type: mixin
-name: Blog Post Content
+name: Test Blog Post Content
 
 fields:
     author:

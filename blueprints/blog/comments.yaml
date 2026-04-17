@@ -7,7 +7,7 @@ navigation: false
 pagefinder: false
 
 groups:
-    regular_post:
+    regular_comment:
         name: Regular Comment
         fields:
             content:
@@ -20,7 +20,7 @@ groups:
                 type: mixin
                 source: Test\Blog\CommentContent
 
-    markdown_post:
+    markdown_comment:
         name: Markdown Comment
         fields:
             content:

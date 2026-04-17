@@ -1,7 +1,7 @@
 uuid: 5ca12420-24a5-4304-a30a-39fd901ec4b1
 handle: Test\Blog\Tag
 type: entry
-name: Blog Post Tag
+name: Test Blog Post Tag
 
 navigation:
     mode: secondary
@@ -12,3 +12,10 @@ navigation:
 fields:
     description:
         label: Description
+
+    attachment:
+        label: Attachment (PDF)
+        type: fileupload
+        mode: file
+        fileTypes: pdf
+        comment: Optional - event brochure or details PDF

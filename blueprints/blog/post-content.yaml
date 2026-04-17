@@ -1,7 +1,7 @@
 uuid: 5faa4126-44c2-4944-8873-fd070da68967
 handle: Test\Blog\PostContent
 type: mixin
-name: Blog Post Content
+name: Test Blog Post Content
 
 fields:
     banner:

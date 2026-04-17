@@ -1,5 +1,5 @@
 uuid: 6c7a0f9b-957b-46a7-8431-1a0fa7d09b0f
-type: entry
+type: structure
 handle: Test\Blog\Categories
 name: Test Categories
 useDrafts: false
@@ -10,6 +10,9 @@ navigation:
     parent: Test\Blog
     icon: icon-star
     order: 150
+
+structure:
+    maxDepth: 3
 
 fields:
     mycontentfield:

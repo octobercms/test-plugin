@@ -15,6 +15,11 @@ navigation:
     order: 200
 
 fields:
+    client:
+        label: Users
+        type: users
+        maxItems: 1
+
     avatar:
         label: Avatar
         type: mediafinder
