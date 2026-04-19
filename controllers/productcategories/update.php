@@ -48,10 +48,17 @@
             <h6>Search Input</h6>
             <div class="row">
                 <div class="col-6">
-                    <?= Ui::searchInput('Search...', 'search_term') ?>
+                    <?= Ui::searchInput(
+                        name: 'search_term',
+                        placeholder: __("Search...")
+                    ) ?>
                 </div>
                 <div class="col-6">
-                    <?= Ui::searchInput('Search with AJAX...', 'search_term_ajax')->ajaxHandler('onAjax') ?>
+                    <?= Ui::searchInput(
+                        name: 'search_term_ajax',
+                        placeholder: __("Search with AJAX..."),
+                        handler: 'onAjax'
+                    ) ?>
                 </div>
             </div>
         </div>
