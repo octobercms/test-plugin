@@ -69,6 +69,12 @@ class Plugin extends PluginBase
                 'group' => 'Acme Author',
             ],
 
+            // Chart Test Widget
+            \October\Test\ReportWidgets\TestCharts::class => [
+                'label' => 'Test Charts',
+                'group' => 'Acme Author',
+            ],
+
             // Vue Report Widget
             \October\Test\VueComponents\MyCustomWidget::class => [
                 'label' => 'Custom Widget',
