@@ -5,6 +5,8 @@
         <p>This is the default partial content.</p>
         <p>Title (prop): <?= $this->property('title') ?></p>
         <p>Days (prop): <?= $this->property('days') ?></p>
+        <p>User (prop): <?= $this->property('user') ?></p>
+        <p>Users (prop): <?= implode(', ', (array) $this->property('users')) ?></p>
         <button data-request="<?= $this->getEventHandler('onClearCache') ?>" class="btn btn-outline-warning">
             <span class="icon-delete"></span> Clear Cache</button>
     <?php else: ?>

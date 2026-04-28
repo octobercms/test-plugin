@@ -1,5 +1,6 @@
 <?php namespace October\Test\ReportWidgets;
 
+use Backend\Models\User as BackendUser;
 use Dashboard\Classes\ReportWidgetBase;
 use Exception;
 use Artisan;
@@ -37,8 +38,32 @@ class ClearCache extends ReportWidgetBase
                         'pattern' => '^[0-9]+$'
                     ]
                 ]
-            ]
+            ],
+            'user' => [
+                'title' => 'User',
+                'type' => 'dropdown',
+            ],
+            'users' => [
+                'title' => 'Users',
+                'type' => 'set',
+            ],
         ];
+    }
+
+    /**
+     * getUserOptions returns available backend users for the dropdown property
+     */
+    public function getUserOptions()
+    {
+        return BackendUser::pluck('login', 'id')->all();
+    }
+
+    /**
+     * getUsersOptions returns available backend users for the set property
+     */
+    public function getUsersOptions()
+    {
+        return BackendUser::pluck('login', 'id')->all();
     }
 
     public function render()
