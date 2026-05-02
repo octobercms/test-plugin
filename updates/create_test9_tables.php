@@ -112,6 +112,12 @@ return new class extends Migration
             $table->integer('stock_id')->nullable()->unsigned();
             $table->timestamps();
         });
+
+        Schema::create('october_test_products_stream_records', function($table) {
+            $table->integer('product_id')->unsigned();
+            $table->integer('stream_record_id')->unsigned();
+            $table->primary(['product_id', 'stream_record_id'], 'test_prod_stream_pk');
+        });
     }
 
     public function down()
@@ -128,5 +134,6 @@ return new class extends Migration
         Schema::dropIfExists('october_test_product_offers');
         Schema::dropIfExists('october_test_product_offer_stocks');
         Schema::dropIfExists('october_test_product_offer_stock_leads');
+        Schema::dropIfExists('october_test_products_stream_records');
     }
 };

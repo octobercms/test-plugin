@@ -111,6 +111,13 @@ class Product extends Model
             'otherKey' => 'related_product_id',
             'pivot' => ['group_name']
         ],
+        'stream_records' => [
+            \Tailor\Models\StreamRecord::class,
+            'table' => 'october_test_products_stream_records',
+            'key' => 'product_id',
+            'otherKey' => 'stream_record_id',
+            'blueprint' => '425fb661-0016-4b60-871a-7e23de50027b'
+        ],
     ];
 
     public $hasMany = [

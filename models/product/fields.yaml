@@ -136,6 +136,17 @@ tabs:
                         fields:
                             pivot[group_name]:
                                 label: Group Name
+        stream_records:
+            label: Stream Records (Blueprint Relation)
+            tab: Stream Records
+            type: relation
+            nameFrom: title
+            controller:
+                label: Stream Record
+                view:
+                    showSearch: true
+                    toolbarButtons: add|remove
+
         offers:
             tab: Offers
             type: relation
