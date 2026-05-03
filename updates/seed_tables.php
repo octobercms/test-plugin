@@ -197,6 +197,16 @@ class SeedAllTables extends Seeder
             ['country_id' => $country2->id, 'city_id' => 6, 'name' => '5309 Imagination Crescrent'],
             ['country_id' => $country2->id, 'city_id' => 7, 'name' => '22 2201 Seymour Drive'],
             ['country_id' => $country2->id, 'city_id' => 8, 'name' => '2322 Xray Alphabet'],
+            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '123 Main St'],
+            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '456 Elm Ave'],
+            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '789 Oak Blvd'],
+            ['country_id' => $country1->id, 'city_id' => 2, 'name' => '321 Pine Rd'],
+            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '654 Maple Ln'],
+            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '987 Cedar Ct'],
+            ['country_id' => $country1->id, 'city_id' => 4, 'name' => '111 Birch Pl'],
+            ['country_id' => $country2->id, 'city_id' => 5, 'name' => '222 Spruce Way'],
+            ['country_id' => $country2->id, 'city_id' => 6, 'name' => '333 Fir Dr'],
+            ['country_id' => $country2->id, 'city_id' => 7, 'name' => '444 Willow St'],
         ]);
 
         /*

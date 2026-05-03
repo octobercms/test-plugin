@@ -1,8 +1,10 @@
 <?php namespace October\Test;
 
 use Backend;
+use October\Test\Classes\LocationDataSource;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
+use Dashboard\Classes\DashManager;
 
 /**
  * Plugin Information File
@@ -47,6 +49,9 @@ class Plugin extends PluginBase
                 'parent_id',
             ]);
         });
+
+        // Register data sources
+        $this->registerDashboardDatasources();
 
         // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
         //     unset($presets['punch']);
@@ -274,5 +279,16 @@ class Plugin extends PluginBase
     public function registerSchedule($schedule)
     {
         $schedule->command('cache:clear')->everyMinute();
+    }
+
+    /**
+     * registerDashboardDatasources
+     */
+    protected function registerDashboardDatasources()
+    {
+        DashManager::instance()->registerDataSourceClass(
+            LocationDataSource::class,
+            'Locations'
+        );
     }
 }
