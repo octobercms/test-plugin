@@ -2,22 +2,41 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    name:
-        label: Name
-        tab: Details
-        span: auto
+tabs:
+    fields:
+        name:
+            label: Name
+            span: auto
+            tab: First Tab
 
-    code:
-        label: Code
-        tab: Details
-        span: auto
+        code:
+            label: Code
+            span: auto
+            tab: Second Tab
 
-    content:
-        label: Content
-        tab: Details
-        type: textarea
-        size: small
+        content:
+            label: Content
+            type: textarea
+            size: small
+            tab: Third Tab
+
+        _content2:
+            label: Content2
+            type: textarea
+            size: small
+            tab: Third Tab2
+
+        _content3:
+            label: Content3
+            type: textarea
+            size: small
+            tab: Third Tab3
+
+        _content4:
+            label: Content4
+            type: textarea
+            size: small
+            tab: Third Tab4
 
 secondaryTabs:
     fields:
