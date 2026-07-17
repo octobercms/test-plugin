@@ -143,6 +143,11 @@ tabs:
             nameFrom: title
             controller:
                 label: Stream Record
+                list:
+                    columns:
+                        title_field:
+                            label: Title
+                            searchable: true
                 view:
                     showSearch: true
                     toolbarButtons: add|remove
