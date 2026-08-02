@@ -1,0 +1,8 @@
+.tally-counter {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    border: 1px dashed #adb5bd;
+    border-radius: .5rem;
+}

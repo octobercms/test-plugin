@@ -135,6 +135,7 @@ class Plugin extends PluginBase
             \October\Test\Components\KitchenSink::class => 'kitchenSink',
             \October\Test\Components\RemoveIndex::class => 'removeIndex',
             \October\Test\Components\InlineData::class => 'inlineData',
+            \October\Test\Components\VueTester::class => 'vueTester',
         ];
     }
 
