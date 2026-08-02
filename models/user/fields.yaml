@@ -111,6 +111,7 @@ secondaryTabs:
             commentAbove: File selection from the Media Library.
             tab: Media Manager
             mode: file
+            useCopyPaste: true
 
         media_images:
             label: Media (Multi Image)

@@ -28,9 +28,9 @@ tabs:
     fields:
         content:
             # label: Content
-            # type: richeditor
+            type: richeditor
             # legacyMode: true
-            type: markdown
+            # type: markdown
             tab: Content
             stretch: true
             # toolbarButtons: undo|redo

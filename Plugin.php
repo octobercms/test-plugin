@@ -134,13 +134,15 @@ class Plugin extends PluginBase
         return [
             \October\Test\Components\KitchenSink::class => 'kitchenSink',
             \October\Test\Components\RemoveIndex::class => 'removeIndex',
+            \October\Test\Components\InlineData::class => 'inlineData',
         ];
     }
 
     public function registerPageSnippets()
     {
         return [
-            \October\Test\Components\KitchenSink::class => 'weather'
+            \October\Test\Components\KitchenSink::class => 'weather',
+            \October\Test\Components\InlineData::class => 'inlineData'
         ];
     }
 
