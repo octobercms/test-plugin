@@ -11,6 +11,12 @@
         <button data-request="<?= $this->getEventHandler('onClearCache') ?>" class="btn btn-outline-warning">
             <span class="icon-delete"></span> Clear Cache
         </button>
+
+        <button data-request="<?= $this->getEventHandler('onTestAjax') ?>" class="btn btn-outline-info">
+            AJAX Test
+        </button>
+
+        <p id="<?= $this->getId('testResult') ?>"></p>
     <?php else: ?>
         <p class="flash-message static warning"><?= e($error) ?></p>
     <?php endif ?>

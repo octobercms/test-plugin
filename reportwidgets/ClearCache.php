@@ -91,4 +91,16 @@ class ClearCache extends ReportWidgetBase
         Artisan::call('cache:clear');
         Flash::success('Cache cleared.');
     }
+
+    /**
+     * onTestAjax echoes the posted dashboard definition to verify widget AJAX binding.
+     */
+    public function onTestAjax()
+    {
+        Flash::success('Widget AJAX handler reached.');
+
+        return [
+            '#'.$this->getId('testResult') => '_dash_definition: '.e(post('_dash_definition', '(missing)'))
+        ];
+    }
 }
