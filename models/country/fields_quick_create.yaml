@@ -1,0 +1,10 @@
+# ===================================
+#  Quick Create Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+
+    code:
+        label: Code

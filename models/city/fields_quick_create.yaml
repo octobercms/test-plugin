@@ -1,0 +1,13 @@
+# ===================================
+#  Quick Create Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+
+    country:
+        label: Country
+        type: relation
+        nameFrom: name
+        useController: false
