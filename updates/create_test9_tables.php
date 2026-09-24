@@ -82,6 +82,9 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('notes')->nullable();
+            $table->text('line_items')->nullable();
+            $table->text('blocks')->nullable();
+            $table->text('block_groups')->nullable();
             $table->decimal('price', 15, 2)->default(0)->nullable();
             $table->timestamps();
         });

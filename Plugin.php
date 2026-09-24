@@ -57,9 +57,9 @@ class Plugin extends PluginBase
         //     unset($presets['punch']);
         // });
 
-        // \Backend\FormWidgets\RichEditor::extend(function($controller) {
-        //     $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
-        // });
+        \Event::listen('backend.page.beforeDisplay', function($controller) {
+            $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
+        });
     }
 
     /**

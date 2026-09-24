@@ -25,6 +25,11 @@ class Order extends Model
     protected $guarded = false;
 
     /**
+     * @var array jsonable attributes stored as JSON
+     */
+    protected $jsonable = ['line_items', 'blocks', 'block_groups'];
+
+    /**
      * @var array belongsToMany
      */
     public $belongsToMany = [

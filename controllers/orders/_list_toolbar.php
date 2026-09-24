@@ -5,6 +5,14 @@
         <?= e(trans('backend::lang.list.create_button', ['name'=>'Order'])) ?>
     </a>
 
+    <a href="javascript;:"
+       data-control="popup"
+       data-handler="onModelShowAddDatabaseColumnsPopup"
+       data-stripe-load-indicator
+       class="btn btn-default oc-icon-table">
+        Show Data Table
+    </a>
+
     <button
         class="btn btn-danger oc-icon-trash-o"
         data-request="onDelete"

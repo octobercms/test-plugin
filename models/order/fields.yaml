@@ -29,3 +29,107 @@ tabs:
             tab: Notes
             type: textarea
             size: huge
+
+        line_items:
+            label: Line Items
+            tab: Line Items
+            type: datatable
+            height: 300
+            columns:
+                sku:
+                    type: string
+                    title: SKU
+                description:
+                    type: string
+                    title: Description
+                quantity:
+                    type: numeric
+                    title: Qty
+                unit_price:
+                    type: number
+                    title: Unit Price
+                taxable:
+                    type: checkbox
+                    title: Taxable
+
+        _line_items:
+            label: Line Items (Legacy)
+            tab: Line Items
+            type: datatable
+            legacyMode: true
+            height: 300
+            columns:
+                sku:
+                    type: string
+                    title: SKU
+                description:
+                    type: string
+                    title: Description
+                quantity:
+                    # type: number
+                    title: Qty
+                unit_price:
+                    # type: number
+                    title: Unit Price
+                taxable:
+                    type: checkbox
+                    title: Taxable
+
+
+        blocks:
+            label: Content Blocks
+            tab: Blocks
+            type: repeater
+            prompt: Add Block
+            form:
+                fields:
+                    heading:
+                        label: Heading
+                        type: text
+                        span: full
+                    rows:
+                        label: Rows
+                        type: datatable
+                        columns:
+                            label:
+                                type: string
+                                title: Label
+                            value:
+                                type: string
+                                title: Value
+
+        block_groups:
+            label: Builder Blocks
+            tab: Blocks
+            type: repeater
+            prompt: Add Block
+            displayMode: builder
+            groups:
+                spec_table:
+                    name: Specification Table
+                    description: A table of specifications
+                    fields:
+                        specs:
+                            label: Specifications
+                            type: datatable
+                            columns:
+                                attribute:
+                                    type: string
+                                    title: Attribute
+                                detail:
+                                    type: string
+                                    title: Detail
+                pricing_table:
+                    name: Pricing Tiers
+                    description: A table of pricing tiers
+                    fields:
+                        tiers:
+                            label: Tiers
+                            type: datatable
+                            columns:
+                                tier:
+                                    type: string
+                                    title: Tier
+                                price:
+                                    type: numeric
+                                    title: Price

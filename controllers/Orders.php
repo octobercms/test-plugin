@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Backend\FormWidgets\DataTable;
 
 /**
  * Orders Backend Controller
@@ -31,5 +32,32 @@ class Orders extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'products');
+    }
+
+    public function onModelShowAddDatabaseColumnsPopup()
+    {
+        $config  = $this->makeConfig([
+            'toolbar' => false,
+            'columns' => [
+                'type' => [
+                    'title' => 'Widget Type',
+                    'type' => 'dropdown',
+                    'options' => [
+                        'petty' => 'Petty',
+                        'minor' => 'Minor',
+                        'major' => 'Major',
+                        'critical' => 'Critical'
+                    ],
+                ],
+            ],
+        ]);
+
+        $datatable = $this->makeFormWidget(DataTable::class, 'add_database_columns', $config);
+        $datatable->alias = 'add_database_columns_datatable';
+        $datatable->bindToController();
+
+        return $this->makePartial('datatable', [
+            'datatable' => $datatable,
+        ]);
     }
 }

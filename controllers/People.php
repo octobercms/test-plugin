@@ -6,7 +6,6 @@ use Response;
 use BackendMenu;
 use October\Test\Models\Phone;
 use Backend\Classes\Controller;
-use Backend\FormWidgets\DataTable;
 use AjaxException;
 
 /**
@@ -119,33 +118,6 @@ class People extends Controller
         ];
 
         return ['result' => $results];
-    }
-
-    public function onModelShowAddDatabaseColumnsPopup()
-    {
-        $config  = $this->makeConfig([
-            'toolbar' => false,
-            'columns' => [
-                'type' => [
-                    'title' => 'Widget Type',
-                    'type' => 'dropdown',
-                    'options' => [
-                        'petty' => 'Petty',
-                        'minor' => 'Minor',
-                        'major' => 'Major',
-                        'critical' => 'Critical'
-                    ],
-                ],
-            ],
-        ]);
-
-        $datatable = $this->makeFormWidget(DataTable::class, 'add_database_columns', $config);
-        $datatable->alias = 'add_database_columns_datatable';
-        $datatable->bindToController();
-
-        return $this->makePartial('datatable', [
-            'datatable' => $datatable,
-        ]);
     }
 
     /**
