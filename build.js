@@ -42,7 +42,7 @@ if (fs.existsSync(path.join(tiptapDir, 'src/index.js'))) {
     }
     else {
         await esbuild.build(options);
-        console.log('  ✓ tiptap/tiptap.js (bundled)');
+        console.log('  ✓ tiptap/tiptap.js and tiptap.css (bundled)');
     }
 }
 else {

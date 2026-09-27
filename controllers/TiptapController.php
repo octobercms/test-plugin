@@ -48,8 +48,13 @@ class TiptapController extends Controller
             return;
         }
 
+        $stylePath = plugins_path('october/test/assets/vendor/tiptap/tiptap.css');
+        if (is_file($stylePath)) {
+            $this->addCss('/plugins/october/test/assets/vendor/tiptap/tiptap.css?v=' . filemtime($stylePath));
+        }
+
         $this->addJs('/plugins/october/test/assets/vendor/tiptap/tiptap.js?v=' . filemtime($bundlePath));
-        $this->addJs('/plugins/october/test/assets/js/tiptap-raw.js');
+        $this->addJs('/plugins/october/test/assets/js/tiptap-raw.js?v=' . filemtime(plugins_path('october/test/assets/js/tiptap-raw.js')));
     }
 
     /**
@@ -65,6 +70,7 @@ class TiptapController extends Controller
             'vue_editor' => $sample,
             'froala_editor' => $sample,
             'tiptap_editor' => $sample,
+            'tiptap_full_editor' => $sample,
         ];
         $config->arrayName = 'Editors';
         $config->context = 'create';
@@ -76,12 +82,19 @@ class TiptapController extends Controller
     }
 
     /**
-     * getSampleContent returns the starting HTML shared by every editor
+     * getSampleContent returns the starting HTML shared by every editor, written the way Froala saves it
      */
     protected function getSampleContent(): string
     {
         return '<h2>Editor comparison</h2>'
             . '<p>Some <strong>bold</strong>, <em>italic</em> and <a href="https://octobercms.com">linked</a> text.</p>'
-            . '<ul><li>First item</li><li>Second item</li></ul>';
+            . '<ul><li>First item</li><li>Second item</li></ul>'
+            . '<p style="text-align: center;">A centered paragraph with <span class="oc-class-highlighted">highlighted</span> text.</p>'
+            . '<p><img src="/modules/backend/assets/images/october-logo.svg" class="fr-fic fr-dib" style="width: 160px;"></p>'
+            . '<table style="width: 100%;"><thead><tr><th>Name</th><th>Value</th></tr></thead>'
+            . '<tbody><tr><td style="width: 50.0000%;">First</td><td style="width: 50.0000%;">One<br></td></tr></tbody></table>'
+            . '<figure data-video="/storage/app/media/sample.mp4" data-label="sample.mp4">&nbsp;</figure>'
+            . '<p>Download the <a href="/storage/app/media/document.pdf" class="fr-file">document.pdf</a> file.</p>'
+            . '<p><br></p>';
     }
 }

@@ -1,4 +1,9 @@
-<div class="field-tiptap-raw" data-control="tiptap-raw">
+<div
+    class="field-tiptap-raw"
+    data-control="tiptap-raw"
+    <?php if (BackendAuth::userHasAccess('media.library')): ?>data-use-media-manager="true"<?php endif ?>
+    <?php if ($toolbarButtons = $formField->getConfig('toolbarButtons')): ?>data-toolbar-buttons="<?= e($toolbarButtons) ?>"<?php endif ?>
+>
     <div data-tiptap-editor>
         <p class="text-muted">
             TipTap bundle not found, run npm run build in plugins/october/test
@@ -9,4 +14,10 @@
         id="<?= $formField->getId() ?>"
         class="d-none"
     ><?= e($formValue) ?></textarea>
+    <details class="mt-2">
+        <summary class="text-muted">
+            Saved HTML
+        </summary>
+        <pre class="mt-2 p-2 border rounded small" data-tiptap-output></pre>
+    </details>
 </div>
