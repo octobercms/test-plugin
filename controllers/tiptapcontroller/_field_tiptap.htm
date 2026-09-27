@@ -1,5 +1,12 @@
-<div class="field-tiptap border rounded p-4 text-muted">
-    <p class="mb-0">
-        TipTap editor placeholder
-    </p>
+<div class="field-tiptap-raw" data-control="tiptap-raw">
+    <div data-tiptap-editor>
+        <p class="text-muted">
+            TipTap bundle not found, run npm run build in plugins/october/test
+        </p>
+    </div>
+    <textarea
+        name="<?= $formField->getName() ?>"
+        id="<?= $formField->getId() ?>"
+        class="d-none"
+    ><?= e($formValue) ?></textarea>
 </div>

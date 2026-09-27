@@ -1,0 +1,12 @@
+{
+    "name": "october-test",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "node build.js",
+        "watch": "node build.js --watch"
+    },
+    "devDependencies": {
+        "esbuild": "^0.28.2"
+    }
+}

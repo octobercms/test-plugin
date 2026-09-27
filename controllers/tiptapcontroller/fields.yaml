@@ -7,19 +7,14 @@ fields:
         label: Rich Editor (Vue)
         type: richeditor
         size: huge
-        span: row
-        spanClass: col-4
 
     froala_editor:
         label: Froala (JS only)
         type: partial
         path: field_froala
-        span: row
-        spanClass: col-4
 
     tiptap_editor:
         label: TipTap
         type: partial
         path: field_tiptap
-        span: row
-        spanClass: col-4
+

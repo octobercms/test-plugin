@@ -33,8 +33,23 @@ class TiptapController extends Controller
 
         $this->addCss('/modules/system/assets/vendor/froala/froala.css');
         $this->addJs('/plugins/october/test/assets/js/froala-raw.js');
+        $this->addTiptapAssets();
 
         $this->vars['formWidget'] = $this->makeEditorsForm();
+    }
+
+    /**
+     * addTiptapAssets includes the bundle built by npm run build, versioned by file time so rebuilds skip the cache
+     */
+    protected function addTiptapAssets()
+    {
+        $bundlePath = plugins_path('october/test/assets/vendor/tiptap/tiptap.js');
+        if (!is_file($bundlePath)) {
+            return;
+        }
+
+        $this->addJs('/plugins/october/test/assets/vendor/tiptap/tiptap.js?v=' . filemtime($bundlePath));
+        $this->addJs('/plugins/october/test/assets/js/tiptap-raw.js');
     }
 
     /**

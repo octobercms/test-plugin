@@ -4,6 +4,11 @@
 .ftpconfig
 composer.lock
 .phpunit.result.cache
+
+# Node
+node_modules
+package-lock.json
+bun.lock
 tests/browser/console
 tests/browser/screenshots
 tests/browser/source
