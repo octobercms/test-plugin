@@ -243,6 +243,18 @@ class Plugin extends PluginBase
                         'icon' => 'icon-database',
                         'url' => Backend::url('october/test/products'),
                     ],
+                    '_ruler3' => [
+                        'itemType' => 'ruler',
+                    ],
+                    '_section3' => [
+                        'itemType' => 'section',
+                        'label' => 'Editors',
+                    ],
+                    'tiptap' => [
+                        'label' => 'Rich Editors',
+                        'icon' => 'ph ph-text-aa',
+                        'url' => Backend::url('october/test/tiptapcontroller'),
+                    ],
                 ],
             ],
         ];

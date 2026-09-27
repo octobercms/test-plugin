@@ -1,0 +1,14 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('october/test/people') ?>">Playground</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?= Form::open(['class' => 'layout']) ?>
+
+    <div class="layout-row">
+        <?= $formWidget->render() ?>
+    </div>
+
+<?= Form::close() ?>
