@@ -39,6 +39,7 @@ galleries_pivot:
         toolbarButtons: link|unlink
     manage:
         form: $/october/test/models/gallery/fields_simple.yaml
+        showSearch: true
     pivot:
         form:
             fields:

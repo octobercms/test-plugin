@@ -39,18 +39,23 @@ tabs:
                 sku:
                     type: string
                     title: SKU
+                    width: 400
                 description:
                     type: string
                     title: Description
+                    width: 600
                 quantity:
                     type: numeric
                     title: Qty
+                    width: 200
                 unit_price:
                     type: number
                     title: Unit Price
+                    width: 200
                 taxable:
                     type: checkbox
                     title: Taxable
+                    width: 150
 
         _line_items:
             label: Line Items (Legacy)

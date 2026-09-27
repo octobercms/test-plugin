@@ -49,6 +49,18 @@ class Orders extends Controller
                         'critical' => 'Critical'
                     ],
                 ],
+                'col_a' => [
+                    'title' => 'Column A',
+                    'width' => 400,
+                ],
+                'col_b' => [
+                    'title' => 'Column B',
+                    'width' => 400,
+                ],
+                'col_c' => [
+                    'title' => 'Column C',
+                    'width' => 400,
+                ],
             ],
         ]);
 
