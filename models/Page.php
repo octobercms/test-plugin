@@ -8,11 +8,8 @@ use Model;
 class Page extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-
-    /**
-     * implement the TranslatableModel behavior softly
-     */
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    use \October\Rain\Database\Traits\Translatable;
+    use \October\Rain\Database\Traits\TranslatableAttachments;
 
     /**
      * @var bool timestamps disabled by default
@@ -37,7 +34,7 @@ class Page extends Model
      * @var array translatable
      */
     public $translatable = [
-        ['title', 'fallback' => false],
+        'title',
         'content',
         'mainimage',
         'image',
