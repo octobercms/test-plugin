@@ -18,6 +18,12 @@ fields:
         type: partial
         path: field_tiptap
 
+    froala_full_editor:
+        label: Froala (every button)
+        type: partial
+        path: field_froala
+        toolbarButtons: paragraphFormat, paragraphStyle, fontFamily, fontSize, |, bold, italic, underline, strikeThrough, subscript, superscript, color, inlineStyle, clearFormatting, |, align, formatOL, formatUL, outdent, indent, quote, |, insertLink, insertPageLink, insertImage, insertVideo, insertAudio, insertFile, insertTable, insertSnippet, insertHR, emoticons, |, undo, redo, selectAll, html, fullscreen
+
     tiptap_full_editor:
         label: TipTap (every button)
         type: partial

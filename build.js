@@ -24,25 +24,39 @@ if (fs.existsSync(path.join(tiptapDir, 'src/index.js'))) {
         process.exit(1);
     }
 
-    const options = {
-        entryPoints: [path.join(tiptapDir, 'src/index.js')],
-        bundle: true,
-        format: 'iife',
-        outfile: path.join(vendorDir, 'tiptap/tiptap.js'),
-        minify: !isWatch,
-        sourcemap: isWatch ? 'inline' : false,
-        globalName: 'TiptapEditor',
-        logLevel: isWatch ? 'info' : 'warning'
-    };
+    const builds = [
+        {
+            entryPoints: [path.join(tiptapDir, 'src/index.js')],
+            bundle: true,
+            format: 'iife',
+            outfile: path.join(vendorDir, 'tiptap/tiptap.js'),
+            minify: !isWatch,
+            sourcemap: isWatch ? 'inline' : false,
+            globalName: 'TiptapEditor',
+            logLevel: isWatch ? 'info' : 'warning'
+        },
+        {
+            // Base styles are included on websites, so nesting is flattened for older browsers
+            entryPoints: [path.join(tiptapDir, 'src/styles/base-styles.css')],
+            bundle: true,
+            outfile: path.join(vendorDir, 'tiptap/base-styles.css'),
+            minify: !isWatch,
+            supported: { nesting: false },
+            logLevel: isWatch ? 'info' : 'warning'
+        }
+    ];
 
     if (isWatch) {
-        const context = await esbuild.context(options);
-        await context.watch();
+        for (const options of builds) {
+            const context = await esbuild.context(options);
+            await context.watch();
+        }
         console.log('  Watching vendor_drm/tiptap for changes...\n');
     }
     else {
-        await esbuild.build(options);
+        await Promise.all(builds.map((options) => esbuild.build(options)));
         console.log('  ✓ tiptap/tiptap.js and tiptap.css (bundled)');
+        console.log('  ✓ tiptap/base-styles.css');
     }
 }
 else {

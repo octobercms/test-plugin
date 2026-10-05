@@ -32,7 +32,7 @@ class TiptapController extends Controller
         $this->pageTitle = 'Rich Editors';
 
         $this->addCss('/modules/system/assets/vendor/froala/froala.css');
-        $this->addJs('/plugins/october/test/assets/js/froala-raw.js');
+        $this->addJs('/plugins/october/test/assets/js/froala-raw.js?v=' . filemtime(plugins_path('october/test/assets/js/froala-raw.js')));
         $this->addTiptapAssets();
 
         $this->vars['formWidget'] = $this->makeEditorsForm();
@@ -70,6 +70,7 @@ class TiptapController extends Controller
             'vue_editor' => $sample,
             'froala_editor' => $sample,
             'tiptap_editor' => $sample,
+            'froala_full_editor' => $sample,
             'tiptap_full_editor' => $sample,
         ];
         $config->arrayName = 'Editors';

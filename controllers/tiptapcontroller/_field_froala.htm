@@ -1,4 +1,8 @@
-<div class="field-froala-raw" data-control="froala-raw">
+<div
+    class="field-froala-raw"
+    data-control="froala-raw"
+    <?php if ($toolbarButtons = $formField->getConfig('toolbarButtons')): ?>data-toolbar-buttons="<?= e($toolbarButtons) ?>"<?php endif ?>
+>
     <textarea
         name="<?= $formField->getName() ?>"
         id="<?= $formField->getId() ?>"

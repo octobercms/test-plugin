@@ -12,3 +12,16 @@
     </div>
 
 <?= Form::close() ?>
+
+<style>
+    /* The TipTap base styles also load here, so this undoes their file link icon inside the Froala editors */
+    .fr-view a.fr-file::before {
+        content: none;
+        width: auto;
+        height: auto;
+        margin: 0;
+        background: none;
+        -webkit-mask: none;
+        mask: none;
+    }
+</style>
