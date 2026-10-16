@@ -38,7 +38,8 @@ class Page extends Model
         'content',
         'mainimage',
         'image',
-        'secondimage'
+        'secondimage',
+        'privateimage'
     ];
 
     /**
@@ -56,7 +57,9 @@ class Page extends Model
     ];
 
     public $attachOne = [
-        'secondimage' => \System\Models\File::class
+        'secondimage' => \System\Models\File::class,
+        'captionimage' => \System\Models\TranslatableFile::class,
+        'privateimage' => [\System\Models\File::class, 'public' => false]
     ];
 
     /**

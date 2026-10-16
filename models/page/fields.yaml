@@ -210,3 +210,21 @@ secondaryTabs:
             mode: image
             imageHeight: 150
             imageWidth: 150
+
+        captionimage:
+            span: left
+            label: Caption Image
+            comment: Same file for every locale, translated title and description.
+            type: fileupload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+
+        privateimage:
+            span: right
+            label: Private Photo
+            comment: Protected file stored per locale.
+            type: fileupload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
