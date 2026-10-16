@@ -7,3 +7,5 @@ composer.lock
 tests/browser/console
 tests/browser/screenshots
 tests/browser/source
+bun.lock
+node_modules
