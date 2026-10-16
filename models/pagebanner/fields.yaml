@@ -25,3 +25,10 @@ fields:
             extension: auto
         span: full
         type: fileupload
+
+    caption_image:
+        label: Caption Image
+        comment: Same file for every locale, translated title and description.
+        mode: image
+        span: full
+        type: fileupload

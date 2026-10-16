@@ -13,6 +13,7 @@ class PageBanner extends Model
     public $table = 'october_test_page_banners';
 
     public $attachOne = [
-        'image_desktop' => \System\Models\File::class
+        'image_desktop' => \System\Models\File::class,
+        'caption_image' => \System\Models\TranslatableFile::class
     ];
 }
