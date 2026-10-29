@@ -1,6 +1,8 @@
 <?= Form::open(['id' => 'updateForm']) ?>
 
-    <input type="hidden" name="record_id" value="<?= $recordId ?>" />
+    <input type="hidden" name="record_id" value="<?= e($recordId) ?>" />
+
+    <?php /* Testing a mode flag posted with every request, so the constructor picks the comment or tag form config */ ?>
     <?php if ($mode == 'comment'): ?>
         <input type="hidden" name="comment_mode" value="1" />
     <?php elseif ($mode == 'tag'): ?>
@@ -8,7 +10,7 @@
     <?php endif ?>
 
     <div class="modal-header">
-        <h4 class="modal-title">Update <?= $mode ?></h4>
+        <h4 class="modal-title"><?= e(__("Edit :name", ['name' => $formRecordName])) ?></h4>
         <button type="button" class="btn-close" data-dismiss="popup"></button>
     </div>
 
@@ -18,53 +20,45 @@
             <?= $this->formRender() ?>
         </div>
         <div class="modal-footer">
-            <button
-                type="submit"
-                data-request="onUpdate"
-                data-request-data="redirect:0"
-                data-hotkey="ctrl+s, cmd+s"
-                data-popup-load-indicator
-                class="btn btn-primary">
-                <u>S</u>ave
-            </button>
+            <?= Ui::ajaxButton(
+                label: __("Save"),
+                handler: 'onUpdateRecord',
+                primary: true,
+                hotkey: ['ctrl+s', 'cmd+s'],
+                type: 'submit',
+                dataPopupLoadIndicator: true
+            ) ?>
 
-            <button
-                type="button"
-                class="btn btn-default"
-                data-dismiss="popup">
-                <?= e(trans('backend::lang.form.cancel')) ?>
-            </button>
+            <?= Ui::button(
+                label: __("Cancel"),
+                secondary: true,
+                dataDismiss: 'popup'
+            ) ?>
 
-            <button
-                type="button"
-                class="oc-icon-trash-o btn-icon danger pull-right"
-                data-request="onDelete"
-                data-popup-load-indicator
-                data-request-confirm="Do you really want to delete this comment?">
-            </button>
+            <?= Ui::iconButton(
+                label: __("Delete"),
+                icon: 'ph ph-trash',
+                handler: 'onDeleteRecord',
+                danger: true,
+                class: 'pull-right',
+                dataPopupLoadIndicator: true,
+                dataRequestConfirm: __("Delete this record?")
+            ) ?>
         </div>
 
     <?php else: ?>
 
         <div class="modal-body">
-            <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+            <p class="flash-message static error"><?= e($this->fatalError) ?></p>
         </div>
         <div class="modal-footer">
-            <button
-                type="button"
-                class="btn btn-default"
-                data-dismiss="popup">
-                <?= e(trans('backend::lang.form.close')) ?>
-            </button>
+            <?= Ui::button(
+                label: __("Close"),
+                secondary: true,
+                dataDismiss: 'popup'
+            ) ?>
         </div>
 
     <?php endif ?>
-
-    <script>
-        setTimeout(
-            function(){ $('#updateForm input.form-control:first').focus() },
-            310
-        )
-    </script>
 
 <?= Form::close() ?>

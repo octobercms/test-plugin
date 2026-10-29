@@ -5,7 +5,6 @@
 fields:
     title:
         label: Order Name
-        required: true
         span: auto
 
     price:
@@ -15,6 +14,13 @@ fields:
 
 tabs:
     fields:
+        items:
+            label: Items
+            tab: Items
+            type: relation
+            useController: true
+
+        # Testing a relation field with its relation controller config defined inline
         products:
             label: Products
             tab: Products
@@ -30,6 +36,7 @@ tabs:
             type: textarea
             size: huge
 
+        # Testing a datatable field storing rows as JSON for DataTableFieldTest, the items relation is the recommended design for order lines
         line_items:
             label: Line Items
             tab: Line Items
@@ -49,7 +56,7 @@ tabs:
                     title: Qty
                     width: 200
                 unit_price:
-                    type: number
+                    type: numeric
                     title: Unit Price
                     width: 200
                 taxable:
@@ -57,6 +64,7 @@ tabs:
                     title: Taxable
                     width: 150
 
+        # Testing the datatable legacy mode as a form-only field, which is never saved
         _line_items:
             label: Line Items (Legacy)
             tab: Line Items
@@ -70,17 +78,22 @@ tabs:
                 description:
                     type: string
                     title: Description
+                # Testing legacy mode, which has no numeric type, so numbers use cell validation
                 quantity:
-                    # type: number
                     title: Qty
+                    validation:
+                        integer:
+                            message: Qty must be a whole number
                 unit_price:
-                    # type: number
                     title: Unit Price
+                    validation:
+                        float:
+                            message: Unit Price must be a number
                 taxable:
                     type: checkbox
                     title: Taxable
 
-
+        # Testing a datatable inside repeater items for DataTableFieldTest
         blocks:
             label: Content Blocks
             tab: Blocks
@@ -103,6 +116,7 @@ tabs:
                                 type: string
                                 title: Value
 
+        # Testing a datatable inside builder groups for DataTableFieldTest
         block_groups:
             label: Builder Blocks
             tab: Blocks

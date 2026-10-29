@@ -30,27 +30,10 @@ jobs:
         run: |
           composer create-project october/october october --no-interaction --no-progress
 
-      - name: Configure environment
-        run: |
-          cd october
-          mkdir -p database && touch database/database.sqlite
-          sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
-          sed -i 's|DB_DATABASE=.*|DB_DATABASE=database/database.sqlite|' .env
-
-      - name: Migrate core tables
-        run: |
-          cd october
-          php artisan october:migrate --no-interaction
-
       - name: Checkout plugin
         uses: actions/checkout@v4
         with:
           path: october/plugins/october/test
-
-      - name: Migrate plugin
-        run: |
-          cd october
-          php artisan october:migrate --no-interaction
 
       - name: Run tests
         run: |

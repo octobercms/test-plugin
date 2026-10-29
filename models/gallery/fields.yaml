@@ -38,7 +38,6 @@ tabs:
             label: Posts
             type: relation
             tab: Posts
-            # readOnly: true
 
         images:
             label: Images
@@ -104,7 +103,6 @@ tabs:
             label: All Day?
             tab: Event
             type: switch
-            # default: true
             span: left
 
         start_time:
@@ -123,8 +121,9 @@ tabs:
             dependsOn: is_all_day
             span: right
 
+        # Testing RelationController rendered through a partial field, type: relation with useController is the recommended form
         countries:
             label: Countries
             type: partial
+            path: countries
             tab: Event
-            # path: countries

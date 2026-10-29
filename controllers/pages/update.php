@@ -1,76 +1,55 @@
+<?php /* Testing a hand built layout that puts the secondary tabs in a sidebar, the design equivalent is displayMode: sidebar */ ?>
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('october/test/pages') ?>">Pages</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= Backend::url('october/test/pages') ?>"><?= __("Pages") ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= e($this->pageTitle) ?></li>
+    </ol>
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
 
-    <!-- Primary content -->
     <?php Block::put('form-contents') ?>
         <div class="callout callout-warning">
             <div class="header">
-                <i class="icon-database"></i>
-                <h3>Page model with a type and jsonable content field.</h3>
-                <p>Depending on the type different schemas are saved inside of content.</p>
+                <i class="ph ph-database"></i>
+                <h3><?= __("Page model with a type and jsonable content field.") ?></h3>
+                <p><?= __("Depending on the type different schemas are saved inside of content.") ?></p>
             </div>
         </div>
 
-        <div class="layout-row">
-            <?= $this->formRenderOutsideFields() ?>
-            <?= $this->formRenderPrimaryTabs() ?>
+        <div class="flex-grow-1">
+            <?= $this->formRenderOutsideFields(['useContainer' => false]) ?>
+            <?= $this->formRenderPrimaryTabs(['useContainer' => false]) ?>
         </div>
 
-        <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-request-data="redirect:0"
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Page..."
-                    class="btn btn-primary">
-                    <u>S</u>ave
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Page..."
-                    class="btn btn-default">
-                    Save and Close
-                </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="Deleting Page..."
-                    data-request-confirm="Delete this page?">
-                </button>
-                <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/pages') ?>">Cancel</a>
-                </span>
+        <div class="form-buttons pt-3">
+            <div data-control="loader-container">
+                <?= $this->formRender(['section' => 'buttons']) ?>
             </div>
         </div>
     <?php Block::endPut() ?>
 
-    <!-- Complimentary sidebar -->
     <?php Block::put('form-sidebar') ?>
-        <?= $this->formRenderSecondaryTabs() ?>
+        <div class="hide-tabs">
+            <?= $this->formRenderSecondaryTabs(['useContainer' => false]) ?>
+        </div>
     <?php Block::endPut() ?>
 
-    <!-- Layout execution -->
     <?php Block::put('body') ?>
-        <?= Form::open(['class'=>'layout stretch']) ?>
-            <?= $this->makeLayout('form-with-sidebar') ?>
+        <?= Form::open(['class' => 'position-relative h-100']) ?>
+            <div
+                id="<?= $this->formGetId() ?>"
+                data-control="formwidget"
+                data-refresh-handler="<?= $this->formGetWidget()->getEventHandler('onRefresh') ?>"
+                class="form-widget form-elements"
+                role="form">
+                <?= $this->makeLayout('form-with-sidebar') ?>
+            </div>
         <?= Form::close() ?>
     <?php Block::endPut() ?>
 
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('october/test/pages') ?>" class="btn btn-default">Return to pages list</a></p>
+    <?= $this->formRenderDesign() ?>
 
 <?php endif ?>

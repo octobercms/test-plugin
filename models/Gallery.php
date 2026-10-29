@@ -3,38 +3,42 @@
 use Date;
 use Model;
 
+/**
+ * Gallery tests registered rule classes, rule objects and rules that change at validation time, along with date fields controlled by filterFields.
+ */
 class Gallery extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SortableRelation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_galleries';
 
     /**
-     * @var array dates
+     * @var array dates attributes that should be mutated to dates
      */
     protected $dates = ['start_date', 'end_date'];
 
     /**
-     * @var array fillable fields
+     * @var array fillable attributes that can be mass assigned
      */
     protected $fillable = [
         'title',
     ];
 
     /**
-     * @var array Jsonable fields
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = ['gallery'];
 
     /**
-     * @var array rules
+     * @var array rules for validation
      */
     public $rules = [
-        'title' => 'required|uppercase:strict|between:3,255',
+        'title' => 'required|all_caps:strict|between:3,255',
+        // Replaced by beforeValidate, testing rules that change at validation time
         'subtitle' => 'required|betwixt:3,20',
         'start_date' => 'required',
         'end_date' => 'required_if:is_all_day,1',
@@ -43,7 +47,7 @@ class Gallery extends Model
     ];
 
     /**
-     * @var array morphedByMany
+     * @var array morphedByMany relations
      */
     public $morphedByMany = [
         'posts' => [
@@ -54,26 +58,27 @@ class Gallery extends Model
     ];
 
     /**
-     * @var array belongsToMany
+     * @var array belongsToMany relations
      */
     public $belongsToMany = [
         'countries' => [
             Country::class,
             'table' => 'october_test_galleries_countries',
+            // Testing deferred binding on a relation with conditions and pivot sorting
             'conditions' => '1 = 1',
             'pivotSortable' => 'sort_order',
         ]
     ];
 
     /**
-     * @var array attachMany
+     * @var array attachMany relations
      */
     public $attachMany = [
         'images' => \System\Models\File::class,
     ];
 
     /**
-     * beforeValidate
+     * beforeValidate replaces the subtitle rules with a registered rule and a local rule object.
      */
     public function beforeValidate()
     {
@@ -81,7 +86,7 @@ class Gallery extends Model
     }
 
     /**
-     * filterFields
+     * filterFields shows the time fields or the end date depending on is_all_day, and always disables today in the start date picker.
      */
     public function filterFields($fields)
     {
@@ -110,6 +115,9 @@ class Gallery extends Model
         }
     }
 
+    /**
+     * getAllDisabledDatesForEndDate returns yesterday, today and tomorrow, used as a static disableDays callable by the end date field.
+     */
     public static function getAllDisabledDatesForEndDate()
     {
         return [

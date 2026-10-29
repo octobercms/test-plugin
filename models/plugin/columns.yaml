@@ -12,7 +12,7 @@ columns:
     icon:
         label: Icon
         type: selectable
-        optionsPreset: phosphorIcons
+        optionsPreset: icons@phosphor
 
     content:
         label: Content

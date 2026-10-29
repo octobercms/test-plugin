@@ -4,8 +4,14 @@
 {{ __SELF__.property('defaultView') ? 'True' : 'False' }}
 <hr />
 
+<ul>
+    {% for address in __SELF__.property('addressList') %}
+        <li>
+            {{ address.fullName }}: {{ address.address }}
+        </li>
+    {% endfor %}
+</ul>
 
-{{ d(__SELF__.property('addressList')) }}
-
-{{ 'variable to translate'|_ }}
-
+<p>
+    {{ __('variable to translate') }}
+</p>

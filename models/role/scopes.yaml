@@ -1,5 +1,5 @@
 # ===================================
-# Filter Scope Definitions
+#  Filter Scope Definitions
 # ===================================
 
 scopes:
@@ -11,11 +11,6 @@ scopes:
             '1': One
             '2': Two
             '3': Three
-
-    id_range:
-        label: ID Range
-        type: numberrange
-        conditions: id >= :min and id <= :max
 
     id_number:
         label: ID Number

@@ -1,6 +1,11 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
 fields:
     title:
         label: Title
+        # Testing a namespaced key from the PHP lang files, where fr-ca falls back to fr
         comment: october.test::lang.test.component_name
 
     parent:
@@ -16,6 +21,7 @@ fields:
         options:
             1: Simple
             2: Complex
+            3: Featured
         span: auto
         type: dropdown
         order: 100
@@ -115,6 +121,7 @@ tabs:
                         modelClass: October\Test\Models\Person
                         changeHandler: onTestChangeHandler
 
+        # Testing fields that filterFields always hides, which also hides their tab
         ghost_field:
             tab: Ghost
             label: Ghost
@@ -125,6 +132,7 @@ tabs:
             label: Ghost 2
             comment: You should never see this field either
 
+        # Testing a trigger that hides the only field in a tab, which also hides the tab
         _alt_ghost_field:
             tab: Alt Ghost
             comment: This field should hide its parent tab when [use_layout] is checked
@@ -138,9 +146,9 @@ tabs:
             label: Devices
             type: taglist
             options:
-                mobile: mobile
-                tablet: tablet
-                desktop: desktop
+                mobile: Mobile
+                tablet: Tablet
+                desktop: Desktop
 
         mobile_size:
             tab: Device

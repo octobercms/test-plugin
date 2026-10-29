@@ -6,8 +6,8 @@ name: Test Settings
 navigation:
     mode: secondary
     parent: Test\Blog
-    icon: icon-cog
-    order: 200
+    icon: ph ph-gear
+    order: 300
 
 fields:
     blog_name:
@@ -20,8 +20,9 @@ fields:
         comment: Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.
         tab: General
 
+    # Testing the empty trigger action, where checking the checkbox clears the balloon selector and checkbox list below
     _section1:
-        label: Social Media
+        label: Triggers
         type: section
         tab: General
 

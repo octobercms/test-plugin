@@ -6,8 +6,8 @@ name: Test Blog Post Tag
 navigation:
     mode: secondary
     parent: Test\Blog
-    icon: icon-tags
-    order: 150
+    icon: ph ph-tag
+    order: 160
 
 fields:
     description:
@@ -18,4 +18,4 @@ fields:
         type: fileupload
         mode: file
         fileTypes: pdf
-        comment: Optional - event brochure or details PDF
+        comment: Optional PDF with more details about this tag.

@@ -34,9 +34,7 @@ fields:
     author:
         tab: Manage
         label: Author
-        commentAbove: 'Select the author for this blog post'
+        commentAbove: 'Select the author for this wiki page'
         type: entries
-        # maxItems: 1
         source: Test\Blog\Authors
         displayMode: relation
-

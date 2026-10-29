@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Location
 # Default redirect location
 defaultRedirect: october/test/locations
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Location

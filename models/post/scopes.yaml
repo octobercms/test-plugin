@@ -1,17 +1,20 @@
 # ===================================
-# Filter Scope Definitions
+#  Filter Scope Definitions
 # ===================================
 
 scopes:
     published_at:
-        label: Date
-        type: daterange
-        conditions: created_at >= ':after' AND created_at <= ':before'
-    username:
+        label: Published
+        type: date
+        conditions:
+            between: october_test_posts.published_at >= :after AND october_test_posts.published_at <= :before
+
+    name:
         label: Name
         type: text
-        conditions: name = :value
-        size: 2
+        conditions:
+            equals: october_test_posts.name = :value
+
     status:
         label: Status
         modelClass: October\Test\Models\Attribute

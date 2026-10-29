@@ -4,7 +4,7 @@
 
 fields:
 
-    # Hide this field for context 'relation'
+    # Testing a field shown only in the create context, so the relation popup, which uses the relation context, hides it
     post:
         type: relation
         nameFrom: name
@@ -12,8 +12,7 @@ fields:
         comment: This Comment belongs to the Post selected above.
         context: create
 
-    # Comment cannot be moved to another post this way,
-    # make sure the outcome does not empty the value
+    # Testing a disabled relation field, which must keep the post when the comment is saved
     post@update:
         type: relation
         nameFrom: name
@@ -26,12 +25,12 @@ fields:
         commentAbove: Text field, inside a popup.
         span: auto
 
-    # PHP 8.1
-    # status:
-    #     label: Status
-    #     commentAbove: Enum based options
-    #     type: dropdown
-    #     span: auto
+    # Testing dropdown options for an attribute cast to a backed enum
+    status:
+        label: Status
+        commentAbove: Enum based options
+        type: dropdown
+        span: auto
 
     _error_button:
         type: partial
@@ -136,7 +135,6 @@ secondaryTabs:
             label: Content
             type: codeeditor
             tab: Code Editor
-            # language: text
             commentAbove: Content inside a tab, inside a popup.
 
         content_md:

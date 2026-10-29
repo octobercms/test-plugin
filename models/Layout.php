@@ -3,30 +3,29 @@
 use Model;
 
 /**
- * Layout
+ * Layout is a page layout, edited inside the page form through a nested form that uses the relation.
  */
 class Layout extends Model
 {
-    /*
-     * Disable timestamps by default.
-     * Remove this line if timestamps are defined in the database table.
+    /**
+     * @var bool timestamps disabled, since the table has no timestamp columns
      */
     public $timestamps = false;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_layouts';
 
     /**
-     * @var array fillable fields
+     * @var array fillable attributes that can be mass assigned
      */
     protected $fillable = [
         'content'
     ];
 
     /**
-     * @var array jsonable attribute names that are json encoded and decoded from the database
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = [
         'content'

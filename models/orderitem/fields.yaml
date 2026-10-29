@@ -1,0 +1,37 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    # The items[product] picker definition would otherwise render this field with the relation controller
+    product:
+        label: Product
+        type: relation
+        nameFrom: title
+        placeholder: Select a product
+        useController: false
+        span: left
+
+    title:
+        label: Title
+        span: right
+
+    quantity:
+        label: Quantity
+        type: number
+        span: left
+
+    is_price_override:
+        label: Set Price Manually
+        comment: Otherwise the price is taken from the product when the item is saved.
+        type: checkbox
+        span: right
+
+    price:
+        label: Price
+        type: number
+        span: left
+        trigger:
+            action: enable
+            field: is_price_override
+            condition: checked

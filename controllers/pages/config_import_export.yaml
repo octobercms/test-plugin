@@ -1,13 +1,37 @@
-# config_import_export.yaml
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
 import:
+    # Page title
     title: Import Pages
+
+    # Import List Column configuration
+    list: $/october/test/models/page/columns_import.yaml
+
+    # Import Model class
     modelClass: October\Test\Models\Page\PageImport
-    list: $/october/test/models/page/columns.yaml
+
+    # Redirect when finished
+    redirect: october/test/pages
 
 export:
+    # Page title
     title: Export Pages
+
+    # Output file name
+    fileName: pages.csv
+
+    # Export List Column configuration
+    list: $/october/test/models/page/columns_export.yaml
+
+    # Export Model class
     modelClass: October\Test\Models\Page\PageExport
-    list: $/october/test/models/page/columns.yaml
+
+    # Redirect when finished
+    redirect: october/test/pages
+
+    # Testing custom fields on the export options form, read by PageExport as skip_first_record
     form:
         fields:
             skip_first_record:

@@ -1,7 +1,6 @@
 <?php namespace October\Test\Models;
 
 use Model;
-use October\Test\Models\Tag;
 
 /**
  * Post Model
@@ -12,56 +11,42 @@ class Post extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * implement the TranslatableModel behavior softly
-     */
-    // public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-
-    /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_posts';
 
     /**
-     * @var array Guarded fields
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $guarded = [];
+    protected $fillable = ['name', 'content', 'content_html'];
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array Jsonable fields
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = ['tags_array', 'tags_array_id', 'tags_inline_options'];
 
     /**
-     * @var array slugs for these attributes.
+     * @var array slugs generated from other attributes
      */
     protected $slugs = ['slug' => 'name'];
 
     /**
-     * translatable
-     */
-    // public $translatable = ['content_html'];
-
-    /**
-     * @var array Rules
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required',
     ];
 
     /**
-     * @var array Relations
+     * @var array hasMany relations, where comments only include visible comments using a scope
      */
     public $hasMany = [
         'comments' => [Comment::class, 'scope' => 'isVisible'],
-        // @deprecated
-        // 'comments_count' => ['October\Test\Models\Comment', 'scope' => 'isVisible', 'count' => true]
     ];
 
+    /**
+     * @var array belongsTo relations, where status shares the attributes table with other types using conditions
+     */
     public $belongsTo = [
         'status' => [
             Attribute::class,
@@ -70,6 +55,9 @@ class Post extends Model
         'user' => User::class,
     ];
 
+    /**
+     * @var array belongsToMany relations
+     */
     public $belongsToMany = [
         'tags' => [
             Tag::class,
@@ -79,10 +67,16 @@ class Post extends Model
         ]
     ];
 
+    /**
+     * @var array morphOne relations, where the review morph is named "product" for every model that can be reviewed
+     */
     public $morphOne = [
         'review' => [Review::class, 'name' => 'product'],
     ];
 
+    /**
+     * @var array morphToMany relations, where galleries_pivot adds a pivot column to the same table
+     */
     public $morphToMany = [
         'galleries' => [
             Gallery::class,
@@ -98,23 +92,15 @@ class Post extends Model
     ];
 
     /**
-     * getTagsRelationOptions
-     */
-    public function getTagsRelationOptions($value, $formData)
-    {
-        return Tag::all()->lists('fullname', 'id');
-    }
-
-    /**
-     * getTagsArrayOptions
+     * getTagsArrayOptions returns the tag names for the taglist that stores an array.
      */
     public function getTagsArrayOptions($value, $formData)
     {
-        return Tag::all()->lists('name');
+        return Tag::all()->pluck('name')->all();
     }
 
     /**
-     * getTagsStringOptions
+     * getTagsStringOptions returns the tag names for the taglist that stores a separated string.
      */
     public function getTagsStringOptions($value, $formData)
     {
@@ -122,7 +108,7 @@ class Post extends Model
     }
 
     /**
-     * getTagsArrayIdOptions
+     * getTagsArrayIdOptions returns the tag names keyed by ID for the taglist that stores an array of keys.
      */
     public function getTagsArrayIdOptions($value, $formData)
     {
@@ -130,7 +116,7 @@ class Post extends Model
     }
 
     /**
-     * getTagsStringIdOptions
+     * getTagsStringIdOptions returns the tag names keyed by ID for the taglist that stores a separated string of keys.
      */
     public function getTagsStringIdOptions($value, $formData)
     {

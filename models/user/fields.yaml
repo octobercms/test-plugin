@@ -30,7 +30,7 @@ tabs:
     activeTab: Pivot Model
     fields:
 
-        # Relation Controller (Default)
+        # Testing RelationController rendered through partial fields, type: relation with useController is the recommended form
         roles:
             context: [create, update, relationcontroller]
             label: Roles
@@ -72,12 +72,14 @@ tabs:
             commentAbove: Tag list relation mode.
             tab: Standard
 
+        # Relation Field
         posts:
             label: Posts
             type: relation
             useController: true
             tab: Posts
 
+        # Testing a record finder inside repeater groups as a form-only field, so the repeater value is never saved
         _products:
             label: Invoice Position
             tab: Products
@@ -187,7 +189,7 @@ secondaryTabs:
             label: Custom file
             span: auto
             type: fileupload
-            commentAbove: This file will be uploaded to storage/temp/test-plugin-custom-files.
+            commentAbove: This file will be uploaded to storage/temp/public/test-plugin-custom-files.
             mode: image
             imageHeight: 150
             imageWidth: 150

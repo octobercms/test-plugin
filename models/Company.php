@@ -12,24 +12,24 @@ class Company extends Model
     use \October\Rain\Database\Traits\Multisite;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_companies';
 
     /**
-     * @var array Rules
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required',
     ];
 
     /**
-     * @var array propagatable list of attributes to propagate to other sites.
+     * @var array propagatable attributes to copy to other sites
      */
-     protected $propagatable = [];
+    protected $propagatable = [];
 
     /**
-     * @var bool propagatableSync will enforce model structures between all sites
+     * @var bool propagatableSync keeps the record structure the same across all sites
      */
-     protected $propagatableSync = true;
+    protected $propagatableSync = true;
 }

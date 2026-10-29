@@ -10,22 +10,12 @@ class Plugin extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_plugins';
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = [];
-
-    /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * Validation Rules.
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required',
@@ -34,12 +24,15 @@ class Plugin extends Model
     ];
 
     /**
-     * @var array Relations
+     * @var array morphMany relations, where the review morph is named "product" for every model that can be reviewed
      */
     public $morphMany = [
         'reviews' => [Review::class, 'name' => 'product'],
     ];
 
+    /**
+     * @var array morphOne relations
+     */
     public $morphOne = [
         'meta' => [Meta::class, 'name' => 'taggable'],
     ];

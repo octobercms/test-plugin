@@ -1,10 +1,10 @@
 # ===================================
-#  Used as a Repeater Model
+#  Groups for the country brothers field, stored as repeater models
 # ===================================
 
 editor:
     name: Text Editor
-    icon: icon-file-text-o
+    icon: ph ph-file-text
     fields:
         content:
             type: richeditor
@@ -12,7 +12,7 @@ editor:
 
 gallery:
     name: Photos
-    icon: icon-file-image-o
+    icon: ph ph-file-image
     fields:
         photos:
             type: fileupload
@@ -22,7 +22,7 @@ gallery:
 
 sister:
     name: Sister
-    icon: icon-refresh
+    icon: ph ph-arrows-clockwise
     fields:
         sisters:
             label: Sister

@@ -15,12 +15,13 @@ tabs:
             tab: Country
             useController: true
 
+        # Testing RelationController rendered through a partial field that checks relationHasField, since relation forms in other controllers reuse this form
         locations:
             label: Locations
             commentAbove: RelationController used as a partial field type.
             type: partial
             tab: Details
-            path: locations
+            path: field_locations
 
         _column1:
             label: Col 1
@@ -44,7 +45,7 @@ tabs:
             spanClass: col-4
 
         _column4:
-            label: Col 3
+            label: Col 4
             type: text
             span: row
             tab: SEO
@@ -53,4 +54,3 @@ tabs:
         _column5:
             label: Full
             tab: SEO
-

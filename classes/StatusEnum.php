@@ -1,12 +1,12 @@
 <?php namespace October\Test\Classes;
 
 /**
- * StatusEnum
+ * StatusEnum defines the comment status values, testing an attribute cast to a backed enum.
  */
-enum StatusEnum:string
+enum StatusEnum: string
 {
-    case DRAFT = 'draft';
-    case APPROVED = 'approved';
-    case REJECTED = 'rejected';
-    case PUBLISHED = 'published';
+    case Draft = 'draft';
+    case Approved = 'approved';
+    case Rejected = 'rejected';
+    case Published = 'published';
 }

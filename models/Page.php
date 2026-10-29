@@ -3,7 +3,7 @@
 use Model;
 
 /**
- * Page
+ * Page tests the core translatable traits, nested forms, fields hidden by filterFields and the import and export models in models/page.
  */
 class Page extends Model
 {
@@ -12,17 +12,17 @@ class Page extends Model
     use \October\Rain\Database\Traits\TranslatableAttachments;
 
     /**
-     * @var bool timestamps disabled by default
+     * @var bool timestamps disabled, since the table has no timestamp columns
      */
     public $timestamps = false;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_pages';
 
     /**
-     * @var array jsonable attribute names that are json encoded and decoded from the database
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = [
         'people',
@@ -31,7 +31,7 @@ class Page extends Model
     ];
 
     /**
-     * @var array translatable
+     * @var array translatable attributes stored per locale, where secondimage and privateimage are attachments
      */
     public $translatable = [
         'title',
@@ -43,19 +43,25 @@ class Page extends Model
     ];
 
     /**
-     * @var array Validation rules
+     * @var array rules for validation
      */
     public $rules = [
         'type' => 'required',
         'content.title' => 'required|min:3'
     ];
 
+    /**
+     * @var array belongsTo relations, where parent is a self reference
+     */
     public $belongsTo = [
         'parent' => Page::class,
         'layout' => Layout::class,
         'pagebanner' => PageBanner::class,
     ];
 
+    /**
+     * @var array attachOne relations, where captionimage translates the file title and description
+     */
     public $attachOne = [
         'secondimage' => \System\Models\File::class,
         'captionimage' => \System\Models\TranslatableFile::class,
@@ -63,7 +69,7 @@ class Page extends Model
     ];
 
     /**
-     * beforeValidate
+     * beforeValidate adds rules for the seeded third page, testing a rule on a related model's attribute.
      */
     public function beforeValidate()
     {
@@ -76,7 +82,7 @@ class Page extends Model
     }
 
     /**
-     * getParentScopeOptions
+     * getParentScopeOptions returns the top level pages as options for the parent filter scope.
      */
     public function getParentScopeOptions()
     {
@@ -84,7 +90,7 @@ class Page extends Model
     }
 
     /**
-     * getStatusOptions
+     * getStatusOptions returns the page statuses for the status dropdown, list column and filter scope.
      */
     public function getStatusOptions()
     {
@@ -99,7 +105,7 @@ class Page extends Model
     }
 
     /**
-     * filterFields
+     * filterFields hides the layout and ghost fields, comments on the picked person in repeater items and fills the people repeater when the prepopulate switch is turned on.
      */
     public function filterFields($fields, $context = null)
     {
@@ -109,7 +115,7 @@ class Page extends Model
 
         // Hide ghosted fields
         foreach ($fields as $field) {
-            if (starts_with($field->fieldName, 'ghost_')) {
+            if (str_starts_with($field->fieldName, 'ghost_')) {
                 $field->hidden();
             }
         }

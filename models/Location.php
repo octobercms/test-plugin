@@ -11,30 +11,25 @@ class Location extends Model
     use \October\Rain\Database\Traits\SimpleTree;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_locations';
 
-    /*
-     * Disable timestamps by default.
-     * Remove this line if timestamps are defined in the database table.
+    /**
+     * @var bool timestamps disabled, since the table has no timestamp columns
      */
     public $timestamps = false;
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = ['custom_country_id', 'city_id', 'name'];
-
-    /**
-     * @var array jsonable fields
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = ['available_services'];
 
     /**
-     * attachOne relations
+     * @var array attachOne relations
      */
     public $attachOne = [
+        // Testing the performance of a form with many attachment relations
         'file01' => \System\Models\File::class,
         'file02' => \System\Models\File::class,
         'file03' => \System\Models\File::class,
@@ -62,7 +57,7 @@ class Location extends Model
     ];
 
     /**
-     * @var array Relations
+     * @var array belongsTo relations
      */
     public $belongsTo = [
         'country' => Country::class,
@@ -70,7 +65,7 @@ class Location extends Model
     ];
 
     /**
-     * getCountryOptions
+     * getCountryOptions returns every country name keyed by ID for the country filter scope.
      */
     public function getCountryOptions()
     {
@@ -78,7 +73,7 @@ class Location extends Model
     }
 
     /**
-     * getCityOptions
+     * getCityOptions returns the cities of the countries picked in the country filter scope, testing filter options that depend on another scope.
      */
     public function getCityOptions($scopes = null)
     {

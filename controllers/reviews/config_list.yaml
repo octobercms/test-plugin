@@ -26,14 +26,6 @@ showSetup: true
 # Displays the sorting link on each column
 showSorting: true
 
-# Default sorting column
-# defaultSort:
-#     column: created_at
-#     direction: desc
-
-# Display checkboxes next to each record
-# showCheckboxes: true
-
 # Toolbar widget configuration
 toolbar:
     # Partial for toolbar buttons
@@ -43,5 +35,5 @@ toolbar:
     search:
         prompt: backend::lang.list.search_prompt
 
-# Custom view path
+# Testing customViewPath list partial override
 customViewPath: $/october/test/controllers/reviews/list

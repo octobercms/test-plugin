@@ -12,12 +12,12 @@
     <testsuites>
         <testsuite name="Plugin Unit Test Suite">
             <directory>./tests</directory>
-            <exclude>./tests/browser</exclude>
         </testsuite>
     </testsuites>
     <php>
+        <ini name="memory_limit" value="512M" />
         <env name="APP_ENV" value="testing" />
-        <env name="CACHE_DRIVER" value="array" />
+        <env name="CACHE_STORE" value="array" />
         <env name="SESSION_DRIVER" value="array" />
         <env name="ACTIVE_THEME" value="test" />
         <env name="CONVERT_LINE_ENDINGS" value="true" />

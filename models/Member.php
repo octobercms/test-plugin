@@ -11,32 +11,22 @@ class Member extends Model
     use \October\Rain\Database\Traits\Multisite;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_members';
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array propagatable list of attributes to propagate to other sites.
+     * @var array propagatable attributes to copy to other sites
      */
     protected $propagatable = [];
 
     /**
-     * @var bool|array propagatableSync will enforce model structures between all sites.
+     * @var bool|array propagatableSync keeps the record structure the same across all sites
      */
     protected $propagatableSync = true;
 
     /**
-     * @var array Relations
+     * @var array belongsTo relations, where grand_parent is filled from the parent by filterFields
      */
     public $belongsTo = [
         'user' => \October\Test\Models\User::class,
@@ -44,7 +34,7 @@ class Member extends Model
     ];
 
     /**
-     * filterFields
+     * filterFields fills the grand parent from the parent's parent and copies the parent name into a form field when the form refreshes.
      */
     public function filterFields($fields, $context = null)
     {
@@ -64,10 +54,7 @@ class Member extends Model
     }
 
     /**
-     * scopeEligibleParents limits results to only records that are eligible to be parents of the
-     * provided model. Ineligible parents include: The provided model itself, models with the
-     * provided model as it's own parent already, and a model that is already the current
-     * model's parent
+     * scopeEligibleParents excludes the model itself, its children and its current parent from the parent record finder.
      */
     public function scopeEligibleParents($query, $model)
     {

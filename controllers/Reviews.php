@@ -5,20 +5,36 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Reviews Back-end Controller
+ * Reviews Backend Controller
  */
 class Reviews extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
+
+    /**
+     * @var string listConfig file
+     */
     public $listConfig = 'config_list.yaml';
 
+    /**
+     * @var array requiredPermissions to view this page
+     */
     public $requiredPermissions = ['october.test.access_plugin'];
 
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();
@@ -27,7 +43,7 @@ class Reviews extends Controller
     }
 
     /**
-     * onChangeContent
+     * onChangeContent refreshes dependent fields when the content changes, testing a change handler that returns field updates.
      */
     public function onChangeContent()
     {
@@ -37,7 +53,7 @@ class Reviews extends Controller
     }
 
     /**
-     * onChangeReviewDate
+     * onChangeReviewDate writes the posted form data to the trace log, testing a change handler on a date field.
      */
     public function onChangeReviewDate()
     {
@@ -45,7 +61,7 @@ class Reviews extends Controller
     }
 
     /**
-     * onChangeBreakdownType
+     * onChangeBreakdownType writes the posted breakdown type to the trace log, testing a change handler on a dropdown.
      */
     public function onChangeBreakdownType()
     {
@@ -53,7 +69,7 @@ class Reviews extends Controller
     }
 
     /**
-     * listExtendQuery
+     * listExtendQuery filters reviews by the tab chosen in the query string.
      */
     public function listExtendQuery($query, $definition = null)
     {
@@ -66,7 +82,7 @@ class Reviews extends Controller
     }
 
     /**
-     * onRefreshList
+     * onRefreshList refreshes the list and its tabs together.
      */
     public function onRefreshList()
     {

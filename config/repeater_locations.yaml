@@ -1,5 +1,5 @@
 # ===================================
-#  Used as a Simple Repeater
+#  Form for the country locations field
 # ===================================
 
 fields:
@@ -7,6 +7,7 @@ fields:
         label: Country
         span: auto
         type: dropdown
+    # Testing dependsOn inside a repeater item, where Country::getStateOptions reads the country from the item data
     state:
         label: State
         span: auto

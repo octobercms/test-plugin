@@ -1,8 +1,13 @@
+# ===================================
+#  Repeater Group Definitions
+# ===================================
+
 product:
     name: Product
     description: Add product from catalog
-    icon: icon-file-text-o
+    icon: ph ph-file-text
     fields:
+        # Testing record finder pagination inside a repeater, showing one record per page with the setup button
         _product:
             label: Product
             nameFrom: title

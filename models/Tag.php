@@ -10,34 +10,29 @@ class Tag extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_tags';
 
     /**
-     * @var array Guarded fields
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $guarded = [];
+    protected $fillable = ['name'];
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array Rules
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required',
     ];
 
     /**
-     * @var bool Use timestamps
+     * @var bool timestamps disabled, since the table has no timestamp columns
      */
     public $timestamps = false;
 
     /**
-     * @var array Relations
+     * @var array belongsToMany relations
      */
     public $belongsToMany = [
         'posts' => [
@@ -49,7 +44,7 @@ class Tag extends Model
     ];
 
     /**
-     * getFullNameAttribute
+     * getFullNameAttribute appends a fixed surname, testing an attribute accessor.
      */
     public function getFullNameAttribute()
     {

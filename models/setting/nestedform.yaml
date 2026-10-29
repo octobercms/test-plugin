@@ -1,5 +1,8 @@
-fields:
+# ===================================
+#  Form Field Definitions
+# ===================================
 
+fields:
     _title:
         label: Title
         comment: Description
@@ -13,7 +16,6 @@ fields:
     image:
         label: Image
         type: mediafinder
-        required: true
         mode: image
         span: right
 

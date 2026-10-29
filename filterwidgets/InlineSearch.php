@@ -2,17 +2,15 @@
 
 use Backend\Classes\FilterWidgetBase;
 
+/**
+ * InlineSearch is an inline filter widget that renders a search input and button in the filter bar, without a popover form.
+ *
+ * @link https://docs.octobercms.com/4.x/extend/lists/filter-widgets.html
+ */
 class InlineSearch extends FilterWidgetBase
 {
     /**
-     * {@inheritDoc}
-     */
-    public function init()
-    {
-    }
-
-    /**
-     * @inheritDoc
+     * render the search input inline with the filter
      */
     public function render()
     {
@@ -24,14 +22,7 @@ class InlineSearch extends FilterWidgetBase
     }
 
     /**
-     * renderForm for the filter
-     */
-    public function renderForm()
-    {
-    }
-
-    /**
-     * applyScopeToQuery
+     * applyScopeToQuery finds usernames that contain the search value.
      */
     public function applyScopeToQuery($query)
     {

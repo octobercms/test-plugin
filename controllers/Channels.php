@@ -1,27 +1,36 @@
 <?php namespace October\Test\Controllers;
 
-use Lang;
 use Flash;
 use Redirect;
 use BackendMenu;
+use ForbiddenException;
 use Backend\Classes\Controller;
 
 /**
- * Channels Back-end Controller
+ * Channels Backend Controller has no list of its own and is reached from the channel lists on the Trees page.
  */
 class Channels extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ReorderController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
 
-    public $reorderConfig = 'config_reorder.yaml';
-
+    /**
+     * @var array requiredPermissions to view this page
+     */
     public $requiredPermissions = ['october.test.access_plugin'];
 
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();
@@ -30,7 +39,7 @@ class Channels extends Controller
     }
 
     /**
-     * formExtendQuery
+     * formExtendQuery includes trashed records, so they can be opened and restored.
      */
     public function formExtendQuery($query)
     {
@@ -38,13 +47,17 @@ class Channels extends Controller
     }
 
     /**
-     * update_onRestore handles restoring users
+     * update_onRestore restores a trashed channel from its update page, guarded by the same permission as delete.
      */
     public function update_onRestore($recordId)
     {
+        if (!$this->formCheckPermission('modelDelete')) {
+            throw new ForbiddenException;
+        }
+
         $this->formFindModelObject($recordId)->restore();
 
-        Flash::success(Lang::get('backend::lang.form.restore_success', ['name' => Lang::get('backend::lang.user.name')]));
+        Flash::success(__(":name Restored", ['name' => __("Channel")]));
 
         return Redirect::refresh();
     }

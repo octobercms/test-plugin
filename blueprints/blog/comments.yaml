@@ -2,7 +2,7 @@ uuid: e32bf358-f11f-4541-9864-e328361fd15b
 handle: Test\Blog\Comments
 type: entry
 name: Test Comments
-useDrafts: false
+drafts: false
 navigation: false
 pagefinder: false
 
@@ -16,7 +16,7 @@ groups:
                 type: richeditor
                 span: adaptive
 
-            blog_post_content:
+            comment_content:
                 type: mixin
                 source: Test\Blog\CommentContent
 
@@ -29,6 +29,6 @@ groups:
                 type: markdown
                 span: adaptive
 
-            blog_post_content:
+            comment_content:
                 type: mixin
                 source: Test\Blog\CommentContent

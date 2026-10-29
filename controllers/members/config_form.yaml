@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Member
 # Default redirect location
 defaultRedirect: october/test/trees
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Member
@@ -23,7 +27,7 @@ create:
 # Update page
 update:
     title: Edit Member
-    redirect: october/test/members
+    redirect: october/test/trees
     redirectClose: october/test/trees
 
 # Preview page

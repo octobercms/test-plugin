@@ -1,24 +1,29 @@
 <div data-control="toolbar">
-    <a
-        href="<?= Backend::url('october/test/orders/create') ?>"
-        class="btn btn-primary oc-icon-plus">
-        <?= e(trans('backend::lang.list.create_button', ['name'=>'Order'])) ?>
-    </a>
+    <?= Ui::button(
+        label: __("New Order"),
+        href: Backend::url('october/test/orders/create'),
+        icon: 'ph ph-plus',
+        primary: true
+    ) ?>
 
-    <a href="javascript;:"
-       data-control="popup"
-       data-handler="onModelShowAddDatabaseColumnsPopup"
-       data-stripe-load-indicator
-       class="btn btn-default oc-icon-table">
-        Show Data Table
-    </a>
+    <div class="toolbar-divider"></div>
 
-    <button
-        class="btn btn-danger oc-icon-trash-o"
-        data-request="onDelete"
-        data-list-checked-trigger
-        data-list-checked-request
-        data-stripe-load-indicator>
-        <?= e(trans('backend::lang.list.delete_selected')) ?>
-    </button>
+    <?= Ui::ajaxButton(
+        label: __("Delete Selected"),
+        handler: 'onDelete',
+        icon: 'ph ph-trash',
+        secondary: true,
+        dataRequestConfirm: __("Delete the selected records?"),
+        dataListCheckedTrigger: true,
+        dataListCheckedRequest: true,
+        disabled: true
+    ) ?>
+
+    <?php /* Testing a datatable widget built in code and shown in a popup */ ?>
+    <?= Ui::popupButton(
+        label: __("Show Data Table"),
+        handler: 'onLoadDataTablePopup',
+        icon: 'ph ph-table',
+        secondary: true
+    ) ?>
 </div>

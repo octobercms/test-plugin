@@ -1,24 +1,36 @@
 <div class="report-widget">
-    <h3><?= e($this->property('title')) ?></h3>
+    <h3>
+        <?= e($this->property('title')) ?>
+    </h3>
 
-    <?php if (!isset($error)): ?>
-        <p>This is the default partial content.</p>
-        <p>Title (prop): <?= $this->property('title') ?></p>
-        <p>Days (prop): <?= $this->property('days') ?></p>
-        <p>User (prop): <?= $this->property('user') ?></p>
-        <p>Users (prop): <?= implode(', ', (array) $this->property('users')) ?></p>
+    <p>
+        <?= __("Title (prop)") ?>: <?= e($this->property('title')) ?>
+    </p>
+    <p>
+        <?= __("Days (prop)") ?>: <?= e($this->property('days')) ?>
+    </p>
+    <p>
+        <?= __("User (prop)") ?>: <?= e($this->property('user')) ?>
+    </p>
+    <p>
+        <?= __("Users (prop)") ?>: <?= e(implode(', ', (array) $this->property('users'))) ?>
+    </p>
 
-        <button data-request="<?= $this->getEventHandler('onClearCache') ?>" class="btn btn-outline-warning">
-            <span class="icon-delete"></span> Clear Cache
-        </button>
+    <?= Ui::ajaxButton(
+        label: __("Clear Cache"),
+        handler: $this->getEventHandler('onClearCache'),
+        icon: 'ph ph-trash',
+        class: 'btn-outline-warning'
+    ) ?>
 
-        <form>
-            <button data-request="<?= $this->getEventHandler('onTestAjax') ?>" class="btn btn-outline-info">
-                AJAX Test
-            </button>
-        </form>
-        <p id="<?= $this->getId('testResult') ?>"></p>
-    <?php else: ?>
-        <p class="flash-message static warning"><?= e($error) ?></p>
-    <?php endif ?>
+    <?php /* Testing an AJAX handler called from inside a form, while the button above has no form */ ?>
+    <form>
+        <?= Ui::ajaxButton(
+            label: __("AJAX Test"),
+            handler: $this->getEventHandler('onTestAjax'),
+            class: 'btn-outline-info'
+        ) ?>
+    </form>
+
+    <p id="<?= $this->getId('testResult') ?>"></p>
 </div>

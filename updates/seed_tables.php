@@ -11,6 +11,8 @@ use October\Test\Models\Gallery;
 use October\Test\Models\Location;
 use October\Test\Models\Member;
 use October\Test\Models\Layout;
+use October\Test\Models\Order;
+use October\Test\Models\OrderItem;
 use October\Test\Models\Page;
 use October\Test\Models\Person;
 use October\Test\Models\Phone;
@@ -24,13 +26,35 @@ use October\Test\Models\Product;
 use October\Test\Models\ProductCategory;
 use October\Test\Models\Company;
 
-class SeedAllTables extends Seeder
+/**
+ * SeedTables creates the test data for each test area.
+ */
+class SeedTables extends Seeder
 {
+    /**
+     * run seeds each test area in order, since later areas use records from earlier ones.
+     */
     public function run()
     {
-        /*
-         * Test 1: People
-         */
+        $this->seedPeople();
+        $this->seedPosts();
+        $this->seedUsers();
+        $this->seedLocations();
+        $this->seedRegions();
+        $this->seedReviews();
+        $this->seedTrees();
+        $this->seedGalleries();
+        $this->seedPages();
+        $this->seedProducts();
+        $this->seedOrders();
+        $this->seedAttributes();
+    }
+
+    /**
+     * seedPeople creates people for the hasOne phone tests, including a phone on a custom key.
+     */
+    protected function seedPeople()
+    {
         $person = Person::create(['name' => 'Eddie Valiant', 'bio' => 'I have a phone set up already', 'expenses' => 19999, 'favcolor' => '#5fb6f5']);
         $person->phone = Phone::create(['name' => 'Mobile', 'number' => '(360) 733-2263']);
         $person->alt_phone = Phone::create(['name' => 'Home', 'number' => '(360) 867-3563']);
@@ -67,7 +91,7 @@ class SeedAllTables extends Seeder
         Person::create(['name' => 'Remedy', 'bio' => 'Take your medicine.']);
         Person::create(['name' => 'Sparkplug', 'bio' => 'TBD']);
         Person::create(['name' => 'Splode', 'bio' => 'Countdown to a big boom!']);
-        Person::create(['name' => 'The Reaper', 'bio' => 'Vengence for hire.']);
+        Person::create(['name' => 'The Reaper', 'bio' => 'Vengeance for hire.']);
         Person::create(['name' => 'Crustina', 'bio' => 'Saucy, spicy, right behind you.']);
         Person::create(['name' => 'Triggerfish', 'bio' => "Stick it to 'em."]);
         Person::create(['name' => 'Turk', 'bio' => 'Hook your prey.']);
@@ -92,13 +116,16 @@ class SeedAllTables extends Seeder
         Person::create(['name' => 'Jekyll', 'bio' => "He's got some inner demons."]);
         Person::create(['name' => 'Power Chord', 'bio' => 'Bring on the noise complaints.']);
         Person::create(['name' => 'Stage Slayer', 'bio' => 'Crank it up!']);
-        Person::create(['name' => 'Willow', 'bio' => 'A wandering spirit with unfinished buissness.']);
+        Person::create(['name' => 'Willow', 'bio' => 'A wandering spirit with unfinished business.']);
         Person::create(['name' => 'Cobb', 'bio' => 'Shake off that husk and grab some butter.']);
         Person::create(['name' => 'Zenith', 'bio' => 'Peak performance at any elevation.']);
+    }
 
-        /*
-         * Test 2: Posts
-         */
+    /**
+     * seedPosts creates posts with visible and hidden comments.
+     */
+    protected function seedPosts()
+    {
         $post = Post::create(['name' => 'First post, yay!', 'content' => 'I have some comments!']);
         Post::create(['name' => 'A content image', 'content' => 'I have no comments']);
 
@@ -107,15 +134,20 @@ class SeedAllTables extends Seeder
             'content' => "Rippin' my heart was so easy, so easy. Launch your assault now, take it easy. Raise your weapon, raise your weapon. One word and it's over",
         ]);
 
+        // Testing a hidden comment, which the Post comments relation leaves out with its isVisible scope
         $post->comments()->create([
             'name' => 'Hidden comment',
             'content' => 'This comment should be hidden as defined in the relationship.',
             'is_visible' => false,
         ]);
+    }
 
-        /*
-         * Test 3: Users
-         */
+    /**
+     * seedUsers creates users and roles with pivot data.
+     */
+    protected function seedUsers()
+    {
+        // Testing forceSave(), which skips the User rules that require a photo, portfolio and roles
         User::make(['username' => 'Neo', 'security_code' => '1111'])->forceSave();
         User::make(['username' => 'Morpheus', 'security_code' => '8888'])->forceSave();
 
@@ -126,20 +158,24 @@ class SeedAllTables extends Seeder
         $user = User::first();
         $user->roles()->add($role, null, ['clearance_level' => 'Top Secret', 'is_executive' => true]);
 
+        $post = Post::first();
         $post->user()->add($user);
         $post->save();
 
         foreach (range(1, 20) as $index) {
             Role::create([
-                'name' => 'Roles test ' . ($index + 1),
+                'name' => 'Roles test ' . $index,
                 'description' => 'Roles for relation test',
                 'users' => [$user->id],
             ]);
         }
+    }
 
-        /*
-         * Test 4: Countries
-         */
+    /**
+     * seedLocations creates countries with their cities and street locations.
+     */
+    protected function seedLocations()
+    {
         $country1 = Country::create([
             'name' => 'Petoria',
             'code' => 'petoria',
@@ -155,6 +191,7 @@ class SeedAllTables extends Seeder
             ],
         ]);
 
+        // Testing forceSave() again, since the User rules would reject this user without a photo, portfolio and roles
         $user = User::first();
         $user->country()->add($country1);
         $user->forceSave();
@@ -172,46 +209,50 @@ class SeedAllTables extends Seeder
             ],
         ]);
 
-        /*
-         * Test 4a: Locations
-         */
         $cities = [
             $country1->id => ['Regina', 'Vancouver', 'Toronto', 'Ottawa'],
             $country2->id => ['New York', 'Seattle', 'Boston', 'San Francisco'],
         ];
 
-        $insertCities = [];
+        $cityModels = [];
         foreach ($cities as $countryId => $cityNames) {
             foreach ($cityNames as $name) {
-                $insertCities[] = ['custom_country_id' => $countryId, 'name' => $name];
+                $cityModels[] = City::create(['custom_country_id' => $countryId, 'name' => $name]);
             }
         }
 
-        City::insert($insertCities);
-        Location::insert([
-            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '240 5th Ave'],
-            ['country_id' => $country1->id, 'city_id' => 2, 'name' => '101 McKay Street'],
-            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '123 Nowhere Lane'],
-            ['country_id' => $country1->id, 'city_id' => 4, 'name' => '10099 Bob Loop'],
-            ['country_id' => $country2->id, 'city_id' => 5, 'name' => '9442 Scary Street'],
-            ['country_id' => $country2->id, 'city_id' => 6, 'name' => '5309 Imagination Crescrent'],
-            ['country_id' => $country2->id, 'city_id' => 7, 'name' => '22 2201 Seymour Drive'],
-            ['country_id' => $country2->id, 'city_id' => 8, 'name' => '2322 Xray Alphabet'],
-            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '123 Main St'],
-            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '456 Elm Ave'],
-            ['country_id' => $country1->id, 'city_id' => 1, 'name' => '789 Oak Blvd'],
-            ['country_id' => $country1->id, 'city_id' => 2, 'name' => '321 Pine Rd'],
-            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '654 Maple Ln'],
-            ['country_id' => $country1->id, 'city_id' => 3, 'name' => '987 Cedar Ct'],
-            ['country_id' => $country1->id, 'city_id' => 4, 'name' => '111 Birch Pl'],
-            ['country_id' => $country2->id, 'city_id' => 5, 'name' => '222 Spruce Way'],
-            ['country_id' => $country2->id, 'city_id' => 6, 'name' => '333 Fir Dr'],
-            ['country_id' => $country2->id, 'city_id' => 7, 'name' => '444 Willow St'],
-        ]);
+        $locations = [
+            [$cityModels[0], '240 5th Ave'],
+            [$cityModels[1], '101 McKay Street'],
+            [$cityModels[2], '123 Nowhere Lane'],
+            [$cityModels[3], '10099 Bob Loop'],
+            [$cityModels[4], '9442 Scary Street'],
+            [$cityModels[5], '5309 Imagination Crescent'],
+            [$cityModels[6], '22 2201 Seymour Drive'],
+            [$cityModels[7], '2322 Xray Alphabet'],
+            // Testing the dashboard report, where these extra locations give LocationDataSource uneven counts per city and country
+            [$cityModels[0], '123 Main St'],
+            [$cityModels[0], '456 Elm Ave'],
+            [$cityModels[0], '789 Oak Blvd'],
+            [$cityModels[1], '321 Pine Rd'],
+            [$cityModels[2], '654 Maple Ln'],
+            [$cityModels[2], '987 Cedar Ct'],
+            [$cityModels[3], '111 Birch Pl'],
+            [$cityModels[4], '222 Spruce Way'],
+            [$cityModels[5], '333 Fir Dr'],
+            [$cityModels[6], '444 Willow St'],
+        ];
 
-        /*
-         * Test 4b: Regions
-         */
+        foreach ($locations as [$city, $address]) {
+            Location::create(['country_id' => $city->custom_country_id, 'city_id' => $city->id, 'name' => $address]);
+        }
+    }
+
+    /**
+     * seedRegions creates a country with a thousand cities to test large lists.
+     */
+    protected function seedRegions()
+    {
         $country = Country::create([
             'name' => 'Dimension C-137',
             'code' => 'dimension-c-137',
@@ -226,10 +267,13 @@ class SeedAllTables extends Seeder
                 'country' => $country,
             ]);
         }
+    }
 
-        /*
-         * Test 5: Reviews
-         */
+    /**
+     * seedReviews creates polymorphic reviews on themes and plugins.
+     */
+    protected function seedReviews()
+    {
         Review::create(['content' => 'Orphan review', 'is_positive' => false, 'feature_color' => '#000000']);
         $review = Review::create(['content' => 'Excellent design work', 'is_positive' => true, 'feature_color' => '#CCCCCC']);
 
@@ -237,11 +281,16 @@ class SeedAllTables extends Seeder
         $theme->reviews()->add($review);
 
         Plugin::create(['name' => 'Angular', 'code' => 'angular', 'content' => 'An AngularJS plugin.']);
+    }
 
-        /*
-         * Test 6: Trees
-         */
-        // Members
+    /**
+     * seedTrees creates the member, category and channel trees.
+     */
+    protected function seedTrees()
+    {
+        $user = User::first();
+
+        // Testing tree propagation, where save() with the propagate option creates each member on the other sites
         $fourUpManager = new Member(['name' => 'Khaleesi']);
         $fourUpManager->save(['propagate' => true]);
 
@@ -263,7 +312,7 @@ class SeedAllTables extends Seeder
         $manager = new Member(['name' => 'Rick', 'user_id' => $user->id, 'parent_id' => $oneUpManager->id]);
         $manager->save(['propagate' => true]);
 
-        // Categories
+        // Testing tree propagation, where save() with the propagate option creates each category on the other sites
         $parent = new Category(['name' => 'Web', 'description' => 'Websites & Web Applications']);
         $parent->save(['propagate' => true]);
 
@@ -299,25 +348,31 @@ class SeedAllTables extends Seeder
 
         // Channels
         $orange = Channel::create(['title' => 'Channel Orange', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
-        $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Disccusion about the season of falling leaves.']);
+        $autumn = $orange->children()->create(['title' => 'Autumn Leaves', 'description' => 'Discussion about the season of falling leaves.']);
         $autumn->children()->create(['title' => 'September', 'description' => 'The start of the fall season.']);
         $autumn->children()->create(['title' => 'October', 'description' => 'The middle of the fall season.']);
         $autumn->children()->create(['title' => 'November', 'description' => 'The end of the fall season.']);
-        $orange->children()->create(['title' => 'Summer Breeze', 'description' => 'Disccusion about the wind at the ocean.']);
+        $orange->children()->create(['title' => 'Summer Breeze', 'description' => 'Discussion about the wind at the ocean.']);
 
         $green = Channel::create(['title' => 'Channel Green', 'description' => 'A root level forum channel', 'user_id' => $user->id]);
-        $green->children()->create(['title' => 'Winter Snow', 'description' => 'Disccusion about the frosty snow flakes.']);
-        $green->children()->create(['title' => 'Spring Trees', 'description' => 'Disccusion about the blooming gardens.']);
+        $green->children()->create(['title' => 'Winter Snow', 'description' => 'Discussion about the frosty snow flakes.']);
+        $green->children()->create(['title' => 'Spring Trees', 'description' => 'Discussion about the blooming gardens.']);
+    }
 
-        /*
-         * Test 7: Galleries
-         */
+    /**
+     * seedGalleries creates a gallery linked to a post.
+     */
+    protected function seedGalleries()
+    {
         $gallery = Gallery::create(['title' => 'FEATURED WATERCREST', 'subtitle' => 'experience the flow', 'start_date' => now(), 'end_date' => now()->addDay()]);
         $gallery->posts()->add(Post::first());
+    }
 
-        /*
-         * Test 8: Pages
-         */
+    /**
+     * seedPages creates pages with layouts and jsonable content.
+     */
+    protected function seedPages()
+    {
         $layout1 = Layout::create([
             'content' => 'Yes',
         ]);
@@ -326,57 +381,57 @@ class SeedAllTables extends Seeder
             'content' => 'No',
         ]);
 
-        $pages = [
-            [
-                'id' => 1,
-                'title' => 'First Page',
-                'layout_id' => $layout1->id,
-                'type' => 1,
-                'content' => [
-                    'title' => 'This is a simple page',
-                    'content' => '<h1>Hello, World</h1>',
-                ],
+        // Testing a title of exactly 10 characters, which the parent.title size:10 rule on the third page checks
+        $firstPage = Page::create([
+            'title' => 'First Page',
+            'layout_id' => $layout1->id,
+            'type' => 1,
+            'content' => [
+                'title' => 'This is a simple page',
+                'content' => '<h1>Hello, World</h1>',
             ],
-            [
-                'id' => 2,
-                'title' => 'Second Page',
-                'layout_id' => $layout2->id,
-                'type' => 2,
-                'content' => [
-                    'title' => 'This is a complex page',
-                    'content' => '<h1>Hello, Complex World</h1>',
-                    'meta_description' => 'Meta Description',
-                    'meta_tags' => ['October CMS', 'Fun'],
-                    'colors' => [
-                        'primary' => '#ff0000',
-                        'secondary' => '#00ff00',
-                    ],
-                ],
-            ],
-            [
-                'id' => 3,
-                'title' => 'Third Page',
-                'parent_id' => 1,
-                'layout_id' => $layout1->id,
-                'type' => 2,
-                'content' => [
-                    'title' => 'This is a child page',
-                    'content' => '<h1>Having too much fun</h1>',
-                ],
-            ],
-        ];
-        foreach ($pages as $page) {
-            Page::create($page);
-        }
+        ]);
 
-        /*
-         * Test 9: Product
-         */
+        Page::create([
+            'title' => 'Second Page',
+            'layout_id' => $layout2->id,
+            'type' => 2,
+            'content' => [
+                'title' => 'This is a complex page',
+                'content' => '<h1>Hello, Complex World</h1>',
+                'meta_description' => 'Meta Description',
+                'meta_tags' => ['October CMS', 'Fun'],
+                'colors' => [
+                    'primary' => '#ff0000',
+                    'secondary' => '#00ff00',
+                ],
+            ],
+        ]);
+
+        // Created third so it gets id 3, which Page::beforeValidate adds parent rules for
+        Page::create([
+            'title' => 'Third Page',
+            'parent_id' => $firstPage->id,
+            'layout_id' => $layout1->id,
+            'type' => 2,
+            'content' => [
+                'title' => 'This is a child page',
+                'content' => '<h1>Having too much fun</h1>',
+            ],
+        ]);
+    }
+
+    /**
+     * seedProducts creates companies, products and nested product categories.
+     */
+    protected function seedProducts()
+    {
         $company1 = Company::create(['name' => 'Tezla']);
         $company2 = Company::create(['name' => 'Neztle']);
         $company3 = Company::create(['name' => 'Zubway']);
         $company4 = Company::create(['name' => 'Zoogle']);
 
+        // Testing savePropagate() when creating a product, which copies it to the other sites
         $product1 = Product::make(['title' => '2 Pizzas', 'price' => '49.95']);
         $product1->slug = 'custom-slug';
         $product1->company = $company1;
@@ -398,6 +453,7 @@ class SeedAllTables extends Seeder
         $product1->categories()->add($category1);
         $product2->categories()->add($category2);
 
+        // Testing savePropagate() on categories that were created without it and are already linked to products
         $category1->savePropagate();
         $category2->savePropagate();
 
@@ -423,6 +479,7 @@ class SeedAllTables extends Seeder
         ProductCategory::create(['name' => 'Cologne', 'description' => "And baby, I'll rule (I'll rule, I'll rule, I'll rule)"]);
         ProductCategory::create(['name' => 'Gifts', 'description' => "Let me live that fantasy"]);
 
+        // Testing savePropagate() on tree categories before they are nested with makeChildOf()
         $mains->savePropagate();
         $chicken->savePropagate();
         $fish->savePropagate();
@@ -433,10 +490,38 @@ class SeedAllTables extends Seeder
         $fish->makeChildOf($mains);
         $beef->makeChildOf($mains);
         $veg->makeChildOf($mains);
+    }
 
-        /*
-         * General Test: Attributes
-         */
+    /**
+     * seedOrders creates orders with items picked from the seeded products.
+     */
+    protected function seedOrders()
+    {
+        $pizzas = Product::where('title', '2 Pizzas')->first();
+        $cola = Product::where('title', 'Cola')->first();
+
+        $orders = [
+            'Party Order' => [[$pizzas, 3], [$cola, 6]],
+            'Lunch Order' => [[$pizzas, 1], [$cola, 2]],
+        ];
+
+        foreach ($orders as $title => $lines) {
+            $order = Order::create(['title' => $title]);
+
+            foreach ($lines as [$product, $quantity]) {
+                $item = new OrderItem;
+                $item->fillFromProduct($product);
+                $item->quantity = $quantity;
+                $order->items()->add($item);
+            }
+        }
+    }
+
+    /**
+     * seedAttributes creates the status and type attributes used by dropdowns.
+     */
+    protected function seedAttributes()
+    {
         $generalStatus = [
             ['name' => 'Draft', 'code' => 'draft'],
             ['name' => 'Pending', 'code' => 'pending'],

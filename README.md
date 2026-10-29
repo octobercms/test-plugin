@@ -1,131 +1,113 @@
-# Test Plugin
+# October Test
 
-This is a UI test plugin for October CMS.
+October Test is a playground plugin that exercises October CMS features in the backend and on the frontend. It is used for manual testing and as reference code.
 
-## Installation Instructions
+Most of the plugin follows current conventions and is safe to copy. Some files deliberately use unusual configurations to test edge cases, and these are labelled with a comment that starts with **Testing**. Read the label before copying one of them.
 
-Before installing this plugin, you will need to change your minimum stability to `dev` with composer.
+## Installation
+
+Before installing this plugin, change your minimum stability to `dev` with composer.
 
 ```bash
 composer config minimum-stability dev
 ```
 
-Run the following to install this plugin:
+Install the plugin from GitHub.
 
 ```bash
 php artisan plugin:install October.Test --from=https://github.com/octobercms/test-plugin
 ```
 
-If you already have this plugin installed and need to update the database schema, run this command:
+The plugin seeds its own test data. To rebuild the tables and the data at any time, refresh the plugin.
 
 ```bash
 php artisan plugin:refresh October.Test
 ```
 
-To uninstall this plugin:
+Refreshing is also how the plugin is upgraded, since its migrations are edited in place. An install made before the migrations were restructured records a higher version in the database, so `october:migrate` reports nothing to do until the plugin is refreshed.
+
+To uninstall the plugin.
 
 ```bash
 php artisan plugin:remove October.Test
 ```
 
-## Tests
+## Running the Tests
 
-The following sections are explored, tested and demonstrated along with a list of the features used:
+Run the PHPUnit suite from the project root.
 
-### Test 1: People
+```bash
+php artisan plugin:test october.test
+```
 
-A Person "Has One" Phone (One to one relationship)
+The suite uses an in-memory SQLite database and isolates each test with a transaction, so it does not touch your data.
 
-1. Relation Controller
-1. Record Finder
-1. Proxy Form fields
-1. Date pickers
-1. Context-based Form fields
+To fill the posts list with a large number of records, for example to test pagination and performance, use the console command.
 
-### Test 2: Posts
+```bash
+php artisan test:seed-posts --count=5000
+```
 
-A Post "Has Many" Comments (One to many relationship)
+## Feature Map
 
-1. Relation Controller
-1. Popup-based Form fields
-1. Rich Editor
-1. Dual Form Controller and List Controller
-1. HTML in comments
-1. Custom Delete workflow
-1. Repeater fields in comments popup
+The backend pages are found under the **Playground** menu item. Some pages are opened from another page instead of the menu: Cities and Countries from the Locations toolbar, Categories, Channels and Members from the Trees page, Plugins and Themes from the Reviews toolbar, and Orders, Product Categories and Companies from the Products toolbar.
 
-### Test 3: Users
+### Backend Pages
 
-User "Belongs To Many" Roles (Many to many relationship)
+Page | Relationships | Also covers
+---- | ------------- | -----------
+People | Person has one Phone | Relation controller, record finder, proxy fields, form contexts, AJAX handlers, mail sending, file downloads
+Posts | Post has many Comments, belongs to many Tags | Three lists in one controller, comment and tag popups that switch the form config, delete with a reason, import and export
+Users | User belongs to many Roles | Plain, pivot data and pivot model relations, file uploads, custom file model, a partial field with a control, custom filter widgets
+Locations | Location belongs to Country and City | Dependent fields, quick create from a relation field, many attachments loaded in one query
+Countries | Country has many Cities, has many Posts through Users, has one Post through Users | Relational repeaters, checkbox lists, translatable attributes, a single default record
+Cities | City belongs to Country, has many Locations | Nested relation definitions that manage the cities of the related country, and a nested form inside the country relation popup
+Reviews | Review morphs to Post, Plugin or Theme | Change handlers, list tabs, a custom list view path, a custom form widget
+Plugins and Themes | Morph many Reviews, morph one Meta | Popup form design and meta fields saved to a related model, both on Plugins
+Galleries | Gallery is morphed by many Posts, belongs to many Countries | Pivot sorting, browser validation, rule objects
+Trees | Members and Categories are simple trees, Channels are a nested set | List structure reordering, structure permissions, restoring soft deleted records
+Pages | Page belongs to Layout and to a parent Page | Sidebar layout, nested forms, translatable attachments, import and export
+Products | Product belongs to many Categories and Locations, has many Offers | Validation unique to a site, data tables
+Orders | Order has many Order Items | Picking a product to create an order item, data tables in popups
+Companies and Product Categories | Company is soft deleted and multisite | Tailor navigation context, UI and icon showcases
 
-1. Relation Controller (Standard, Pivot data, Pivot model)
-1. Image Uploaders (Single, Multi, File, Image)
-1. Number field
-1. No click list column
-1. Custom File model
-1. Form field partial
-1. Tag List in relation mode
+### Registration
 
-### Test 4: Locations
+The plugin registration file `Plugin.php` registers each of these features.
 
-1. City "Has Many" Locations
-1. City "Belongs To" Country
-1. Location "Belongs To" Country
-1. Location "Belongs To" City
+Feature | Files
+------- | -----
+Dashboard widgets | `reportwidgets/`, `vuecomponents/MyCustomWidget.php`
+Dashboard data source | `classes/LocationDataSource.php`
+Form widget | `formwidgets/TimeChecker.php`
+Filter widgets | `filterwidgets/`
+Tailor content field | `contentfields/MyContentField.php`
+Validation rules | `classes/UppercaseRule.php`, `classes/BetwixtRule.php`, and `classes/LowercaseRule.php` as a local rule object
+Console command | `console/SeedPosts.php`
+Scheduled task | `Plugin.php` records an hourly heartbeat in the cache
+Event subscriber | `classes/ExtendCoreFeatures.php`
+Settings | `models/Setting.php` with translatable values
+Mail templates | `views/mail/`
+Permissions and navigation | `Plugin.php`
 
-#### Countries
+### Frontend
 
-A Country "Has Many" Posts "Through" a User (Has many through relationship)
+The CMS components are used by the companion test theme.
 
-1. Checkbox list
-1. Default form field values
-1. Field dependency and filtering
-1. Repeater fields
-1. Tabs empty with no fields
-1. Sister Countries test for related repeaters
+Component | Covers
+--------- | ------
+`kitchenSink` | Inspector property types, AJAX handlers and page snippets
+`inlineData` | A snippet that renders inline within page content
+`vueTester` | Vue component registration on the frontend
 
-#### Cities
+### Tailor Blueprints
 
-A City "Belongs To" a Country and "Has Many" Locations.
+The `blueprints` directory defines the Blog, Stream and Wiki Tailor sections. After changing a blueprint, run the migration to update its database tables.
 
-### Test 5: Reviews
+```bash
+php artisan tailor:migrate
+```
 
-1. Reviews "Morph To" Plugins and Themes as Product (Polymorphic relationships)
-1. Meta "Morph To" Plugins and Themes as Product (Polymorphic relationships)
-1. Plugins and Themes "Morph Many" Reviews
-1. Plugins and Themes "Morph One" Meta
-1. Plugins should not create when Meta validation fails.
+## Documentation Coupling
 
-### Test 6: Trees
-
-1. A Member uses a simple tree (parent-child) structure.
-1. A Category uses a simple tree structure, with sorting.
-1. A Channel uses a nested set tree structure.
-
-### Test 7: Galleries
-
-1. Galleries are "Morphed By Many" Posts
-1. Posts "Morph To Many" Galleries
-
-### Test 8: Pages
-
-1. Page "Belongs To" Layout
-
-### Test 9: Product
-
-1. Product
-
-### General Tests
-
-Uncategorized tests
-
-#### Attributes
-
-An Attribute is a single generic model with many relationship types.
-
-1. Posts "Belong To" (Attribute) Status (`general.status`).
-1. Countries "Belong To Many" (Attribute) Types (`general.types`).
-
-#### Repeater Items
-
-1. Relational Repeater tests
+The October CMS documentation prints some files from this plugin. These are listed in [CLAUDE.md](CLAUDE.md), and the documentation should be updated in the same change when they move or change.

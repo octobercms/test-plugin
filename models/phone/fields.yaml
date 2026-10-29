@@ -22,7 +22,7 @@ fields:
         descriptionFrom: number
         searchMode: any
 
-    # Relation Controller
+    # Testing RelationController rendered through a partial field, type: relation with useController is the recommended form
     person@relationcontroller:
         label: Relation Controller
         commentAbove: RelationController used as a partial field type.

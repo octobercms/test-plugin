@@ -23,17 +23,16 @@ recordsPerPage: 20
 # Displays the list column set up button
 showSetup: true
 
-# Show tree (v1)
-# showTree: true
-# treeExpanded: true
-
 # Show tree (v2)
 structure:
     showTree: true
     showReorder: true
+    # Testing maxDepth limit
     maxDepth: 2
+    # Testing dragRow disabled, so only the reorder handle drags
     dragRow: false
-    permissions: general.backend.perform_updates
+    # Testing structure permissions
+    permissions: october.test.reorder_trees
 
 # Toolbar widget configuration
 toolbar:

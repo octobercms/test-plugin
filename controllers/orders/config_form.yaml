@@ -14,18 +14,22 @@ modelClass: October\Test\Models\Order
 # Default redirect location
 defaultRedirect: october/test/orders
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: backend::lang.form.create_title
+    title: Create Order
     redirect: october/test/orders/update/:id
     redirectClose: october/test/orders
 
 # Update page
 update:
-    title: backend::lang.form.update_title
+    title: Edit Order
     redirect: october/test/orders
     redirectClose: october/test/orders
 
 # Preview page
 preview:
-    title: backend::lang.form.preview_title
+    title: Preview Order

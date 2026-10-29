@@ -2,20 +2,16 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use October\Test\Models\Post;
 
 /**
- * Posts [and Comments] Back-end Controller
- *
- * This is a mighty fine example of what October can do, here we have a single controller
- * managing two Models (Posts and Comments). The ListController behavior handles two lists
- * easily, by passing an array of definitions and config files. The FormController behavior
- * natively handles the Posts, but for Comments we intercept the construction process and
- * override the config to reference the comment form when a special flag is passed with the
- * request (comment_mode). By itself this is enough to simply tack ?comment_mode=1 on to the
- * URL, but to mix things up the Comments form is managed by AJAX popups.
+ * Posts Backend Controller manages posts, comments and tags, switching to the comment or tag form config when an AJAX request posts a comment_mode or tag_mode flag.
  */
 class Posts extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
@@ -23,20 +19,38 @@ class Posts extends Controller
         \Backend\Behaviors\ImportExportController::class
     ];
 
+    /**
+     * @var string formConfig file, replaced by the comment or tag form config in the constructor
+     */
     public $formConfig = 'config_post_form.yaml';
 
+    /**
+     * @var array listConfig files, one for each list on the index page
+     */
     public $listConfig = [
         'posts' => 'config_posts_list.yaml',
         'comments' => 'config_comments_list.yaml',
         'tags' => 'config_tags_list.yaml'
     ];
 
+    /**
+     * @var string relationConfig file
+     */
     public $relationConfig = 'config_relation.yaml';
 
+    /**
+     * @var string importExportConfig file
+     */
     public $importExportConfig = 'config_import_export.yaml';
 
+    /**
+     * @var array requiredPermissions to view this page
+     */
     public $requiredPermissions = ['october.test.access_plugin'];
 
+    /**
+     * __construct the controller, picking the form config before the behaviors read it
+     */
     public function __construct()
     {
         $this->vars['mode'] = false;
@@ -56,27 +70,32 @@ class Posts extends Controller
         BackendMenu::setContext('October.Test', 'test', 'posts');
     }
 
+    /**
+     * index renders the lists in a compact container
+     */
     public function index()
     {
         $this->asExtension('ListController')->index();
+
         $this->bodyClass = 'compact-container';
     }
 
-    public function listExtendQuery($query, $definition = null)
+    /**
+     * formExtendFields shows the name with a lowercased first letter as a comment on the post form only, testing a field changed before display without touching the saved value.
+     */
+    public function formExtendFields($form, $fields)
     {
-        if ($definition === 'posts') {
-            $query->leftJoin('october_test_attributes', 'october_test_posts.status_id', 'october_test_attributes.id');
-            $query->addSelect('october_test_attributes.sort_order as status_sort_order', 'october_test_attributes.name as status_name');
+        if (!$form->model instanceof Post || !$form->model->name) {
+            return;
+        }
+
+        if ($nameField = $form->getField('name')) {
+            $nameField->comment = __("Lowercased: :name", ['name' => e(lcfirst($form->model->name))]);
         }
     }
 
-    public function formExtendFields($form, $fields)
-    {
-        $fields['name']->value = lcfirst($form->model->name);
-    }
-
     /**
-     * relationExtendManageFormQuery
+     * relationExtendManageFormQuery includes deleted child comments when managing them.
      */
     public function relationExtendManageFormQuery($field, $query)
     {
@@ -85,15 +104,17 @@ class Posts extends Controller
         }
     }
 
-    //
-    // Custom Delete workflow
-    //
-
+    /**
+     * onLoadDeleteReasonForm renders the popup that asks why the post is deleted.
+     */
     public function onLoadDeleteReasonForm($recordId = null)
     {
         return $this->makePartial('delete_reason_form');
     }
 
+    /**
+     * onDeleteWithReason deletes the post and logs the reason given in the popup.
+     */
     public function onDeleteWithReason($recordId = null)
     {
         $result = $this->asExtension('FormController')->update_onDelete($recordId);
@@ -107,38 +128,55 @@ class Posts extends Controller
         return $result;
     }
 
-    //
-    // Comment form
-    //
-
-    public function onCreateForm()
+    /**
+     * onLoadCreateForm renders the popup to create a comment or a tag.
+     */
+    public function onLoadCreateForm()
     {
         $this->asExtension('FormController')->create();
+
         return $this->makePartial('create_form');
     }
 
-    public function onCreate()
+    /**
+     * onCreateRecord saves a new comment or tag and refreshes both lists.
+     */
+    public function onCreateRecord()
     {
         $this->asExtension('FormController')->create_onSave();
+
         return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
 
-    public function onUpdateForm()
+    /**
+     * onLoadUpdateForm renders the popup to update a comment or a tag.
+     */
+    public function onLoadUpdateForm()
     {
         $this->asExtension('FormController')->update(post('record_id'));
+
         $this->vars['recordId'] = post('record_id');
+
         return $this->makePartial('update_form');
     }
 
-    public function onUpdate()
+    /**
+     * onUpdateRecord saves a comment or tag and refreshes both lists.
+     */
+    public function onUpdateRecord()
     {
         $this->asExtension('FormController')->update_onSave(post('record_id'));
+
         return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
 
-    public function onDelete()
+    /**
+     * onDeleteRecord deletes a comment or tag, named so it does not replace the list bulk delete handler.
+     */
+    public function onDeleteRecord()
     {
         $this->asExtension('FormController')->update_onDelete(post('record_id'));
+
         return array_merge($this->listRefresh('tags'), $this->listRefresh('comments'));
     }
 }

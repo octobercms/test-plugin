@@ -1,0 +1,10 @@
+# ===================================
+#  Import Column Definitions
+# ===================================
+
+columns:
+    title: Title
+    type: Type
+    status: Status
+    content[title]: Content Title
+    parent: Parent Title

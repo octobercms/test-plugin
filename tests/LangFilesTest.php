@@ -1,16 +1,23 @@
 <?php namespace October\Test\Tests;
 
+use App;
 use PluginTestCase;
 
 /**
- * LangFilesTest validates language files are well-formed
+ * LangFilesTest validates language files are well-formed and that the regional fr-ca file falls back to fr.
  */
 class LangFilesTest extends PluginTestCase
 {
     /**
+     * @var bool useTransactions isolates each test with a database transaction
+     */
+    protected $useTransactions = true;
+
+    /**
+     * testJsonLangFileIsValid checks the JSON language file decodes to an object.
      * @dataProvider langJsonProvider
      */
-    public function testJsonLangFileIsValid($filePath)
+    public function testJsonLangFileIsValid(string $filePath)
     {
         $content = file_get_contents($filePath);
         $decoded = json_decode($content);
@@ -27,9 +34,10 @@ class LangFilesTest extends PluginTestCase
     }
 
     /**
+     * testJsonLangFileValuesAreStrings checks every translation in the JSON language file is a string.
      * @dataProvider langJsonProvider
      */
-    public function testJsonLangFileValuesAreStrings($filePath)
+    public function testJsonLangFileValuesAreStrings(string $filePath)
     {
         $content = file_get_contents($filePath);
         $decoded = json_decode($content, true);
@@ -43,9 +51,10 @@ class LangFilesTest extends PluginTestCase
     }
 
     /**
+     * testPhpLangFileReturnsArray checks the PHP language file returns an array.
      * @dataProvider langPhpProvider
      */
-    public function testPhpLangFileReturnsArray($filePath)
+    public function testPhpLangFileReturnsArray(string $filePath)
     {
         $result = include $filePath;
 
@@ -53,6 +62,17 @@ class LangFilesTest extends PluginTestCase
             $result,
             basename(dirname($filePath)) . '/lang.php should return an array'
         );
+    }
+
+    /**
+     * testRegionalLocaleFallsBackToLanguage checks fr-ca reads the keys it leaves out from lang/fr, with fr as the fallback locale that October derives for a fr-ca site or backend user.
+     */
+    public function testRegionalLocaleFallsBackToLanguage()
+    {
+        App::setFallbackLocale('fr');
+
+        $this->assertEquals('Test List in French', __('october.test::lang.test.component_name', [], 'fr-ca'));
+        $this->assertEquals('Displays a list in French.', __('october.test::lang.test.component_description', [], 'fr-ca'));
     }
 
     /**

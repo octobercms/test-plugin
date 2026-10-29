@@ -1,36 +1,65 @@
-v1.0.1:
-    - First version of Test Plugin
-    - drop_everything.php
+# This fixture edits its create migrations in place and needs php artisan plugin:refresh October.Test
+# to apply them, while a real plugin adds a new migration and bumps the version instead.
+v1.0.1: First version of Test
 v1.0.2:
-    - Create Test 1 Tables
-    - create_test1_tables.php
+    - Drop tables left by earlier versions
+    - 000001_drop_old_tables.php
 v1.0.3:
-    - Create Test 2 Tables
-    - create_test2_tables.php
+    - Set up database tables
+    - 000010_create_people.php
+    - 000011_create_phones.php
+
+    - 000020_create_posts.php
+    - 000021_create_comments.php
+    - 000022_create_tags.php
+    - 000023_create_posts_tags.php
+
+    - 000030_create_users.php
+    - 000031_create_roles.php
+    - 000032_create_users_roles.php
+
+    - 000040_create_countries.php
+    - 000041_create_countries_types.php
+    - 000042_create_country_brothers.php
+    - 000043_create_cities.php
+    - 000044_create_locations.php
+
+    - 000050_create_meta.php
+    - 000051_create_reviews.php
+    - 000052_create_plugins.php
+    - 000053_create_themes.php
+
+    - 000060_create_members.php
+    - 000061_create_categories.php
+    - 000062_create_channels.php
+    - 000063_create_related_channels.php
+
+    - 000070_create_galleries.php
+    - 000071_create_gallery_entity.php
+    - 000072_create_galleries_countries.php
+
+    - 000080_create_pages.php
+    - 000081_create_layouts.php
+    - 000082_create_page_banners.php
+
+    - 000090_create_products.php
+    - 000091_create_product_categories.php
+    - 000092_create_products_categories.php
+    - 000093_create_products_related_products.php
+    - 000094_create_products_locations.php
+    - 000095_create_products_members.php
+    - 000096_create_products_stream_records.php
+    - 000097_create_product_offers.php
+    - 000098_create_product_offer_stocks.php
+    - 000099_create_product_offer_stock_leads.php
+
+    - 000100_create_companies.php
+    - 000101_create_orders.php
+    - 000102_create_orders_products.php
+    - 000103_create_order_items.php
+
+    - 000110_create_attributes.php
+    - 000111_create_repeater_items.php
 v1.0.4:
-    - Create Test 3 Tables
-    - create_test3_tables.php
-v1.0.5:
-    - Create Test 4 Tables
-    - create_test4_tables.php
-v1.0.6:
-    - Create Test 5 Tables
-    - create_test5_tables.php
-v1.0.7:
-    - Create Test 6 Tables
-    - create_test6_tables.php
-v1.0.8:
-    - Create Test 7 Tables
-    - create_test7_tables.php
-v1.0.9:
-    - Create Test 8 Tables
-    - create_test8_tables.php
-v1.0.10:
-    - Create Test 9 Tables
-    - create_test9_tables.php
-v1.0.11:
-    - Create General Tables
-    - create_general_tables.php
-v1.0.12:
-    - Seed tables
+    - Seed fixture data
     - seed_tables.php

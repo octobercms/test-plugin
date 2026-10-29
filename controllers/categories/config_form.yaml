@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Category
 # Default redirect location
 defaultRedirect: october/test/trees
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Category
@@ -23,7 +27,7 @@ create:
 # Update page
 update:
     title: Edit Category
-    redirect: october/test/categories
+    redirect: october/test/trees
     redirectClose: october/test/trees
 
 # Preview page

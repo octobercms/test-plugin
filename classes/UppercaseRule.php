@@ -1,37 +1,37 @@
 <?php namespace October\Test\Classes;
 
 /**
- * UppercaseRule checks if the content is uppercase.
+ * UppercaseRule checks the value is uppercase, with an optional strict mode passed as the first rule parameter.
  */
 class UppercaseRule
 {
     /**
-     * validate determines if the validation rule passes.
-     * @param string $attribute
-     * @param mixed $value
-     * @param array $params
-     * @return bool
+     * validate passes when the value is uppercase, where strict mode also requires at least one letter.
      */
     public function validate($attribute, $value, $params)
     {
-        return strtoupper($value) === $value;
+        $value = (string) $value;
+
+        if (($params[0] ?? null) === 'strict' && !preg_match('/\p{L}/u', $value)) {
+            return false;
+        }
+
+        return mb_strtoupper($value) === $value;
     }
 
     /**
-     * message gets the validation error message.
-     * @return string
+     * message returns the validation error message, where :mode names the rule mode.
      */
     public function message()
     {
-        return 'The :attribute must be uppercase (:foo).';
+        return 'The :attribute must be uppercase (:mode mode).';
     }
 
     /**
-     * replace defines custom placeholder replacements.
-     * @return string
+     * replace fills the :mode placeholder with the rule parameter, testing the replacer fallback on rule classes.
      */
     public function replace($message, $attribute, $rule, $params)
     {
-        return str_replace(':foo', 'bar', $message);
+        return str_replace(':mode', $params[0] ?? 'default', $message);
     }
 }

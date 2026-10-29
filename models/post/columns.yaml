@@ -15,21 +15,18 @@ columns:
         label: Content
         searchable: true
 
-    # @deprecated
-    # comments_count:
-    #     label: Comments
-    #     relation: comments_count
-    #     valueFrom: count
-    #     default: 0
-    #     type: number
-
     comments_count:
         label: Comments
         relation: comments
         relationCount: true
         type: number
 
+    # Testing a relation column that sorts by the status order and displays its name
     status_sort_order:
         label: Status
+        type: partial
+        path: column_status
+        relation: status
+        select: sort_order
+        relationWith: status
         sortable: true
-        valueFrom: status_name

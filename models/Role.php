@@ -8,33 +8,31 @@ use Model;
 class Role extends Model
 {
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_roles';
 
     /**
-     * @var array Guarded fields
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $guarded = [];
+    protected $fillable = ['name'];
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array Relations
+     * @var array belongsToMany relations
      */
     public $belongsToMany = [
         'users' => [User::class, 'table' => 'october_test_users_roles']
     ];
 
+    /**
+     * @var array attachMany relations
+     */
     public $attachMany = [
         'photos' => \System\Models\File::class,
     ];
 
     /**
-     * scopeApplyRoleOptionsFilter
+     * scopeApplyRoleOptionsFilter leaves out the first role, used as the optionsScope of the roles filter on users.
      */
     public function scopeApplyRoleOptionsFilter($query)
     {

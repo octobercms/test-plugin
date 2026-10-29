@@ -1,7 +1,8 @@
 <div data-control="toolbar">
-    <a
-        href="<?= Backend::url('october/test/galleries/create') ?>"
-        class="btn btn-primary oc-icon-plus">
-        New Gallery
-    </a>
+    <?= Ui::button(
+        label: __("New Gallery"),
+        href: Backend::url('october/test/galleries/create'),
+        icon: 'ph ph-plus',
+        primary: true
+    ) ?>
 </div>

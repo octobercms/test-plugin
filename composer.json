@@ -1,9 +1,20 @@
 {
     "name": "october/test-plugin",
     "type": "october-plugin",
-    "description": "Playground for testing October CMS functionality",
+    "description": "Demonstrates October CMS features, each one written as reference code",
+    "homepage": "https://github.com/octobercms/test-plugin",
+    "keywords": ["october cms", "october", "test"],
+    "authors": [
+        {
+            "name": "Alexey Bobkov",
+            "email": "aleksey.bobkov@gmail.com"
+        },
+        {
+            "name": "Samuel Georges",
+            "email": "daftspunky@gmail.com"
+        }
+    ],
     "require": {
-        "composer/installers": "~1.0",
-        "fzaninotto/faker": "^1.9"
+        "php": ">=8.2"
     }
 }

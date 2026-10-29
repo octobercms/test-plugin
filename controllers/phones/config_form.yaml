@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Phone
 # Default redirect location
 defaultRedirect: october/test/phones
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Phone

@@ -14,18 +14,22 @@ modelClass: October\Test\Models\Post
 # Default redirect location
 defaultRedirect: october/test/posts
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: Create Posts (Custom Text)
+    title: Create Post (Custom Text)
     redirect: october/test/posts/update/:id
     redirectClose: october/test/posts
 
 # Update page
 update:
-    title: Edit Posts (Awesome Title)
+    title: Edit Post (Awesome Title)
     redirect: october/test/posts
     redirectClose: october/test/posts
 
 # Preview page
 preview:
-    title: Preview Posts
+    title: Preview Post

@@ -4,12 +4,12 @@ use Flash;
 use Cms\Classes\ComponentBase;
 
 /**
- * KitchenSink
+ * KitchenSink is a CMS component and page snippet that tests the Inspector property types, dependent dropdown options, snippet AJAX, getter methods read from Twig and component AJAX handlers.
  */
 class KitchenSink extends ComponentBase
 {
     /**
-     * @var bool isSubmitted
+     * @var bool isSubmitted is set by onTestAjax so the theme can show a thank you message
      */
     public $isSubmitted = false;
 
@@ -20,7 +20,7 @@ class KitchenSink extends ComponentBase
     {
         return [
             'name' => 'Kitchen Sink',
-            'description' => 'Who left this here?',
+            'description' => 'Tests the Inspector property types and other component features.',
             'snippetAjax' => true
         ];
     }
@@ -31,7 +31,7 @@ class KitchenSink extends ComponentBase
     public function defineProperties()
     {
         return [
-            // https://docs.octobercms.com/3.x/element/inspector/type-dropdown.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-dropdown.html
             'type' => [
                 'title' => 'Entity Type',
                 'type' => 'dropdown',
@@ -44,14 +44,14 @@ class KitchenSink extends ComponentBase
                 'showExternalParam' => false
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-string.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-string.html
             'slug' => [
                 'title' => 'Slug',
                 'type' => 'string',
                 'description' => 'Specify a slug to make this a primary page for the record.'
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-checkbox.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-checkbox.html
             'defaultView' => [
                 'title' => 'Default View',
                 'type' => 'checkbox',
@@ -59,7 +59,7 @@ class KitchenSink extends ComponentBase
                 'description' => 'Used as default entry point when previewing the record.',
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-autocomplete.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-autocomplete.html
             'sortColumn' => [
                 'title' => 'Sort by Column',
                 'description' => 'Model column the records should be ordered by',
@@ -67,10 +67,10 @@ class KitchenSink extends ComponentBase
                 'showExternalParam' => false
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-set.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-set.html
             'units' => [
-                'title' => 'Select Muitple Units',
-                'description' => 'Hello',
+                'title' => 'Select Multiple Units',
+                'description' => 'Units of measurement to display.',
                 'type' => 'set',
                 'items' => [
                     'metric' => 'Metric',
@@ -78,14 +78,14 @@ class KitchenSink extends ComponentBase
                 ]
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-dictionary.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-dictionary.html
             'options' => [
                 'title' => 'Options',
                 'type' => 'dictionary',
                 'default' => ['option1' => 'Option 1'],
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-object.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-object.html
             'address' => [
                 'title' => 'Address',
                 'type' => 'object',
@@ -109,7 +109,7 @@ class KitchenSink extends ComponentBase
                 ],
             ],
 
-            // https://docs.octobercms.com/3.x/element/inspector/type-objectlist.html
+            // https://docs.octobercms.com/4.x/element/inspector/type-objectlist.html
             'addressList' => [
                 'title' => 'Address (List)',
                 'type' => 'objectList',
@@ -129,7 +129,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * onTestAjax
+     * onTestAjax handles the theme contact form and flags it as submitted.
      */
     public function onTestAjax()
     {
@@ -138,7 +138,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * getSortColumnOptions
+     * getSortColumnOptions returns the options for the sortColumn autocomplete.
      */
     public function getSortColumnOptions()
     {
@@ -150,7 +150,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * getEntityTypeOptions
+     * getTypeOptions returns the options for the type dropdown.
      */
     public function getTypeOptions()
     {
@@ -161,9 +161,9 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * getEntityHandleOptions
+     * getHandleOptions returns options that depend on the selected type, testing the Inspector depends option.
      */
-    public function getEntityHandleOptions()
+    public function getHandleOptions()
     {
         $type = $this->property('type');
 
@@ -184,7 +184,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * getFoo
+     * getFoo returns a fixed value, testing that Twig resolves kSink.foo to this getter.
      */
     public function getFoo()
     {
@@ -192,7 +192,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * getTestUser
+     * getTestUser returns the first user, testing that Twig resolves kSink.testUser to this getter and reads the model.
      */
     public function getTestUser()
     {
@@ -200,7 +200,7 @@ class KitchenSink extends ComponentBase
     }
 
     /**
-     * onFilterCars
+     * onFilterCars shares its name with a page handler, testing that the component handler runs when called by alias.
      */
     public function onFilterCars()
     {

@@ -8,19 +8,21 @@ pagefinder: false
 navigation:
     mode: secondary
     parent: Test\Blog
-    icon: icon-star
+    icon: ph ph-star
     order: 150
 
 structure:
     maxDepth: 3
 
 fields:
+    # Testing a plugin content field that receives custom config properties from the blueprint
     mycontentfield:
         label: Custom Content Field
         type: mycontentfield
         firstColor: red
         secondColor: blue
 
+    # Testing one field defined per form context with the @update and @create suffixes
     description@update:
         label: Description (Update)
 

@@ -14,18 +14,22 @@ modelClass: October\Test\Models\User
 # Default redirect location
 defaultRedirect: october/test/users
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: Create Users
+    title: Create User
     redirect: october/test/users/update/:id
     redirectClose: october/test/users
 
 # Update page
 update:
-    title: Edit Users
+    title: Edit User
     redirect: october/test/users
     redirectClose: october/test/users
 
 # Preview page
 preview:
-    title: Preview Users
+    title: Preview User

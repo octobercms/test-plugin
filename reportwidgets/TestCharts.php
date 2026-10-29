@@ -1,17 +1,22 @@
 <?php namespace October\Test\ReportWidgets;
 
 use Dashboard\Classes\ReportWidgetBase;
-use Exception;
 
 /**
- * TestCharts Report Widget
+ * TestCharts is a dashboard report widget that tests the pie, bar and line chart controls for initialization issues.
  *
- * Tests chart controls (pie, bar, line) for initialization issues.
+ * @link https://docs.octobercms.com/4.x/extend/dashboards/report-widgets.html
  */
 class TestCharts extends ReportWidgetBase
 {
+    /**
+     * @var string defaultAlias to identify this widget
+     */
     protected $defaultAlias = 'TestChartsReportWidget';
 
+    /**
+     * defineProperties returns the Inspector properties for the widget.
+     */
     public function defineProperties()
     {
         return [
@@ -28,23 +33,11 @@ class TestCharts extends ReportWidgetBase
         ];
     }
 
+    /**
+     * render the widget
+     */
     public function render()
     {
-        try {
-            $this->prepareVars();
-        }
-        catch (Exception $ex) {
-            $this->vars['error'] = $ex->getMessage();
-        }
-
         return $this->makePartial('testcharts');
-    }
-
-    public function prepareVars()
-    {
-    }
-
-    protected function loadAssets()
-    {
     }
 }

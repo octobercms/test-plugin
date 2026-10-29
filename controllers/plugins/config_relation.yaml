@@ -1,3 +1,7 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
 reviews:
     label: Review
     list: $/october/test/models/review/columns.yaml
@@ -5,4 +9,3 @@ reviews:
     popupSize: 1400
     view:
         showSetup: true
-

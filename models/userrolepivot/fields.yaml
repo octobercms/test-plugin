@@ -26,7 +26,7 @@ fields:
         list: $/october/test/models/country/columns_simple.yaml
         comment: Record finder inside a popup.
 
-    # Unsupported
+    # Testing a file upload on a pivot model, which is unsupported, to see how the pivot form handles it
     pivot[pic]:
         span: auto
         label: Photo

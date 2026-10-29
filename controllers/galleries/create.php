@@ -1,8 +1,9 @@
+<?php /* Testing browser validation on save in a hand built form */ ?>
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('october/test/galleries') ?>">Galleries</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= Backend::url('october/test/galleries') ?>"><?= __("Galleries") ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= e($this->pageTitle) ?></li>
+    </ol>
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
@@ -14,28 +15,27 @@
         </div>
 
         <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-browser-validate
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating Gallery..."
-                    class="btn btn-primary">
-                    Create
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-browser-validate
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating Gallery..."
-                    class="btn btn-default">
-                    Create and Close
-                </button>
+            <div data-control="loader-container">
+                <?= Ui::ajaxButton(
+                    label: __("Create"),
+                    handler: 'onSave',
+                    primary: true,
+                    hotkey: ['ctrl+s', 'cmd+s'],
+                    dataBrowserValidate: true
+                ) ?>
+
+                <?= Ui::ajaxButton(
+                    label: __("Create & Close"),
+                    handler: 'onSave',
+                    secondary: true,
+                    hotkey: ['ctrl+enter', 'cmd+enter'],
+                    dataRequestData: "close: true",
+                    dataBrowserValidate: true
+                ) ?>
+
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/galleries') ?>">Cancel</a>
+                    <span class="button-separator"><?= __("or") ?></span>
+                    <a href="<?= Backend::url('october/test/galleries') ?>"><?= __("Cancel") ?></a>
                 </span>
             </div>
         </div>
@@ -44,7 +44,6 @@
 
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('october/test/galleries') ?>" class="btn btn-default">Return to galleries list</a></p>
+    <?= $this->formRenderDesign() ?>
 
 <?php endif ?>

@@ -1,0 +1,10 @@
+# ===================================
+#  Export Column Definitions
+# ===================================
+
+columns:
+    id: ID
+    title: Title
+    type: Type
+    status: Status
+    parent_id: Parent ID

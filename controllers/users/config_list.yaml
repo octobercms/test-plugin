@@ -34,9 +34,6 @@ defaultSort:
     column: updated_at
     direction: desc
 
-# Display checkboxes next to each record
-# showCheckboxes: true
-
 # Toolbar widget configuration
 toolbar:
     # Partial for toolbar buttons
@@ -45,4 +42,3 @@ toolbar:
     # Search widget configuration
     search:
         prompt: backend::lang.list.search_prompt
-

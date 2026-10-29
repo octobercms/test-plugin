@@ -1,17 +1,18 @@
 uuid: 2c04cc66-f217-462c-9451-d130ea482565
 handle: Test\Blog\CommentContent
 type: mixin
-name: Test Blog Post Content
+name: Test Blog Comment Content
 
 fields:
     author:
         tab: Manage
         label: Author
-        commentAbove: 'Select the author for this blog post'
+        commentAbove: 'Select the author for this comment'
         type: entries
         maxItems: 1
         source: Test\Blog\Authors
 
+    # Testing a recordfinder content field that links to a plugin model
     products:
         label: Products
         tab: Products
@@ -19,4 +20,3 @@ fields:
         modelClass: October\Test\Models\Product
         list: $/october/test/models/product/columns.yaml
         maxItems: 1
-        # displayMode: controller

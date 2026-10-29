@@ -11,29 +11,24 @@ class Channel extends Model
     use \October\Rain\Database\Traits\SoftDelete;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_channels';
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array jsonable fields
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = ['services'];
 
     /**
-     * @var array belongsTo
+     * @var array belongsTo relations
      */
     public $belongsTo = [
         'user' => User::class
     ];
 
     /**
-     * @var array belongsToMany
+     * @var array belongsToMany relations, where related is a self referencing relation
      */
     public $belongsToMany = [
         'related' => [
@@ -44,7 +39,7 @@ class Channel extends Model
     ];
 
     /**
-     * getCustomTitleAttribute
+     * getCustomTitleAttribute returns the title with the record ID.
      */
     public function getCustomTitleAttribute()
     {
@@ -52,7 +47,7 @@ class Channel extends Model
     }
 
     /**
-     * getBasicFieldOptions
+     * getBasicFieldOptions returns plain options with a label only.
      */
     public function getBasicFieldOptions()
     {
@@ -64,7 +59,7 @@ class Channel extends Model
     }
 
     /**
-     * getSimpleRadioOptions
+     * getSimpleFieldOptions returns options with a label and a comment.
      */
     public function getSimpleFieldOptions()
     {
@@ -75,29 +70,28 @@ class Channel extends Model
     }
 
     /**
-     * getAdvancedRadioOptions
+     * getAdvancedFieldOptions returns options with icons, colors, child options and a disabled state.
      */
     public function getAdvancedFieldOptions()
     {
         return [
             100 => [
                 'label' => 'Option 100',
-                'comment' => 'This is option one',
-                'icon' => 'icon-cogs',
+                'comment' => 'This is option one (disabled)',
+                'icon' => 'ph ph-gear-six',
                 'disabled' => true,
             ],
             200 => [
                 'label' => 'Option 200',
-                'comment' => 'This is option two (disabled)',
+                'comment' => 'This is option two',
                 'children' => $this->getSimpleFieldOptions(),
                 'color' => '#ff0000',
-                // 'readOnly' => true,
             ]
         ];
     }
 
     /**
-     * getBasicChildFieldOptions
+     * getBasicChildFieldOptions returns options inside an option group.
      */
     public function getBasicChildFieldOptions()
     {
@@ -107,29 +101,7 @@ class Channel extends Model
                 'children' => [
                     1 => 'Option 1',
                     2 => 'Option 2',
-                    // ...
                 ]
-            ],
-        ];
-
-        $categories = [
-            'Option Group' => [
-                'optgroup' => true,
-                'children' => [
-                    1 => 'Option 1',
-                    2 => 'Option 2',
-                ]
-            ],
-        ];
-
-        $arAdditionFields = [
-            'bling_category_id'     => [
-                'tab'      => 'Bling ERP',
-                'label'    => 'Categoria relacionada',
-                'type'     => 'dropdown',
-                'span'     => 'storm',
-                'cssClass' => 'col-md-6',
-                'options'  => $categories
             ],
         ];
     }

@@ -2,13 +2,11 @@
 
 use Tailor\Classes\ContentFieldBase;
 use October\Contracts\Element\FormElement;
-use October\Contracts\Element\ListElement;
-use October\Contracts\Element\FilterElement;
 
 /**
  * MyContentField Content Field
  *
- * @link https://docs.octobercms.com/3.x/extend/tailor-fields.html
+ * @link https://docs.octobercms.com/4.x/extend/tailor-fields.html
  */
 class MyContentField extends ContentFieldBase
 {

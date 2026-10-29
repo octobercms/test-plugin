@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Channel
 # Default redirect location
 defaultRedirect: october/test/trees
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Channel
@@ -23,7 +27,7 @@ create:
 # Update page
 update:
     title: Edit Channel
-    redirect: october/test/channels
+    redirect: october/test/trees
     redirectClose: october/test/trees
 
 # Preview page

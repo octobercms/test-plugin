@@ -11,21 +11,17 @@ form: $/october/test/models/tag/fields_simple.yaml
 # Model Class name
 modelClass: October\Test\Models\Tag
 
-# Default redirect location
+# Default redirect location, unused since the popup handlers do not return the redirect
 defaultRedirect: october/test/posts
 
 # Create page
 create:
-    title: Create Tags
-    redirect: october/test/tags/update/:id
-    redirectClose: october/test/tags
+    title: Create Tag
 
 # Update page
 update:
-    title: Edit Tags
-    redirect: october/test/tags
-    redirectClose: october/test/tags
+    title: Edit Tag
 
 # Preview page
 preview:
-    title: Preview Tags
+    title: Preview Tag

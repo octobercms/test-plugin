@@ -1,12 +1,12 @@
 <?php namespace October\Test\Classes;
 
 /**
- * BetwixtRule checks if the content is between two ferns.
+ * BetwixtRule checks the content length is between the start and end parameters.
  */
 class BetwixtRule
 {
     /**
-     * validate between start and end parameters.
+     * validate passes when the value length is greater than the start parameter and less than the end parameter.
      */
     public function validate($attribute, $value, $params)
     {
@@ -16,8 +16,7 @@ class BetwixtRule
     }
 
     /**
-     * message gets the validation error message.
-     * @return string
+     * message returns the validation error message, where :start and :end are filled by replace.
      */
     public function message()
     {
@@ -25,8 +24,7 @@ class BetwixtRule
     }
 
     /**
-     * replace defines custom placeholder replacements.
-     * @return string
+     * replace fills the :start and :end placeholders with the rule parameters.
      */
     public function replace($message, $attribute, $rule, $params)
     {

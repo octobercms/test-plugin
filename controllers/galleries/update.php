@@ -1,8 +1,9 @@
+<?php /* Testing browser validation on save together with the change monitor, in a hand built form */ ?>
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('october/test/galleries') ?>">Galleries</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= Backend::url('october/test/galleries') ?>"><?= __("Galleries") ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= e($this->pageTitle) ?></li>
+    </ol>
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
@@ -14,36 +15,40 @@
         </div>
 
         <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-browser-validate
-                    data-request-data="redirect:0"
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Gallery..."
-                    class="btn btn-primary">
-                    <u>S</u>ave
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-browser-validate
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Gallery..."
-                    class="btn btn-default">
-                    Save and Close
-                </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="Deleting Gallery..."
-                    data-request-confirm="Delete this gallery?">
-                </button>
+            <div data-control="loader-container">
+                <?= Ui::ajaxButton(
+                    label: __("Save"),
+                    handler: 'onSave',
+                    primary: true,
+                    hotkey: ['ctrl+s', 'cmd+s'],
+                    dataRequestData: "redirect: false",
+                    dataBrowserValidate: true,
+                    dataChangeMonitorCommit: true
+                ) ?>
+
+                <?= Ui::ajaxButton(
+                    label: __("Save & Close"),
+                    handler: 'onSave',
+                    secondary: true,
+                    hotkey: ['ctrl+enter', 'cmd+enter'],
+                    dataRequestData: "close: true",
+                    dataBrowserValidate: true,
+                    dataChangeMonitorCommit: true
+                ) ?>
+
+                <?= Ui::iconButton(
+                    label: __("Delete"),
+                    icon: 'ph ph-trash',
+                    handler: 'onDelete',
+                    danger: true,
+                    class: 'pull-right',
+                    dataRequestConfirm: __("Delete this record?"),
+                    dataChangeMonitorCommit: true
+                ) ?>
+
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('october/test/galleries') ?>">Cancel</a>
+                    <span class="button-separator"><?= __("or") ?></span>
+                    <a href="<?= Backend::url('october/test/galleries') ?>"><?= __("Cancel") ?></a>
                 </span>
             </div>
         </div>
@@ -52,7 +57,6 @@
 
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('october/test/galleries') ?>" class="btn btn-default">Return to galleries list</a></p>
+    <?= $this->formRenderDesign() ?>
 
 <?php endif ?>

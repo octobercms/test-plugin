@@ -5,7 +5,7 @@
             name="<?= $field->getName() ?>[first_value]"
             value="<?= e($field->value['first_value'] ?? '') ?>"
             class="form-control"
-            style="color: <?= $field->firstColor ?: 'red' ?>"
+            style="color: <?= e($field->firstColor ?: 'red') ?>"
         />
     </div>
     <div class="col">
@@ -14,7 +14,7 @@
             name="<?= $field->getName() ?>[second_value]"
             value="<?= e($field->value['second_value'] ?? '') ?>"
             class="form-control"
-            style="color: <?= $field->secondColor ?: 'blue' ?>"
+            style="color: <?= e($field->secondColor ?: 'blue') ?>"
         />
     </div>
 </div>

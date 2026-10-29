@@ -3,6 +3,7 @@
 # ===================================
 
 columns:
+    # Testing a column that is not clickable, so its button opens a link instead of the record
     google_button:
         label: Action
         type: partial
@@ -11,7 +12,7 @@ columns:
         cssClass: column-button
         valueFrom: id
         width: 150px
-        path: google_button
+        path: column_google_button
 
     name:
         label: Name
@@ -23,4 +24,8 @@ columns:
 
     is_active:
         label: Active
+        type: switch
+
+    is_default:
+        label: Default
         type: switch

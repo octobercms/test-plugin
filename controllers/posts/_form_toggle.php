@@ -1,3 +1,4 @@
+<?php /* Testing form contexts, each link opens this form with fields for that context */ ?>
 <?php
     $uriPrefix = $formModel->exists
         ? 'october/test/posts/update/'.$formModel->id
@@ -5,7 +6,7 @@
 ?>
 <div class="callout callout-warning no-subheader">
     <div class="header">
-        <i class="icon-database"></i>
+        <i class="ph ph-database"></i>
         <h3>Alternate views</h3>
     </div>
     <div class="content">

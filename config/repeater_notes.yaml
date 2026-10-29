@@ -1,5 +1,5 @@
 # ===================================
-#  Used as a Simple Repeater
+#  Form for the country notes field and test-theme theme.yaml
 # ===================================
 
 fields:
@@ -8,6 +8,7 @@ fields:
         span: full
         type: richeditor
 
+    # Testing a recordfinder inside a repeater with useRelation disabled, so it stores the selected ID
     person:
         tab: Additional Information
         label: Standalone Record Finder

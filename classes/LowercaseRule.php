@@ -1,36 +1,20 @@
 <?php namespace October\Test\Classes;
 
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
+
 /**
- * LowercaseRule checks if the content is uppercase.
+ * LowercaseRule checks if the content is lowercase, as a local rule object.
  */
-class LowercaseRule implements \Illuminate\Contracts\Validation\Rule
+class LowercaseRule implements ValidationRule
 {
     /**
-     * passes
+     * validate fails the attribute when its value is not lowercase.
      */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        return $this->validate($attribute, $value, []);
-    }
-
-    /**
-     * validate determines if the validation rule passes.
-     * @param string $attribute
-     * @param mixed $value
-     * @param array $params
-     * @return bool
-     */
-    public function validate($attribute, $value, $params)
-    {
-        return strtolower($value) === $value;
-    }
-
-    /**
-     * message gets the validation error message.
-     * @return string
-     */
-    public function message()
-    {
-        return 'The :attribute must be lowercase.';
+        if (strtolower($value) !== $value) {
+            $fail('The :attribute must be lowercase.');
+        }
     }
 }

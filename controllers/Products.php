@@ -1,6 +1,5 @@
 <?php namespace October\Test\Controllers;
 
-use Event;
 use BackendMenu;
 use Backend\Classes\Controller;
 
@@ -9,6 +8,9 @@ use Backend\Classes\Controller;
  */
 class Products extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class
@@ -25,6 +27,11 @@ class Products extends Controller
     public $listConfig = 'config_list.yaml';
 
     /**
+     * @var array requiredPermissions to view this page
+     */
+    public $requiredPermissions = ['october.test.manage_products'];
+
+    /**
      * __construct the controller
      */
     public function __construct()
@@ -32,28 +39,23 @@ class Products extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.Test', 'test', 'products');
-
-        // Adds a field to the primary model but not when used as a pivot form
-        Event::listen('backend.form.extendFields', function ($widget) {
-            if (
-                !$widget->getController() instanceof \October\Test\Controllers\Products ||
-                !$widget->getModel() instanceof \October\Test\Models\Product ||
-                $widget->getContext() === 'pivot'
-            ) {
-                return;
-            }
-
-            $widget->addField('garbage', [
-                'label' => 'Garbage Field'
-            ]);
-        });
     }
 
     /**
-     * formBeforeSave
+     * formExtendFields adds a field to the product form only, since relation and pivot forms do not call it.
+     */
+    public function formExtendFields($form)
+    {
+        $form->addFields([
+            'extended_note' => ['label' => 'Extended Note'],
+        ]);
+    }
+
+    /**
+     * formBeforeSave uppercases the title, testing formSetSaveValue.
      */
     public function formBeforeSave($model)
     {
-        $this->formSetSaveValue('title', strtoupper(post('Product[title]')));
+        $this->formSetSaveValue('title', strtoupper((string) post('Product[title]')));
     }
 }

@@ -1,5 +1,6 @@
 <?= Form::open(['id' => 'createForm']) ?>
 
+    <?php /* Testing a mode flag posted with every request, so the constructor picks the comment or tag form config */ ?>
     <?php if ($mode == 'comment'): ?>
         <input type="hidden" name="comment_mode" value="1" />
     <?php elseif ($mode == 'tag'): ?>
@@ -7,7 +8,7 @@
     <?php endif ?>
 
     <div class="modal-header">
-        <h4 class="modal-title">Create <?= $mode ?></h4>
+        <h4 class="modal-title"><?= e(__("Create :name", ['name' => $formRecordName])) ?></h4>
         <button type="button" class="btn-close" data-dismiss="popup"></button>
     </div>
 
@@ -17,45 +18,35 @@
             <?= $this->formRender() ?>
         </div>
         <div class="modal-footer">
-            <button
-                type="submit"
-                data-request="onCreate"
-                data-request-data="redirect:0"
-                data-hotkey="ctrl+s, cmd+s"
-                data-popup-load-indicator
-                class="btn btn-primary">
-                <?= e(trans('backend::lang.form.create')) ?>
-            </button>
+            <?= Ui::ajaxButton(
+                label: __("Create"),
+                handler: 'onCreateRecord',
+                primary: true,
+                hotkey: ['ctrl+s', 'cmd+s'],
+                type: 'submit',
+                dataPopupLoadIndicator: true
+            ) ?>
 
-            <button
-                type="button"
-                class="btn btn-default"
-                data-dismiss="popup">
-                <?= e(trans('backend::lang.form.cancel')) ?>
-            </button>
+            <?= Ui::button(
+                label: __("Cancel"),
+                secondary: true,
+                dataDismiss: 'popup'
+            ) ?>
         </div>
 
     <?php else: ?>
 
         <div class="modal-body">
-            <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+            <p class="flash-message static error"><?= e($this->fatalError) ?></p>
         </div>
         <div class="modal-footer">
-            <button
-                type="button"
-                class="btn btn-default"
-                data-dismiss="popup">
-                <?= e(trans('backend::lang.form.close')) ?>
-            </button>
+            <?= Ui::button(
+                label: __("Close"),
+                secondary: true,
+                dataDismiss: 'popup'
+            ) ?>
         </div>
 
     <?php endif ?>
-
-    <script>
-        setTimeout(
-            function(){ $('#createForm input.form-control:first').focus() },
-            310
-        )
-    </script>
 
 <?= Form::close() ?>

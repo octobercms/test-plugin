@@ -14,6 +14,10 @@ modelClass: October\Test\Models\City
 # Default redirect location
 defaultRedirect: october/test/cities
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create City

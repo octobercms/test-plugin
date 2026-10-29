@@ -12,6 +12,6 @@
     <button
         class="btn btn-sm btn-search"
         data-filter-action="apply">
-        <i class="icon-search"></i>
+        <i class="ph ph-magnifying-glass"></i>
     </button>
 </div>

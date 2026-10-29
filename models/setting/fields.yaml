@@ -1,3 +1,7 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
 tabs:
     fields:
         show_all_tests:
@@ -5,7 +9,7 @@ tabs:
             label: Show all tests
             comment: Check this to make sure all tests are visible
             type: switch
-            default: 1
+            default: true
             tab: General
 
         title:
@@ -17,7 +21,6 @@ tabs:
             tab: General
 
         footer:
-            translatable: true
             type: nestedform
             showPanel: false
             form: $/october/test/models/setting/nestedform.yaml
@@ -50,5 +53,5 @@ tabs:
             tab: Properties
             label: JSON Attributes
             type: partial
-            path: $/october/test/models/setting/_json_values.php
+            path: field_json_values
             dependsOn: ['image_properties', 'properties']

@@ -2,6 +2,11 @@
 
 use Backend\Classes\FilterWidgetBase;
 
+/**
+ * Discount is a filter widget that captures a value with a popover form, matching the filter widgets docs example.
+ *
+ * @link https://docs.octobercms.com/4.x/extend/lists/filter-widgets.html
+ */
 class Discount extends FilterWidgetBase
 {
     /**
@@ -10,7 +15,7 @@ class Discount extends FilterWidgetBase
     public $allowSearch = false;
 
     /**
-     * {@inheritDoc}
+     * init the widget
      */
     public function init()
     {
@@ -20,7 +25,7 @@ class Discount extends FilterWidgetBase
     }
 
     /**
-     * @inheritDoc
+     * render the filter label and its current state
      */
     public function render()
     {
@@ -45,7 +50,7 @@ class Discount extends FilterWidgetBase
     }
 
     /**
-     * getActiveValue
+     * getActiveValue captures the filter form values, or returns null to clear the scope.
      */
     public function getActiveValue()
     {
@@ -61,12 +66,13 @@ class Discount extends FilterWidgetBase
     }
 
     /**
-     * applyScopeToQuery
+     * applyScopeToQuery applies the captured value to the list query.
      */
     public function applyScopeToQuery($query)
     {
         $hasDiscount = $this->filterScope->value;
 
+        // Testing a placeholder condition, since the users table has no discount column like the docs example
         if ($hasDiscount) {
             $query->where('id', 1);
         }

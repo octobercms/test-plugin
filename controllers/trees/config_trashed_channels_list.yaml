@@ -1,0 +1,23 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Testing a trashed only list for restoring soft deleted channels, with no structure block because trashed nodes keep stale nest values
+
+# Model List Column configuration
+list: $/october/test/models/channel/columns.yaml
+
+# Model Class name
+modelClass: October\Test\Models\Channel
+
+# List Title
+title: Trashed Channels
+
+# Link URL for each record, the update page shows the restore button
+recordUrl: october/test/channels/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: There are no trashed channels.
+
+# Records to display per page
+recordsPerPage: 20

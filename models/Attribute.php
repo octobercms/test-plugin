@@ -13,17 +13,7 @@ class Attribute extends Model
     const GENERAL_TYPE = 'general.type';
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_attributes';
-
-    /**
-     * @var array Guarded fields
-     */
-    protected $guarded = [];
-
-    /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
 }

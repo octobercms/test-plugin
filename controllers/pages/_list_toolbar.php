@@ -1,32 +1,35 @@
 <div data-control="toolbar">
-    <a
-        href="<?= Backend::url('october/test/pages/create') ?>"
-        class="btn btn-primary oc-icon-plus">
-        New Page
-    </a>
+    <?= Ui::button(
+        label: __("New Page"),
+        href: Backend::url('october/test/pages/create'),
+        icon: 'ph ph-plus',
+        primary: true
+    ) ?>
 
-    <button
-        class="btn btn-danger oc-icon-trash-o"
-        disabled="disabled"
-        onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
-        data-request="onDelete"
-        data-request-confirm="Are you sure you want to delete the selected Pages?"
-        data-trigger-action="enable"
-        data-trigger=".control-list input[type=checkbox]"
-        data-trigger-condition="checked"
-        data-request-success="$(this).prop('disabled', 'disabled')"
-        data-stripe-load-indicator>
-        Delete selected
-    </button>
+    <div class="toolbar-divider"></div>
 
-    <a
-        href="<?= Backend::url('october/test/pages/export') ?>"
-        class="btn btn-default oc-icon-download">
-        Export Records
-    </a>
-    <a
-        href="<?= Backend::url('october/test/pages/import') ?>"
-        class="btn btn-default oc-icon-upload">
-        Import Records
-    </a>
+    <?= Ui::ajaxButton(
+        label: __("Delete Selected"),
+        handler: 'onDelete',
+        icon: 'ph ph-trash',
+        secondary: true,
+        dataRequestConfirm: __("Delete the selected records?"),
+        dataListCheckedTrigger: true,
+        dataListCheckedRequest: true,
+        disabled: true
+    ) ?>
+
+    <?= Ui::button(
+        label: __("Export Records"),
+        href: Backend::url('october/test/pages/export'),
+        icon: 'ph ph-download-simple',
+        secondary: true
+    ) ?>
+
+    <?= Ui::button(
+        label: __("Import Records"),
+        href: Backend::url('october/test/pages/import'),
+        icon: 'ph ph-upload-simple',
+        secondary: true
+    ) ?>
 </div>

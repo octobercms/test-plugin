@@ -11,14 +11,9 @@ use October\Test\Models\Order;
 class DataTableFieldTest extends PluginTestCase
 {
     /**
-     * setUp
+     * @var bool useTransactions isolates each test with a database transaction
      */
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->migrateDatabase();
-    }
+    protected $useTransactions = true;
 
     /**
      * testTopLevelDataTableRoundTrip verifies a top-level datatable field

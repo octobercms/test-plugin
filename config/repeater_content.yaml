@@ -1,14 +1,16 @@
 # ===================================
-#  Used by Grouped Repeater
+#  Groups for the country content field and test-theme layouts/staticpage.htm
 # ===================================
 
+# Testing a group code with an underscore prefix, which the repeater skips
 _ignored:
     name: Ignore this group
 
+# Testing a group that loads this file again, so repeaters can nest recursively
 recurse:
     name: Recurse
     description: Repeater recursion
-    icon: icon-refresh
+    icon: ph ph-arrows-clockwise
     fields:
         children:
             label: Content
@@ -21,7 +23,7 @@ textarea:
     name: Textarea
     description: Basic text field
     titleFrom: text_area
-    icon: icon-file-text-o
+    icon: ph ph-file-text
     useTabs: true
     fields:
         text_area:
@@ -41,7 +43,7 @@ textarea:
 quote:
     name: Quote
     description: Quote item
-    icon: icon-quote-right
+    icon: ph ph-quotes
     titleFrom: quote_content
     fields:
         quote_position:
@@ -62,7 +64,7 @@ quote:
 image:
     name: Image
     description: Pick something from the media library
-    icon: icon-photo
+    icon: ph ph-image
     fields:
         img_upload:
             span: auto
@@ -84,17 +86,18 @@ image:
 taglist:
     name: Tag list
     description: Tag list in string mode
-    icon: icon-tags
+    icon: ph ph-tag
     fields:
         tags:
             label: Tag list
             type: taglist
             mode: string
 
+# Testing a nested form inside a repeater group
 nestedform:
     name: Nested Form
     description: Testing a nested form
-    icon: icon-cogs
+    icon: ph ph-gear-six
     fields:
         content:
             type: nestedform
@@ -110,5 +113,3 @@ nestedform:
                     title:
                         label: This is the title
                         type: text
-
-

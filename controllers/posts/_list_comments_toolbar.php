@@ -1,8 +1,9 @@
 <div data-control="toolbar">
-    <a
-        href="#"
-        data-control="popup"
-        data-handler="onCreateForm"
-        data-request-data="comment_mode: 1"
-        class="btn btn-primary oc-icon-plus">New Comment</a>
+    <?= Ui::popupButton(
+        label: __("New Comment"),
+        handler: 'onLoadCreateForm',
+        icon: 'ph ph-plus',
+        primary: true,
+        requestData: ['comment_mode' => 1]
+    ) ?>
 </div>

@@ -65,10 +65,10 @@ tabs:
                         label: Stars
                         options:
                             "1": 1 Star
-                            "2": 2 Star
-                            "3": 3 Star
-                            "4": 4 Star
-                            "5": 5 Star
+                            "2": 2 Stars
+                            "3": 3 Stars
+                            "4": 4 Stars
+                            "5": 5 Stars
                         span: row
                         spanClass: col-md-3
                     aspect:
@@ -77,6 +77,7 @@ tabs:
                         type: text
                         span: row
                         spanClass: col-md-9
+                        # Testing required marker for a wildcard repeater rule (breakdown.*.aspect)
                         required: true
                     position:
                         type: text

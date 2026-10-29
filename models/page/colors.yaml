@@ -1,8 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
 secondaryTabs:
-  fields:
-    primary:
-      tab: Primary Color
-      type: colorpicker
-    secondary:
-      tab: Secondary Color
-      type: colorpicker
+    fields:
+        primary:
+            tab: Primary Color
+            type: colorpicker
+        secondary:
+            tab: Secondary Color
+            type: colorpicker

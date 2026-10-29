@@ -14,18 +14,22 @@ modelClass: October\Test\Models\ProductCategory
 # Default redirect location
 defaultRedirect: october/test/productcategories
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: backend::lang.form.create_title
+    title: Create Product Category
     redirect: october/test/productcategories/update/:id
     redirectClose: october/test/productcategories
 
 # Update page
 update:
-    title: backend::lang.form.update_title
+    title: Edit Product Category
     redirect: october/test/productcategories
     redirectClose: october/test/productcategories
 
 # Preview page
 preview:
-    title: backend::lang.form.preview_title
+    title: Preview Product Category

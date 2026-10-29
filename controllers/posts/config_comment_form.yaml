@@ -11,21 +11,17 @@ form: $/october/test/models/comment/fields_simple.yaml
 # Model Class name
 modelClass: October\Test\Models\Comment
 
-# Default redirect location
+# Default redirect location, unused since the popup handlers do not return the redirect
 defaultRedirect: october/test/posts
 
 # Create page
 create:
-    title: Create Comments
-    redirect: october/test/posts/update/:id
-    redirectClose: october/test/posts
+    title: Create Comment
 
 # Update page
 update:
-    title: Edit Comments
-    redirect: october/test/posts
-    redirectClose: october/test/posts
+    title: Edit Comment
 
 # Preview page
 preview:
-    title: Preview Comments
+    title: Preview Comment

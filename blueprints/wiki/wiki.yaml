@@ -2,12 +2,14 @@ uuid: 66ee3772-c72e-4e04-884e-931268ca32e2
 handle: Test\Wiki
 type: structure
 name: Test Wiki
-maxDepth: 3
-useDrafts: true
+drafts: true
+
+structure:
+    maxDepth: 3
 
 navigation:
     parent: Test\Blog
-    icon: icon-wikipedia-w
+    icon: ph ph-book-open
 
 fields:
     content:
@@ -36,8 +38,3 @@ fields:
         type: mixin
         source: Test\Wiki\Widgets
         tab: Widgets
-
-    builder:
-        type: mixin
-        source: Test\Wiki\Builder
-        tab: Builder

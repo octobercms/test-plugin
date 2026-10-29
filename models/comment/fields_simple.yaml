@@ -25,17 +25,18 @@ tabs:
         name:
             label: Name
             commentAbove: Text field, inside a popup.
+            autoFocus: true
             trigger:
                 action: hide
                 field: _type
                 condition: value[hide]
 
-        # PHP 8.1
-        # status:
-        #     label: Status
-        #     commentAbove: Enum based options
-        #     type: dropdown
-        #     span: auto
+        # Testing dropdown options for an attribute cast to a backed enum
+        status:
+            label: Status
+            commentAbove: Enum based options
+            type: dropdown
+            span: auto
 
         quotes:
             label: Quotes

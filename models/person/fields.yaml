@@ -24,7 +24,7 @@ fields:
     # Testing form field with no config
     preferred_name:
 
-    # Nullable
+    # Testing a nullable attribute, where the empty option saves null instead of zero
     is_married:
         label: Married
         span: auto
@@ -38,7 +38,7 @@ fields:
         label: AJAX Options
         span: auto
         comment: These options should be populated using AJAX
-        path: $/october/test/controllers/people/_ajax_options.htm
+        path: field_ajax_options
         type: partial
 
     # Record Finder (Default)
@@ -54,12 +54,19 @@ fields:
         searchScope: customSearch
         inlineOptions: false
 
-    # Relation Controller
+    # Testing RelationController rendered through a partial field, type: relation with useController is the recommended form
     phone@relationcontroller:
         label: Relation Controller
         commentAbove: RelationController used as a partial field type.
         type: partial
         path: phone
+
+    # Relation Field
+    phone@relation:
+        label: Relation Field
+        commentAbove: RelationController rendered by a relation field, reusing the phone definition in config_relation.yaml.
+        type: relation
+        useController: true
 
     # Proxy Fields
     _section_proxy_fields:
@@ -107,6 +114,10 @@ tabs:
     lazy:
         - Birthday
         - Activities
+    icons:
+        Birthday: ph ph-cake
+        Activities: ph ph-person-simple-run
+        Account: ph ph-key
     fields:
 
         birth:
@@ -169,6 +180,7 @@ tabs:
                 mountain: Mountain
                 motorised: Motorised
 
+        # Testing a checkbox list with a long list of options
         hobbies:
             label: Hobbies
             tab: Activities
@@ -209,3 +221,29 @@ tabs:
                 crossword puzzles: Crossword puzzles
                 cryptography: Cryptography
                 cue-sports: Cue sports
+
+        _account_hint:
+            type: hint
+            mode: info
+            label: Account Details
+            comment: The API key stays hidden until it is revealed, and the password is never saved.
+            tab: Account
+
+        email:
+            label: Email
+            type: email
+            span: auto
+            tab: Account
+
+        api_key:
+            label: API Key
+            type: sensitive
+            span: auto
+            tab: Account
+
+        # Testing a password field that is never saved, since fields starting with an underscore are purged before saving
+        _password:
+            label: Password
+            type: password
+            span: auto
+            tab: Account

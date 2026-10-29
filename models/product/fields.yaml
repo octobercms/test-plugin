@@ -5,7 +5,6 @@
 fields:
     title:
         label: Product Name
-        required: true
         span: auto
         default: Sneakers
 
@@ -27,13 +26,9 @@ fields:
 tabs:
     fields:
         content:
-            # label: Content
             type: richeditor
-            # legacyMode: true
-            # type: markdown
             tab: Content
             stretch: true
-            # toolbarButtons: undo|redo
 
         location_built:
             label: Location Built
@@ -87,6 +82,9 @@ tabs:
             tab: Media
             label: Display mode
             type: dropdown
+            options:
+                full: Full page
+                summary: Summary only
             trigger:
                 field: featured_page
                 action: enable
@@ -106,7 +104,7 @@ tabs:
                 fields:
                     dropdown_field:
                         type: dropdown
-                        options: getDropdownOptions
+                        options: getBulkDropdownOptions
                     bulk_quantity:
                         type: number
                         placeholder: Quantity
@@ -159,7 +157,6 @@ tabs:
                 label: Offer
                 form: $/october/test/models/productoffer/fields.yaml
                 list: $/october/test/models/productoffer/columns.yaml
-
 
         _partial_folder:
             label: Select Folder

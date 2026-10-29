@@ -1,0 +1,26 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Item
+        searchable: true
+
+    product_title:
+        label: Product
+        relation: product
+        select: title
+
+    quantity:
+        label: Quantity
+        type: number
+
+    price:
+        label: Price
+        type: number
+
+    total:
+        label: Total
+        type: number
+        sortable: false

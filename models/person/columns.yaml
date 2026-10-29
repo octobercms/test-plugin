@@ -7,17 +7,17 @@ columns:
         label: ID
         searchable: true
         type: partial
-        path: $/october/test/controllers/people/_id.htm
+        path: column_id
         sortable: false
         tooltip:
             title: I cannot be sorted
-            icon: icon-warning
+            icon: ph ph-warning
 
     name:
         label: Name
         searchable: true
         type: partial
-        path: $/october/test/controllers/people/_name.htm
+        path: column_name
         tooltip: This is the full name
 
     bio:

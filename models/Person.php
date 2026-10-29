@@ -11,44 +11,47 @@ class Person extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_people';
 
     /**
-     * @var array Guarded fields
+     * @var array attributes with default values for new records, testing a model driven default for preferred_name
      */
-    protected $guarded = [];
+    public $attributes = [
+        'preferred_name' => 'Joey',
+    ];
 
     /**
-     * @var array fillable fields
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'preferred_name', 'is_married', 'hobbies', 'sports'];
 
     /**
-     * @var array List of attribute names which are json encoded and decoded from the database.
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = ['hobbies', 'sports'];
 
     /**
-     * @var array List of attribute names which should be set to null when empty.
+     * @var array nullable attributes set to null when empty
      */
     protected $nullable = ['is_married'];
 
     /**
-     * @var array Dates
+     * @var array dates attributes that should be mutated to dates
      */
-    public $dates = ['birth', 'birthdate'];
+    protected $dates = ['birth', 'birthdate'];
 
     /**
-     * @var array Rules
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required',
+        'email' => 'nullable|email',
     ];
 
     /**
-     * @var array Relations
+     * @var array hasOne relations, where phone uses a scope and alt_phone matches on the alt_id column
      */
     public $hasOne = [
         'phone' => [
@@ -64,30 +67,10 @@ class Person extends Model
     ];
 
     /**
-     * filterFields
-     */
-    public function filterFields($fields)
-    {
-        // $fields->phone->hidden = true;
-    }
-
-    /**
-     * __construct
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        // Default value, model driven
-        $this->preferred_name = 'Joey';
-    }
-
-    /**
-     * afterCreate
+     * afterCreate sets an alternative ID, used by the alt_phone relation to test hasOne with otherKey on a column other than the primary key.
      */
     public function afterCreate()
     {
-        // Spoof a alternative ID
         $altId = $this->id + 100;
 
         $this->newQueryWithoutScopes()

@@ -17,20 +17,29 @@ class Order extends Model
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'title' => 'required',
+    ];
 
     /**
-     * @var mixed attributes that aren't mass assignable.
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $guarded = false;
+    protected $fillable = ['title', 'line_items', 'blocks', 'block_groups'];
 
     /**
-     * @var array jsonable attributes stored as JSON
+     * @var array jsonable attributes stored as JSON, where line_items, blocks and block_groups hold datatable rows
      */
     protected $jsonable = ['line_items', 'blocks', 'block_groups'];
 
     /**
-     * @var array belongsToMany
+     * @var array hasMany relations, where items are the order lines picked from products
+     */
+    public $hasMany = [
+        'items' => [OrderItem::class, 'delete' => true],
+    ];
+
+    /**
+     * @var array belongsToMany relations, where products tests a relation controller defined inline in the form
      */
     public $belongsToMany = [
         'products' => [

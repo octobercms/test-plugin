@@ -7,6 +7,7 @@ fields:
         label: Name
         span: auto
 
+    # Testing the icons preset, which lists the October icon classes (oc-icon-*)
     preset_icon:
         label: Icon (Preset)
         span: auto
@@ -20,7 +21,7 @@ fields:
         optionsPreset: locales
 
     preset_locales_icons:
-        label: Locales with Icons (Preset)
+        label: Locales with Flags (Preset)
         span: auto
         type: dropdown
-        optionsPreset: localeIcons
+        optionsPreset: flags

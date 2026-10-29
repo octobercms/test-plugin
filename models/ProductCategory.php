@@ -8,7 +8,6 @@ use Model;
 class ProductCategory extends Model
 {
     use \October\Rain\Database\Traits\Multisite;
-    use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\NestedTree;
 
     /**
@@ -17,22 +16,12 @@ class ProductCategory extends Model
     public $table = 'october_test_product_categories';
 
     /**
-     * @var array rules for validation
+     * @var array propagatable attributes to copy to other sites
      */
-    public $rules = [];
+    protected $propagatable = [];
 
     /**
-     * @var mixed attributes that aren't mass assignable.
-     */
-    protected $guarded = false;
-
-    /**
-     * @var array propagatable list of attributes to propagate to other sites.
-     */
-    public $propagatable = [];
-
-    /**
-     * @var bool propagatableSync will enforce model structures between all sites
+     * @var bool propagatableSync keeps the record structure the same across all sites
      */
     protected $propagatableSync = true;
 }

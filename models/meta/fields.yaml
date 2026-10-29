@@ -2,6 +2,7 @@
 #  Form Field Definitions
 # ===================================
 
+# Testing required markers when the rules live on the related Meta model
 fields:
     meta_title:
         label: Meta Title

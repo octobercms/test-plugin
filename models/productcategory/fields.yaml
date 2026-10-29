@@ -5,7 +5,6 @@
 fields:
     name:
         label: Name
-        translatable: site
 
     description:
         label: Description

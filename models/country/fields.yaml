@@ -15,6 +15,11 @@ fields:
             field: name
             type: slug
 
+    is_default:
+        label: Default Country
+        type: switch
+        comment: Saving this country as the default removes the default from every other country.
+
 tabs:
     fields:
         cities:

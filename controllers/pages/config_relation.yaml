@@ -1,3 +1,7 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
 pagebanner:
     label: Page Banner
     form: $/october/test/models/pagebanner/fields.yaml

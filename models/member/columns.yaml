@@ -3,15 +3,12 @@
 # ===================================
 
 columns:
-    # id:
-    #     label: ID
-
     name:
         label: Member
         searchable: true
 
     user:
-        label: user
+        label: User
         relation: user
         select: username
         default: none

@@ -44,7 +44,6 @@ tabs:
             label: All Day?
             tab: Event
             type: switch
-            # default: true
             span: left
 
         start_time:

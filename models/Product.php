@@ -22,27 +22,15 @@ class Product extends Model
      * @var array rules for validation
      */
     public $rules = [
-        'title' => 'unique_site',
+        'title' => 'required|unique_site',
+        // Testing a rule on a relation, which validates the number of related records
         'location_sold' => 'between:0,2'
     ];
 
     /**
-     * @var mixed attributes that aren't mass assignable.
+     * @var array propagatable attributes to copy to other sites
      */
-    protected $guarded = false;
-
-    /**
-     * @var array dates attributes that should be mutated to dates
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at'
-    ];
-
-    /**
-     * @var array propagatable list of attributes to propagate to other sites.
-     */
-    public $propagatable = [
+    protected $propagatable = [
         'title',
         'price',
         'slug',
@@ -50,30 +38,31 @@ class Product extends Model
     ];
 
     /**
-     * @var bool propagatableSync will enforce model structures between all sites
+     * @var bool propagatableSync keeps the record structure the same across all sites
      */
     protected $propagatableSync = true;
 
     /**
-     * @var array slugs for these attributes.
+     * @var array slugs generated from other attributes
      */
     protected $slugs = ['slug' => 'title'];
 
     /**
-     * @var array jsonable attribute names that are json encoded and decoded from the database
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = [
         'prices'
     ];
 
     /**
-     * @var array belongsToMany and other relations
+     * @var array belongsTo relations, where author is a Tailor entry and company includes soft deleted companies
      */
     public $belongsTo = [
         'location_built' => [
             Location::class,
             'key' => 'location_id'
         ],
+        // Testing belongsTo a Tailor entry, see blueprints/blog/authors.yaml
         'author' => [
             \Tailor\Models\EntryRecord::class,
             'blueprint' => 'e183d98c-e7ef-4142-a5d4-f56b596a9fa3'
@@ -84,6 +73,9 @@ class Product extends Model
         ]
     ];
 
+    /**
+     * @var array belongsToMany relations, where categories link by site_root_id so every site copy of a category shares its links
+     */
     public $belongsToMany = [
         'location_sold' => [
             Location::class,
@@ -111,6 +103,7 @@ class Product extends Model
             'otherKey' => 'related_product_id',
             'pivot' => ['group_name']
         ],
+        // Testing belongsToMany Tailor stream records, see blueprints/stream/stream.yaml
         'stream_records' => [
             \Tailor\Models\StreamRecord::class,
             'table' => 'october_test_products_stream_records',
@@ -120,20 +113,29 @@ class Product extends Model
         ],
     ];
 
+    /**
+     * @var array hasMany relations, where offers start the three level nested relation controller
+     */
     public $hasMany = [
         'offers' => [ProductOffer::class, 'delete' => true]
     ];
 
+    /**
+     * @var array attachOne relations
+     */
     public $attachOne = [
         'certificate' => \System\Models\File::class
     ];
 
+    /**
+     * @var array attachMany relations
+     */
     public $attachMany = [
         'gallery' => \System\Models\File::class
     ];
 
     /**
-     * filterFields
+     * filterFields limits the prices repeater to one item unless bulk pricing is turned on.
      */
     public function filterFields($fields)
     {
@@ -148,7 +150,10 @@ class Product extends Model
         }
     }
 
-    public function getDropdownOptions($value, $fieldName, $data)
+    /**
+     * getBulkDropdownOptions returns options that change with bulk_pricing, testing an explicit options method.
+     */
+    public function getBulkDropdownOptions($value, $fieldName, $data)
     {
         if ($this->bulk_pricing) {
             return [
@@ -159,9 +164,9 @@ class Product extends Model
         }
 
         return [
-                0 => 'Bulk Disabled',
-                1 => 'Disabled bulk',
-                2 => 'disabled'
+            0 => 'Bulk Disabled',
+            1 => 'Disabled bulk',
+            2 => 'disabled'
         ];
     }
 }

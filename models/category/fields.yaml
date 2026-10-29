@@ -19,6 +19,7 @@ fields:
 tabs:
     fields:
 
+        # Testing every size of the textarea, rich editor, code editor and markdown fields, using form-only fields
         _textarea_giant:
             type: textarea
             size: giant

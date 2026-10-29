@@ -24,11 +24,12 @@ columns:
         type: selectable
         optionsMethod: getFeelingzOptions
 
-    # PHP 8.1
-    # status:
-    #     label: Status
-    #     type: selectable
+    # Testing a column for an attribute cast to a backed enum
+    status:
+        label: Status
+        type: selectable
 
+    # Testing a column partial borrowed from another model directory through an absolute path
     _dropdown:
         label: Dropdown
         type: partial

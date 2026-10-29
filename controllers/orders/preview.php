@@ -1,19 +1,8 @@
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('october/test/orders') ?>">Orders</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= Backend::url('october/test/orders') ?>"><?= __("Orders") ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= e($this->pageTitle) ?></li>
+    </ol>
 <?php Block::endPut() ?>
 
-<?php if (!$this->fatalError): ?>
-
-    <div class="form-preview">
-        <?= $this->formRenderPreview() ?>
-    </div>
-
-<?php else: ?>
-
-    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('october/test/orders') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
-
-<?php endif ?>
+<?= $this->formRenderDesign() ?>

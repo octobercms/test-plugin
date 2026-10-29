@@ -1,93 +1,84 @@
 <?php namespace October\Test;
 
+use Cache;
+use Event;
 use Backend;
-use October\Test\Classes\LocationDataSource;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
-use Dashboard\Classes\DashManager;
 
 /**
- * Plugin Information File
+ * Plugin registers every feature of the October Test playground with the system.
  */
 class Plugin extends PluginBase
 {
     /**
-     * pluginDetails
+     * pluginDetails returns information about this plugin.
      * @return array
      */
     public function pluginDetails()
     {
         return [
-            'name' => 'October Tester',
-            'description' => 'Used for testing the Relation Controller behavior and others.',
+            'name' => "October Test",
+            'description' => "Demonstrates October CMS features, each one written as reference code.",
             'author' => 'Alexey Bobkov, Samuel Georges',
-            'icon' => 'icon-child',
-            'homepage' => 'https://github.com/daftspunk/oc-test-plugin',
+            'icon' => 'ph ph-person-simple',
+            'homepage' => 'https://github.com/octobercms/test-plugin',
         ];
     }
 
     /**
-     * register the service provider
+     * register adds the console command and the custom validation rules.
      */
     public function register()
     {
         $this->registerConsoleCommand('test.seed-posts', \October\Test\Console\SeedPosts::class);
+        $this->registerValidationRule('all_caps', \October\Test\Classes\UppercaseRule::class);
+        $this->registerValidationRule('betwixt', \October\Test\Classes\BetwixtRule::class);
     }
 
     /**
-     * boot the service provider
+     * boot subscribes to core events through the ExtendCoreFeatures class.
      */
     public function boot()
     {
-        $this->callAfterResolving('validator', function ($validator) {
-            $validator->extend('uppercase', \October\Test\Classes\UppercaseRule::class);
-            $validator->extend('betwixt', \October\Test\Classes\BetwixtRule::class);
-        });
-
-        \October\Test\Models\Page::extend(function($model) {
-            $model->translatable = array_merge($model->translatable, [
-                'parent_id',
-            ]);
-        });
-
-        // Register data sources
-        $this->registerDashboardDatasources();
-
-        // \Event::listen('backend.brand.getPalettePresets', function(&$presets) {
-        //     unset($presets['punch']);
-        // });
-
-        \Event::listen('backend.page.beforeDisplay', function($controller) {
-            $controller->addJs('/plugins/october/test/assets/js/custom-button.js');
-        });
+        Event::subscribe(\October\Test\Classes\ExtendCoreFeatures::class);
     }
 
     /**
-     * registerReportWidgets
+     * registerDashboards registers the dashboard widgets and data sources provided by this plugin.
      */
-    public function registerReportWidgets()
+    public function registerDashboards()
     {
         return [
-            // Report Widget
-            \October\Test\ReportWidgets\ClearCache::class => [
-                'label' => "Clear Cache",
-                'group' => 'Acme Author',
+            'widgets' => [
+                \October\Test\ReportWidgets\ClearCache::class => [
+                    'label' => "Clear Cache",
+                    'group' => "Acme Author",
+                    'permissions' => ['october.test.manage_settings'],
+                ],
+                \October\Test\ReportWidgets\TestCharts::class => [
+                    'label' => "Test Charts",
+                    'group' => "Acme Author",
+                    'permissions' => ['october.test.access_plugin'],
+                ],
+                \October\Test\VueComponents\MyCustomWidget::class => [
+                    'label' => "Custom Widget",
+                    'group' => "Acme Author",
+                    'permissions' => ['october.test.access_plugin'],
+                ],
             ],
-
-            // Chart Test Widget
-            \October\Test\ReportWidgets\TestCharts::class => [
-                'label' => 'Test Charts',
-                'group' => 'Acme Author',
+            'dataSources' => [
+                \October\Test\Classes\LocationDataSource::class => [
+                    'label' => "Locations",
+                    'permissions' => ['october.test.access_plugin'],
+                ],
             ],
-
-            // Vue Report Widget
-            \October\Test\VueComponents\MyCustomWidget::class => [
-                'label' => 'Custom Widget',
-                'group' => 'Acme Author',
-            ]
         ];
     }
 
+    /**
+     * registerContentFields registers the Tailor content field provided by this plugin.
+     */
     public function registerContentFields()
     {
         return [
@@ -96,59 +87,89 @@ class Plugin extends PluginBase
     }
 
     /**
-     * registerMailTemplates
+     * registerMailTemplates registers the mail templates that can be customized in the backend.
      */
     public function registerMailTemplates()
     {
         return [
-            'templates' => [
-                'october.test::mail.test-message'
-            ],
-            'layouts' => [
-                'test' => 'october.test::mail.test-layout'
-            ],
-            'partials' => [
-                'test' => 'october.test::mail.test-partial'
-            ]
+            'october.test::mail.test-message'
         ];
     }
 
     /**
-     * registerPermissions
+     * registerMailLayouts registers the mail layout used by the test message.
+     */
+    public function registerMailLayouts()
+    {
+        return [
+            'test-layout' => 'october.test::mail.test-layout'
+        ];
+    }
+
+    /**
+     * registerMailPartials registers the mail partial used by the test message.
+     */
+    public function registerMailPartials()
+    {
+        return [
+            'test-partial' => 'october.test::mail.test-partial'
+        ];
+    }
+
+    /**
+     * registerPermissions registers the permissions that guard the playground pages and settings.
      */
     public function registerPermissions()
     {
         return [
             'october.test.access_plugin' => [
-                'label' => 'Allow access to the plugin',
-                'tab' => 'October Tester',
-            ]
+                'label' => "Access Plugin",
+                'tab' => "October Test",
+                'order' => 100,
+            ],
+            'october.test.manage_products' => [
+                'label' => "Manage Products & Orders",
+                'tab' => "October Test",
+                'order' => 200,
+            ],
+            'october.test.reorder_trees' => [
+                'label' => "Reorder Trees",
+                'tab' => "October Test",
+                'order' => 300,
+            ],
+            'october.test.manage_settings' => [
+                'label' => "Manage Settings",
+                'tab' => "October Test",
+                'order' => 400,
+            ],
         ];
     }
 
     /**
-     * registerComponents
+     * registerComponents registers the CMS components used by the test theme.
      */
     public function registerComponents()
     {
         return [
             \October\Test\Components\KitchenSink::class => 'kitchenSink',
-            \October\Test\Components\RemoveIndex::class => 'removeIndex',
             \October\Test\Components\InlineData::class => 'inlineData',
             \October\Test\Components\VueTester::class => 'vueTester',
         ];
     }
 
+    /**
+     * registerPageSnippets registers the components that can be inserted into page content as snippets.
+     */
     public function registerPageSnippets()
     {
         return [
-            \October\Test\Components\KitchenSink::class => 'weather',
+            \October\Test\Components\KitchenSink::class => 'kitchenSink',
             \October\Test\Components\InlineData::class => 'inlineData'
         ];
     }
 
     /**
-     * registerFilterWidgets
+     * registerFilterWidgets registers the custom list filter widgets.
      */
     public function registerFilterWidgets()
     {
@@ -160,102 +181,115 @@ class Plugin extends PluginBase
     }
 
     /**
-     * registerNavigation
+     * registerNavigation registers the Playground main menu item and its side menu.
      */
     public function registerNavigation()
     {
         return [
             'test' => [
-                'label' => 'Playground',
+                'label' => "Playground",
                 'url' => Backend::url('october/test/people'),
-                'icon' => 'icon-child',
+                'icon' => 'ph ph-person-simple',
                 'order' => 198,
                 'permissions' => ['october.test.access_plugin'],
 
                 'sideMenu' => [
                     'people_create' => [
-                        'label' => 'New Person',
-                        'icon' => 'icon-plus',
+                        'label' => "New Person",
+                        'icon' => 'ph ph-plus',
                         'url' => Backend::url('october/test/people/create'),
                         'itemType' => 'primary',
                         'visibleOn' => 'people',
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'people_ruler' => [
                         'itemType' => 'ruler',
                         'visibleOn' => 'people',
                     ],
                     'people' => [
-                        'label' => 'People',
-                        'icon' => 'icon-database',
+                        'label' => "People",
+                        'icon' => 'ph ph-users',
                         'url' => Backend::url('october/test/people'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'posts' => [
-                        'label' => 'Posts',
-                        'icon' => 'icon-database',
+                        'label' => "Posts",
+                        'icon' => 'ph ph-article',
                         'url' => Backend::url('october/test/posts'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'users' => [
-                        'label' => 'Users',
-                        'icon' => 'icon-database',
+                        'label' => "Users",
+                        'icon' => 'ph ph-user-circle',
                         'url' => Backend::url('october/test/users'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     '_ruler1' => [
                         'itemType' => 'ruler',
                     ],
                     '_section1' => [
                         'itemType' => 'section',
-                        'label' => 'Advanced',
+                        'label' => "Advanced",
                     ],
                     'locations' => [
-                        'label' => 'Locations',
-                        'icon' => 'icon-database',
+                        'label' => "Locations",
+                        'icon' => 'ph ph-map-pin',
                         'url' => Backend::url('october/test/locations'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'reviews' => [
-                        'label' => 'Reviews',
-                        'icon' => 'icon-database',
+                        'label' => "Reviews",
+                        'icon' => 'ph ph-star',
                         'url' => Backend::url('october/test/reviews'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'galleries' => [
-                        'label' => 'Galleries',
-                        'icon' => 'icon-database',
+                        'label' => "Galleries",
+                        'icon' => 'ph ph-images',
                         'url' => Backend::url('october/test/galleries'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     '_ruler2' => [
                         'itemType' => 'ruler',
                     ],
                     '_section2' => [
                         'itemType' => 'section',
-                        'label' => 'Structures',
+                        'label' => "Structures",
                     ],
                     'trees' => [
-                        'label' => 'Trees',
-                        'icon' => 'icon-database',
+                        'label' => "Trees",
+                        'icon' => 'ph ph-tree-structure',
                         'url' => Backend::url('october/test/trees'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'pages' => [
-                        'label' => 'Pages',
-                        'icon' => 'icon-database',
+                        'label' => "Pages",
+                        'icon' => 'ph ph-files',
                         'url' => Backend::url('october/test/pages'),
+                        'permissions' => ['october.test.access_plugin'],
                     ],
                     'products' => [
-                        'label' => 'Products',
-                        'icon' => 'icon-database',
+                        'label' => "Products",
+                        'icon' => 'ph ph-package',
                         'url' => Backend::url('october/test/products'),
+                        'permissions' => ['october.test.manage_products'],
                     ],
                 ],
             ],
         ];
     }
 
+    /**
+     * registerSettings registers the Playground settings page.
+     */
     public function registerSettings()
     {
         return [
             'test' => [
-                'label' => 'Playground Settings',
-                'description' => 'Settings for the test plugin',
+                'label' => "Playground Settings",
+                'description' => "Settings for the October Test plugin.",
                 'category' => SettingsManager::CATEGORY_MISC,
-                'icon' => 'icon-child',
+                'icon' => 'ph ph-person-simple',
                 'class' => \October\Test\Models\Setting::class,
                 'order' => 500,
                 'keywords' => 'settings october test',
@@ -265,33 +299,22 @@ class Plugin extends PluginBase
     }
 
     /**
-     * registerFormWidgets
+     * registerFormWidgets registers the custom form widget.
      */
     public function registerFormWidgets()
     {
         return [
-            \October\Test\FormWidgets\TimeChecker::class => [
-                'code' => 'timecheckertest',
-            ],
+            \October\Test\FormWidgets\TimeChecker::class => 'timecheckertest',
         ];
     }
 
     /**
-     * registerSchedule
+     * registerSchedule records an hourly heartbeat in the cache to test plugin scheduling.
      */
     public function registerSchedule($schedule)
     {
-        $schedule->command('cache:clear')->everyMinute();
-    }
-
-    /**
-     * registerDashboardDatasources
-     */
-    protected function registerDashboardDatasources()
-    {
-        DashManager::instance()->registerDataSourceClass(
-            LocationDataSource::class,
-            'Locations'
-        );
+        $schedule->call(function () {
+            Cache::put('october.test.heartbeat', now()->toDateTimeString());
+        })->name('october.test.heartbeat')->hourly();
     }
 }

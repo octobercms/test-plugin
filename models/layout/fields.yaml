@@ -1,5 +1,8 @@
-fields:
+# ===================================
+#  Form Field Definitions
+# ===================================
 
+fields:
     content:
         label: Content
         span: full

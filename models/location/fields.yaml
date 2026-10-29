@@ -4,12 +4,9 @@
 
 fields:
     is_enabled:
-        label: Check for enable
+        label: Enabled
         type: switch
         default: true
-        options:
-            - Nope
-            - Yeah
 
     name:
         label: Name
@@ -51,18 +48,19 @@ tabs:
                 fields: $/october/test/models/country/fields_quick_create.yaml
                 optionText: -- create new country --
 
+        # Testing relation conditions with parent model params
         city:
             label: City
             comment: This is filtered by the selected country
             tab: Location
             type: relation
-            # scope: filterCities
             dependsOn: country
             conditions: custom_country_id = :country_id
             quickCreate:
                 fields: $/october/test/models/city/fields_quick_create.yaml
                 optionText: -- create new city --
 
+        # Testing the performance of a form with many attachment relations
         file01:
             label: File 01
             tab: Files

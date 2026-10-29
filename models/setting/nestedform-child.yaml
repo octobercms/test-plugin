@@ -1,14 +1,15 @@
-fields:
+# ===================================
+#  Form Field Definitions
+# ===================================
 
+fields:
     _title:
         label: Title
         comment: Enter a title for this block.
-        required: true
         type: section
 
     heading:
         type: text
-        required: true
 
     description:
         type: richeditor

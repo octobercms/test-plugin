@@ -8,7 +8,7 @@ use Dashboard\Classes\ReportFetchDataResult;
 use Dashboard\Classes\ReportQueryBuilder;
 
 /**
- * LocationDataSource providing information about test plugin locations.
+ * LocationDataSource provides dashboard reports that count locations by country and city.
  */
 class LocationDataSource extends ReportDataSourceBase
 {
@@ -18,7 +18,7 @@ class LocationDataSource extends ReportDataSourceBase
     const METRIC_COUNT = 'count';
 
     /**
-     * __construct the data source
+     * __construct registers the country and city dimensions and the location count metric.
      */
     public function __construct()
     {
@@ -45,17 +45,15 @@ class LocationDataSource extends ReportDataSourceBase
     }
 
     /**
-     * fetchData
+     * fetchData counts locations for the requested dimension, joining the cities and countries tables for their names.
      */
     protected function fetchData(ReportFetchData $data): ReportFetchDataResult
     {
-        $data = ReportQueryBuilder::fromFetchData($data, 'october_test_locations')
+        return ReportQueryBuilder::fromFetchData($data, 'october_test_locations')
             ->onConfigureMetrics(function($query, $dimension, $metrics) {
                 $query->leftJoin('october_test_cities', 'october_test_cities.id', '=', 'october_test_locations.city_id')
                     ->leftJoin('october_test_countries', 'october_test_countries.id', '=', 'october_test_locations.country_id');
             })
             ->get($data->metricsConfiguration);
-
-        return $data;
     }
 }

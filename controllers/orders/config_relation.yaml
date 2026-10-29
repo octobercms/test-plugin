@@ -1,0 +1,29 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+items:
+    label: Order Item
+    view:
+        list: $/october/test/models/orderitem/columns.yaml
+        toolbarButtons: add_product|delete
+    manage:
+        form: $/october/test/models/orderitem/fields.yaml
+
+# Testing a pseudo relation that lists products, where picking one opens the order item form
+items[product]:
+    label: Product
+    manage:
+        title: Find Product
+        showCheckboxes: false
+        showSearch: true
+        recordOnClick: "this.dispatchEvent(new CustomEvent('order-item-picker:pick', { bubbles: true, detail: { productId: ':id' } }))"
+        list:
+            columns:
+                title:
+                    label: Title
+                    searchable: true
+
+                price:
+                    label: Price
+                    type: number

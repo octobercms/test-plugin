@@ -6,4 +6,5 @@ fields:
 
     name:
         label: Name
+        autoFocus: true
         span: auto

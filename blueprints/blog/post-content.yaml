@@ -26,13 +26,13 @@ fields:
         type: entries
         source: Test\Blog\Categories
 
+    # Testing an entries taglist on the multisite Test\Blog stream that includes this mixin
     tags:
         tab: Manage
         label: Tags
         type: entries
         displayMode: taglist
         source: Test\Blog\Tag
-        # translatable: false
 
     is_featured:
         tab: Featured
@@ -60,6 +60,7 @@ fields:
         span: adaptive
         tab: Media
 
+    # Testing entries managed with the relation controller display mode
     comments:
         tab: Comments
         type: entries

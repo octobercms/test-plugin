@@ -1,3 +1,7 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
 columns:
     id:
         label: ID
@@ -13,8 +17,10 @@ columns:
         type: selectable
         order: 700
         options:
-            1: [Simple, 'icon-clock-o']
-            2: [Complex, 'icon-exclamation']
+            1: [Simple, 'ph ph-clock']
+            2: [Complex, 'ph ph-warning-circle']
+            # Testing an image URL in place of an icon class, detected by the dot in the value
+            3: [Featured, '/modules/backend/assets/images/october-leaf.svg']
 
     parent:
         label: Parent

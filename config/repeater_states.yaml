@@ -1,5 +1,5 @@
 # ===================================
-#  Used as a Nested Repeater
+#  Form for the country states field
 # ===================================
 
 fields:
@@ -13,6 +13,7 @@ fields:
                 subtitle:
                     label: Suburb
                     span: full
+                # Testing a datatable inside a nested repeater, with options from Country::getSafetyDataTableOptions
                 safety:
                     type: datatable
                     stretch: true

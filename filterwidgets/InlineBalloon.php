@@ -2,17 +2,15 @@
 
 use Backend\Classes\FilterWidgetBase;
 
+/**
+ * InlineBalloon is an inline filter widget that renders the scope options as a balloon selector in the filter bar, without a popover form.
+ *
+ * @link https://docs.octobercms.com/4.x/extend/lists/filter-widgets.html
+ */
 class InlineBalloon extends FilterWidgetBase
 {
     /**
-     * {@inheritDoc}
-     */
-    public function init()
-    {
-    }
-
-    /**
-     * @inheritDoc
+     * render the balloon selector inline with the filter
      */
     public function render()
     {
@@ -24,19 +22,26 @@ class InlineBalloon extends FilterWidgetBase
     }
 
     /**
-     * renderForm for the filter
+     * getActiveValue returns null when the selected option is cleared, so the scope stops filtering.
      */
-    public function renderForm()
+    public function getActiveValue()
     {
+        if (post('clearScope')) {
+            return null;
+        }
+
+        if (!$this->hasPostValue('value')) {
+            return null;
+        }
+
+        return post($this->getScopeName());
     }
 
     /**
-     * applyScopeToQuery
+     * applyScopeToQuery finds the username that matches the selected option.
      */
     public function applyScopeToQuery($query)
     {
-        $searchValue = $this->filterScope->value;
-
-        $query->where('username', 'LIKE', "%{$searchValue}%");
+        $query->where('username', $this->filterScope->value);
     }
 }

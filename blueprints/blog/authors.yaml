@@ -2,23 +2,27 @@ uuid: e183d98c-e7ef-4142-a5d4-f56b596a9fa3
 handle: Test\Blog\Authors
 type: entry
 name: Test Authors
-useDrafts: false
+drafts: false
 pagefinder: false
-
-structure:
-    maxDepth: 1
 
 navigation:
     mode: secondary
     parent: Test\Blog
-    icon: icon-user
+    icon: ph ph-user
     order: 200
 
 fields:
+    # Testing a recordfinder to a core model with no title column, so nameFrom and the filter scope name another column
     client:
-        label: Users
-        type: users
+        label: Backend User
+        type: recordfinder
+        modelClass: Backend\Models\User
+        list: ~/modules/backend/models/user/columns.yaml
+        nameFrom: login
+        descriptionFrom: email
         maxItems: 1
+        scope:
+            nameFrom: login
 
     avatar:
         label: Avatar

@@ -21,8 +21,8 @@ columns:
         label: Enabled
         type: switch
         options:
-            - Nope
-            - Yeah
+            - Disabled
+            - Enabled
 
     sort_order:
         label: Sort

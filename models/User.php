@@ -10,32 +10,17 @@ class User extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * implement the TranslatableModel behavior for attachments
-     */
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-
-    /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'october_test_users';
 
     /**
-     * @var array Guarded fields
+     * @var array fillable attributes that can be mass assigned
      */
-    protected $guarded = [];
+    protected $fillable = ['username'];
 
     /**
-     * @var array fillable fields
-     */
-    protected $fillable = [];
-
-    /**
-     * @var array translatable attributes
-     */
-    public $translatable = [];
-
-    /**
-     * @var array jsonable attribute names that are json encoded and decoded from the database
+     * @var array jsonable attributes stored as JSON
      */
     protected $jsonable = [
         'media_files',
@@ -43,7 +28,7 @@ class User extends Model
     ];
 
     /**
-     * @var array Rules
+     * @var array rules for validation, where photo, portfolio and roles validate relations
      */
     public $rules = [
         'username' => 'required',
@@ -53,17 +38,15 @@ class User extends Model
     ];
 
     /**
-     * @var array customMessages
+     * @var array customMessages for validation, where a rule message applies to every attribute
      */
     public $customMessages = [
-       'required' => 'The :attribute field is WOW required.',
-       'photo.required' => 'The :attribute field is required PHOTO.',
-       // @see method beforeValidate
-       // 'username.required' => 'Say hello (Username field required)',
+        'required' => 'The :attribute field is WOW required.',
+        'photo.required' => 'The :attribute field is required PHOTO.',
     ];
 
     /**
-     * beforeValidate uses hacky validation messages
+     * beforeValidate sets a validation.custom language key to test the fallback message, real code should use $customMessages instead.
      */
     public function beforeValidate()
     {
@@ -71,16 +54,22 @@ class User extends Model
     }
 
     /**
-     * @var array Relations
+     * @var array belongsTo relations
      */
     public $belongsTo = [
         'country' => Country::class
     ];
 
+    /**
+     * @var array hasMany relations
+     */
     public $hasMany = [
         'posts' => Post::class
     ];
 
+    /**
+     * @var array belongsToMany relations, defining the same table three ways: plain, with pivot data and with a pivot model
+     */
     public $belongsToMany = [
         'roles' => [
             Role::class,
@@ -88,12 +77,6 @@ class User extends Model
             'timestamps' => true,
             'order' => 'name'
         ],
-        // @deprecated
-        // 'roles_count' => [
-        //     Role::class,
-        //     'table' => 'october_test_users_roles',
-        //     'count' => true
-        // ],
         'roles_pivot' => [
             Role::class,
             'table' => 'october_test_users_roles',
@@ -110,6 +93,9 @@ class User extends Model
         ],
     ];
 
+    /**
+     * @var array attachOne relations, using public, protected and custom file models
+     */
     public $attachOne = [
         'photo' => \System\Models\File::class,
         'photo_secure' => [\System\Models\File::class, 'public' => false],
@@ -118,15 +104,19 @@ class User extends Model
         'custom_file' => CustomFile::class
     ];
 
+    /**
+     * @var array attachMany relations
+     */
     public $attachMany = [
-        'portfolio' => \System\Models\File::class,
+        // Testing translated file titles and descriptions in a multi-file upload
+        'portfolio' => \System\Models\TranslatableFile::class,
         'portfolio_secure' => [\System\Models\File::class, 'public' => false],
         'files' => [\System\Models\File::class],
         'files_secure' => [\System\Models\File::class, 'public' => false],
     ];
 
     /**
-     * __construct
+     * __construct binds local relation events, writing to the trace log when records are attached or detached.
      */
     public function __construct(...$args)
     {
@@ -142,7 +132,7 @@ class User extends Model
     }
 
     /**
-     * filterScopes
+     * filterScopes hides the roles filter when the disable roles checkbox is checked.
      */
     public function filterScopes($scopes)
     {
@@ -152,7 +142,7 @@ class User extends Model
     }
 
     /**
-     * scopeApplyRoleFilter
+     * scopeApplyRoleFilter includes or excludes users with the selected roles, depending on the match mode of the roles filter.
      */
     public function scopeApplyRoleFilter($query, $scope)
     {
@@ -164,7 +154,7 @@ class User extends Model
     }
 
     /**
-     * getUserAndCode
+     * getUserAndCode returns the username with the security code, serving kSink.testUser.userAndCode on the test theme's component page.
      */
     public function getUserAndCode()
     {

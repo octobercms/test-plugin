@@ -1,26 +1,33 @@
 <?php namespace October\Test\ReportWidgets;
 
+use Flash;
+use Artisan;
+use BackendAuth;
+use ForbiddenException;
 use Backend\Models\User as BackendUser;
 use Dashboard\Classes\ReportWidgetBase;
-use Exception;
-use Artisan;
-use Flash;
 
 /**
- * ClearCache Report Widget
+ * ClearCache is a dashboard report widget that tests Inspector properties (validation, dynamic dropdown and set options) and AJAX handlers with and without a form.
  *
- * @link https://docs.octobercms.com/3.x/extend/backend/report-widgets.html
+ * @link https://docs.octobercms.com/4.x/extend/dashboards/report-widgets.html
  */
 class ClearCache extends ReportWidgetBase
 {
+    /**
+     * @var string defaultAlias to identify this widget
+     */
     protected $defaultAlias = 'ClearCacheReportWidget';
 
+    /**
+     * defineProperties returns the Inspector properties for the widget.
+     */
     public function defineProperties()
     {
         return [
             'title' => [
                 'title' => 'Widget title',
-                'default' => 'Top Pages',
+                'default' => 'Clear Cache',
                 'type' => 'string',
                 'validation' => [
                     'required' => [
@@ -51,7 +58,7 @@ class ClearCache extends ReportWidgetBase
     }
 
     /**
-     * getUserOptions returns available backend users for the dropdown property
+     * getUserOptions returns available backend users for the dropdown property.
      */
     public function getUserOptions()
     {
@@ -59,41 +66,37 @@ class ClearCache extends ReportWidgetBase
     }
 
     /**
-     * getUsersOptions returns available backend users for the set property
+     * getUsersOptions returns available backend users for the set property.
      */
     public function getUsersOptions()
     {
         return BackendUser::pluck('login', 'id')->all();
     }
 
+    /**
+     * render the widget
+     */
     public function render()
     {
-        try {
-            $this->prepareVars();
-        }
-        catch (Exception $ex) {
-            $this->vars['error'] = $ex->getMessage();
-        }
-
         return $this->makePartial('clearcache');
     }
 
-    public function prepareVars()
-    {
-    }
-
-    protected function loadAssets()
-    {
-    }
-
+    /**
+     * onClearCache clears the application cache from a button outside a form, for users who can manage the settings.
+     */
     public function onClearCache()
     {
+        if (!BackendAuth::userHasAccess('october.test.manage_settings')) {
+            throw new ForbiddenException;
+        }
+
         Artisan::call('cache:clear');
+
         Flash::success('Cache cleared.');
     }
 
     /**
-     * onTestAjax echoes the posted dashboard definition to verify widget AJAX binding.
+     * onTestAjax echoes the posted dashboard definition from a button inside a form to verify widget AJAX binding.
      */
     public function onTestAjax()
     {

@@ -1,0 +1,20 @@
+<?php /* Testing form contexts, each link opens this form with fields for that context */ ?>
+<?php
+    $uriPrefix = $formModel->exists
+        ? 'october/test/people/update/'.$formModel->id
+        : 'october/test/people/create';
+?>
+<div class="callout callout-warning no-subheader">
+    <div class="header">
+        <i class="ph ph-database"></i>
+        <h3>Alternate views</h3>
+    </div>
+    <div class="content">
+        <ul>
+            <li><a href="<?= Backend::url($uriPrefix.'/relation') ?>">Relation Field</a></li>
+            <li><a href="<?= Backend::url($uriPrefix.'/recordfinder') ?>">Record Finder</a></li>
+            <li><a href="<?= Backend::url($uriPrefix.'/relationcontroller') ?>">Relation Controller</a></li>
+            <li><a href="<?= Backend::url($uriPrefix.'/proxyfields') ?>">Proxy Fields</a></li>
+        </ul>
+    </div>
+</div>

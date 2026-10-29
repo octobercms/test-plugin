@@ -1,9 +1,8 @@
 # ===================================
-# Filter Scope Definitions
+#  Filter Scope Definitions
 # ===================================
 
 scopes:
-
     country:
         label: Country
         type: group

@@ -14,18 +14,22 @@ modelClass: October\Test\Models\Country
 # Default redirect location
 defaultRedirect: october/test/countries
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: Create Countries
+    title: Create Country
     redirect: october/test/countries/update/:id
     redirectClose: october/test/countries
 
 # Update page
 update:
-    title: Edit Countries
+    title: Edit Country
     redirect: october/test/countries
     redirectClose: october/test/countries
 
 # Preview page
 preview:
-    title: Preview Countries
+    title: Preview Country

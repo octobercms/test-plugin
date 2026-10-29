@@ -1,4 +1,15 @@
 <div data-control="toolbar">
-    <a href="<?= Backend::url('october/test/posts/create') ?>" class="btn btn-primary oc-icon-plus">New Post</a>
-    <a href="<?= Backend::url('october/test/posts/export') ?>" class="btn btn-default oc-icon-download">Export Posts</a>
+    <?= Ui::button(
+        label: __("New Post"),
+        href: Backend::url('october/test/posts/create'),
+        icon: 'ph ph-plus',
+        primary: true
+    ) ?>
+
+    <?= Ui::button(
+        label: __("Export Posts"),
+        href: Backend::url('october/test/posts/export'),
+        icon: 'ph ph-download-simple',
+        secondary: true
+    ) ?>
 </div>

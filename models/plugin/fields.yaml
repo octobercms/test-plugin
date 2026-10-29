@@ -16,7 +16,7 @@ tabs:
         icon:
             label: Icon
             type: dropdown
-            optionsPreset: phosphorIcons
+            optionsPreset: icons@phosphor
             tab: Details
 
         content:

@@ -22,6 +22,12 @@ fields:
         type: checkbox
         default: true
 
+    # Testing a nestedform inside a relation popup form, used by the country relation on Cities
+    footer:
+        type: nestedform
+        showPanel: false
+        form: $/october/test/models/setting/nestedform.yaml
+
     cities:
         tab: Cities
         label: Cities

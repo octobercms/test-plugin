@@ -4,20 +4,36 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Locations Back-end Controller
+ * Locations Backend Controller
  */
 class Locations extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ListController::class,
-        \Backend\Behaviors\RelationController::class
+        \Backend\Behaviors\ListController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
-    public $listConfig = 'config_list.yaml';
-    public $relationConfig = 'config_relation.yaml';
 
+    /**
+     * @var string listConfig file
+     */
+    public $listConfig = 'config_list.yaml';
+
+    /**
+     * @var array requiredPermissions to view this page
+     */
+    public $requiredPermissions = ['october.test.access_plugin'];
+
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();
@@ -26,39 +42,12 @@ class Locations extends Controller
     }
 
     /**
-     * formExtendModel eager loads the attachment relations
-     * @todo in v4 this can be replaced with a single method call i.e loadAttachments()
+     * formExtendModel eager loads all attachment relations in a single combined query.
      */
     public function formExtendModel($model)
     {
         if ($model->exists) {
-            $foundFiles = \System\Models\File::where('attachment_id', $model->getKey())
-                ->where('attachment_type', get_class($model))
-                ->get()
-                ->groupBy('field')
-                ->all();
-
-            foreach ($model->getRelationDefinitions() as $type => $relations) {
-                if ($type !== 'attachOne' && $type !== 'attachMany') {
-                    continue;
-                }
-
-                foreach ($relations as $relation => $definition) {
-                    if (isset($foundFiles[$relation])) {
-                        $files = $foundFiles[$relation];
-                        if ($type === 'attachOne') {
-                            $model->setRelation($relation, $files->first());
-                        }
-                        else {
-                            $model->setRelation($relation, $files);
-                        }
-                    }
-                    else {
-                        $model->setRelation($relation, null);
-                    }
-                }
-
-            }
+            $model->load(array_keys($model->attachOne));
         }
     }
 }

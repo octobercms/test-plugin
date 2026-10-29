@@ -20,6 +20,7 @@ tabs:
             size: small
             tab: Third Tab
 
+        # Testing a sidebar with many tabs, where these form-only fields add the extra tabs
         _content2:
             label: Content2
             type: textarea

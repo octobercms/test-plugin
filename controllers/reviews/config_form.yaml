@@ -14,6 +14,10 @@ modelClass: October\Test\Models\Review
 # Default redirect location
 defaultRedirect: october/test/reviews
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
     title: Create Review

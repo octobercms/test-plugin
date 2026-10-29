@@ -2,25 +2,27 @@ uuid: b6884c2f-81c8-4f07-bf93-0f0424b07a45
 handle: Test\Blog
 type: stream
 name: Test Posts
-useDrafts: true
+drafts: true
 pagefinder: false
 multisite: true
 
+# Testing a second main menu item from a blueprint, next to the Playground menu registered in Plugin.php
 primaryNavigation:
     label: Playground 2
-    icon: icon-child
+    icon: ph ph-person-simple
     order: 199
 
 navigation:
     mode: primary
-    icon: icon-pencil
+    icon: ph ph-pencil-simple
     order: 100
 
+# Testing an extra navigation item that links to a plugin controller
 extraNavigation:
     product_companies:
         label: Product Companies
         order: 210
-        icon: icon-group
+        icon: ph ph-users-three
         url: october/test/companies
 
 groups:

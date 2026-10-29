@@ -1,7 +1,9 @@
-layout = "test"
+subject = "Test message for {{ user }}"
+layout = "test-layout"
+description = "Tests a mail template that uses a registered layout and partial"
 ==
 <h4>I am a test message</h4>
 
 <p>In Message: {{ user }} </p>
 
-{% partial 'test' %}
+{% partial 'test-partial' %}

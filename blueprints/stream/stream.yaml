@@ -1,0 +1,37 @@
+uuid: 425fb661-0016-4b60-871a-7e23de50027b
+handle: Test\Stream
+type: stream
+name: Test Stream
+multisite: sync
+
+navigation:
+    icon: ph ph-newspaper
+    order: 500
+
+fields:
+    title_field:
+        label: Title
+        type: text
+
+    attachments:
+        tab: Files
+        label: Attached Files
+        type: repeater
+        column: false
+        prompt: Add file
+        titleFrom: file_title
+        translatable: sync
+        maxItems: 30
+        form:
+            fields:
+                file_title:
+                    label: Title
+                    type: text
+                    required: true
+                    span: left
+                    translatable: true
+                file_desc:
+                    label: Description
+                    type: textarea
+                    size: small
+                    span: right

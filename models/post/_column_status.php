@@ -1,0 +1,1 @@
+<?= e($record->status?->name) ?>

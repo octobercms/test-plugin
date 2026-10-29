@@ -4,20 +4,30 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Categories Back-end Controller
+ * Categories Backend Controller has no list of its own and is reached from the categories list on the Trees page.
  */
 class Categories extends Controller
 {
+    /**
+     * @var array implement extensions
+     */
     public $implement = [
         \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ReorderController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
-    public $reorderConfig = 'config_reorder.yaml';
 
+    /**
+     * @var array requiredPermissions to view this page
+     */
     public $requiredPermissions = ['october.test.access_plugin'];
 
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();

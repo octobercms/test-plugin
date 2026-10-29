@@ -11,9 +11,8 @@ modelClass: October\Test\Models\Tag
 # List Title
 title: Manage Tags
 
-# Link URL for each record
-# recordUrl: october/test/posts/update/:id
-recordOnClick: "$.popup({ handler: 'onUpdateForm', extraData: { tag_mode: 1, record_id: ':id' } })"
+# Testing a popup opened with the jQuery API, since the tag_mode flag must be posted with the handler, controllers/plugins shows recordOnClick: popup for a single model
+recordOnClick: "$.popup({ handler: 'onLoadUpdateForm', extraData: { tag_mode: 1, record_id: ':id' } })"
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -26,14 +25,6 @@ showSetup: true
 
 # Displays the sorting link on each column
 showSorting: true
-
-# Default sorting column
-# defaultSort:
-#     column: created_at
-#     direction: desc
-
-# Display checkboxes next to each record
-# showCheckboxes: true
 
 # Toolbar widget configuration
 toolbar:

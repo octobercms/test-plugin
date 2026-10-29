@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Full Name
+        span: auto
+
+    preferred_name:
+        label: Preferred Name
+        span: auto
+
+    is_married:
+        label: Married
+        span: auto
+        type: dropdown
+        emptyOption: Unknown
+        options:
+            '0': No
+            '1': Yes

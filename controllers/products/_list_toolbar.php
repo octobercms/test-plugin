@@ -1,34 +1,42 @@
 <div data-control="toolbar">
-    <a
-        href="<?= Backend::url('october/test/products/create') ?>"
-        class="btn btn-primary oc-icon-plus">
-        <?= e(trans('backend::lang.list.create_button', ['name'=>'Product'])) ?>
-    </a>
+    <?= Ui::button(
+        label: __("New Product"),
+        href: Backend::url('october/test/products/create'),
+        icon: 'ph ph-plus',
+        primary: true
+    ) ?>
 
-    <button
-        class="btn btn-danger oc-icon-trash-o"
-        data-request="onDelete"
-        data-list-checked-trigger
-        data-list-checked-request
-        data-stripe-load-indicator>
-        <?= e(trans('backend::lang.list.delete_selected')) ?>
-    </button>
+    <div class="toolbar-divider"></div>
 
-    <a
-        href="<?= Backend::url('october/test/orders') ?>"
-        class="btn btn-default oc-icon-database">
-        Manage Orders
-    </a>
+    <?= Ui::ajaxButton(
+        label: __("Delete Selected"),
+        handler: 'onDelete',
+        icon: 'ph ph-trash',
+        secondary: true,
+        dataRequestConfirm: __("Delete the selected records?"),
+        dataListCheckedTrigger: true,
+        dataListCheckedRequest: true,
+        disabled: true
+    ) ?>
 
-    <a
-        href="<?= Backend::url('october/test/productcategories') ?>"
-        class="btn btn-default oc-icon-database">
-        Manage Categories
-    </a>
+    <?= Ui::button(
+        label: __("Manage Orders"),
+        href: Backend::url('october/test/orders'),
+        icon: 'ph ph-database',
+        secondary: true
+    ) ?>
 
-    <a
-        href="<?= Backend::url('october/test/companies') ?>"
-        class="btn btn-default oc-icon-database">
-        Manage Companies
-    </a>
+    <?= Ui::button(
+        label: __("Manage Categories"),
+        href: Backend::url('october/test/productcategories'),
+        icon: 'ph ph-database',
+        secondary: true
+    ) ?>
+
+    <?= Ui::button(
+        label: __("Manage Companies"),
+        href: Backend::url('october/test/companies'),
+        icon: 'ph ph-database',
+        secondary: true
+    ) ?>
 </div>

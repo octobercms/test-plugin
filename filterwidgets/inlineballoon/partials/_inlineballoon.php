@@ -9,13 +9,13 @@
     <ul class="list-unstyled m-0">
         <?php foreach ((array) $scope->options as $key => $value): ?>
             <li
-                data-value="<?= $key ?>"
+                data-value="<?= e($key) ?>"
                 class="small <?= $key === $activeValue ? 'active' : '' ?>"
                 data-filter-action="apply">
-                <?= $value ?>
+                <?= e($value) ?>
             </li>
         <?php endforeach ?>
     </ul>
     <!-- Hidden input to store the selected filter value -->
-    <input type="hidden" name="<?= $name ?>[value]" value="<?= $activeValue ?>">
+    <input type="hidden" name="<?= $name ?>[value]" value="<?= e($activeValue) ?>">
 </div>

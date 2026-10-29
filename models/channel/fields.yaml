@@ -19,7 +19,6 @@ fields:
         nameFrom: custom_title
         span: auto
 
-
 tabs:
     defaultTab: Options Definitions
     fields:
@@ -29,7 +28,7 @@ tabs:
             mode: array
             useKey: true
             customTags: false
-            placeholder: Choose Cervices
+            placeholder: Choose Services
             optionsMethod: getBasicFieldOptions
             span: full
 
@@ -71,7 +70,6 @@ tabs:
             optionsMethod: getAdvancedFieldOptions
             cumulative: true
             quickselect: true
-            # disabled: true
 
         _basic_child_dropdown:
             label: Dropdown Optgroup
@@ -96,6 +94,3 @@ tabs:
                     children:
                         1: Option 1
                         2: Option 2
-
-
-

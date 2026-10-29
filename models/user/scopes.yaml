@@ -1,15 +1,13 @@
 # ===================================
-# Filter Scope Definitions
+#  Filter Scope Definitions
 # ===================================
 
 scopes:
     username:
         label: Username
         type: text
-        # default: Neo
-        # conditions:
-        #     equals: true
 
+    # Testing a dropdown scope that only exercises the UI, since users have no status column and the condition matches every row
     status:
         label: Status
         type: dropdown
@@ -18,9 +16,6 @@ scopes:
             active: Active
             closed: Closed
         conditions: '1 = 1'
-        # default:
-        #     - pending
-        #     - active
 
     roles:
         type: group
@@ -31,14 +26,11 @@ scopes:
         nameFrom: name
         dependsOn: disable_roles
         matchMode: toggle
-        # default:
-        #     - 1
 
     disable_roles:
         type: checkbox
         label: Disable Roles
         conditions: id = 1
-        # default: 1
 
     disable_roles_switch:
         type: switch
@@ -46,23 +38,17 @@ scopes:
         conditions:
             - id = 1
             - id = 2
-        # default: 2
 
     id:
         type: number
         label: ID
         default: 1
-        # conditions: id = ':value'
 
     created_at:
         label: Created
         type: date
         showWeekNumber: true
         default: '2020-01-02'
-        # default: now
-        # conditions:
-        #     equals: true
-        #     between: created_at >= ':after' AND created_at <= ':before'
 
     discount:
         label: Discount (Custom)
@@ -77,5 +63,5 @@ scopes:
         label: Switch (Custom)
         type: inlineballoon
         options:
-            neo: Neo
-            morpheus: Morpheus
+            Neo: Neo
+            Morpheus: Morpheus

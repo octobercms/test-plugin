@@ -14,18 +14,22 @@ modelClass: October\Test\Models\Company
 # Default redirect location
 defaultRedirect: october/test/companies
 
+# Form Design
+design:
+    displayMode: basic
+
 # Create page
 create:
-    title: backend::lang.form.create_title
+    title: Create Company
     redirect: october/test/companies/update/:id
     redirectClose: october/test/companies
 
 # Update page
 update:
-    title: backend::lang.form.update_title
+    title: Edit Company
     redirect: october/test/companies
     redirectClose: october/test/companies
 
 # Preview page
 preview:
-    title: backend::lang.form.preview_title
+    title: Preview Company
